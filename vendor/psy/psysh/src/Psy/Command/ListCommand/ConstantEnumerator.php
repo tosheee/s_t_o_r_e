@@ -39,7 +39,7 @@ class ConstantEnumerator extends Enumerator
             return;
         }
 
-        $category  = $input->getOption('user') ? 'user' : $input->getOption('category');
+        $category  = $input->getOption('user') ? 'user' : $input->getOption('categories');
         $label     = $category ? ucfirst($category) . ' Constants' : 'Constants';
         $constants = $this->prepareConstants($this->getConstants($category));
 
@@ -56,7 +56,7 @@ class ConstantEnumerator extends Enumerator
     /**
      * Get defined constants.
      *
-     * Optionally restrict constants to a given category, e.g. "date".
+     * Optionally restrict constants to a given categories, e.g. "date".
      *
      * @param string $category
      *

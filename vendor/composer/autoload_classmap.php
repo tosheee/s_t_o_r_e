@@ -7,13 +7,12 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Admin' => $baseDir . '/app/Admin.php',
+    'App\\Admin\\Category' => $baseDir . '/app/Admin/Category.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
-    'App\\Http\\Controllers\\Admin\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Admin/ForgotPasswordController.php',
+    'App\\Http\\Controllers\\Admin\\CategoriesController' => $baseDir . '/app/Http/Controllers/Admin/CategoriesController.php',
     'App\\Http\\Controllers\\Admin\\LoginController' => $baseDir . '/app/Http/Controllers/Admin/LoginController.php',
-    'App\\Http\\Controllers\\Admin\\RegisterController' => $baseDir . '/app/Http/Controllers/Admin/RegisterController.php',
-    'App\\Http\\Controllers\\Admin\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Admin/ResetPasswordController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -35,6 +34,7 @@ return array(
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
     'Carbon\\Exceptions\\InvalidDateException' => $vendorDir . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
     'CreateAdminTable' => $baseDir . '/database/migrations/2017_08_23_071414_create_admin_table.php',
+    'CreateCategoriesTable' => $baseDir . '/database/migrations/2017_08_23_094425_create_categories_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'Cron\\AbstractField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/AbstractField.php',

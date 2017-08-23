@@ -286,9 +286,9 @@ class UrlGeneratorTest extends TestCase
 
     public function testNoTrailingSlashForMultipleOptionalParameters()
     {
-        $routes = $this->getRoutes('test', new Route('/category/{slug1}/{slug2}/{slug3}', array('slug2' => null, 'slug3' => null)));
+        $routes = $this->getRoutes('test', new Route('/categories/{slug1}/{slug2}/{slug3}', array('slug2' => null, 'slug3' => null)));
 
-        $this->assertEquals('/app.php/category/foo', $this->getGenerator($routes)->generate('test', array('slug1' => 'foo')));
+        $this->assertEquals('/app.php/categories/foo', $this->getGenerator($routes)->generate('test', array('slug1' => 'foo')));
     }
 
     public function testWithAnIntegerAsADefaultValue()

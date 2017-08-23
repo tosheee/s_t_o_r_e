@@ -497,7 +497,7 @@ class PHP_Token_INTERFACE extends PHP_TokenWithScopeAndVisibility
         $result = [
             'namespace'   => '',
             'fullPackage' => '',
-            'category'    => '',
+            'categories'    => '',
             'package'     => '',
             'subpackage'  => ''
         ];
@@ -509,8 +509,8 @@ class PHP_Token_INTERFACE extends PHP_TokenWithScopeAndVisibility
             }
         }
 
-        if (preg_match('/@category[\s]+([\.\w]+)/', $docComment, $matches)) {
-            $result['category'] = $matches[1];
+        if (preg_match('/@categories[\s]+([\.\w]+)/', $docComment, $matches)) {
+            $result['categories'] = $matches[1];
         }
 
         if (preg_match('/@package[\s]+([\.\w]+)/', $docComment, $matches)) {

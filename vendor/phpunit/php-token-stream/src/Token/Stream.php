@@ -283,7 +283,7 @@ class PHP_Token_Stream implements ArrayAccess, Countable, SeekableIterator
      * multi-dimensional array with categories in the keys of the first dimension
      * and constants and their values in the second dimension.
      *
-     * Parameter $category allow to filter following specific inclusion type
+     * Parameter $categories allow to filter following specific inclusion type
      *
      * @param bool   $categorize OPTIONAL
      * @param string $category   OPTIONAL Either 'require_once', 'require',
