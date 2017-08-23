@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Admin' => $baseDir . '/app/Admin.php',
     'App\\Admin\\Category' => $baseDir . '/app/Admin/Category.php',
+    'App\\Admin\\SubCategory' => $baseDir . '/app/Admin/SubCategory.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
@@ -36,6 +37,7 @@ return array(
     'CreateAdminTable' => $baseDir . '/database/migrations/2017_08_23_071414_create_admin_table.php',
     'CreateCategoriesTable' => $baseDir . '/database/migrations/2017_08_23_094425_create_categories_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+    'CreateSubCategoriesTable' => $baseDir . '/database/migrations/2017_08_23_150608_create_sub_categories_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'Cron\\AbstractField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
     'Cron\\CronExpression' => $vendorDir . '/mtdowling/cron-expression/src/Cron/CronExpression.php',

@@ -17,7 +17,12 @@ Route::get('/', function () {
 
 View::composer('*', function($view)
 {
-    $view->with('categories', App\Admin\Category::all());
+    $view->with('buttons_name_categories', App\Admin\Category::all());
+});
+
+View::composer('*', function($view)
+{
+    $view->with('subCategories', App\Admin\SubCategory::all());
 });
 
 Auth::routes();
@@ -30,10 +35,5 @@ Route::get ('/admin/dashboard', 'AdminController@index');
 Route::get ('admin', 'Admin\LoginController@showLoginForm')->name('admin.login');
 Route::post('admin', 'Admin\LoginController@login');
 
-
-
-//Route::get('/admin/categories', 'Admin\CategoriesController@index');
-//Route::get('/admin/categories/create', 'Admin\CategoriesController@create');
-
 Route::resource('admin/categories', 'Admin\CategoriesController');
-
+Route::resource('admin/sub_categories', 'Admin\SubCategoriesController');

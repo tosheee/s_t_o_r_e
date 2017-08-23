@@ -21,10 +21,10 @@
             <ul class="nav navbar-nav">
 
 
-                @if(count($categories)>0)
-                    @foreach($categories as $category)
+                @if(count($buttons_name_categories)>0)
+                    @foreach($buttons_name_categories as $button_name_category)
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ $category->name }} <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ $button_name_category->name }} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Action</a></li>
                                 <li><a href="#">Another action</a></li>
