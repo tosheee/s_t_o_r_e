@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+View::composer('*', function($view)
+{
+    $view->with('categories', App\Admin\Category::all());
+});
+
 Auth::routes();
 //Categories::routes();
 
