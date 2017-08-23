@@ -15,10 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-View::composer('*', function($view)
-{
-    $view->with('buttons_name_categories', App\Admin\Category::all());
-});
+View::composer('*', function($view) { $view->with('categoriesButtonsName', App\Admin\Category::all()); });
+
+View::composer('*', function($view) { $view->with('subCategoriesButtonsName', App\Admin\SubCategory::all()); });
+
+
+
+
+
 
 View::composer('*', function($view)
 {
