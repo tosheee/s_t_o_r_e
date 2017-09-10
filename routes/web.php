@@ -11,9 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+ //   return view('welcome');
+//});
+
+
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 View::composer('*', function($view) { $view->with('categoriesButtonsName', App\Admin\Category::all()); });
 
@@ -32,12 +36,12 @@ View::composer('*', function($view)
 Auth::routes();
 //Categories::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 
 
 Route::get ('/admin/dashboard', 'AdminController@index');
-Route::get ('admin', 'Admin\LoginController@showLoginForm')->name('admin.login');
-Route::post('admin', 'Admin\LoginController@login');
+Route::get ('/admin', 'Admin\LoginController@showLoginForm')->name('admin.login');
+Route::post('/admin', 'Admin\LoginController@login');
 
-Route::resource('admin/categories', 'Admin\CategoriesController');
-Route::resource('admin/sub_categories', 'Admin\SubCategoriesController');
+Route::resource('/admin/categories', 'Admin\CategoriesController');
+Route::resource('/admin/sub_categories', 'Admin\SubCategoriesController');
