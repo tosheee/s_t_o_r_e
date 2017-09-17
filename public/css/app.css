@@ -5,6 +5,14 @@
 @import url(footer.css);
 @import url(admin_style.css);
 @import url(horizontal_nav_bar.css);
+@import url(show_product.css);
+@import url(admin_forms.css);
+
+
 #wrapper{
     padding: 1%;
+}
+
+#show-product{
+    margin: 0 auto;
 }
