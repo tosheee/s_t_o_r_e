@@ -28,11 +28,14 @@ View::composer('*', function($view) {$view->with('subCategories', App\Admin\SubC
 
 Auth::routes();
 
-//Categories::routes();
+
 
 Route::get ('/store', 'Store@index');
 
-Route::get ('/store/show', 'Store@show');
+Route::get ('/store/{id}', 'Store@show');
+
+
+
 
 Route::get ('/admin/dashboard', 'AdminController@index');
 

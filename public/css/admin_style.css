@@ -23,7 +23,7 @@ body::-webkit-scrollbar-thumb {
 
 
 .wrapper {
-    min-height: 2000px;
+    min-height: 1000px;
 }
 .padding-top {
     padding: 0px;
@@ -208,7 +208,7 @@ body::-webkit-scrollbar-thumb {
 @media (min-width: 768px) {
 
     .left-container{width:18%;float: left;transition:0.5s;}
-    .right-container{width:82%;float:right;transition:0.5s;margin-top: 70px;}
+    .right-container{width:82%;float:right;transition:0.5s;}
     .less-width{width:0%;transition:0.5s;}
     .full-width{width:100%;transition:0.5s;}
 }

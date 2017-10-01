@@ -59,7 +59,7 @@
                         <div class="cart-items">
                             <ol class="items">
                                 <li>
-                                    <a href="#" class="product-image"> <img src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg" class="img-responsive" alt="Sample Product "> </a>
+                                    <a href="#" class="product-image"> <img src="profile-pic.jpg" class="img-responsive" alt="Sample Product "> </a>
                                     <div class="product-details">
                                         <div class="close-icon"> <a href="#"><i class="fa fa-close"></i></a> </div>
                                         <p class="product-name"> <a href="#">Sumi9xm@gmail.com</a> </p> <strong>1</strong> x <span class="price text-primary">$59.99</span> </div>
@@ -101,7 +101,7 @@
     <div class="container">
         <div class="row display-table">
             <div class="col-sm-3 vertical-align text-left hidden-xs">
-                <a href="javascript:void(0);"> <img width="" src="https://lh3.googleusercontent.com/-r0Fhzz-so14/WNf9-4M65JI/AAAAAAAAD3E/ht6IhlL9gG4ujE2Hqiq70U3jBb6KQmaAQCL0B/w180-d-h43-p-rw/logo-2.png" alt=""></a>
+                <a href="javascript:void(0);">Logo <img width="" src="logo-2.png" alt=""></a>
             </div>
             <!-- end col -->
             <div class="col-sm-7 vertical-align text-center">
@@ -223,7 +223,7 @@
                             <ul class="list-unstyled">
                                 <li>Sumit Kumar</li>
                             </ul>
-                            <img src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg" class="img-responsive" alt="menu-img">
+                            <img src="profile-pic.jpg" class="img-responsive" alt="menu-img">
                         </li>
                     </ul>
                 </li>

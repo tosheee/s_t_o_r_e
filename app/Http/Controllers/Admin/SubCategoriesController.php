@@ -30,6 +30,9 @@ class SubCategoriesController extends Controller
 
     public function store(Request $request)
     {
+
+        var_dump($request->input('category_id'));
+        /*
         $this->validate($request, [
             'category_id' => 'required',
             'name'        => 'required',
@@ -42,7 +45,7 @@ class SubCategoriesController extends Controller
         $subCagegory->identifier  = $request->input('identifier');
         $subCagegory->save();
 
-        return redirect('admin/sub_categories');
+        return redirect('admin/sub_categories');*/
     }
 
     public function show($id)
@@ -80,7 +83,6 @@ class SubCategoriesController extends Controller
     {
         $subCategory = SubCategory::find($id);
         $subCategory->delete();
-
         return redirect('admin/sub_categories')->with('success', 'Category Removed');
     }
 }

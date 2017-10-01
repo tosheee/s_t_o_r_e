@@ -10,6 +10,15 @@
     <div class="col-md-10">
     <!-- BEGIN PRODUCTS -->
     <div class="row">
+
+
+
+
+
+
+
+
+
         <div class="col-md-4 col-sm-6">
                     <span class="thumbnail text-center">
                         <img src="http://placehold.it/350x280" alt="...">
@@ -36,6 +45,43 @@
                         </div>
                     </span>
                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div class="col-md-4 col-sm-6">
                     <span class="thumbnail text-center">
                         <img src="http://placehold.it/350x280" alt="...">

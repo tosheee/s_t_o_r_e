@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="/admin/categories" class="btn btn-default">Go Back</a>
+
+
+    <a href="/admin/product" class="btn btn-default">Go Back</a>
 <h1>{{ $category->name }}</h1>
 
 <div class="well">
