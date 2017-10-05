@@ -30,11 +30,34 @@ Auth::routes();
 
 
 
-Route::get ('/store', 'Store@index');
+Route::get ('/store', 'StoreController@index');
 
-Route::get ('/store/{id}', 'Store@show');
+Route::get ('/store/{id}', 'StoreController@show');
 
+Route::get('/store', [
+    'uses' => 'StoreController@index',
+    'as'   => 'store.index'
+]);
 
+Route::get('/add-to-cart/{id}', [
+   'uses' => 'StoreController@getAddToCart',
+    'as'  => 'store.addToCart'
+]);
+
+Route::get('/shopping-cart', [
+    'uses' => 'StoreController@getCart',
+    'as'  => 'store.shoppingCart'
+]);
+
+Route::get('/checkout', [
+    'uses' => 'StoreController@getCheckout',
+    'as'  => 'checkout'
+]);
+
+Route::post('/checkout', [
+    'uses' => 'StoreController@postCheckout',
+    'as' => 'checkout'
+]);
 
 
 Route::get ('/admin/dashboard', 'AdminController@index');

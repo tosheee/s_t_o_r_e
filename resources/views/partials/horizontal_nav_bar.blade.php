@@ -51,7 +51,7 @@
             </li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-shopping-basket mr-5"></i> <span class="hidden-xs">
-                                Cart<sup class="text-primary">(3)</sup>
+                                Cart<sup class="text-primary">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</sup>
                                 <i class="fa fa-angle-down ml-5"></i>
                             </span> </a>
                 <ul class="dropdown-menu cart w-250" role="menu">
@@ -86,8 +86,10 @@
                         </div>
                     </li>
                     <li>
-                        <div class="cart-footer"> <a href="#" class="pull-left"><i class="fa fa-cart-plus mr-5"></i>View
-                                Cart</a> <a href="#" class="pull-right"><i class="fa fa-shopping-basket mr-5"></i>Checkout</a> </div>
+                        <div class="cart-footer">
+                            <a href="{{ route('store.shoppingCart') }}" class="pull-left"><i class="fa fa-cart-plus mr-5"></i>ViewCart</a>
+                            <a href="#" class="pull-right"><i class="fa fa-shopping-basket mr-5"></i>Checkout</a>
+                        </div>
                     </li>
                 </ul>
             </li>
