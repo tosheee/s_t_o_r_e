@@ -6,7 +6,7 @@
     <?php $descriptions = json_decode($product->description, true); ?>
 
 
-    <a href="/admin/categories" class="btn btn-default">Go Back</a>
+    <a href="/store" class="btn btn-default">Go Back</a>
 
     <hr>
 
@@ -26,63 +26,110 @@
         <ul>
 
             <div class="col-xs-4 item-photo">
-
-
-                <img style="max-width:100%;" src=" " />
-
-
                 <div class="container-fluid">
                     <div id="custom_carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
-
-                            @foreach( $descriptions['gallery'] as $key => $description)
-
-                                @if($key == 1)
-                                    <div class="item active">
-                                        <div class="container-fluid">
-                                            <div class="row" >
-                                                    <img style="margin: 0 auto; width: 350px;height: 300px;" src=" {{ $description["picture_url"] }}" class="img-responsive">
-                                            </div>
-                                        </div>
+                            <div class="item active">
+                                <div class="container-fluid">
+                                    <div class="row" >
+                                        @if (isset($descriptions['main_picture_url']))
+                                            <img src="{{ $descriptions['main_picture_url'] }}" alt="pic" />
+                                        @elseif(isset($descriptions['upload_basic_image']))
+                                            <img src="/storage/upload_pictures/{{ $product->id }}/{{ $descriptions['upload_basic_image'] }}" alt="pic" />
+                                        @else
+                                            <img src="/storage/upload_basic_image/noimage.jpg" alt="pic" />
+                                        @endif
                                     </div>
-                                @else
-                                    <div class="item">
-                                        <div class="container-fluid">
-                                            <div class="row">
-                                                <img style="margin: 0 auto; width: 350px; height: 300px;" src=" {{ $description["picture_url"] }}" class="img-responsive">
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-                            @endforeach
+                                </div>
+                            </div>
 
-                                    <!-- End Item -->
+                            @if (isset($descriptions['gallery']))
+                                @foreach( $descriptions['gallery'] as $key => $type_pictures)
+                                    @foreach($type_pictures as $key_picture => $picture)
+                                        @if($key == 1)
+                                            <div class="item">
+                                                <div class="container-fluid">
+                                                    <div class="row" >
+                                                        @if($key_picture == 'upload_picture')
+                                                            <img style="margin: 0 auto; width: 350px;height: 300px;" src="/storage/upload_pictures/{{ $product->id }}/{{ $type_pictures[$key_picture] }}" class="img-responsive">
+                                                        @else
+                                                            <img style="margin: 0 auto; width: 350px; height: 300px;" src="{{ $type_pictures[$key_picture] }}" class="img-responsive">
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @else
+                                            <div class="item">
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        @if($key_picture == 'upload_picture')
+                                                            <img style="margin: 0 auto; width: 350px; height: 300px;" src="/storage/upload_pictures/{{ $product->id }}/{{ $type_pictures[$key_picture] }}" class="img-responsive">
+                                                        @else
+                                                            <img style="margin: 0 auto; width: 350px; height: 300px;" src="{{ $type_pictures[$key_picture] }}" class="img-responsive">
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @endif
+                                            @endforeach
+                                            @endforeach
+                                            @endif
+                                                    <!-- End Item -->
                         </div>
 
 
 
+                        <!-- down pictures list is ready -->
 
 
-                        <div class="controls draggable ui-widget-content col-md-6 col-xs-12" style="width: 350px;height: 50px;">
-                            <ul class="nav ui-widget-header" >
+                        @if (isset($descriptions['gallery']))
+                            <div class="controls draggable ui-widget-content col-md-6 col-xs-12" style="width: 350px;height: 50px;">
+                                <ul class="nav ui-widget-header" >
 
-                                @foreach( $descriptions['gallery'] as $i => $description)
-                                   @if($i == 1)
-                                    <li data-target="#custom_carousel" data-slide-to="{{ $i }}" class="active">
-                                        <a href="#"><img style="margin: 0 auto; width: 35px;height: 30px;" src="{{ $description["picture_url"] }}"></a>
+                                    <li data-target="#custom_carousel" data-slide-to="{{ $index = 0 }}" class="active">
+
+                                        @if (isset($descriptions['main_picture_url']))
+                                            <a href="#"><img src="{{ $descriptions['main_picture_url'] }}" alt="pic" /></a>
+                                        @elseif(isset($descriptions['upload_basic_image']))
+                                            <a href="#"><img style="margin: 0 auto; width: 35px; height: 30px;" src="/storage/upload_pictures/{{ $product->id }}/{{ $descriptions['upload_basic_image'] }}" alt="pic" /></a>
+                                        @else
+                                            <a href="#"><img style="margin: 0 auto; width: 35px; height: 30px;" src="/storage/upload_basic_image/noimage.jpg" alt="pic" /></a>
+                                        @endif
+
                                     </li>
-                                    @else
-                                        <li data-target="#custom_carousel" data-slide-to="{{ $i }}">
-                                            <a href="#"><img style="margin: 0 auto; width: 35px;height: 30px;" src="{{ $description["picture_url"] }}"></a>
-                                        </li>
-                                    @endif
-                                @endforeach
-
-                            </ul>
-                        </div>
 
 
+
+
+                                    <?php $index = 1; ?>
+                                    @foreach( $descriptions['gallery'] as $type_pictures)
+                                        @foreach($type_pictures as $key_picture => $picture)
+                                            @if($index == 1)
+                                                <li data-target="#custom_carousel" data-slide-to="{{ $index }}" class="active">
+                                                    @if($key_picture == 'upload_picture')
+                                                        <a href="#"><img style="margin: 0 auto; width: 35px; height: 30px;" src="/storage/upload_pictures/{{ $product->id }}/{{ $type_pictures[$key_picture] }}"></a>
+                                                    @else
+                                                        <a href="#"><img style="margin: 0 auto; width: 35px; height: 30px;" src="{{ $type_pictures[$key_picture] }}"></a>
+                                                    @endif
+                                                </li>
+                                                <?php $index ++;?>
+                                            @else
+                                                <li data-target="#custom_carousel" data-slide-to="{{ $index }}" >
+                                                    @if($key_picture == 'upload_picture')
+                                                        <a href="#"><img style="margin: 0 auto; width: 35px; height: 30px;" src="/storage/upload_pictures/{{ $product->id }}/{{ $type_pictures[$key_picture] }}"></a>
+                                                    @else
+                                                        <a href="#"><img style="margin: 0 auto; width: 35px; height: 30px;" src="{{ $type_pictures[$key_picture] }}"></a>
+                                                    @endif
+                                                </li>
+                                                <?php $index++;?>
+                                            @endif
+                                        @endforeach
+                                    @endforeach
+                                </ul>
+                            </div>
+
+                        @endif
                     </div>
                     <!-- End Carousel -->
                 </div>
@@ -153,90 +200,76 @@
                     </p>
                     <small>
                         <ul>
-                            @foreach( $descriptions['properties'] as $key => $property)
-                                <li>
-                                    @if ($key % 2 == 0)
-                                        {{ $property['name'] }} :
-                                    @else
-                                        {{ $property['text'] }}
-                                    @endif
-                                </li>
-                            @endforeach
+                            @if(isset($descriptions['properties']))
+                                @foreach( $descriptions['properties'] as $key => $property)
+                                    <li>
+                                        @if ($key % 2 == 0)
+                                            {{ $property['name'] }} :
+                                        @else
+                                            {{ $property['text'] }}
+                                        @endif
+                                    </li>
+                                @endforeach
+                            @endif
                         </ul>
                     </small>
                 </div>
             </div>
 
 
-<script>
-    //slider
-    $(document).ready(function(ev){
-        var items = $(".nav li").length;
-        var leftRight=0;
-        if(items>5){
-            leftRight=(items-5)*50*-1;
-        }
-        $('#custom_carousel').on('slide.bs.carousel', function (evt) {
-
-
-            $('#custom_carousel .controls li.active').removeClass('active');
-            $('#custom_carousel .controls li:eq('+$(evt.relatedTarget).index()+')').addClass('active');
-        })
-        $('.nav').draggable({
-            axis: "x",
-            stop: function() {
-                var ml = parseInt($(this).css('left'));
-                if(ml>0)
-                    $(this).animate({left:"0px"});
-                if(ml<leftRight)
-                    $(this).animate({left:leftRight+"px"});
-
-            }
-
-        });
-    });
-
-
-
-
-
-
-
-
-
-    $(document).ready(function(){
-        //-- Click on detail
-        $("ul.menu-items > li").on("click",function(){
-            $("ul.menu-items > li").removeClass("active");
-            $(this).addClass("active");
-        })
-
-        $(".attr,.attr2").on("click",function(){
-            var clase = $(this).attr("class");
-
-            $("." + clase).removeClass("active");
-            $(this).addClass("active");
-        })
-
-        //-- Click on QUANTITY
-        $(".btn-minus").on("click",function(){
-            var now = $(".section > div > input").val();
-            if ($.isNumeric(now)){
-                if (parseInt(now) -1 > 0){ now--;}
-                $(".section > div > input").val(now);
-            }else{
-                $(".section > div > input").val("1");
-            }
-        })
-        $(".btn-plus").on("click",function(){
-            var now = $(".section > div > input").val();
-            if ($.isNumeric(now)){
-                $(".section > div > input").val(parseInt(now)+1);
-            }else{
-                $(".section > div > input").val("1");
-            }
-        })
-    })
-</script>
+            <script>
+                //slider
+                $(document).ready(function(ev){
+                    var items = $(".nav li").length;
+                    var leftRight=0;
+                    if(items>5){
+                        leftRight=(items-5)*50*-1;
+                    }
+                    $('#custom_carousel').on('slide.bs.carousel', function (evt) {
+                        $('#custom_carousel .controls li.active').removeClass('active');
+                        $('#custom_carousel .controls li:eq('+$(evt.relatedTarget).index()+')').addClass('active');
+                    })
+                    $('.nav').draggable({
+                        axis: "x",
+                        stop: function() {
+                            var ml = parseInt($(this).css('left'));
+                            if(ml>0)
+                                $(this).animate({left:"0px"});
+                            if(ml<leftRight)
+                                $(this).animate({left:leftRight+"px"});
+                        }
+                    });
+                });
+                $(document).ready(function(){
+                    //-- Click on detail
+                    $("ul.menu-items > li").on("click",function(){
+                        $("ul.menu-items > li").removeClass("active");
+                        $(this).addClass("active");
+                    })
+                    $(".attr,.attr2").on("click",function(){
+                        var clase = $(this).attr("class");
+                        $("." + clase).removeClass("active");
+                        $(this).addClass("active");
+                    })
+                    //-- Click on QUANTITY
+                    $(".btn-minus").on("click",function(){
+                        var now = $(".section > div > input").val();
+                        if ($.isNumeric(now)){
+                            if (parseInt(now) -1 > 0){ now--;}
+                            $(".section > div > input").val(now);
+                        }else{
+                            $(".section > div > input").val("1");
+                        }
+                    })
+                    $(".btn-plus").on("click",function(){
+                        var now = $(".section > div > input").val();
+                        if ($.isNumeric(now)){
+                            $(".section > div > input").val(parseInt(now)+1);
+                        }else{
+                            $(".section > div > input").val("1");
+                        }
+                    })
+                })
+            </script>
 
 @endsection

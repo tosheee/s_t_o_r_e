@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Admin;
 use App\Admin\SubCategory;
 use App\Admin\Category;
 use App\Admin\Product;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -42,9 +42,34 @@ class ProductsController extends Controller
             'identifier'      => 'required',
         ]);
 
-        $request->input('description');
-
-        $description = json_encode( $request->input('description'), JSON_UNESCAPED_UNICODE );
+        $productId = DB::table('products')->latest('id')->first()->id + 1;
+        $descriptionRequest =  $request->input('description');
+        if($request->hasFile('upload_main_picture'))
+        {
+            $filenameWithExt = $request->file('upload_main_picture')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('upload_main_picture')->getClientOriginalExtension();
+            $fileNameToStore = 'basic_'.$filename.'_'.time().'.'.$extension;
+            $path = $request->file('upload_main_picture')->storeAs('public/upload_pictures/'.$productId, $fileNameToStore);
+            $descriptionRequest['upload_basic_image'] = $fileNameToStore;
+        }
+        else
+        {
+            $fileNameToStore = 'noimage.jpg';
+        }
+        if($request->hasFile('upload_gallery_pictures') && $request->hasFile('upload_main_picture'))
+        {
+            for($i = 0; $i < count($request->file('upload_gallery_pictures')); $i++)
+            {
+                $filenameWithExt = $request->file('upload_gallery_pictures')[$i]->getClientOriginalName();
+                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                $extension = $request->file('upload_gallery_pictures')[$i]->getClientOriginalExtension();
+                $fileNameToStore = 'gallery_'.$filename.'_'.time().'.'.$extension;
+                $path = $request->file('upload_gallery_pictures')[$i]->storeAs('public/upload_pictures/'.$productId, $fileNameToStore);
+                $descriptionRequest['gallery'][$i]['upload_picture'] = $fileNameToStore;
+            }
+        }
+        $description = json_encode( $descriptionRequest, JSON_UNESCAPED_UNICODE );
 
         // Create Category
         $product = new Product;
