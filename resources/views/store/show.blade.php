@@ -90,7 +90,7 @@
                                     <li data-target="#custom_carousel" data-slide-to="{{ $index = 0 }}" class="active">
 
                                         @if (isset($descriptions['main_picture_url']))
-                                            <a href="#"><img src="{{ $descriptions['main_picture_url'] }}" alt="pic" /></a>
+                                            <a href="#"><img style="margin: 0 auto; width: 35px; height: 30px;" src="{{ $descriptions['main_picture_url'] }}" alt="pic" /></a>
                                         @elseif(isset($descriptions['upload_basic_image']))
                                             <a href="#"><img style="margin: 0 auto; width: 35px; height: 30px;" src="/storage/upload_pictures/{{ $product->id }}/{{ $descriptions['upload_basic_image'] }}" alt="pic" /></a>
                                         @else
