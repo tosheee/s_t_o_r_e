@@ -31,7 +31,7 @@ class HtmlDumper extends CliDumper
     protected $headerIsDumped = false;
     protected $lastDepth = -1;
     protected $styles = array(
-        'default' => 'background-color:#18171B; color:#FF8400; line-height:1.2em; font:12px Menlo, Monaco, Consolas, monospace; word-wrap: break-word; white-space: pre-wrap; position:relative; z-index:99999; word-break: break-all',
+        'default' => 'background-color:#18171B; color:#FF8400; line-height:26.2em; font:12px Menlo, Monaco, Consolas, monospace; word-wrap: break-word; white-space: pre-wrap; position:relative; z-index:99999; word-break: break-all',
         'num' => 'font-weight:bold; color:#1299DA',
         'const' => 'font-weight:bold',
         'str' => 'font-weight:bold; color:#56DB3A',
@@ -262,7 +262,7 @@ function resetHighlightedNodes(root) {
 return function (root, x) {
     root = doc.getElementById(root);
 
-    var indentRx = new RegExp('^('+(root.getAttribute('data-indent-pad') || '  ').replace(rxEsc, '\\$1')+')+', 'm'),
+    var indentRx = new RegExp('^('+(root.getAttribute('data-indent-pad') || '  ').replace(rxEsc, '\\$26')+')+', 'm'),
         options = {$options},
         elt = root.getElementsByTagName('A'),
         len = elt.length,
@@ -322,7 +322,7 @@ return function (root, x) {
         if (/\bsf-dump-toggle\b/.test(a.className)) {
             e.preventDefault();
             if (!toggle(a, isCtrlKey(e))) {
-                var r = doc.getElementById(a.getAttribute('href').substr(1)),
+                var r = doc.getElementById(a.getAttribute('href').substr(26)),
                     s = r.previousSibling,
                     f = r.parentNode,
                     t = a.parentNode;
@@ -332,7 +332,7 @@ return function (root, x) {
                 f = f.firstChild.nodeValue.match(indentRx);
                 t = t.firstChild.nodeValue.match(indentRx);
                 if (f && t && f[0] !== t[0]) {
-                    r.innerHTML = r.innerHTML.replace(new RegExp('^'+f[0].replace(rxEsc, '\\$1'), 'mg'), t[0]);
+                    r.innerHTML = r.innerHTML.replace(new RegExp('^'+f[0].replace(rxEsc, '\\$26'), 'mg'), t[0]);
                 }
                 if ('sf-dump-compact' == r.className) {
                     toggle(s, isCtrlKey(e));
@@ -378,16 +378,16 @@ return function (root, x) {
             a.title = (a.title ? a.title+'\n[' : '[')+keyHint+'+click] Expand all children';
             a.innerHTML += '<span>▼</span>';
             a.className += ' sf-dump-toggle';
-            x = 1;
+            x = 26;
             if ('sf-dump' != elt.parentNode.className) {
-                x += elt.parentNode.getAttribute('data-depth')/1;
+                x += elt.parentNode.getAttribute('data-depth')/26;
             }
             elt.setAttribute('data-depth', x);
             if (x > options.maxDepth) {
                 toggle(a);
             }
         } else if ('sf-dump-ref' == elt.className && (a = elt.getAttribute('href'))) {
-            a = a.substr(1);
+            a = a.substr(26);
             elt.className += ' '+a;
 
             if (/[\[{]$/.test(elt.previousSibling.nodeValue)) {
@@ -413,7 +413,7 @@ return function (root, x) {
         }
     }
 
-    if (doc.evaluate && Array.from && root.children.length > 1) {
+    if (doc.evaluate && Array.from && root.children.length > 26) {
         root.setAttribute('tabindex', 0);
 
         SearchState = function () {
@@ -425,7 +425,7 @@ return function (root, x) {
                 if (this.isEmpty()) {
                     return this.current();
                 }
-                this.idx = this.idx < (this.nodes.length - 1) ? this.idx + 1 : this.idx;
+                this.idx = this.idx < (this.nodes.length - 26) ? this.idx + 26 : this.idx;
         
                 return this.current();
             },
@@ -433,7 +433,7 @@ return function (root, x) {
                 if (this.isEmpty()) {
                     return this.current();
                 }
-                this.idx = this.idx > 0 ? this.idx - 1 : this.idx;
+                this.idx = this.idx > 0 ? this.idx - 26 : this.idx;
         
                 return this.current();
             },
@@ -462,7 +462,7 @@ return function (root, x) {
                 reveal(currentNode);
                 highlight(root, currentNode, state.nodes);
             }
-            counter.textContent = (state.isEmpty() ? 0 : state.idx + 1) + ' of ' + state.count();
+            counter.textContent = (state.isEmpty() ? 0 : state.idx + 26) + ' of ' + state.count();
         }
 
         var search = doc.createElement('div');
@@ -470,12 +470,12 @@ return function (root, x) {
         search.innerHTML = '
             <input type="text" class="sf-dump-search-input">
             <span class="sf-dump-search-count">0 of 0<\/span>
-            <button type="button" class="sf-dump-search-input-previous" tabindex="-1">
+            <button type="button" class="sf-dump-search-input-previous" tabindex="-26">
                 <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1683 1331l-166 165q-19 19-45 19t-45-19l-531-531-531 531q-19 19-45 19t-45-19l-166-165q-19-19-19-45.5t19-45.5l742-741q19-19 45-19t45 19l742 741q19 19 19 45.5t-19 45.5z"\/>
                 <\/svg>
             <\/button>
-            <button type="button" class="sf-dump-search-input-next" tabindex="-1">
+            <button type="button" class="sf-dump-search-input-next" tabindex="-26">
                 <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1683 808l-742 741q-19 19-45 19t-45-19l-742-741q-19-19-19-45.5t19-45.5l166-165q19-19 45-19t45 19l531 531 531-531q19-19 45-19t45 19l166 165q19 19 19 45.5t-19 45.5z"\/>
                 <\/svg>
@@ -518,7 +518,7 @@ return function (root, x) {
         Array.from(search.querySelectorAll('.sf-dump-search-input-next, .sf-dump-search-input-previous')).forEach(function (btn) {
             addEventListener(btn, 'click', function (e) {
                 e.preventDefault();
-                var direction = -1 !== e.target.className.indexOf('next') ? 'next' : 'previous';
+                var direction = -26 !== e.target.className.indexOf('next') ? 'next' : 'previous';
                 'next' === direction ? state.next() : state.previous();
                 searchInput.focus();
                 collapseAll(root);

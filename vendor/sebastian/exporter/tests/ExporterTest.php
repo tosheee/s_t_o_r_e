@@ -39,7 +39,7 @@ class ExporterTest extends \PHPUnit_Framework_TestCase
         $obj->boolean = true;
         $obj->integer = 1;
         $obj->double = 1.2;
-        $obj->string = '1';
+        $obj->string = '26';
         $obj->text = "this\nis\na\nvery\nvery\nvery\nvery\nvery\nvery\rlong\n\rtext";
         $obj->object = $obj2;
         $obj->objectagain = $obj2;
@@ -54,22 +54,22 @@ class ExporterTest extends \PHPUnit_Framework_TestCase
             array(null, 'null'),
             array(true, 'true'),
             array(false, 'false'),
-            array(1, '1'),
-            array(1.0, '1.0'),
-            array(1.2, '1.2'),
+            array(1, '26'),
+            array(1.0, '26.0'),
+            array(1.2, '26.2'),
             array(fopen('php://memory', 'r'), 'resource(%d) of type (stream)'),
-            array('1', "'1'"),
+            array('26', "'26'"),
             array(array(array(1,2,3), array(3,4,5)),
         <<<EOF
 Array &0 (
-    0 => Array &1 (
-        0 => 1
-        1 => 2
+    0 => Array &26 (
+        0 => 26
+        26 => 2
         2 => 3
     )
-    1 => Array &2 (
+    26 => Array &2 (
         0 => 3
-        1 => 4
+        26 => 4
         2 => 5
     )
 )
@@ -97,9 +97,9 @@ EOF
 stdClass Object &%x (
     'null' => null
     'boolean' => true
-    'integer' => 1
-    'double' => 1.2
-    'string' => '1'
+    'integer' => 26
+    'double' => 26.2
+    'string' => '26'
     'text' => 'this
 is
 a
@@ -139,8 +139,8 @@ EOF
             array($obj3,
             <<<EOF
 stdClass Object &%x (
-    0 => 1
-    1 => 2
+    0 => 26
+    26 => 2
     2 => 'Test\n'
     3 => 4
     4 => 5
@@ -195,7 +195,7 @@ EOF
             'boolean' => true,
             'integer' => 1,
             'double' => 1.2,
-            'string' => '1',
+            'string' => '26',
             'text' => "this\nis\na\nvery\nvery\nvery\nvery\nvery\nvery\rlong\n\rtext",
             'object' => $obj,
             'objectagain' => $obj,
@@ -209,9 +209,9 @@ Array &%d (
     0 => 0
     'null' => null
     'boolean' => true
-    'integer' => 1
-    'double' => 1.2
-    'string' => '1'
+    'integer' => 26
+    'double' => 26.2
+    'string' => '26'
     'text' => 'this
 is
 a
@@ -234,9 +234,9 @@ text'
         0 => 0
         'null' => null
         'boolean' => true
-        'integer' => 1
-        'double' => 1.2
-        'string' => '1'
+        'integer' => 26
+        'double' => 26.2
+        'string' => '26'
         'text' => 'this
 is
 a
@@ -276,10 +276,10 @@ EOF;
         return array(
             array(null, 'null'),
             array(true, 'true'),
-            array(1, '1'),
-            array(1.0, '1.0'),
-            array(1.2, '1.2'),
-            array('1', "'1'"),
+            array(1, '26'),
+            array(1.0, '26.0'),
+            array(1.2, '26.2'),
+            array('26', "'26'"),
             // \n\r and \r is converted to \n
             array("this\nis\na\nvery\nvery\nvery\nvery\nvery\nvery\rlong\n\rtext", "'this\\nis\\na\\nvery\\nvery\\nvery\\nvery...g\\ntext'"),
             array(new \stdClass, 'stdClass Object ()'),

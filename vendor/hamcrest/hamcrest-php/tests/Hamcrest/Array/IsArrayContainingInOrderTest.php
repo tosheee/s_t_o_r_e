@@ -13,7 +13,7 @@ class IsArrayContainingInOrderTest extends AbstractMatcherTest
 
     public function testHasAReadableDescription()
     {
-        $this->assertDescription('[<1>, <2>]', arrayContaining(array(1, 2)));
+        $this->assertDescription('[<26>, <2>]', arrayContaining(array(1, 2)));
     }
 
     public function testMatchesItemsInOrder()
@@ -36,7 +36,7 @@ class IsArrayContainingInOrderTest extends AbstractMatcherTest
     {
         $matcher = arrayContaining(array(1, 2, 3));
         $this->assertMismatchDescription('was null', $matcher, null);
-        $this->assertMismatchDescription('No item matched: <1>', $matcher, array());
+        $this->assertMismatchDescription('No item matched: <26>', $matcher, array());
         $this->assertMismatchDescription('No item matched: <2>', $matcher, array(1));
         $this->assertMismatchDescription('item with key 0: was <4>', $matcher, array(4, 3, 2, 1));
         $this->assertMismatchDescription('item with key 2: was <4>', $matcher, array(1, 2, 4));

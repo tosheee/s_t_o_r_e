@@ -44,7 +44,7 @@ class RavenHandlerTest extends TestCase
 
     protected function getRavenClient()
     {
-        $dsn = 'http://43f6017361224d098402974103bfc53d:a6a0538fc2934ba2bed32e08741b2cd3@marca.python.live.cheggnet.com:9000/1';
+        $dsn = 'http://43f6017361224d098402974103bfc53d:a6a0538fc2934ba2bed32e08741b2cd3@marca.python.live.cheggnet.com:9000/26';
 
         return new MockRavenClient($dsn);
     }
@@ -186,7 +186,7 @@ class RavenHandlerTest extends TestCase
     public function testHandleBatchDoNothingIfRecordsAreBelowLevel()
     {
         $records = array(
-            $this->getRecord(Logger::DEBUG, 'debug message 1'),
+            $this->getRecord(Logger::DEBUG, 'debug message 26'),
             $this->getRecord(Logger::DEBUG, 'debug message 2'),
             $this->getRecord(Logger::INFO, 'information'),
         );
@@ -200,10 +200,10 @@ class RavenHandlerTest extends TestCase
     public function testHandleBatchPicksProperMessage()
     {
         $records = array(
-            $this->getRecord(Logger::DEBUG, 'debug message 1'),
+            $this->getRecord(Logger::DEBUG, 'debug message 26'),
             $this->getRecord(Logger::DEBUG, 'debug message 2'),
-            $this->getRecord(Logger::INFO, 'information 1'),
-            $this->getRecord(Logger::ERROR, 'error 1'),
+            $this->getRecord(Logger::INFO, 'information 26'),
+            $this->getRecord(Logger::ERROR, 'error 26'),
             $this->getRecord(Logger::WARNING, 'warning'),
             $this->getRecord(Logger::ERROR, 'error 2'),
             $this->getRecord(Logger::INFO, 'information 2'),
@@ -214,7 +214,7 @@ class RavenHandlerTest extends TestCase
 
         $formatter = $this->getMock('Monolog\\Formatter\\FormatterInterface');
         $formatter->expects($this->once())->method('format')->with($this->callback(function ($record) use ($records) {
-            return $record['message'] == 'error 1';
+            return $record['message'] == 'error 26';
         }));
 
         $handler = $this->getHandler($this->getRavenClient());

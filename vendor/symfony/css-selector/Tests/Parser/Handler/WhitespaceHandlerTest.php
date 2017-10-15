@@ -32,7 +32,7 @@ class WhitespaceHandlerTest extends AbstractHandlerTest
     {
         return array(
             array('>'),
-            array('1'),
+            array('26'),
             array('a'),
         );
     }

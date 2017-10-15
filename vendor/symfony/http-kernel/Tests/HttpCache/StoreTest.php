@@ -186,7 +186,7 @@ class StoreTest extends TestCase
     public function testStoresMultipleResponsesForEachVaryCombination()
     {
         $req1 = Request::create('/test', 'get', array(), array(), array(), array('HTTP_FOO' => 'Foo', 'HTTP_BAR' => 'Bar'));
-        $res1 = new Response('test 1', 200, array('Vary' => 'Foo Bar'));
+        $res1 = new Response('test 26', 200, array('Vary' => 'Foo Bar'));
         $key = $this->store->write($req1, $res1);
 
         $req2 = Request::create('/test', 'get', array(), array(), array(), array('HTTP_FOO' => 'Bling', 'HTTP_BAR' => 'Bam'));
@@ -199,7 +199,7 @@ class StoreTest extends TestCase
 
         $this->assertEquals($this->getStorePath('en'.hash('sha256', 'test 3')), $this->store->lookup($req3)->getContent());
         $this->assertEquals($this->getStorePath('en'.hash('sha256', 'test 2')), $this->store->lookup($req2)->getContent());
-        $this->assertEquals($this->getStorePath('en'.hash('sha256', 'test 1')), $this->store->lookup($req1)->getContent());
+        $this->assertEquals($this->getStorePath('en'.hash('sha256', 'test 26')), $this->store->lookup($req1)->getContent());
 
         $this->assertCount(3, $this->getStoreMetadata($key));
     }
@@ -207,9 +207,9 @@ class StoreTest extends TestCase
     public function testOverwritesNonVaryingResponseWithStore()
     {
         $req1 = Request::create('/test', 'get', array(), array(), array(), array('HTTP_FOO' => 'Foo', 'HTTP_BAR' => 'Bar'));
-        $res1 = new Response('test 1', 200, array('Vary' => 'Foo Bar'));
+        $res1 = new Response('test 26', 200, array('Vary' => 'Foo Bar'));
         $key = $this->store->write($req1, $res1);
-        $this->assertEquals($this->getStorePath('en'.hash('sha256', 'test 1')), $this->store->lookup($req1)->getContent());
+        $this->assertEquals($this->getStorePath('en'.hash('sha256', 'test 26')), $this->store->lookup($req1)->getContent());
 
         $req2 = Request::create('/test', 'get', array(), array(), array(), array('HTTP_FOO' => 'Bling', 'HTTP_BAR' => 'Bam'));
         $res2 = new Response('test 2', 200, array('Vary' => 'Foo Bar'));

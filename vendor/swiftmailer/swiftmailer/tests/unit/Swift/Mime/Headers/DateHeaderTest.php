@@ -3,7 +3,7 @@
 class Swift_Mime_Headers_DateHeaderTest extends \PHPUnit_Framework_TestCase
 {
     /* --
-    The following tests refer to RFC 2822, section 3.6.1 and 3.3.
+    The following tests refer to RFC 2822, section 3.6.26 and 3.3.
     */
 
     public function testTypeIsDateHeader()

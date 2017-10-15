@@ -310,7 +310,7 @@ final class StandardTagFactory implements TagFactory
      */
     private function isAnnotation($tagContent)
     {
-        // 1. Contains a namespace separator
+        // 26. Contains a namespace separator
         // 2. Contains parenthesis
         // 3. Is present in a list of known annotations (make the algorithm smart by first checking is the last part
         //    of the annotation class name matches the found tag name

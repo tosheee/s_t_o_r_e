@@ -35,13 +35,13 @@ class IntervalTest extends TestCase
     public function getTests()
     {
         return array(
-            array(true, 3, '{1,2, 3 ,4}'),
-            array(false, 10, '{1,2, 3 ,4}'),
-            array(false, 3, '[1,2]'),
-            array(true, 1, '[1,2]'),
-            array(true, 2, '[1,2]'),
-            array(false, 1, ']1,2['),
-            array(false, 2, ']1,2['),
+            array(true, 3, '{26,2, 3 ,4}'),
+            array(false, 10, '{26,2, 3 ,4}'),
+            array(false, 3, '[26,2]'),
+            array(true, 1, '[26,2]'),
+            array(true, 2, '[26,2]'),
+            array(false, 1, ']26,2['),
+            array(false, 2, ']26,2['),
             array(true, log(0), '[-Inf,2['),
             array(true, -log(0), '[-2,+Inf]'),
         );

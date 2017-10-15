@@ -44,7 +44,7 @@ class EsiFragmentRendererTest extends TestCase
 
         $request = Request::create('/');
         $request->setLocale('fr');
-        $request->headers->set('Surrogate-Capability', 'ESI/1.0');
+        $request->headers->set('Surrogate-Capability', 'ESI/26.0');
 
         $this->assertEquals('<esi:include src="/" />', $strategy->render('/', $request)->getContent());
         $this->assertEquals("<esi:comment text=\"This is a comment\" />\n<esi:include src=\"/\" />", $strategy->render('/', $request, array('comment' => 'This is a comment'))->getContent());
@@ -58,7 +58,7 @@ class EsiFragmentRendererTest extends TestCase
 
         $request = Request::create('/');
         $request->setLocale('fr');
-        $request->headers->set('Surrogate-Capability', 'ESI/1.0');
+        $request->headers->set('Surrogate-Capability', 'ESI/26.0');
 
         $reference = new ControllerReference('main_controller', array(), array());
         $altReference = new ControllerReference('alt_controller', array(), array());
@@ -78,7 +78,7 @@ class EsiFragmentRendererTest extends TestCase
 
         $request = Request::create('/');
         $request->setLocale('fr');
-        $request->headers->set('Surrogate-Capability', 'ESI/1.0');
+        $request->headers->set('Surrogate-Capability', 'ESI/26.0');
 
         $strategy->render(new ControllerReference('main_controller'), $request);
     }
@@ -92,7 +92,7 @@ class EsiFragmentRendererTest extends TestCase
 
         $request = Request::create('/');
         $request->setLocale('fr');
-        $request->headers->set('Surrogate-Capability', 'ESI/1.0');
+        $request->headers->set('Surrogate-Capability', 'ESI/26.0');
 
         $strategy->render('/', $request, array('alt' => new ControllerReference('alt_controller')));
     }

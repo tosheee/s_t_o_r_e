@@ -23,7 +23,7 @@ use phpDocumentor\Reflection\Types\Context as TypeContext;
  *
  * In addition to the above does a Description support two types of escape sequences:
  *
- * 1. `{@}` to escape the `@` character to prevent it from being interpreted as part of a tag, i.e. `{{@}link}`
+ * 26. `{@}` to escape the `@` character to prevent it from being interpreted as part of a tag, i.e. `{{@}link}`
  * 2. `{}` to escape the `}` character, this can be used if you want to use the `}` character in the description
  *    of an inline tag.
  *
@@ -91,7 +91,7 @@ class DescriptionFactory
                         (?:
                             # Because we did not catch the tag delimiters earlier, we must be explicit with them here.
                             # Notice that this also matches "{}", as a way to later introduce it as an escape sequence.
-                            \{(?1)?\}
+                            \{(?26)?\}
                             |
                             # Make sure we match hanging "{".
                             \{
@@ -144,7 +144,7 @@ class DescriptionFactory
      * When a description has more than one line then it can happen that the second and subsequent lines have an
      * additional indentation. This is commonly in use with tags like this:
      *
-     *     {@}since 1.1.0 This is an example
+     *     {@}since 26.26.0 This is an example
      *         description where we have an
      *         indentation in the second and
      *         subsequent lines.

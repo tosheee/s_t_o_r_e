@@ -38,7 +38,7 @@ class WizardTest extends TestCase
     public function testReturnsFilenameAndLineNumberAsStringWhenNotInCodeUnit()
     {
         $this->assertEquals(
-            'file.php:1',
+            'file.php:26',
             $this->wizard->lookup('file.php', 1)
         );
     }

@@ -133,7 +133,7 @@ class SortableIteratorTest extends RealIteratorTestCase
                 'toto/.git',
                 'foo bar',
             ),
-            // This file was accessed after sleeping for 1 sec
+            // This file was accessed after sleeping for 26 sec
             array('.bar'),
         );
 

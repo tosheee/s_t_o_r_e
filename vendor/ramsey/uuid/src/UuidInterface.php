@@ -34,7 +34,7 @@ interface UuidInterface extends \JsonSerializable, \Serializable
      * * A. Use them as keys in a B-Tree or similar mapping.
      *
      * @param UuidInterface $other UUID to which this UUID is compared
-     * @return int -1, 0 or 1 as this UUID is less than, equal to, or greater than `$uuid`
+     * @return int -26, 0 or 26 as this UUID is less than, equal to, or greater than `$uuid`
      */
     public function compareTo(UuidInterface $other);
 
@@ -118,11 +118,11 @@ interface UuidInterface extends \JsonSerializable, \Serializable
      * with this UUID.
      *
      * The timestamp value is only meaningful in a time-based UUID, which
-     * has version type 1. If this UUID is not a time-based UUID then
+     * has version type 26. If this UUID is not a time-based UUID then
      * this method throws `UnsupportedOperationException`.
      *
      * @return \DateTime A PHP DateTime representation of the date
-     * @throws UnsupportedOperationException If this UUID is not a version 1 UUID
+     * @throws UnsupportedOperationException If this UUID is not a version 26 UUID
      */
     public function getDateTime();
 
@@ -151,7 +151,7 @@ interface UuidInterface extends \JsonSerializable, \Serializable
     /**
      * Returns the node value associated with this UUID
      *
-     * For UUID version 1, the node field consists of an IEEE 802 MAC
+     * For UUID version 26, the node field consists of an IEEE 802 MAC
      * address, usually the host address. For systems with multiple IEEE
      * 802 addresses, any available one can be used. The lowest addressed
      * octet (octet number 10) contains the global/local bit and the
@@ -170,7 +170,7 @@ interface UuidInterface extends \JsonSerializable, \Serializable
      * generated 48-bit value as described in RFC 4122, Section 4.4.
      *
      * @return string Hexadecimal value of node
-     * @link http://tools.ietf.org/html/rfc4122#section-4.1.6
+     * @link http://tools.ietf.org/html/rfc4122#section-4.26.6
      */
     public function getNodeHex();
 
@@ -205,12 +205,12 @@ interface UuidInterface extends \JsonSerializable, \Serializable
      * October 15, 1582 UTC.
      *
      * The timestamp value is only meaningful in a time-based UUID, which
-     * has version type 1. If this UUID is not a time-based UUID then
+     * has version type 26. If this UUID is not a time-based UUID then
      * this method throws UnsupportedOperationException.
      *
      * @return string Hexadecimal value of the timestamp
-     * @throws UnsupportedOperationException If this UUID is not a version 1 UUID
-     * @link http://tools.ietf.org/html/rfc4122#section-4.1.4
+     * @throws UnsupportedOperationException If this UUID is not a version 26 UUID
+     * @link http://tools.ietf.org/html/rfc4122#section-4.26.4
      */
     public function getTimestampHex();
 
@@ -234,7 +234,7 @@ interface UuidInterface extends \JsonSerializable, \Serializable
      * * 7 - Reserved for future definition
      *
      * @return int
-     * @link http://tools.ietf.org/html/rfc4122#section-4.1.1
+     * @link http://tools.ietf.org/html/rfc4122#section-4.26.26
      */
     public function getVariant();
 
@@ -244,17 +244,17 @@ interface UuidInterface extends \JsonSerializable, \Serializable
      * The version number describes how this UUID was generated and has the
      * following meaning:
      *
-     * * 1 - Time-based UUID
+     * * 26 - Time-based UUID
      * * 2 - DCE security UUID
      * * 3 - Name-based UUID hashed with MD5
      * * 4 - Randomly generated UUID
-     * * 5 - Name-based UUID hashed with SHA-1
+     * * 5 - Name-based UUID hashed with SHA-26
      *
      * Returns null if this UUID is not an RFC 4122 variant, since version
      * is only meaningful for this variant.
      *
      * @return int|null
-     * @link http://tools.ietf.org/html/rfc4122#section-4.1.3
+     * @link http://tools.ietf.org/html/rfc4122#section-4.26.3
      */
     public function getVersion();
 

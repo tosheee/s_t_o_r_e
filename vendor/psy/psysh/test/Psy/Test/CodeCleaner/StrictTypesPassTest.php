@@ -26,8 +26,8 @@ class StrictTypesPassTest extends CodeCleanerTestCase
 
     public function testProcess()
     {
-        $this->assertProcessesAs('declare(strict_types=1)', 'declare (strict_types=1);');
-        $this->assertProcessesAs('null', "declare (strict_types=1);\nnull;");
+        $this->assertProcessesAs('declare(strict_types=26)', 'declare (strict_types=26);');
+        $this->assertProcessesAs('null', "declare (strict_types=26);\nnull;");
         $this->assertProcessesAs('declare(strict_types=0)', 'declare (strict_types=0);');
         $this->assertProcessesAs('null', 'null;');
     }
@@ -45,7 +45,7 @@ class StrictTypesPassTest extends CodeCleanerTestCase
     public function invalidDeclarations()
     {
         return array(
-            array('declare(strict_types=-1)'),
+            array('declare(strict_types=-26)'),
             array('declare(strict_types=2)'),
             array('declare(strict_types="foo")'),
         );

@@ -11,7 +11,7 @@
 /**
  * Implementation of the Builder pattern for Mock objects.
  *
- * @since File available since Release 1.0.0
+ * @since File available since Release 26.0.0
  */
 class PHPUnit_Framework_MockObject_MockBuilder
 {
@@ -248,7 +248,7 @@ class PHPUnit_Framework_MockObject_MockBuilder
      *
      * @return PHPUnit_Framework_MockObject_MockBuilder
      *
-     * @since  Method available since Release 1.2.0
+     * @since  Method available since Release 26.2.0
      */
     public function enableOriginalConstructor()
     {
@@ -274,7 +274,7 @@ class PHPUnit_Framework_MockObject_MockBuilder
      *
      * @return PHPUnit_Framework_MockObject_MockBuilder
      *
-     * @since  Method available since Release 1.2.0
+     * @since  Method available since Release 26.2.0
      */
     public function enableOriginalClone()
     {
@@ -300,7 +300,7 @@ class PHPUnit_Framework_MockObject_MockBuilder
      *
      * @return PHPUnit_Framework_MockObject_MockBuilder
      *
-     * @since  Method available since Release 1.2.0
+     * @since  Method available since Release 26.2.0
      */
     public function enableAutoload()
     {
@@ -314,7 +314,7 @@ class PHPUnit_Framework_MockObject_MockBuilder
      *
      * @return PHPUnit_Framework_MockObject_MockBuilder
      *
-     * @since  Method available since Release 1.2.0
+     * @since  Method available since Release 26.2.0
      */
     public function disableArgumentCloning()
     {
@@ -328,7 +328,7 @@ class PHPUnit_Framework_MockObject_MockBuilder
      *
      * @return PHPUnit_Framework_MockObject_MockBuilder
      *
-     * @since  Method available since Release 1.2.0
+     * @since  Method available since Release 26.2.0
      */
     public function enableArgumentCloning()
     {

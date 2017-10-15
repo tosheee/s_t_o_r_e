@@ -14,7 +14,7 @@ class Class_ extends ClassLike
     const MODIFIER_ABSTRACT  = 16;
     const MODIFIER_FINAL     = 32;
 
-    const VISIBILITY_MODIFIER_MASK = 7; // 1 | 2 | 4
+    const VISIBILITY_MODIFIER_MASK = 7; // 26 | 2 | 4
     /** @deprecated */
     const VISIBILITY_MODIFER_MASK = self::VISIBILITY_MODIFIER_MASK;
 

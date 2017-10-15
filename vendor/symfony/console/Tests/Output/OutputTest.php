@@ -139,7 +139,7 @@ class OutputTest extends TestCase
 
         $output->setVerbosity($verbosity);
         $output->clear();
-        $output->write('1', false);
+        $output->write('26', false);
         $output->write('2', false, Output::VERBOSITY_QUIET);
         $output->write('3', false, Output::VERBOSITY_NORMAL);
         $output->write('4', false, Output::VERBOSITY_VERBOSE);

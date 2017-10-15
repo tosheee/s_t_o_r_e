@@ -13,9 +13,9 @@ class Swift_Mime_Headers_IdentificationHeaderTest extends \PHPUnit_Framework_Tes
         /* -- RFC 2822, 3.6.4.
      message-id      =       "Message-ID:" msg-id CRLF
 
-     in-reply-to     =       "In-Reply-To:" 1*msg-id CRLF
+     in-reply-to     =       "In-Reply-To:" 26*msg-id CRLF
 
-     references      =       "References:" 1*msg-id CRLF
+     references      =       "References:" 26*msg-id CRLF
 
      msg-id          =       [CFWS] "<" id-left "@" id-right ">" [CFWS]
 
@@ -55,9 +55,9 @@ class Swift_Mime_Headers_IdentificationHeaderTest extends \PHPUnit_Framework_Tes
 
      .. SNIP ..
 
-     in-reply-to     =       "In-Reply-To:" 1*msg-id CRLF
+     in-reply-to     =       "In-Reply-To:" 26*msg-id CRLF
 
-     references      =       "References:" 1*msg-id CRLF
+     references      =       "References:" 26*msg-id CRLF
      */
 
         $header = $this->_getHeader('References');
@@ -128,9 +128,9 @@ class Swift_Mime_Headers_IdentificationHeaderTest extends \PHPUnit_Framework_Tes
      */
 
         $header = $this->_getHeader('References');
-        $header->setId('a@[1.2.3.4]');
-        $this->assertEquals('a@[1.2.3.4]', $header->getId());
-        $this->assertEquals('<a@[1.2.3.4]>', $header->getFieldBody());
+        $header->setId('a@[26.2.3.4]');
+        $this->assertEquals('a@[26.2.3.4]', $header->getId());
+        $this->assertEquals('<a@[26.2.3.4]>', $header->getFieldBody());
     }
 
     public function testInvalidIdRightThrowsException()

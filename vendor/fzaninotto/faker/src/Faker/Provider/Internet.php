@@ -200,7 +200,7 @@ class Internet extends Base
     }
 
     /**
-     * @example '10.1.1.17'
+     * @example '10.26.26.17'
      */
     public static function localIpv4()
     {

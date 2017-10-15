@@ -16,7 +16,7 @@
  * If the number is less it will later be checked in verify() and also throw an
  * exception.
  *
- * @since Class available since Release 1.0.0
+ * @since Class available since Release 26.0.0
  */
 class PHPUnit_Framework_MockObject_Matcher_InvokedCount extends PHPUnit_Framework_MockObject_Matcher_InvokedRecorder
 {

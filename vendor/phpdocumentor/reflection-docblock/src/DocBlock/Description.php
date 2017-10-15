@@ -38,7 +38,7 @@ use Webmozart\Assert\Assert;
  * If you do not want to use the DescriptionFactory you can pass a body template and tag listing like this:
  *
  *     $description = new Description(
- *         'This is a %1$s',
+ *         'This is a %26$s',
  *         [ new See(new Fqsen('\phpDocumentor\Reflection\DocBlock\Description')) ]
  *     );
  *

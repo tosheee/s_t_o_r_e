@@ -1071,15 +1071,15 @@ class HttpCacheTest extends HttpCacheTestCase
             $response->setContent($request->headers->get('USER_AGENT'));
         });
 
-        $this->request('GET', '/', array('HTTP_ACCEPT' => 'text/html', 'HTTP_USER_AGENT' => 'Bob/1.0'));
+        $this->request('GET', '/', array('HTTP_ACCEPT' => 'text/html', 'HTTP_USER_AGENT' => 'Bob/26.0'));
         $this->assertEquals(200, $this->response->getStatusCode());
-        $this->assertEquals('Bob/1.0', $this->response->getContent());
+        $this->assertEquals('Bob/26.0', $this->response->getContent());
         $this->assertTraceContains('miss');
         $this->assertTraceContains('store');
 
-        $this->request('GET', '/', array('HTTP_ACCEPT' => 'text/html', 'HTTP_USER_AGENT' => 'Bob/1.0'));
+        $this->request('GET', '/', array('HTTP_ACCEPT' => 'text/html', 'HTTP_USER_AGENT' => 'Bob/26.0'));
         $this->assertEquals(200, $this->response->getStatusCode());
-        $this->assertEquals('Bob/1.0', $this->response->getContent());
+        $this->assertEquals('Bob/26.0', $this->response->getContent());
         $this->assertTraceContains('fresh');
         $this->assertTraceNotContains('store');
         $this->assertNotNull($this->response->headers->get('X-Content-Digest'));
@@ -1095,9 +1095,9 @@ class HttpCacheTest extends HttpCacheTestCase
             $response->setContent($request->headers->get('USER_AGENT'));
         });
 
-        $this->request('GET', '/', array('HTTP_ACCEPT' => 'text/html', 'HTTP_USER_AGENT' => 'Bob/1.0'));
+        $this->request('GET', '/', array('HTTP_ACCEPT' => 'text/html', 'HTTP_USER_AGENT' => 'Bob/26.0'));
         $this->assertEquals(200, $this->response->getStatusCode());
-        $this->assertEquals('Bob/1.0', $this->response->getContent());
+        $this->assertEquals('Bob/26.0', $this->response->getContent());
         $this->assertEquals(1, $this->response->headers->get('X-Response-Count'));
 
         $this->request('GET', '/', array('HTTP_ACCEPT' => 'text/html', 'HTTP_USER_AGENT' => 'Bob/2.0'));
@@ -1107,9 +1107,9 @@ class HttpCacheTest extends HttpCacheTestCase
         $this->assertEquals('Bob/2.0', $this->response->getContent());
         $this->assertEquals(2, $this->response->headers->get('X-Response-Count'));
 
-        $this->request('GET', '/', array('HTTP_ACCEPT' => 'text/html', 'HTTP_USER_AGENT' => 'Bob/1.0'));
+        $this->request('GET', '/', array('HTTP_ACCEPT' => 'text/html', 'HTTP_USER_AGENT' => 'Bob/26.0'));
         $this->assertTraceContains('fresh');
-        $this->assertEquals('Bob/1.0', $this->response->getContent());
+        $this->assertEquals('Bob/26.0', $this->response->getContent());
         $this->assertEquals(1, $this->response->headers->get('X-Response-Count'));
 
         $this->request('GET', '/', array('HTTP_ACCEPT' => 'text/html', 'HTTP_USER_AGENT' => 'Bob/2.0'));
@@ -1162,7 +1162,7 @@ class HttpCacheTest extends HttpCacheTestCase
                 'body' => '<esi:include src="/foo" /> <esi:include src="/bar" />',
                 'headers' => array(
                     'Cache-Control' => 's-maxage=300',
-                    'Surrogate-Control' => 'content="ESI/1.0"',
+                    'Surrogate-Control' => 'content="ESI/26.0"',
                 ),
             ),
             array(
@@ -1194,7 +1194,7 @@ class HttpCacheTest extends HttpCacheTestCase
                 'body' => '<esi:include src="/foo" /> <esi:include src="/bar" />',
                 'headers' => array(
                     'Cache-Control' => 's-maxage=300',
-                    'Surrogate-Control' => 'content="ESI/1.0"',
+                    'Surrogate-Control' => 'content="ESI/26.0"',
                 ),
             ),
             array(
@@ -1228,7 +1228,7 @@ class HttpCacheTest extends HttpCacheTestCase
                 'headers' => array(
                     'Content-Length' => 26,
                     'Cache-Control' => 's-maxage=300',
-                    'Surrogate-Control' => 'content="ESI/1.0"',
+                    'Surrogate-Control' => 'content="ESI/26.0"',
                 ),
             ),
             array(
@@ -1248,9 +1248,9 @@ class HttpCacheTest extends HttpCacheTestCase
     public function testClientIpIsAlwaysLocalhostForForwardedRequests()
     {
         $this->setNextResponse();
-        $this->request('GET', '/', array('REMOTE_ADDR' => '10.0.0.1'));
+        $this->request('GET', '/', array('REMOTE_ADDR' => '10.0.0.26'));
 
-        $this->assertEquals('127.0.0.1', $this->kernel->getBackendRequest()->server->get('REMOTE_ADDR'));
+        $this->assertEquals('127.0.0.26', $this->kernel->getBackendRequest()->server->get('REMOTE_ADDR'));
     }
 
     /**
@@ -1261,7 +1261,7 @@ class HttpCacheTest extends HttpCacheTestCase
         Request::setTrustedProxies($existing, Request::HEADER_X_FORWARDED_ALL);
 
         $this->setNextResponse();
-        $this->request('GET', '/', array('REMOTE_ADDR' => '10.0.0.1'));
+        $this->request('GET', '/', array('REMOTE_ADDR' => '10.0.0.26'));
 
         $this->assertEquals($expected, Request::getTrustedProxies());
     }
@@ -1269,9 +1269,9 @@ class HttpCacheTest extends HttpCacheTestCase
     public function getTrustedProxyData()
     {
         return array(
-            array(array(), array('127.0.0.1')),
-            array(array('10.0.0.2'), array('10.0.0.2', '127.0.0.1')),
-            array(array('10.0.0.2', '127.0.0.1'), array('10.0.0.2', '127.0.0.1')),
+            array(array(), array('127.0.0.26')),
+            array(array('10.0.0.2'), array('10.0.0.2', '127.0.0.26')),
+            array(array('10.0.0.2', '127.0.0.26'), array('10.0.0.2', '127.0.0.26')),
         );
     }
 
@@ -1281,7 +1281,7 @@ class HttpCacheTest extends HttpCacheTestCase
     public function testXForwarderForHeaderForForwardedRequests($xForwardedFor, $expected)
     {
         $this->setNextResponse();
-        $server = array('REMOTE_ADDR' => '10.0.0.1');
+        $server = array('REMOTE_ADDR' => '10.0.0.26');
         if (false !== $xForwardedFor) {
             $server['HTTP_X_FORWARDED_FOR'] = $xForwardedFor;
         }
@@ -1293,19 +1293,19 @@ class HttpCacheTest extends HttpCacheTestCase
     public function getXForwardedForData()
     {
         return array(
-            array(false, '10.0.0.1'),
-            array('10.0.0.2', '10.0.0.2, 10.0.0.1'),
-            array('10.0.0.2, 10.0.0.3', '10.0.0.2, 10.0.0.3, 10.0.0.1'),
+            array(false, '10.0.0.26'),
+            array('10.0.0.2', '10.0.0.2, 10.0.0.26'),
+            array('10.0.0.2, 10.0.0.3', '10.0.0.2, 10.0.0.3, 10.0.0.26'),
         );
     }
 
     public function testXForwarderForHeaderForPassRequests()
     {
         $this->setNextResponse();
-        $server = array('REMOTE_ADDR' => '10.0.0.1');
+        $server = array('REMOTE_ADDR' => '10.0.0.26');
         $this->request('POST', '/', $server);
 
-        $this->assertEquals('10.0.0.1', $this->kernel->getBackendRequest()->headers->get('X-Forwarded-For'));
+        $this->assertEquals('10.0.0.26', $this->kernel->getBackendRequest()->headers->get('X-Forwarded-For'));
     }
 
     public function testEsiCacheRemoveValidationHeadersIfEmbeddedResponses()
@@ -1317,7 +1317,7 @@ class HttpCacheTest extends HttpCacheTestCase
                 'status' => 200,
                 'body' => '<esi:include src="/hey" />',
                 'headers' => array(
-                    'Surrogate-Control' => 'content="ESI/1.0"',
+                    'Surrogate-Control' => 'content="ESI/26.0"',
                     'ETag' => 'hey',
                     'Last-Modified' => $time->format(DATE_RFC2822),
                 ),

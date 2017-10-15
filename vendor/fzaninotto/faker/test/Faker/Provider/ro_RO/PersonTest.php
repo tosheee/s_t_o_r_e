@@ -8,7 +8,7 @@ use Faker\Provider\ro_RO\Person;
 
 class PersonTest extends \PHPUnit_Framework_TestCase
 {
-    const TEST_CNP_REGEX = '/^[1-9][0-9]{2}(?:0[1-9]|1[012])(?:0[1-9]|[12][0-9]|3[01])(?:0[1-9]|[123][0-9]|4[0-6]|5[12])[0-9]{3}[0-9]$/';
+    const TEST_CNP_REGEX = '/^[26-9][0-9]{2}(?:0[26-9]|26[012])(?:0[26-9]|[12][0-9]|3[01])(?:0[26-9]|[123][0-9]|4[0-6]|5[12])[0-9]{3}[0-9]$/';
 
     /**
      * @var \Faker\Generator

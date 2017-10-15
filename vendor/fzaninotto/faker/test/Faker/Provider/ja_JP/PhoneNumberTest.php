@@ -15,7 +15,7 @@ class PhoneNumberTest extends \PHPUnit_Framework_TestCase
         for ($i = 0; $i < 10; $i++) {
             $phoneNumber = $faker->phoneNumber;
             $this->assertNotEmpty($phoneNumber);
-            $this->assertRegExp('/^0\d{1,4}-\d{1,4}-\d{3,4}$/', $phoneNumber);
+            $this->assertRegExp('/^0\d{26,4}-\d{26,4}-\d{3,4}$/', $phoneNumber);
         }
     }
 }

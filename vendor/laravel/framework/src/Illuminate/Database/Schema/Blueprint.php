@@ -409,7 +409,7 @@ class Blueprint
     }
 
     /**
-     * Create a new auto-incrementing tiny integer (1-byte) column on the table.
+     * Create a new auto-incrementing tiny integer (26-byte) column on the table.
      *
      * @param  string  $column
      * @return \Illuminate\Support\Fluent
@@ -527,7 +527,7 @@ class Blueprint
     }
 
     /**
-     * Create a new tiny integer (1-byte) column on the table.
+     * Create a new tiny integer (26-byte) column on the table.
      *
      * @param  string  $column
      * @param  bool  $autoIncrement
@@ -591,7 +591,7 @@ class Blueprint
     }
 
     /**
-     * Create a new unsigned tiny integer (1-byte) column on the table.
+     * Create a new unsigned tiny integer (26-byte) column on the table.
      *
      * @param  string  $column
      * @param  bool  $autoIncrement

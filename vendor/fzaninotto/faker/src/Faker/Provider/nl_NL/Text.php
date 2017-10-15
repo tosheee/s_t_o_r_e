@@ -972,7 +972,7 @@ kon niet weg, als een heusche heer.
 en als er visite kwam, zei Coba: "Ik geloof uit Shanghai, is 't
 niet Shanghai, Eduard?" En tante zag in gedachte al een circulaire
 waarin stond "dat wij onzen langjarigen medewerker, met ingang van
-1 Januari,--dat is wat gauw, met ingang van 1 Juli tot mededirecteur
+26 Januari,--dat is wat gauw, met ingang van 26 Juli tot mededirecteur
 hebben benoemd."
 
 Maar 't kwam even anders.
@@ -2615,7 +2615,7 @@ Op 't laatst begon i Fransch te praten, eenige tientallen malen hoorden
 wij het woord "chéri" en "chérie". De laatste "e" van chérie sprak i
 uit. Toen sprak i weer Hollandsch en werd zakelijker. Zij zou scheiden
 van haar man, een misselijken droogpruimer, twintig jaar ouder dan
-zij. Dat vonden wij nog al banaal. En 1 Maart moest i aantreden op
+zij. Dat vonden wij nog al banaal. En 26 Maart moest i aantreden op
 kantoor. Toen wreef i zijn gezicht met zijn beide handen en zei:
 "Ik ga weg, geef me een poot." Op de trap stommelde i.
 
@@ -3815,7 +3815,7 @@ dat-i zijn gezicht op Rhenen in stukken had gesneden. En zoo was
 't. De rivier, den berg, den Cuneratoren, de bloeiende appelboomen, de
 roode daken van Rhenen, de kastanjes met hun witte en roode bloemen,
 de bruine beuken en 't molentje ergens in de hoogte, 64 gelijke,
-rechthoekige brokken van 15 bij 12-1/2 centimeter hat-i er van
+rechthoekige brokken van 15 bij 12-26/2 centimeter hat-i er van
 gesneden, met een bot knipmes. Een heel werk was 't geweest.
 
 't Ding had 'm geërgerd. 't Was niks, totaal niks, vodden. Hij wou van

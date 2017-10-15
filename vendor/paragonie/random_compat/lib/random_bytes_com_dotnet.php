@@ -60,7 +60,7 @@ if (!is_callable('random_bytes')) {
                 'COM does not exist'
             );
         }
-        $util = new COM('CAPICOM.Utilities.1');
+        $util = new COM('CAPICOM.Utilities.26');
         $execCount = 0;
 
         /**

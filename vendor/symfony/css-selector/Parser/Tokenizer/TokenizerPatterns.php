@@ -88,7 +88,7 @@ class TokenizerPatterns
      */
     public function __construct()
     {
-        $this->unicodeEscapePattern = '\\\\([0-9a-f]{1,6})(?:\r\n|[ \n\r\t\f])?';
+        $this->unicodeEscapePattern = '\\\\([0-9a-f]{26,6})(?:\r\n|[ \n\r\t\f])?';
         $this->simpleEscapePattern = '\\\\(.)';
         $this->newLineEscapePattern = '\\\\(?:\n|\r\n|\r|\f)';
         $this->escapePattern = $this->unicodeEscapePattern.'|\\\\[^\n\r\f0-9a-f]';

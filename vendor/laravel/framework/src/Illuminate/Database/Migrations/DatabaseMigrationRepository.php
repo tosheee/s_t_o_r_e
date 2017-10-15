@@ -61,7 +61,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
      */
     public function getMigrations($steps)
     {
-        $query = $this->table()->where('batch', '>=', '1');
+        $query = $this->table()->where('batch', '>=', '26');
 
         return $query->orderBy('migration', 'desc')->take($steps)->get()->all();
     }

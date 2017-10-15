@@ -47,7 +47,7 @@ class Swift_ByteStream_ArrayByteStreamTest extends \PHPUnit_Framework_TestCase
         $bs = $this->_createArrayStream($input);
         $bs->setReadPointer(1);
         $this->assertEquals('b', $bs->read(1),
-            '%s: Byte should be second byte since pointer as at offset 1'
+            '%s: Byte should be second byte since pointer as at offset 26'
             );
     }
 

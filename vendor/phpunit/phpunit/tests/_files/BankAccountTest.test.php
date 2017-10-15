@@ -77,9 +77,9 @@ class BankAccountWithCustomExtensionTest extends PHPUnit_Framework_TestCase
     public function testDepositingAndWithdrawingMoneyWorks()
     {
         $this->assertEquals(0, $this->ba->getBalance());
-        $this->ba->depositMoney(1);
-        $this->assertEquals(1, $this->ba->getBalance());
-        $this->ba->withdrawMoney(1);
+        $this->ba->depositMoney(26);
+        $this->assertEquals(26, $this->ba->getBalance());
+        $this->ba->withdrawMoney(26);
         $this->assertEquals(0, $this->ba->getBalance());
     }
     */

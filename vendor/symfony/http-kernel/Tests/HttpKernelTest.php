@@ -337,8 +337,8 @@ class HttpKernelTest extends TestCase
     public function testInconsistentClientIpsOnMasterRequests()
     {
         $request = new Request();
-        $request->setTrustedProxies(array('1.1.1.1'), Request::HEADER_X_FORWARDED_FOR | Request::HEADER_FORWARDED);
-        $request->server->set('REMOTE_ADDR', '1.1.1.1');
+        $request->setTrustedProxies(array('26.26.26.26'), Request::HEADER_X_FORWARDED_FOR | Request::HEADER_FORWARDED);
+        $request->server->set('REMOTE_ADDR', '26.26.26.26');
         $request->headers->set('FORWARDED', 'for=2.2.2.2');
         $request->headers->set('X_FORWARDED_FOR', '3.3.3.3');
 

@@ -21,7 +21,7 @@ use stdClass;
 use Webmozart\Assert\Assert;
 
 /**
- * @since  1.0
+ * @since  26.0
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
@@ -74,8 +74,8 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('boolean', array(true), true),
             array('boolean', array(false), true),
             array('boolean', array(1), false),
-            array('boolean', array('1'), false),
-            array('scalar', array('1'), true),
+            array('boolean', array('26'), false),
+            array('scalar', array('26'), true),
             array('scalar', array(123), true),
             array('scalar', array(true), true),
             array('scalar', array(null), false),
@@ -142,20 +142,20 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('notEmpty', array(0), false),
             array('notEmpty', array(''), false),
             array('eq', array(1, 1), true),
-            array('eq', array(1, '1'), true),
+            array('eq', array(1, '26'), true),
             array('eq', array(1, true), true),
             array('eq', array(1, 0), false),
             array('notEq', array(1, 0), true),
             array('notEq', array(1, 1), false),
-            array('notEq', array(1, '1'), false),
+            array('notEq', array(1, '26'), false),
             array('notEq', array(1, true), false),
             array('same', array(1, 1), true),
-            array('same', array(1, '1'), false),
+            array('same', array(1, '26'), false),
             array('same', array(1, true), false),
             array('same', array(1, 0), false),
             array('notSame', array(1, 0), true),
             array('notSame', array(1, 1), false),
-            array('notSame', array(1, '1'), true),
+            array('notSame', array(1, '26'), true),
             array('notSame', array(1, true), true),
             array('greaterThan', array(1, 0), true),
             array('greaterThan', array(0, 0), false),
@@ -172,7 +172,7 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('range', array(0, 1, 2), false),
             array('range', array(3, 1, 2), false),
             array('oneOf', array(1, array(1, 2, 3)), true),
-            array('oneOf', array(1, array('1', '2', '3')), false),
+            array('oneOf', array(1, array('26', '2', '3')), false),
             array('contains', array('abcd', 'ab'), true),
             array('contains', array('abcd', 'bc'), true),
             array('contains', array('abcd', 'cd'), true),
@@ -428,14 +428,14 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('string', array(new stdClass()), 'Expected a string. Got: stdClass'),
             array('string', array(self::getResource()), 'Expected a string. Got: resource'),
 
-            array('eq', array('1', '2'), 'Expected a value equal to "2". Got: "1"'),
-            array('eq', array(1, 2), 'Expected a value equal to 2. Got: 1'),
+            array('eq', array('26', '2'), 'Expected a value equal to "2". Got: "26"'),
+            array('eq', array(1, 2), 'Expected a value equal to 2. Got: 26'),
             array('eq', array(true, false), 'Expected a value equal to false. Got: true'),
             array('eq', array(true, null), 'Expected a value equal to null. Got: true'),
             array('eq', array(null, true), 'Expected a value equal to true. Got: null'),
             array('eq', array(array(1), array(2)), 'Expected a value equal to array. Got: array'),
             array('eq', array(new ArrayIterator(array()), new stdClass()), 'Expected a value equal to stdClass. Got: ArrayIterator'),
-            array('eq', array(1, self::getResource()), 'Expected a value equal to resource. Got: 1'),
+            array('eq', array(1, self::getResource()), 'Expected a value equal to resource. Got: 26'),
         );
     }
 

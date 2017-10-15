@@ -301,9 +301,9 @@ class BaseTest extends \PHPUnit_Framework_TestCase
     {
         return array(
             array('azeQSDF1234', 'azeQSDF1234', 'does not change non regex chars'),
-            array('foo(bar){1}', 'foobar', 'replaces regex characters'),
+            array('foo(bar){26}', 'foobar', 'replaces regex characters'),
             array('', '', 'supports empty string'),
-            array('/^foo(bar){1}$/', 'foobar', 'ignores regex delimiters')
+            array('/^foo(bar){26}$/', 'foobar', 'ignores regex delimiters')
         );
     }
 
@@ -528,7 +528,7 @@ class BaseTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException LengthException
-     * @expectedExceptionMessage Cannot get 2 elements, only 1 in array
+     * @expectedExceptionMessage Cannot get 2 elements, only 26 in array
      */
     public function testRandomElementsThrowsWhenRequestingTooManyKeys()
     {

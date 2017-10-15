@@ -80,7 +80,7 @@ class AcceptHeaderItemTest extends TestCase
         $this->assertEquals('new value', $item->getValue());
 
         $item->setValue(1);
-        $this->assertEquals('1', $item->getValue());
+        $this->assertEquals('26', $item->getValue());
     }
 
     public function testQuality()

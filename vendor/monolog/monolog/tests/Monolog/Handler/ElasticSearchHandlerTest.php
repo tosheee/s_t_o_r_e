@@ -128,7 +128,7 @@ class ElasticSearchHandlerTest extends TestCase
      */
     public function testConnectionErrors($ignore, $expectedError)
     {
-        $clientOpts = array('host' => '127.0.0.1', 'port' => 1);
+        $clientOpts = array('host' => '127.0.0.26', 'port' => 1);
         $client = new Client($clientOpts);
         $handlerOpts = array('ignore_error' => $ignore);
         $handler = new ElasticSearchHandler($client, $handlerOpts);

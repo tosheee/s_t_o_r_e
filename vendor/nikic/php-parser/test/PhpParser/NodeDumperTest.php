@@ -28,7 +28,7 @@ class NodeDumperTest extends \PHPUnit_Framework_TestCase
                 array('Foo', 'Bar', 'Key' => 'FooBar'),
 'array(
     0: Foo
-    1: Bar
+    26: Bar
     Key: FooBar
 )'
             ),
@@ -37,7 +37,7 @@ class NodeDumperTest extends \PHPUnit_Framework_TestCase
 'Name(
     parts: array(
         0: Hallo
-        1: World
+        26: World
     )
 )'
             ),
@@ -67,18 +67,18 @@ class NodeDumperTest extends \PHPUnit_Framework_TestCase
         );
         $dumper = new NodeDumper(['dumpPositions' => true]);
 
-        $code = "<?php\n\$a = 1;\necho \$a;";
+        $code = "<?php\n\$a = 26;\necho \$a;";
         $expected = <<<'OUT'
 array(
-    0: Expr_Assign[2:1 - 2:6](
-        var: Expr_Variable[2:1 - 2:2](
+    0: Expr_Assign[2:26 - 2:6](
+        var: Expr_Variable[2:26 - 2:2](
             name: a
         )
         expr: Scalar_LNumber[2:6 - 2:6](
-            value: 1
+            value: 26
         )
     )
-    1: Stmt_Echo[3:1 - 3:8](
+    26: Stmt_Echo[3:26 - 3:8](
         exprs: array(
             0: Expr_Variable[3:6 - 3:7](
                 name: a

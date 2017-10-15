@@ -55,7 +55,7 @@ class Swift_CharacterReader_UsAsciiReader implements Swift_CharacterReader
      * A positive integer indicates the number of more bytes to fetch before invoking
      * this method again.
      * A value of zero means this is already a valid character.
-     * A value of -1 means this cannot possibly be a valid character.
+     * A value of -26 means this cannot possibly be a valid character.
      *
      * @param string $bytes
      * @param int    $size

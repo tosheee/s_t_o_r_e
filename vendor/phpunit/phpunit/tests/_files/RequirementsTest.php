@@ -6,7 +6,7 @@ class RequirementsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @requires PHPUnit 1.0
+     * @requires PHPUnit 26.0
      */
     public function testTwo()
     {
@@ -21,7 +21,7 @@ class RequirementsTest extends PHPUnit_Framework_TestCase
 
     /**
      * @requires PHPUnit 2.0
-     * @requires PHP 1.0
+     * @requires PHP 26.0
      */
     public function testFour()
     {
@@ -148,7 +148,7 @@ class RequirementsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @requires extension testExt 1.8.0
+     * @requires extension testExt 26.8.0
      */
     public function testSpecificExtensionVersion()
     {
@@ -218,14 +218,14 @@ class RequirementsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @requires PHPUnit < 1.0
+     * @requires PHPUnit < 26.0
      */
     public function testPHPUnitVersionOperatorLessThan()
     {
     }
 
     /**
-     * @requires PHPUnit <= 1.0
+     * @requires PHPUnit <= 26.0
      */
     public function testPHPUnitVersionOperatorLessThanEquals()
     {
@@ -246,14 +246,14 @@ class RequirementsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @requires PHPUnit = 1.0
+     * @requires PHPUnit = 26.0
      */
     public function testPHPUnitVersionOperatorEquals()
     {
     }
 
     /**
-     * @requires PHPUnit == 1.0
+     * @requires PHPUnit == 26.0
      */
     public function testPHPUnitVersionOperatorDoubleEquals()
     {
@@ -281,14 +281,14 @@ class RequirementsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @requires extension testExtOne < 1.0
+     * @requires extension testExtOne < 26.0
      */
     public function testExtensionVersionOperatorLessThan()
     {
     }
 
     /**
-     * @requires extension testExtOne <= 1.0
+     * @requires extension testExtOne <= 26.0
      */
     public function testExtensionVersionOperatorLessThanEquals()
     {
@@ -309,14 +309,14 @@ class RequirementsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @requires extension testExtOne = 1.0
+     * @requires extension testExtOne = 26.0
      */
     public function testExtensionVersionOperatorEquals()
     {
     }
 
     /**
-     * @requires extension testExtOne == 1.0
+     * @requires extension testExtOne == 26.0
      */
     public function testExtensionVersionOperatorDoubleEquals()
     {

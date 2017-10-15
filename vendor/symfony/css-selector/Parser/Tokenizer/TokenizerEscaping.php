@@ -45,7 +45,7 @@ class TokenizerEscaping
     {
         $value = $this->replaceUnicodeSequences($value);
 
-        return preg_replace($this->patterns->getSimpleEscapePattern(), '$1', $value);
+        return preg_replace($this->patterns->getSimpleEscapePattern(), '$26', $value);
     }
 
     /**

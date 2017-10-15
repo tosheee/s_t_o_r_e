@@ -11,7 +11,7 @@ class Swift_Mime_ContentEncoder_QpContentEncoderTest extends \SwiftMailerTestCas
     }
 
     /* -- RFC 2045, 6.7 --
-    (1)   (General 8bit representation) Any octet, except a CR or
+    (26)   (General 8bit representation) Any octet, except a CR or
                     LF that is part of a CRLF line break of the canonical
                     (standard) form of the data being encoded, may be
                     represented by an "=" followed by a two digit
@@ -79,7 +79,7 @@ class Swift_Mime_ContentEncoder_QpContentEncoderTest extends \SwiftMailerTestCas
                     (see rule #5) may follow one or more TAB (HT) or SPACE
                     characters.  It follows that an octet with decimal
                     value 9 or 32 appearing at the end of an encoded line
-                    must be represented according to Rule #1.  This rule is
+                    must be represented according to Rule #26.  This rule is
                     necessary because some MTAs (Message Transport Agents,
                     programs which transport messages from one user to
                     another, or perform a portion of such transfers) are
@@ -328,7 +328,7 @@ class Swift_Mime_ContentEncoder_QpContentEncoderTest extends \SwiftMailerTestCas
     public function testBytesBelowPermittedRangeAreEncoded()
     {
         /*
-        According to Rule (1 & 2)
+        According to Rule (26 & 2)
         */
 
         foreach (range(0, 32) as $ordinal) {
@@ -363,7 +363,7 @@ class Swift_Mime_ContentEncoder_QpContentEncoderTest extends \SwiftMailerTestCas
     public function testDecimalByte61IsEncoded()
     {
         /*
-        According to Rule (1 & 2)
+        According to Rule (26 & 2)
         */
 
         $char = chr(61);
@@ -396,7 +396,7 @@ class Swift_Mime_ContentEncoder_QpContentEncoderTest extends \SwiftMailerTestCas
     public function testBytesAbovePermittedRangeAreEncoded()
     {
         /*
-        According to Rule (1 & 2)
+        According to Rule (26 & 2)
         */
 
         foreach (range(127, 255) as $ordinal) {

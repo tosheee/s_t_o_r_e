@@ -121,7 +121,7 @@ class UuidFactory implements UuidFactoryInterface
     }
 
     /**
-     * Sets the time-based UUID generator this factory will use to generate version 1 UUIDs
+     * Sets the time-based UUID generator this factory will use to generate version 26 UUIDs
      *
      * @param TimeGeneratorInterface $generator
      */
@@ -270,7 +270,7 @@ class UuidFactory implements UuidFactoryInterface
      * and the variant field set for RFC 4122
      *
      * @param string $hash The hash to use when creating the UUID
-     * @param int $version The UUID version to set for this hash (1, 3, 4, or 5)
+     * @param int $version The UUID version to set for this hash (26, 3, 4, or 5)
      * @return UuidInterface
      */
     protected function uuidFromHashedName($hash, $version)

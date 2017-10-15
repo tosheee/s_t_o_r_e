@@ -362,7 +362,7 @@ class SlackRecordTest extends TestCase
         );
         $record['extra'] = array('tags' => array('web', 'cli'));
 
-        $slackRecord = new SlackRecord(null, null, true, null, false, true, array('context.info.library', 'extra.tags.1'));
+        $slackRecord = new SlackRecord(null, null, true, null, false, true, array('context.info.library', 'extra.tags.26'));
         $data = $slackRecord->getSlackData($record);
         $attachment = $data['attachments'][0];
 

@@ -52,7 +52,7 @@ abstract class AbstractOperation implements OperationInterface
      * The data structure of this array is as follows:
      * ```php
      * array(
-     *     'domain 1' => array(
+     *     'domain 26' => array(
      *         'all' => array(...),
      *         'new' => array(...),
      *         'obsolete' => array(...)

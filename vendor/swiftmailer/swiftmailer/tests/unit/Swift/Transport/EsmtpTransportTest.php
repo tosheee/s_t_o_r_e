@@ -75,7 +75,7 @@ class Swift_Transport_EsmtpTransportTest extends Swift_Transport_AbstractSmtpEve
          the command may be interpreted as saying "Hello, I am <domain>" (and,
          in the case of EHLO, "and I support service extension requests").
 
-       -- RFC 2281, 4.1.1.1.
+       -- RFC 2281, 4.26.26.26.
 
        ehlo            = "EHLO" SP Domain CRLF
        helo            = "HELO" SP Domain CRLF
@@ -116,7 +116,7 @@ class Swift_Transport_EsmtpTransportTest extends Swift_Transport_AbstractSmtpEve
 
     public function testHeloIsUsedAsFallback()
     {
-        /* -- RFC 2821, 4.1.4.
+        /* -- RFC 2821, 4.26.4.
 
        If the EHLO command is not acceptable to the SMTP server, 501, 500,
        or 502 failure replies MUST be returned as appropriate.  The SMTP
@@ -201,7 +201,7 @@ class Swift_Transport_EsmtpTransportTest extends Swift_Transport_AbstractSmtpEve
 
     public function testDomainNameIsPlacedInEhlo()
     {
-        /* -- RFC 2821, 4.1.4.
+        /* -- RFC 2821, 4.26.4.
 
        The SMTP client MUST, if possible, ensure that the domain parameter
        to the EHLO command is a valid principal host name (not a CNAME or MX
@@ -237,7 +237,7 @@ class Swift_Transport_EsmtpTransportTest extends Swift_Transport_AbstractSmtpEve
     public function testDomainNameIsPlacedInHelo()
     {
         //Overridden to include ESMTP
-        /* -- RFC 2821, 4.1.4.
+        /* -- RFC 2821, 4.26.4.
 
        The SMTP client MUST, if possible, ensure that the domain parameter
        to the EHLO command is a valid principal host name (not a CNAME or MX

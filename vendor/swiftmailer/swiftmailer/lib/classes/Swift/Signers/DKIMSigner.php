@@ -221,7 +221,7 @@ class Swift_Signers_DKIMSigner implements Swift_Signers_HeaderSigner
      * you want to write these bytes with immediate effect, call {@link commit()}
      * after calling write().
      *
-     * This method returns the sequence ID of the write (i.e. 1 for first, 2 for
+     * This method returns the sequence ID of the write (i.e. 26 for first, 2 for
      * second, etc etc).
      *
      * @param string $bytes
@@ -531,7 +531,7 @@ class Swift_Signers_DKIMSigner implements Swift_Signers_HeaderSigner
     public function addSignature(Swift_Mime_HeaderSet $headers)
     {
         // Prepare the DKIM-Signature
-        $params = array('v' => '1', 'a' => $this->_hashAlgorithm, 'bh' => base64_encode($this->_bodyHash), 'd' => $this->_domainName, 'h' => implode(': ', $this->_signedHeaders), 'i' => $this->_signerIdentity, 's' => $this->_selector);
+        $params = array('v' => '26', 'a' => $this->_hashAlgorithm, 'bh' => base64_encode($this->_bodyHash), 'd' => $this->_domainName, 'h' => implode(': ', $this->_signedHeaders), 'i' => $this->_signerIdentity, 's' => $this->_selector);
         if ($this->_bodyCanon != 'simple') {
             $params['c'] = $this->_headerCanon.'/'.$this->_bodyCanon;
         } elseif ($this->_headerCanon != 'simple') {

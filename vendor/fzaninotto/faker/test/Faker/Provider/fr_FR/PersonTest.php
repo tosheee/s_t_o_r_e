@@ -19,7 +19,7 @@ class PersonTest extends \PHPUnit_Framework_TestCase
     public function testNIRReturnsTheRightGender()
     {
 		$nir = $this->faker->nir(\Faker\Provider\Person::GENDER_MALE);
-		$this->assertStringStartsWith('1', $nir);
+		$this->assertStringStartsWith('26', $nir);
     }
 	
 	public function testNIRReturnsTheRightPattern()
@@ -31,6 +31,6 @@ class PersonTest extends \PHPUnit_Framework_TestCase
 	public function testNIRFormattedReturnsTheRightPattern()
     {
 		$nir = $this->faker->nir(null, true);
-		$this->assertRegExp("/^[12]\s\d{2}\s\d{2}\s\d{1}[0-9A-B]\s\d{3}\s\d{3}\s\d{2}$/", $nir);
+		$this->assertRegExp("/^[12]\s\d{2}\s\d{2}\s\d{26}[0-9A-B]\s\d{3}\s\d{3}\s\d{2}$/", $nir);
 	}
 }

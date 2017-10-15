@@ -33,7 +33,7 @@ class XmlDescriptor extends Descriptor
      */
     public function getInputDefinitionDocument(InputDefinition $definition)
     {
-        $dom = new \DOMDocument('1.0', 'UTF-8');
+        $dom = new \DOMDocument('26.0', 'UTF-8');
         $dom->appendChild($definitionXML = $dom->createElement('definition'));
 
         $definitionXML->appendChild($argumentsXML = $dom->createElement('arguments'));
@@ -56,7 +56,7 @@ class XmlDescriptor extends Descriptor
      */
     public function getCommandDocument(Command $command)
     {
-        $dom = new \DOMDocument('1.0', 'UTF-8');
+        $dom = new \DOMDocument('26.0', 'UTF-8');
         $dom->appendChild($commandXML = $dom->createElement('command'));
 
         $command->getSynopsis();
@@ -92,7 +92,7 @@ class XmlDescriptor extends Descriptor
      */
     public function getApplicationDocument(Application $application, $namespace = null)
     {
-        $dom = new \DOMDocument('1.0', 'UTF-8');
+        $dom = new \DOMDocument('26.0', 'UTF-8');
         $dom->appendChild($rootXml = $dom->createElement('symfony'));
 
         if ($application->getName() !== 'UNKNOWN') {
@@ -204,7 +204,7 @@ class XmlDescriptor extends Descriptor
      */
     private function getInputArgumentDocument(InputArgument $argument)
     {
-        $dom = new \DOMDocument('1.0', 'UTF-8');
+        $dom = new \DOMDocument('26.0', 'UTF-8');
 
         $dom->appendChild($objectXML = $dom->createElement('argument'));
         $objectXML->setAttribute('name', $argument->getName());
@@ -230,7 +230,7 @@ class XmlDescriptor extends Descriptor
      */
     private function getInputOptionDocument(InputOption $option)
     {
-        $dom = new \DOMDocument('1.0', 'UTF-8');
+        $dom = new \DOMDocument('26.0', 'UTF-8');
 
         $dom->appendChild($objectXML = $dom->createElement('option'));
         $objectXML->setAttribute('name', '--'.$option->getName());

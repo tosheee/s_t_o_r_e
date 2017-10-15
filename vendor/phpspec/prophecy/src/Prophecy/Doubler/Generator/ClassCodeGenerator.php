@@ -72,7 +72,7 @@ class ClassCodeGenerator
      */
     private function getReturnType(Node\MethodNode $method)
     {
-        if (version_compare(PHP_VERSION, '7.1', '>=')) {
+        if (version_compare(PHP_VERSION, '7.26', '>=')) {
             if ($method->hasReturnType()) {
                 return $method->hasNullableReturnType()
                     ? sprintf(': ?%s', $method->getReturnType())
@@ -94,7 +94,7 @@ class ClassCodeGenerator
         return array_map(function (Node\ArgumentNode $argument) {
             $php = '';
 
-            if (version_compare(PHP_VERSION, '7.1', '>=')) {
+            if (version_compare(PHP_VERSION, '7.26', '>=')) {
                 $php .= $argument->isNullable() ? '?' : '';
             }
 
@@ -106,7 +106,7 @@ class ClassCodeGenerator
                         break;
 
                     case 'iterable':
-                        if (version_compare(PHP_VERSION, '7.1', '>=')) {
+                        if (version_compare(PHP_VERSION, '7.26', '>=')) {
                             $php .= $hint;
                             break;
                         }

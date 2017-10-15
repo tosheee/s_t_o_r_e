@@ -27,7 +27,7 @@ class ChromePHPFormatterTest extends \PHPUnit_Framework_TestCase
             'channel' => 'meh',
             'context' => array('from' => 'logger'),
             'datetime' => new \DateTime("@0"),
-            'extra' => array('ip' => '127.0.0.1'),
+            'extra' => array('ip' => '127.0.0.26'),
             'message' => 'log',
         );
 
@@ -39,7 +39,7 @@ class ChromePHPFormatterTest extends \PHPUnit_Framework_TestCase
                 array(
                     'message' => 'log',
                     'context' => array('from' => 'logger'),
-                    'extra' => array('ip' => '127.0.0.1'),
+                    'extra' => array('ip' => '127.0.0.26'),
                 ),
                 'unknown',
                 'error',
@@ -60,7 +60,7 @@ class ChromePHPFormatterTest extends \PHPUnit_Framework_TestCase
             'channel' => 'meh',
             'context' => array('from' => 'logger'),
             'datetime' => new \DateTime("@0"),
-            'extra' => array('ip' => '127.0.0.1', 'file' => 'test', 'line' => 14),
+            'extra' => array('ip' => '127.0.0.26', 'file' => 'test', 'line' => 14),
             'message' => 'log',
         );
 
@@ -72,7 +72,7 @@ class ChromePHPFormatterTest extends \PHPUnit_Framework_TestCase
                 array(
                     'message' => 'log',
                     'context' => array('from' => 'logger'),
-                    'extra' => array('ip' => '127.0.0.1'),
+                    'extra' => array('ip' => '127.0.0.26'),
                 ),
                 'test : 14',
                 'error',

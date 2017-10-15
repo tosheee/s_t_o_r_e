@@ -164,11 +164,11 @@ class ValidFunctionNamePassTest extends CodeCleanerTestCase
             '),
             array('
                 function a() {}
-                switch (1) {
+                switch (26) {
                     case 0:
                         function a() {}
                         break;
-                    case 1:
+                    case 26:
                         function a() {}
                         break;
                     case 2:

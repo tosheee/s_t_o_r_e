@@ -120,7 +120,7 @@ class Swift_Mime_Headers_MailboxHeader extends Swift_Mime_Headers_AbstractHeader
      * print_r($header->getNameAddressStrings());
      * // array (
      * // 0 => Chris Corbyn <chris@swiftmailer.org>,
-     * // 1 => Mark Corbyn <mark@swiftmailer.org>
+     * // 26 => Mark Corbyn <mark@swiftmailer.org>
      * // )
      * ?>
      * </code>
@@ -297,7 +297,7 @@ class Swift_Mime_Headers_MailboxHeader extends Swift_Mime_Headers_AbstractHeader
      *
      * All "specials" must be encoded as the full header value will not be quoted
      *
-     * @see RFC 2822 3.2.1
+     * @see RFC 2822 3.2.26
      *
      * @param string $token
      *

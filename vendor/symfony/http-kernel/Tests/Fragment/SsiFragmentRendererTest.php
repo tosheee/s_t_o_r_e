@@ -32,7 +32,7 @@ class SsiFragmentRendererTest extends TestCase
 
         $request = Request::create('/');
         $request->setLocale('fr');
-        $request->headers->set('Surrogate-Capability', 'SSI/1.0');
+        $request->headers->set('Surrogate-Capability', 'SSI/26.0');
 
         $this->assertEquals('<!--#include virtual="/" -->', $strategy->render('/', $request)->getContent());
         $this->assertEquals('<!--#include virtual="/" -->', $strategy->render('/', $request, array('comment' => 'This is a comment'))->getContent(), 'Strategy options should not impact the ssi include tag');
@@ -45,7 +45,7 @@ class SsiFragmentRendererTest extends TestCase
 
         $request = Request::create('/');
         $request->setLocale('fr');
-        $request->headers->set('Surrogate-Capability', 'SSI/1.0');
+        $request->headers->set('Surrogate-Capability', 'SSI/26.0');
 
         $reference = new ControllerReference('main_controller', array(), array());
         $altReference = new ControllerReference('alt_controller', array(), array());
@@ -65,7 +65,7 @@ class SsiFragmentRendererTest extends TestCase
 
         $request = Request::create('/');
         $request->setLocale('fr');
-        $request->headers->set('Surrogate-Capability', 'SSI/1.0');
+        $request->headers->set('Surrogate-Capability', 'SSI/26.0');
 
         $strategy->render(new ControllerReference('main_controller'), $request);
     }
@@ -79,7 +79,7 @@ class SsiFragmentRendererTest extends TestCase
 
         $request = Request::create('/');
         $request->setLocale('fr');
-        $request->headers->set('Surrogate-Capability', 'SSI/1.0');
+        $request->headers->set('Surrogate-Capability', 'SSI/26.0');
 
         $strategy->render('/', $request, array('alt' => new ControllerReference('alt_controller')));
     }

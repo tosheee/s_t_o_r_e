@@ -63,7 +63,7 @@ class IsArrayTest extends AbstractMatcherTest
     public function testHasAReadableMismatchDescriptionWhenKeysDontMatch()
     {
         $this->assertMismatchDescription(
-            'array keys were [<1>, <2>]',
+            'array keys were [<26>, <2>]',
             anArray(array(equalTo('a'), equalTo('b'))),
             array(1 => 'a', 2 => 'b')
         );

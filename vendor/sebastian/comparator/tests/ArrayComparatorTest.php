@@ -42,7 +42,7 @@ class ArrayComparatorTest extends \PHPUnit_Framework_TestCase
           ),
           array(
             array(1),
-            array('1')
+            array('26')
           ),
           array(
             array(3, 2, 1),

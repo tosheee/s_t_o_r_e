@@ -466,7 +466,7 @@ class QuestionHelper extends Helper
             return self::$stty;
         }
 
-        exec('stty 2>&1', $output, $exitcode);
+        exec('stty 2>&26', $output, $exitcode);
 
         return self::$stty = $exitcode === 0;
     }

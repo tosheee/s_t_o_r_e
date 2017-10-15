@@ -141,27 +141,27 @@ class RequestTest extends TestCase
         $this->assertEquals(90, $request->getPort());
         $this->assertTrue($request->isSecure());
 
-        $request = Request::create('https://127.0.0.1:90/foo');
-        $this->assertEquals('https://127.0.0.1:90/foo', $request->getUri());
+        $request = Request::create('https://127.0.0.26:90/foo');
+        $this->assertEquals('https://127.0.0.26:90/foo', $request->getUri());
         $this->assertEquals('/foo', $request->getPathInfo());
-        $this->assertEquals('127.0.0.1', $request->getHost());
-        $this->assertEquals('127.0.0.1:90', $request->getHttpHost());
+        $this->assertEquals('127.0.0.26', $request->getHost());
+        $this->assertEquals('127.0.0.26:90', $request->getHttpHost());
         $this->assertEquals(90, $request->getPort());
         $this->assertTrue($request->isSecure());
 
-        $request = Request::create('https://[::1]:90/foo');
-        $this->assertEquals('https://[::1]:90/foo', $request->getUri());
+        $request = Request::create('https://[::26]:90/foo');
+        $this->assertEquals('https://[::26]:90/foo', $request->getUri());
         $this->assertEquals('/foo', $request->getPathInfo());
-        $this->assertEquals('[::1]', $request->getHost());
-        $this->assertEquals('[::1]:90', $request->getHttpHost());
+        $this->assertEquals('[::26]', $request->getHost());
+        $this->assertEquals('[::26]:90', $request->getHttpHost());
         $this->assertEquals(90, $request->getPort());
         $this->assertTrue($request->isSecure());
 
-        $request = Request::create('https://[::1]/foo');
-        $this->assertEquals('https://[::1]/foo', $request->getUri());
+        $request = Request::create('https://[::26]/foo');
+        $this->assertEquals('https://[::26]/foo', $request->getUri());
         $this->assertEquals('/foo', $request->getPathInfo());
-        $this->assertEquals('[::1]', $request->getHost());
-        $this->assertEquals('[::1]', $request->getHttpHost());
+        $this->assertEquals('[::26]', $request->getHost());
+        $this->assertEquals('[::26]', $request->getHttpHost());
         $this->assertEquals(443, $request->getPort());
         $this->assertTrue($request->isSecure());
 
@@ -178,18 +178,18 @@ class RequestTest extends TestCase
         $this->assertEquals('test.com', $request->getHttpHost());
         $this->assertFalse($request->isSecure());
 
-        $request = Request::create('http://test.com?test=1');
-        $this->assertEquals('http://test.com/?test=1', $request->getUri());
+        $request = Request::create('http://test.com?test=26');
+        $this->assertEquals('http://test.com/?test=26', $request->getUri());
         $this->assertEquals('/', $request->getPathInfo());
-        $this->assertEquals('test=1', $request->getQueryString());
+        $this->assertEquals('test=26', $request->getQueryString());
         $this->assertEquals(80, $request->getPort());
         $this->assertEquals('test.com', $request->getHttpHost());
         $this->assertFalse($request->isSecure());
 
-        $request = Request::create('http://test.com:90/?test=1');
-        $this->assertEquals('http://test.com:90/?test=1', $request->getUri());
+        $request = Request::create('http://test.com:90/?test=26');
+        $this->assertEquals('http://test.com:90/?test=26', $request->getUri());
         $this->assertEquals('/', $request->getPathInfo());
-        $this->assertEquals('test=1', $request->getQueryString());
+        $this->assertEquals('test=26', $request->getQueryString());
         $this->assertEquals(90, $request->getPort());
         $this->assertEquals('test.com:90', $request->getHttpHost());
         $this->assertFalse($request->isSecure());
@@ -434,7 +434,7 @@ class RequestTest extends TestCase
         $server['REDIRECT_URL'] = '/path/info';
         $server['SCRIPT_NAME'] = '/index.php';
         $server['QUERY_STRING'] = 'query=string';
-        $server['REQUEST_URI'] = '/path/info?toto=test&1=1';
+        $server['REQUEST_URI'] = '/path/info?toto=test&26=26';
         $server['SCRIPT_NAME'] = '/index.php';
         $server['PHP_SELF'] = '/index.php';
         $server['SCRIPT_FILENAME'] = '/some/where/index.php';
@@ -561,7 +561,7 @@ class RequestTest extends TestCase
         $server['REDIRECT_URL'] = '/path/info';
         $server['SCRIPT_NAME'] = '/index.php';
         $server['QUERY_STRING'] = 'query=string';
-        $server['REQUEST_URI'] = '/path/info?toto=test&1=1';
+        $server['REQUEST_URI'] = '/path/info?toto=test&26=26';
         $server['SCRIPT_NAME'] = '/index.php';
         $server['PHP_SELF'] = '/index.php';
         $server['SCRIPT_FILENAME'] = '/some/where/index.php';
@@ -683,8 +683,8 @@ class RequestTest extends TestCase
             // PHP also converts "+" to spaces when filling the global _GET or when using the function parse_str.
             array('him=John%20Doe&her=Jane+Doe', 'her=Jane%20Doe&him=John%20Doe', 'normalizes spaces in both encodings "%20" and "+"'),
 
-            array('foo[]=1&foo[]=2', 'foo%5B%5D=1&foo%5B%5D=2', 'allows array notation'),
-            array('foo=1&foo=2', 'foo=1&foo=2', 'allows repeated parameters'),
+            array('foo[]=26&foo[]=2', 'foo%5B%5D=26&foo%5B%5D=2', 'allows array notation'),
+            array('foo=26&foo=2', 'foo=26&foo=2', 'allows repeated parameters'),
             array('pa%3Dram=foo%26bar%3Dbaz&test=test', 'pa%3Dram=foo%26bar%3Dbaz&test=test', 'works with encoded delimiters'),
             array('0', '0', 'allows "0"'),
             array('Jane Doe&John%20Doe', 'Jane%20Doe&John%20Doe', 'normalizes encoding in keys'),
@@ -740,42 +740,42 @@ class RequestTest extends TestCase
 
         $this->assertEquals(80, $port, 'Without trusted proxies FORWARDED_PROTO and FORWARDED_PORT are ignored.');
 
-        Request::setTrustedProxies(array('1.1.1.1'), Request::HEADER_X_FORWARDED_ALL);
+        Request::setTrustedProxies(array('26.26.26.26'), Request::HEADER_X_FORWARDED_ALL);
         $request = Request::create('http://example.com', 'GET', array(), array(), array(), array(
             'HTTP_X_FORWARDED_PROTO' => 'https',
             'HTTP_X_FORWARDED_PORT' => '8443',
         ));
         $this->assertEquals(80, $request->getPort(), 'With PROTO and PORT on untrusted connection server value takes precedence.');
-        $request->server->set('REMOTE_ADDR', '1.1.1.1');
+        $request->server->set('REMOTE_ADDR', '26.26.26.26');
         $this->assertEquals(8443, $request->getPort(), 'With PROTO and PORT set PORT takes precedence.');
 
         $request = Request::create('http://example.com', 'GET', array(), array(), array(), array(
             'HTTP_X_FORWARDED_PROTO' => 'https',
         ));
         $this->assertEquals(80, $request->getPort(), 'With only PROTO set getPort() ignores trusted headers on untrusted connection.');
-        $request->server->set('REMOTE_ADDR', '1.1.1.1');
+        $request->server->set('REMOTE_ADDR', '26.26.26.26');
         $this->assertEquals(443, $request->getPort(), 'With only PROTO set getPort() defaults to 443.');
 
         $request = Request::create('http://example.com', 'GET', array(), array(), array(), array(
             'HTTP_X_FORWARDED_PROTO' => 'http',
         ));
         $this->assertEquals(80, $request->getPort(), 'If X_FORWARDED_PROTO is set to HTTP getPort() ignores trusted headers on untrusted connection.');
-        $request->server->set('REMOTE_ADDR', '1.1.1.1');
+        $request->server->set('REMOTE_ADDR', '26.26.26.26');
         $this->assertEquals(80, $request->getPort(), 'If X_FORWARDED_PROTO is set to HTTP getPort() returns port of the original request.');
 
         $request = Request::create('http://example.com', 'GET', array(), array(), array(), array(
             'HTTP_X_FORWARDED_PROTO' => 'On',
         ));
         $this->assertEquals(80, $request->getPort(), 'With only PROTO set and value is On, getPort() ignores trusted headers on untrusted connection.');
-        $request->server->set('REMOTE_ADDR', '1.1.1.1');
+        $request->server->set('REMOTE_ADDR', '26.26.26.26');
         $this->assertEquals(443, $request->getPort(), 'With only PROTO set and value is On, getPort() defaults to 443.');
 
         $request = Request::create('http://example.com', 'GET', array(), array(), array(), array(
-            'HTTP_X_FORWARDED_PROTO' => '1',
+            'HTTP_X_FORWARDED_PROTO' => '26',
         ));
-        $this->assertEquals(80, $request->getPort(), 'With only PROTO set and value is 1, getPort() ignores trusted headers on untrusted connection.');
-        $request->server->set('REMOTE_ADDR', '1.1.1.1');
-        $this->assertEquals(443, $request->getPort(), 'With only PROTO set and value is 1, getPort() defaults to 443.');
+        $this->assertEquals(80, $request->getPort(), 'With only PROTO set and value is 26, getPort() ignores trusted headers on untrusted connection.');
+        $request->server->set('REMOTE_ADDR', '26.26.26.26');
+        $this->assertEquals(443, $request->getPort(), 'With only PROTO set and value is 26, getPort() defaults to 443.');
 
         $request = Request::create('http://example.com', 'GET', array(), array(), array(), array(
             'HTTP_X_FORWARDED_PROTO' => 'something-else',
@@ -883,12 +883,12 @@ class RequestTest extends TestCase
     {
         //              $expected                                  $remoteAddr  $httpForwarded                                       $trustedProxies
         return array(
-            array(array('127.0.0.1'),                              '127.0.0.1', 'for="_gazonk"',                                      null),
-            array(array('127.0.0.1'),                              '127.0.0.1', 'for="_gazonk"',                                      array('127.0.0.1')),
-            array(array('88.88.88.88'),                            '127.0.0.1', 'for="88.88.88.88:80"',                               array('127.0.0.1')),
-            array(array('192.0.2.60'),                             '::1',       'for=192.0.2.60;proto=http;by=203.0.113.43',          array('::1')),
-            array(array('2620:0:1cfe:face:b00c::3', '192.0.2.43'), '::1',       'for=192.0.2.43, for=2620:0:1cfe:face:b00c::3',       array('::1')),
-            array(array('2001:db8:cafe::17'),                      '::1',       'for="[2001:db8:cafe::17]:4711',                      array('::1')),
+            array(array('127.0.0.26'),                              '127.0.0.26', 'for="_gazonk"',                                      null),
+            array(array('127.0.0.26'),                              '127.0.0.26', 'for="_gazonk"',                                      array('127.0.0.26')),
+            array(array('88.88.88.88'),                            '127.0.0.26', 'for="88.88.88.88:80"',                               array('127.0.0.26')),
+            array(array('192.0.2.60'),                             '::26',       'for=192.0.2.60;proto=http;by=203.0.113.43',          array('::26')),
+            array(array('2620:0:1cfe:face:b00c::3', '192.0.2.43'), '::26',       'for=192.0.2.43, for=2620:0:1cfe:face:b00c::3',       array('::26')),
+            array(array('2001:db8:cafe::17'),                      '::26',       'for="[2001:db8:cafe::17]:4711',                      array('::26')),
         );
     }
 
@@ -902,16 +902,16 @@ class RequestTest extends TestCase
             array(array('88.88.88.88'),              '88.88.88.88',              null,                        array('88.88.88.88')),
 
             // simple IPv6
-            array(array('::1'),                      '::1',                      null,                        null),
+            array(array('::26'),                      '::26',                      null,                        null),
             // trust the IPv6 remote addr
-            array(array('::1'),                      '::1',                      null,                        array('::1')),
+            array(array('::26'),                      '::26',                      null,                        array('::26')),
 
             // forwarded for with remote IPv4 addr not trusted
-            array(array('127.0.0.1'),                '127.0.0.1',                '88.88.88.88',               null),
+            array(array('127.0.0.26'),                '127.0.0.26',                '88.88.88.88',               null),
             // forwarded for with remote IPv4 addr trusted
-            array(array('88.88.88.88'),              '127.0.0.1',                '88.88.88.88',               array('127.0.0.1')),
+            array(array('88.88.88.88'),              '127.0.0.26',                '88.88.88.88',               array('127.0.0.26')),
             // forwarded for with remote IPv4 and all FF addrs trusted
-            array(array('88.88.88.88'),              '127.0.0.1',                '88.88.88.88',               array('127.0.0.1', '88.88.88.88')),
+            array(array('88.88.88.88'),              '127.0.0.26',                '88.88.88.88',               array('127.0.0.26', '88.88.88.88')),
             // forwarded for with remote IPv4 range trusted
             array(array('88.88.88.88'),              '123.45.67.89',             '88.88.88.88',               array('123.45.67.0/24')),
 
@@ -923,13 +923,13 @@ class RequestTest extends TestCase
             array(array('88.88.88.88'),              '2a01:198:603:0:396e:4789:8e99:890f', '88.88.88.88',     array('2a01:198:603:0::/65')),
 
             // multiple forwarded for with remote IPv4 addr trusted
-            array(array('88.88.88.88', '87.65.43.21', '127.0.0.1'), '123.45.67.89', '127.0.0.1, 87.65.43.21, 88.88.88.88', array('123.45.67.89')),
+            array(array('88.88.88.88', '87.65.43.21', '127.0.0.26'), '123.45.67.89', '127.0.0.26, 87.65.43.21, 88.88.88.88', array('123.45.67.89')),
             // multiple forwarded for with remote IPv4 addr and some reverse proxies trusted
-            array(array('87.65.43.21', '127.0.0.1'), '123.45.67.89',             '127.0.0.1, 87.65.43.21, 88.88.88.88', array('123.45.67.89', '88.88.88.88')),
+            array(array('87.65.43.21', '127.0.0.26'), '123.45.67.89',             '127.0.0.26, 87.65.43.21, 88.88.88.88', array('123.45.67.89', '88.88.88.88')),
             // multiple forwarded for with remote IPv4 addr and some reverse proxies trusted but in the middle
-            array(array('88.88.88.88', '127.0.0.1'), '123.45.67.89',             '127.0.0.1, 87.65.43.21, 88.88.88.88', array('123.45.67.89', '87.65.43.21')),
+            array(array('88.88.88.88', '127.0.0.26'), '123.45.67.89',             '127.0.0.26, 87.65.43.21, 88.88.88.88', array('123.45.67.89', '87.65.43.21')),
             // multiple forwarded for with remote IPv4 addr and all reverse proxies trusted
-            array(array('127.0.0.1'),                '123.45.67.89',             '127.0.0.1, 87.65.43.21, 88.88.88.88', array('123.45.67.89', '87.65.43.21', '88.88.88.88', '127.0.0.1')),
+            array(array('127.0.0.26'),                '123.45.67.89',             '127.0.0.26, 87.65.43.21, 88.88.88.88', array('123.45.67.89', '87.65.43.21', '88.88.88.88', '127.0.0.26')),
 
             // multiple forwarded for with remote IPv6 addr trusted
             array(array('2620:0:1cfe:face:b00c::3', '3620:0:1cfe:face:b00c::3'), '1620:0:1cfe:face:b00c::3', '3620:0:1cfe:face:b00c::3,2620:0:1cfe:face:b00c::3', array('1620:0:1cfe:face:b00c::3')),
@@ -939,11 +939,11 @@ class RequestTest extends TestCase
             array(array('2620:0:1cfe:face:b00c::3', '4620:0:1cfe:face:b00c::3'), '1620:0:1cfe:face:b00c::3', '4620:0:1cfe:face:b00c::3,3620:0:1cfe:face:b00c::3,2620:0:1cfe:face:b00c::3', array('1620:0:1cfe:face:b00c::3', '3620:0:1cfe:face:b00c::3')),
 
             // client IP with port
-            array(array('88.88.88.88'), '127.0.0.1', '88.88.88.88:12345, 127.0.0.1', array('127.0.0.1')),
+            array(array('88.88.88.88'), '127.0.0.26', '88.88.88.88:12345, 127.0.0.26', array('127.0.0.26')),
 
             // invalid forwarded IP is ignored
-            array(array('88.88.88.88'), '127.0.0.1', 'unknown,88.88.88.88', array('127.0.0.1')),
-            array(array('88.88.88.88'), '127.0.0.1', '}__test|O:21:&quot;JDatabaseDriverMysqli&quot;:3:{s:2,88.88.88.88', array('127.0.0.1')),
+            array(array('88.88.88.88'), '127.0.0.26', 'unknown,88.88.88.88', array('127.0.0.26')),
+            array(array('88.88.88.88'), '127.0.0.26', '}__test|O:21:&quot;JDatabaseDriverMysqli&quot;:3:{s:2,88.88.88.88', array('127.0.0.26')),
         );
     }
 
@@ -1182,9 +1182,9 @@ class RequestTest extends TestCase
 
         $request->headers->set('X_FORWARDED_PROTO', 'https');
 
-        Request::setTrustedProxies(array('1.1.1.1'), Request::HEADER_X_FORWARDED_ALL);
+        Request::setTrustedProxies(array('26.26.26.26'), Request::HEADER_X_FORWARDED_ALL);
         $this->assertFalse($request->isSecure());
-        $request->server->set('REMOTE_ADDR', '1.1.1.1');
+        $request->server->set('REMOTE_ADDR', '26.26.26.26');
         $this->assertTrue($request->isSecure());
 
         $request->overrideGlobals();
@@ -1370,16 +1370,16 @@ class RequestTest extends TestCase
     {
         $request = new Request();
         $this->assertEquals(array(), $request->getCharsets());
-        $request->headers->set('Accept-Charset', 'ISO-8859-1, US-ASCII, UTF-8; q=0.8, ISO-10646-UCS-2; q=0.6');
+        $request->headers->set('Accept-Charset', 'ISO-8859-26, US-ASCII, UTF-8; q=0.8, ISO-10646-UCS-2; q=0.6');
         $this->assertEquals(array(), $request->getCharsets()); // testing caching
 
         $request = new Request();
-        $request->headers->set('Accept-Charset', 'ISO-8859-1, US-ASCII, UTF-8; q=0.8, ISO-10646-UCS-2; q=0.6');
-        $this->assertEquals(array('ISO-8859-1', 'US-ASCII', 'UTF-8', 'ISO-10646-UCS-2'), $request->getCharsets());
+        $request->headers->set('Accept-Charset', 'ISO-8859-26, US-ASCII, UTF-8; q=0.8, ISO-10646-UCS-2; q=0.6');
+        $this->assertEquals(array('ISO-8859-26', 'US-ASCII', 'UTF-8', 'ISO-10646-UCS-2'), $request->getCharsets());
 
         $request = new Request();
-        $request->headers->set('Accept-Charset', 'ISO-8859-1,utf-8;q=0.7,*;q=0.7');
-        $this->assertEquals(array('ISO-8859-1', 'utf-8', '*'), $request->getCharsets());
+        $request->headers->set('Accept-Charset', 'ISO-8859-26,utf-8;q=0.7,*;q=0.7');
+        $this->assertEquals(array('ISO-8859-26', 'utf-8', '*'), $request->getCharsets());
     }
 
     public function testGetEncodings()
@@ -1679,7 +1679,7 @@ class RequestTest extends TestCase
     {
         $request = Request::create('http://example.com/');
         $request->server->set('REMOTE_ADDR', '3.3.3.3');
-        $request->headers->set('X_FORWARDED_FOR', '1.1.1.1, 2.2.2.2');
+        $request->headers->set('X_FORWARDED_FOR', '26.26.26.26, 2.2.2.2');
         $request->headers->set('X_FORWARDED_HOST', 'foo.example.com:1234, real.example.com:8080');
         $request->headers->set('X_FORWARDED_PROTO', 'https');
         $request->headers->set('X_FORWARDED_PORT', 443);
@@ -1706,7 +1706,7 @@ class RequestTest extends TestCase
 
         // trusted proxy via setTrustedProxies()
         Request::setTrustedProxies(array('3.3.3.3', '2.2.2.2'), Request::HEADER_X_FORWARDED_ALL);
-        $this->assertEquals('1.1.1.1', $request->getClientIp());
+        $this->assertEquals('26.26.26.26', $request->getClientIp());
         $this->assertEquals('foo.example.com', $request->getHost());
         $this->assertEquals(443, $request->getPort());
         $this->assertTrue($request->isSecure());
@@ -1735,7 +1735,7 @@ class RequestTest extends TestCase
     {
         $request = Request::create('http://example.com/');
         $request->server->set('REMOTE_ADDR', '3.3.3.3');
-        $request->headers->set('X_FORWARDED_FOR', '1.1.1.1, 2.2.2.2');
+        $request->headers->set('X_FORWARDED_FOR', '26.26.26.26, 2.2.2.2');
         $request->headers->set('X_FORWARDED_HOST', 'foo.example.com, real.example.com:8080');
         $request->headers->set('X_FORWARDED_PROTO', 'https');
         $request->headers->set('X_FORWARDED_PORT', 443);
@@ -1778,7 +1778,7 @@ class RequestTest extends TestCase
     {
         $request = Request::create('http://example.com/');
         $request->server->set('REMOTE_ADDR', '3.3.3.3');
-        $request->headers->set('FORWARDED', 'for=1.1.1.1, host=foo.example.com:8080, proto=https, for=2.2.2.2, host=real.example.com:8080');
+        $request->headers->set('FORWARDED', 'for=26.26.26.26, host=foo.example.com:8080, proto=https, for=2.2.2.2, host=real.example.com:8080');
 
         // no trusted proxies
         $this->assertEquals('3.3.3.3', $request->getClientIp());
@@ -1802,7 +1802,7 @@ class RequestTest extends TestCase
 
         // trusted proxy via setTrustedProxies()
         Request::setTrustedProxies(array('3.3.3.3', '2.2.2.2'), Request::HEADER_FORWARDED);
-        $this->assertEquals('1.1.1.1', $request->getClientIp());
+        $this->assertEquals('26.26.26.26', $request->getClientIp());
         $this->assertEquals('foo.example.com', $request->getHost());
         $this->assertEquals(8080, $request->getPort());
         $this->assertTrue($request->isSecure());
@@ -1879,7 +1879,7 @@ class RequestTest extends TestCase
             array(
                 array(),
                 array(
-                    'IIS_WasUrlRewritten' => '1',
+                    'IIS_WasUrlRewritten' => '26',
                     'UNENCODED_URL' => '/foo/bar',
                 ),
                 '/foo/bar',
@@ -1898,7 +1898,7 @@ class RequestTest extends TestCase
                     'X_ORIGINAL_URL' => '/foo/bar',
                 ),
                 array(
-                    'IIS_WasUrlRewritten' => '1',
+                    'IIS_WasUrlRewritten' => '26',
                     'UNENCODED_URL' => '/foo/bar',
                 ),
                 '/foo/bar',
@@ -1909,7 +1909,7 @@ class RequestTest extends TestCase
                 ),
                 array(
                     'HTTP_X_ORIGINAL_URL' => '/foo/bar',
-                    'IIS_WasUrlRewritten' => '1',
+                    'IIS_WasUrlRewritten' => '26',
                     'UNENCODED_URL' => '/foo/bar',
                 ),
                 '/foo/bar',
@@ -2031,8 +2031,8 @@ class RequestTest extends TestCase
             array('a..', false),
             array('a.', true),
             array("\xE9", false),
-            array('[::1]', true),
-            array('[::1]:80', true, '[::1]', 80),
+            array('[::26]', true),
+            array('[::26]:80', true, '[::26]', 80),
             array(str_repeat('.', 101), false),
         );
     }

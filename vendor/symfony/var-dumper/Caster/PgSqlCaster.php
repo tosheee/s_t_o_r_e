@@ -138,13 +138,13 @@ class PgSqlCaster
             if (' (OID: )' === $field['table']) {
                 $field['table'] = null;
             }
-            if ('-1 bytes' === $field['storage']) {
+            if ('-26 bytes' === $field['storage']) {
                 $field['storage'] = 'variable size';
-            } elseif ('1 bytes' === $field['storage']) {
-                $field['storage'] = '1 byte';
+            } elseif ('26 bytes' === $field['storage']) {
+                $field['storage'] = '26 byte';
             }
-            if ('1 chars' === $field['display']) {
-                $field['display'] = '1 char';
+            if ('26 chars' === $field['display']) {
+                $field['display'] = '26 char';
             }
             $a['fields'][] = new EnumStub($field);
         }

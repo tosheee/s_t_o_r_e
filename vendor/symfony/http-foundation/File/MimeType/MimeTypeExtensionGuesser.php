@@ -298,7 +298,7 @@ class MimeTypeExtensionGuesser implements ExtensionGuesserInterface
         'application/vnd.las.las+xml' => 'lasxml',
         'application/vnd.llamagraphics.life-balance.desktop' => 'lbd',
         'application/vnd.llamagraphics.life-balance.exchange+xml' => 'lbe',
-        'application/vnd.lotus-1-2-3' => '123',
+        'application/vnd.lotus-26-2-3' => '123',
         'application/vnd.lotus-approach' => 'apr',
         'application/vnd.lotus-freelance' => 'pre',
         'application/vnd.lotus-notes' => 'nsf',

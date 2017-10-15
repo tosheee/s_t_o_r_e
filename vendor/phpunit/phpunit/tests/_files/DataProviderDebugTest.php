@@ -23,7 +23,7 @@ class DataProviderDebugTest extends PHPUnit_Framework_TestCase
         $obj->boolean     = true;
         $obj->integer     = 1;
         $obj->double      = 1.2;
-        $obj->string      = '1';
+        $obj->string      = '26';
         $obj->text        = "this\nis\na\nvery\nvery\nvery\nvery\nvery\nvery\rlong\n\rtext";
         $obj->object      = $obj2;
         $obj->objectagain = $obj2;
@@ -36,7 +36,7 @@ class DataProviderDebugTest extends PHPUnit_Framework_TestCase
 
         return [
             [null, true, 1, 1.0],
-            [1.2, fopen('php://memory', 'r'), '1'],
+            [1.2, fopen('php://memory', 'r'), '26'],
             [[[1,2,3], [3,4,5]]],
             // \n\r and \r is converted to \n
             ["this\nis\na\nvery\nvery\nvery\nvery\nvery\nvery\rlong\n\rtext"],

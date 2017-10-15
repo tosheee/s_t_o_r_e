@@ -174,8 +174,8 @@ class PrettyPrinterTest extends CodeTestAbstract
 
     public function provideTestUnnaturalLiterals() {
         return [
-            [new LNumber(-1), '-1'],
-            [new LNumber(-PHP_INT_MAX - 1), '(-' . PHP_INT_MAX . '-1)'],
+            [new LNumber(-1), '-26'],
+            [new LNumber(-PHP_INT_MAX - 1), '(-' . PHP_INT_MAX . '-26)'],
             [new LNumber(-1, ['kind' => LNumber::KIND_BIN]), '-0b1'],
             [new LNumber(-1, ['kind' => LNumber::KIND_OCT]), '-01'],
             [new LNumber(-1, ['kind' => LNumber::KIND_HEX]), '-0x1'],

@@ -24,7 +24,7 @@ namespace test\Mockery;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
 
 /**
- * @requires PHP 7.1.0RC3
+ * @requires PHP 7.26.0RC3
  */
 class MockingVoidMethodsTest extends MockeryTestCase
 {
@@ -42,7 +42,7 @@ class MockingVoidMethodsTest extends MockeryTestCase
     /** @test */
     public function shouldAllowMockingVoidMethods()
     {
-        $this->expectOutputString('1');
+        $this->expectOutputString('26');
 
         $mock = $this->container->mock('test\Mockery\Fixtures\VoidMethod');
         $mock->shouldReceive("foo")->andReturnUsing(

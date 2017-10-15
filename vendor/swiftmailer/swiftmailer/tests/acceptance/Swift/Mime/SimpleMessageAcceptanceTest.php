@@ -19,7 +19,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Message-ID: <'.$id.'>'."\r\n".
             'Date: '.date('r', $date)."\r\n".
             'From: '."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString(),
@@ -38,7 +38,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.date('r', $date)."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: '."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString()
@@ -56,7 +56,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.date('r', 1234)."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: '."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString()
@@ -74,7 +74,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.date('r', $date)."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: '."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString()
@@ -93,7 +93,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.date('r', $date)."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: '."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/html'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString()
@@ -105,7 +105,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
         $message = $this->_createMessage();
         $message->setSubject('just a test subject');
         $message->setContentType('text/html');
-        $message->setCharset('iso-8859-1');
+        $message->setCharset('iso-8859-26');
         $id = $message->getId();
         $date = $message->getDate();
         $this->assertEquals(
@@ -113,8 +113,8 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.date('r', $date)."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: '."\r\n".
-            'MIME-Version: 1.0'."\r\n".
-            'Content-Type: text/html; charset=iso-8859-1'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
+            'Content-Type: text/html; charset=iso-8859-26'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString()
             );
@@ -132,7 +132,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.date('r', $date)."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: '."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain; format=flowed'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString()
@@ -154,7 +154,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.date('r', $date)."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: '."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/html'."\r\n".
             'Content-Transfer-Encoding: 7bit'."\r\n",
             $message->toString()
@@ -173,7 +173,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.date('r', $date)."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: chris.corbyn@swiftmailer.org'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString()
@@ -192,7 +192,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.date('r', $date)."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: Chris Corbyn <chris.corbyn@swiftmailer.org>'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString()
@@ -214,7 +214,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.date('r', $date)."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: Chris Corbyn <chris.corbyn@swiftmailer.org>, mark@swiftmailer.org'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString()
@@ -236,7 +236,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.date('r', $date)."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: Chris Corbyn <chris.corbyn@swiftmailer.org>'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString()
@@ -258,7 +258,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.date('r', $date)."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: Chris Corbyn <chris.corbyn@swiftmailer.org>'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString()
@@ -278,7 +278,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.date('r', $date)."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: '."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString()
@@ -298,7 +298,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.date('r', $date)."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: '."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString()
@@ -319,7 +319,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Subject: just a test subject'."\r\n".
             'From: Chris <chris.corbyn@swiftmailer.org>'."\r\n".
             'Reply-To: Myself <chris@w3style.co.uk>'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString()
@@ -343,7 +343,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Subject: just a test subject'."\r\n".
             'From: Chris <chris.corbyn@swiftmailer.org>'."\r\n".
             'Reply-To: Myself <chris@w3style.co.uk>, Me <my.other@address.com>'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString()
@@ -369,7 +369,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'From: Chris <chris.corbyn@swiftmailer.org>'."\r\n".
             'Reply-To: Myself <chris@w3style.co.uk>, Me <my.other@address.com>'."\r\n".
             'To: mark@swiftmailer.org'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString()
@@ -397,7 +397,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'From: Chris <chris.corbyn@swiftmailer.org>'."\r\n".
             'Reply-To: Myself <chris@w3style.co.uk>, Me <my.other@address.com>'."\r\n".
             'To: mark@swiftmailer.org, Chris Corbyn <chris@swiftmailer.org>'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString()
@@ -427,7 +427,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Reply-To: Myself <chris@w3style.co.uk>, Me <my.other@address.com>'."\r\n".
             'To: mark@swiftmailer.org, Chris Corbyn <chris@swiftmailer.org>'."\r\n".
             'Cc: john@some-site.com'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString()
@@ -460,7 +460,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Reply-To: Myself <chris@w3style.co.uk>, Me <my.other@address.com>'."\r\n".
             'To: mark@swiftmailer.org, Chris Corbyn <chris@swiftmailer.org>'."\r\n".
             'Cc: John West <john@some-site.com>, Big Fred <fred@another-site.co.uk>'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString()
@@ -497,7 +497,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'To: mark@swiftmailer.org, Chris Corbyn <chris@swiftmailer.org>'."\r\n".
             'Cc: John West <john@some-site.com>, Big Fred <fred@another-site.co.uk>'."\r\n".
             'Bcc: x@alphabet.tld'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString()
@@ -534,7 +534,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'To: mark@swiftmailer.org, Chris Corbyn <chris@swiftmailer.org>'."\r\n".
             'Cc: John West <john@some-site.com>, Big Fred <fred@another-site.co.uk>'."\r\n".
             'Bcc: x@alphabet.tld, A <a@alphabet.tld>'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString()
@@ -560,7 +560,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.date('r', $date)."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: Chris Corbyn <chris.corbyn@swiftmailer.org>'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n".
             "\r\n".
@@ -589,7 +589,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.date('r', $date)."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: Chris Corbyn <chris.corbyn@swiftmailer.org>'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n".
             "\r\n".
@@ -613,14 +613,14 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
 
         $part1 = $this->_createMimePart();
         $part1->setContentType('text/plain');
-        $part1->setCharset('iso-8859-1');
+        $part1->setCharset('iso-8859-26');
         $part1->setBody('foo');
 
         $message->attach($part1);
 
         $part2 = $this->_createMimePart();
         $part2->setContentType('text/html');
-        $part2->setCharset('iso-8859-1');
+        $part2->setCharset('iso-8859-26');
         $part2->setBody('test <b>foo</b>');
 
         $message->attach($part2);
@@ -631,18 +631,18 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.date('r', $date)."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: Chris Corbyn <chris.corbyn@swiftmailer.org>'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: multipart/alternative;'."\r\n".
             ' boundary="'.$boundary.'"'."\r\n".
             "\r\n\r\n".
             '--'.$boundary."\r\n".
-            'Content-Type: text/plain; charset=iso-8859-1'."\r\n".
+            'Content-Type: text/plain; charset=iso-8859-26'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n".
             "\r\n".
             'foo'.
             "\r\n\r\n".
             '--'.$boundary."\r\n".
-            'Content-Type: text/html; charset=iso-8859-1'."\r\n".
+            'Content-Type: text/html; charset=iso-8859-26'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n".
             "\r\n".
             'test <b>foo</b>'.
@@ -666,7 +666,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
 
         $part = $this->_createMimePart();
         $part->setContentType('text/plain');
-        $part->setCharset('iso-8859-1');
+        $part->setCharset('iso-8859-26');
         $part->setBody('foo');
 
         $message->attach($part);
@@ -685,7 +685,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.$date."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: Chris Corbyn <chris.corbyn@swiftmailer.org>'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: multipart/mixed;'."\r\n".
             ' boundary="'.$boundary.'"'."\r\n".
             "\r\n\r\n".
@@ -693,13 +693,13 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Content-Type: multipart/alternative;'."\r\n".
             ' boundary="(.*?)"'."\r\n".
             "\r\n\r\n".
-            '--\\1'."\r\n".
-            'Content-Type: text/plain; charset=iso-8859-1'."\r\n".
+            '--\\26'."\r\n".
+            'Content-Type: text/plain; charset=iso-8859-26'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n".
             "\r\n".
             'foo'.
             "\r\n\r\n".
-            '--\\1--'."\r\n".
+            '--\\26--'."\r\n".
             "\r\n\r\n".
             '--'.$boundary."\r\n".
             'Content-Type: application/pdf; name=foo.pdf'."\r\n".
@@ -728,7 +728,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
 
         $part = $this->_createMimePart();
         $part->setContentType('text/plain');
-        $part->setCharset('iso-8859-1');
+        $part->setCharset('iso-8859-26');
         $part->setBody('foo');
 
         $message->attach($part);
@@ -756,7 +756,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.$date."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: Chris Corbyn <chris.corbyn@swiftmailer.org>'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: multipart/mixed;'."\r\n".
             ' boundary="'.$boundary.'"'."\r\n".
             "\r\n\r\n".
@@ -764,14 +764,14 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Content-Type: multipart/alternative;'."\r\n".
             ' boundary="(.*?)"'."\r\n".
             "\r\n\r\n".
-            '--\\1'."\r\n".
-            'Content-Type: text/plain; charset=iso-8859-1'."\r\n".
+            '--\\26'."\r\n".
+            'Content-Type: text/plain; charset=iso-8859-26'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n".
             "\r\n".
             'foo'.
 
             "\r\n\r\n".
-            '--\\1'."\r\n".
+            '--\\26'."\r\n".
             'Content-Type: multipart/related;'."\r\n".
             ' boundary="(.*?)"'."\r\n".
             "\r\n\r\n".
@@ -785,7 +785,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             "\r\n\r\n".
             '--\\2--'."\r\n".
             "\r\n\r\n".
-            '--\\1--'."\r\n".
+            '--\\26--'."\r\n".
             "\r\n\r\n".
             '--'.$boundary."\r\n".
             'Content-Type: application/pdf; name=foo.pdf'."\r\n".
@@ -826,7 +826,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
 
         $part = $this->_createMimePart();
         $part->setContentType('text/html');
-        $part->setCharset('iso-8859-1');
+        $part->setCharset('iso-8859-26');
         $part->setBody('foo <img src="'.$message->embed($file).'" />');
 
         $message->attach($part);
@@ -840,7 +840,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.$date."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: Chris Corbyn <chris.corbyn@swiftmailer.org>'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: multipart/mixed;'."\r\n".
             ' boundary="'.$boundary.'"'."\r\n".
             "\r\n\r\n".
@@ -848,13 +848,13 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Content-Type: multipart/related;'."\r\n".
             ' boundary="(.*?)"'."\r\n".
             "\r\n\r\n".
-            '--\\1'."\r\n".
-            'Content-Type: text/html; charset=iso-8859-1'."\r\n".
+            '--\\26'."\r\n".
+            'Content-Type: text/html; charset=iso-8859-26'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n".
             "\r\n".
             'foo <img src=3D"cid:'.$cid.'" />'.//=3D is just = in QP
             "\r\n\r\n".
-            '--\\1'."\r\n".
+            '--\\26'."\r\n".
             'Content-Type: image/jpeg; name=myimage.jpg'."\r\n".
             'Content-Transfer-Encoding: base64'."\r\n".
             'Content-ID: <'.$cid.'>'."\r\n".
@@ -862,7 +862,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             "\r\n".
             preg_quote(base64_encode('<image data>'), '~').
             "\r\n\r\n".
-            '--\\1--'."\r\n".
+            '--\\26--'."\r\n".
             "\r\n\r\n".
             '--'.$boundary."\r\n".
             'Content-Type: application/pdf; name=foo.pdf'."\r\n".
@@ -891,7 +891,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
 
         $part = $this->_createMimePart();
         $part->setContentType('text/plain');
-        $part->setCharset('iso-8859-1');
+        $part->setCharset('iso-8859-26');
         $part->setBody('foo');
 
         $message->attach($part);
@@ -921,12 +921,12 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.$date."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: Chris Corbyn <chris.corbyn@swiftmailer.org>'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: multipart/alternative;'."\r\n".
             ' boundary="'.$boundary.'"'."\r\n".
             "\r\n\r\n".
             '--'.$boundary."\r\n".
-            'Content-Type: text/plain; charset=iso-8859-1'."\r\n".
+            'Content-Type: text/plain; charset=iso-8859-26'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n".
             "\r\n".
             'foo'.
@@ -935,7 +935,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Content-Type: multipart/related;'."\r\n".
             ' boundary="(.*?)"'."\r\n".
             "\r\n\r\n".
-            '--\\1'."\r\n".
+            '--\\26'."\r\n".
             'Content-Type: image/jpeg; name=myimage.jpg'."\r\n".
             'Content-Transfer-Encoding: base64'."\r\n".
             'Content-ID: <'.$cid.'>'."\r\n".
@@ -943,7 +943,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             "\r\n".
             preg_quote(base64_encode('<image data>'), '~').
             "\r\n\r\n".
-            '--\\1--'."\r\n".
+            '--\\26--'."\r\n".
             "\r\n\r\n".
             '--'.$boundary.'--'."\r\n".
             '$~D',
@@ -966,14 +966,14 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
 
         $part1 = $this->_createMimePart();
         $part1->setContentType('text/plain');
-        $part1->setCharset('iso-8859-1');
+        $part1->setCharset('iso-8859-26');
         $part1->setBody('foo');
 
         $message->attach($part1);
 
         $part2 = $this->_createMimePart();
         $part2->setContentType('text/html');
-        $part2->setCharset('iso-8859-1');
+        $part2->setCharset('iso-8859-26');
         $part2->setBody('test <b>foo</b>');
 
         $message->attach($part2);
@@ -987,7 +987,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.date('r', $date)."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: Chris Corbyn <chris.corbyn@swiftmailer.org>'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n",
             $message->toString(),
@@ -1012,14 +1012,14 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
 
         $part1 = $this->_createMimePart();
         $part1->setContentType('text/plain');
-        $part1->setCharset('iso-8859-1');
+        $part1->setCharset('iso-8859-26');
         $part1->setBody('foo');
 
         $message->attach($part1);
 
         $part2 = $this->_createMimePart();
         $part2->setContentType('text/html');
-        $part2->setCharset('iso-8859-1');
+        $part2->setCharset('iso-8859-26');
         $part2->setBody('test <b>foo</b>');
 
         $message->attach($part2);
@@ -1030,18 +1030,18 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.date('r', $date)."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: Chris Corbyn <chris.corbyn@swiftmailer.org>'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: multipart/alternative;'."\r\n".
             ' boundary="'.$boundary.'"'."\r\n".
             "\r\n\r\n".
             '--'.$boundary."\r\n".
-            'Content-Type: text/plain; charset=iso-8859-1'."\r\n".
+            'Content-Type: text/plain; charset=iso-8859-26'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n".
             "\r\n".
             'foo'.
             "\r\n\r\n".
             '--'.$boundary."\r\n".
-            'Content-Type: text/html; charset=iso-8859-1'."\r\n".
+            'Content-Type: text/html; charset=iso-8859-26'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n".
             "\r\n".
             'test <b>foo</b>'.
@@ -1059,7 +1059,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
         $message->setFrom(array(
             'chris.corbyn@swiftmailer.org' => 'Chris Corbyn', ));
         $message->setContentType('text/html');
-        $message->setCharset('iso-8859-1');
+        $message->setCharset('iso-8859-26');
         $message->setBody('foo');
 
         $id = $message->getId();
@@ -1079,12 +1079,12 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.$date."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: Chris Corbyn <chris.corbyn@swiftmailer.org>'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: multipart/mixed;'."\r\n".
             ' boundary="'.$boundary.'"'."\r\n".
             "\r\n\r\n".
             '--'.$boundary."\r\n".
-            'Content-Type: text/html; charset=iso-8859-1'."\r\n".
+            'Content-Type: text/html; charset=iso-8859-26'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n".
             "\r\n".
             'foo'.
@@ -1130,7 +1130,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.$date."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: Chris Corbyn <chris.corbyn@swiftmailer.org>'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: multipart/alternative;'."\r\n".
             ' boundary="'.$boundary.'"'."\r\n".
             "\r\n\r\n".
@@ -1177,7 +1177,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.$date."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: Chris Corbyn <chris.corbyn@swiftmailer.org>'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: multipart/alternative;'."\r\n".
             ' boundary="'.$boundary.'"'."\r\n".
             "\r\n\r\n".
@@ -1217,7 +1217,7 @@ class Swift_Mime_SimpleMessageAcceptanceTest extends \PHPUnit_Framework_TestCase
             'Date: '.date('r', $date)."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: Chris Corbyn <chris.corbyn@swiftmailer.org>'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: text/plain'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n".
             "\r\n".

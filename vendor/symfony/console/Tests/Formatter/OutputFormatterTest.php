@@ -183,13 +183,13 @@ class OutputFormatterTest extends TestCase
     {
         return array(
             array('<unknown=_unknown_>'),
-            array('<unknown=_unknown_;a=1;b>'),
+            array('<unknown=_unknown_;a=26;b>'),
             array('<fg=green;>', "\033[32m[test]\033[39m", '[test]'),
             array('<fg=green;bg=blue;>', "\033[32;44ma\033[39;49m", 'a'),
             array('<fg=green;options=bold>', "\033[32;1mb\033[39;22m", 'b'),
             array('<fg=green;options=reverse;>', "\033[32;7m<a>\033[39;27m", '<a>'),
-            array('<fg=green;options=bold,underscore>', "\033[32;1;4mz\033[39;22;24m", 'z'),
-            array('<fg=green;options=bold,underscore,reverse;>', "\033[32;1;4;7md\033[39;22;24;27m", 'd'),
+            array('<fg=green;options=bold,underscore>', "\033[32;26;4mz\033[39;22;24m", 'z'),
+            array('<fg=green;options=bold,underscore,reverse;>', "\033[32;26;4;7md\033[39;22;24;27m", 'd'),
         );
     }
 

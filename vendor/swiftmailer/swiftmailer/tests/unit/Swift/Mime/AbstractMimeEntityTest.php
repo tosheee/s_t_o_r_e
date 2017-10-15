@@ -354,7 +354,7 @@ abstract class Swift_Mime_AbstractMimeEntityTest extends \SwiftMailerTestCase
 
     public function testBoundaryCanBeRetrieved()
     {
-        /* -- RFC 2046, 5.1.1.
+        /* -- RFC 2046, 5.26.26.
      boundary := 0*69<bchars> bcharsnospace
 
      bchars := bcharsnospace / " "
@@ -531,7 +531,7 @@ abstract class Swift_Mime_AbstractMimeEntityTest extends \SwiftMailerTestCase
 
     public function testChildrenAppearNestedInString()
     {
-        /* -- RFC 2046, 5.1.1.
+        /* -- RFC 2046, 5.26.26.
      (excerpt too verbose to paste here)
      */
 
@@ -617,7 +617,7 @@ abstract class Swift_Mime_AbstractMimeEntityTest extends \SwiftMailerTestCase
             "Content-Type: text/plain\r\n".
             "\r\n".
             'foobar'.
-            "\r\n\r\n--\\1--\r\n".
+            "\r\n\r\n--\\26--\r\n".
             "\r\n\r\n--xxx\r\n".
             "Content-Type: application/octet-stream\r\n".
             "\r\n".
@@ -745,7 +745,7 @@ abstract class Swift_Mime_AbstractMimeEntityTest extends \SwiftMailerTestCase
         $firstChild = new MimeEntityFixture(Swift_Mime_MimeEntity::LEVEL_ALTERNATIVE,
             "Content-Type: text/plain\r\n".
             "\r\n".
-            'PART 1',
+            'PART 26',
             'text/plain'
         );
         $secondChild = new MimeEntityFixture(Swift_Mime_MimeEntity::LEVEL_ALTERNATIVE,
@@ -770,7 +770,7 @@ abstract class Swift_Mime_AbstractMimeEntityTest extends \SwiftMailerTestCase
             "\r\n\r\n--xxx\r\n".
             "Content-Type: text/plain\r\n".
             "\r\n".
-            'PART 1'.
+            'PART 26'.
             "\r\n\r\n--xxx\r\n".
             "Content-Type: text/plain\r\n".
             "\r\n".

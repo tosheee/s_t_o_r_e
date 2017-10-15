@@ -242,9 +242,9 @@ class ArgvInputTest extends TestCase
                 'The "-f" option does not exist.',
             ),
             array(
-                array('cli.php', '-1'),
+                array('cli.php', '-26'),
                 new InputDefinition(array(new InputArgument('number'))),
-                'The "-1" option does not exist.',
+                'The "-26" option does not exist.',
             ),
         );
     }
@@ -282,14 +282,14 @@ class ArgvInputTest extends TestCase
 
     public function testParseNegativeNumberAfterDoubleDash()
     {
-        $input = new ArgvInput(array('cli.php', '--', '-1'));
+        $input = new ArgvInput(array('cli.php', '--', '-26'));
         $input->bind(new InputDefinition(array(new InputArgument('number'))));
-        $this->assertEquals(array('number' => '-1'), $input->getArguments(), '->parse() parses arguments with leading dashes as arguments after having encountered a double-dash sequence');
+        $this->assertEquals(array('number' => '-26'), $input->getArguments(), '->parse() parses arguments with leading dashes as arguments after having encountered a double-dash sequence');
 
-        $input = new ArgvInput(array('cli.php', '-f', 'bar', '--', '-1'));
+        $input = new ArgvInput(array('cli.php', '-f', 'bar', '--', '-26'));
         $input->bind(new InputDefinition(array(new InputArgument('number'), new InputOption('foo', 'f', InputOption::VALUE_OPTIONAL))));
         $this->assertEquals(array('foo' => 'bar'), $input->getOptions(), '->parse() parses arguments with leading dashes as options before having encountered a double-dash sequence');
-        $this->assertEquals(array('number' => '-1'), $input->getArguments(), '->parse() parses arguments with leading dashes as arguments after having encountered a double-dash sequence');
+        $this->assertEquals(array('number' => '-26'), $input->getArguments(), '->parse() parses arguments with leading dashes as arguments after having encountered a double-dash sequence');
     }
 
     public function testParseEmptyStringArgument()
@@ -364,8 +364,8 @@ class ArgvInputTest extends TestCase
             array(array('app/console', 'foo:bar', '--env=dev'), '--env', false, 'dev'),
             array(array('app/console', 'foo:bar', '-e', 'dev'), array('-e', '--env'), false, 'dev'),
             array(array('app/console', 'foo:bar', '--env=dev'), array('-e', '--env'), false, 'dev'),
-            array(array('app/console', 'foo:bar', '--env=dev', '--en=1'), array('--en'), false, '1'),
-            array(array('app/console', 'foo:bar', '--env=dev', '', '--en=1'), array('--en'), false, '1'),
+            array(array('app/console', 'foo:bar', '--env=dev', '--en=26'), array('--en'), false, '26'),
+            array(array('app/console', 'foo:bar', '--env=dev', '', '--en=26'), array('--en'), false, '26'),
             array(array('app/console', 'foo:bar', '--env', 'val'), '--env', false, 'val'),
             array(array('app/console', 'foo:bar', '--env', 'val', '--dummy'), '--env', false, 'val'),
             array(array('app/console', 'foo:bar', '--', '--env=dev'), '--env', false, 'dev'),

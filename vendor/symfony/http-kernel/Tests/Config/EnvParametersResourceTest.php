@@ -23,7 +23,7 @@ class EnvParametersResourceTest extends TestCase
     protected function setUp()
     {
         $this->initialEnv = array(
-            $this->prefix.'1' => 'foo',
+            $this->prefix.'26' => 'foo',
             $this->prefix.'2' => 'bar',
         );
 

@@ -18,7 +18,7 @@ class Text extends \Faker\Provider\Text
      */
     protected static $baseText = <<<'EOT'
 ELSŐ FEJEZET
-1
+26
 - Uram! A késemért jöttem!
 - Hol hagyta?
 - Valami matrózban.
@@ -247,7 +247,7 @@ Nem hitte, hogy ébren van, vagy ha igen, akkor a fiú őrült, és a hatalmas, 
 Két... ezer... dollár! Ezen az eseten érdemes gondolkozni! De hiába tartotta ilyesmire érdemesnek az esetet, mert rajtaütésszerűen elaludt.
  
 MÁSODIK FEJEZET
-1
+26
 José pincér aludt. Aludt, miközben egy pillanatra megállt a levessel, aludt, amíg a szakács tálcára tette a húst, és aludt, amikor egy svéd magántanár ölébe kitálalta.
 Az ordításra felriadt.
 Hutchins, a fűtő is aludt. Aludt, amíg a szén begurult a kazánba, aludt, miközben felemelte a lapátot, és aludt, midőn leejtette a főgépész lábára.
@@ -1116,7 +1116,7 @@ A másik sűrűn pislogott, azután megtapogatta az arcát, és diadalmasan néz
 ...Alkonyatkor már tisztán látszott Szingapur, és sorra gyúló lámpái mint sárgás csillagok ragyogtak fel az ég alján.
  
 HARMADIK FEJEZET
-1
+26
 Lassan haladt a Honolulu-Star. Szingapur hatalmas kikötője közelinek látszott a mesebeli roppant burának tűnő porfátyol alatt, amely befedte.
 - Most a legsürgősebbeket, mosolygó idegen - mondta Mr. Irving.
 - Parancsoljon, felség.
@@ -1351,7 +1351,7 @@ Ennyit mesélt és azt is, hogy Sir Egmont, a sziget miniszterelnöke, aki őt j
 Akkor én ez megértem, és kikötött a hajó, viszont megfulladok a szűk ingben, ez rémes. (Folytatása következik.)
  
 ÖTÖDIK FEJEZET
-1
+26
 A rendőr szelíden megfogta a fiú karját.
 - No jöjjön.
 A herceg követte, mint valami alvajáró. Ismét a városban jártak, és egy kocsma előtt vitt el az útjuk. A rendőr megnézte az óráját.
@@ -1546,7 +1546,7 @@ Tiltakoznék, de húsz rendőr áll ott feszesen, és mind rámnéz. Ilyent csak
 No most jól nézek ki. Eddiggis nagy baj van. De most (folytatása következik).
  
 HETEDIK FEJEZET
-1
+26
 Őfelsége nem esett keményre. Zizzenés csapott fel körülötte, és ernyedten, kábultan feküdt a szalmán, ahová lezuhant a magasból.
 Hűs széláram érintette az arcát, és sustorgó hangokat hallott. A tenger itt van valahol a közelében... Enyhe ringás mozgatta meg...
 Hajó! Hogy zuhanhatott egy hajóra a kocsmából?
@@ -1882,7 +1882,7 @@ Mert a zseblámpa fénye megmutatta a kabint és az asztalon egy nyitott kopors�
 A Fernandez... Aki régen herceg, akit eddig kétszer a vízbe dobtak (folytatása következik.)
  
 KILENCEDIK FEJEZET
-1
+26
 Fenyegető alakok közeledtek lassan. Közöttük első sorban a bekötött fejű Tulipán, őfelsége tulajdonosa.
 A súlyos, feszült csendben csak a Kegyelmes őrizte meg előkelő nyugalmát.
 - Várjatok - mondta csendesen. - Tisztázni kell, hogy mit akar itt ez a kölyök.
@@ -2014,7 +2014,7 @@ A mindenit. Ez keszd meleg lenni a helyzet. De szőr Egmont nevet.
 - Asz vagyok, - felelém csendesen és ő rám hagyott engem, magamra, hogy az inas feladja nekem a marsal nevű katonaruhámat, amellyel szép kis pác kezdődik itt. (Folytatása következik.)
  
 TIZENEGYEDIK FEJEZET
-1
+26
 A Nagy Bivaly szorította a herceg nyakát.
 - A fiút nem ölheted meg - mondta Fred.
 - Úgy. És miért?
@@ -2204,7 +2204,7 @@ Mert anya asz anya, akár királynő, akár népnő. Esz így igaz. Megéresztem
 Ettől elájult. (Folytatása következik.)
 VII
 Kelt fent, mint ma uralkodásom esztendejében, felségkezüleg fővárosom által, Almirában.
-Még mindig nem mondtam el, hogy mitől harapodzott el bennem a naplóirás által. Ezt az igazi St. Antonio idézte okozatul, mer mondta mielőtt ő én lett és én neki helyettesítettem átváltozással, hogy nagyon jó dolgom lesz csak vigyázni kell kicsit a házasállamtartásra. De nem volt igaza. Nem szivesen uralkodok. Esz nem nehéz, de igen unalmas és 1.hangu. Bár a sok szoba nagyon szép. Bejártam néhány országot, de ilyen jó lakásom mék nem volt.
+Még mindig nem mondtam el, hogy mitől harapodzott el bennem a naplóirás által. Ezt az igazi St. Antonio idézte okozatul, mer mondta mielőtt ő én lett és én neki helyettesítettem átváltozással, hogy nagyon jó dolgom lesz csak vigyázni kell kicsit a házasállamtartásra. De nem volt igaza. Nem szivesen uralkodok. Esz nem nehéz, de igen unalmas és 26.hangu. Bár a sok szoba nagyon szép. Bejártam néhány országot, de ilyen jó lakásom mék nem volt.
 Ma tartották az úgynevezett koronatanácst, amiben résztvettem. A kupola nevü teremben jöttek össze, a tüzoltó, Egmont, a gyászoló rokonság és Gombperec a hídlakó, aki még kopaszabb lett, mert már a kezében sem volt kalap. Mondták, hogy én fogok elnökleni. Ez rossz volt mer kisebesedett a lábam, mert nem gondoltam arra, hogy az udvari cipész a meglévő cipőm után, tehát Mr. Gouldéről csinál sámfát, majd új cipőt.
 Mer aki király annak két pár cipője van. Nagyobb ország uralkodójának három is. Mer fényüzés van az udvarnál. És esz a cipő szük és két nap alatt kisebbesedett a lábam és most már irtozatosan fájt, ott ahol feltört és égette is mert ugynevezett lakkból volt a cipő, ahogy a csiszolt bőrt hivják.
 És akkor Egmont felállt és mondá, hogy a trónöröklési rend fennmaradásáról intézkedő törvénykezést akar beitatni, hogy ha engem baj ér, akkor örökölhesse a koronát az anyai ág. Ezt a törvényt kell bepikkelyezni.
@@ -2301,7 +2301,7 @@ A katonák a bokrok közé nyargaltak, és én is üldözni akartam a gaszt, de 
 És most asz egyszer igaza volt. (Folytatása következik.)
  
 TIZENHARMADIK FEJEZET
-1
+26
 A sötét folyosón tért magához őfelsége. Ide röpítették ki Vanek és barátai, miután elájult.
 Bizonytalan léptekkel elindult, hogy megkeresse a helyiséget, ahol a Hidegek tanácskoztak. Jobbra ment egy folyosón, úgy tudta, hogy ott az ajtó. Azután balra fordult, mert világosságot látott. De csak egy cigánytanyára ért, ahol egy öregasszony halat sütött, és néhány rongyos, bamba arcú bennszülött hevert.
 Mintha lépéseket hallana maga mögött messze, a homályból...
@@ -2483,7 +2483,7 @@ Most már tuttam, hogy milyen igasza volt, amikor elájult.
 Kelt mint, ma uralkodásunk annójában, Almira székestrónváros főlegvár által kézzel. Fojatás a következő:
  
 TIZENÖTÖDIK FEJEZET
-1
+26
 Az egész úgy hatott, mint valami torz álom. A kidülledt szemű, rémült Nagy Bivaly, Holdvilág Charley halálfejével, a bekötött homlokú Tulipán, az a részeges, rongyos, ősz hölgy, a diplomataszerűen elegáns Kegyelmes és Vöröskarom, a nagyvilági szépség, végül Piszkos Fred, a kapitány, amint sárgás szakállát morzsolgatja fekete szegélyű, hosszú karmai között, szinte valószínűtlenné tették az ijesztő képet.
 - Kapitány - mondta a nő Frednek -, mit tud a fiúról?
 - Semmi jót. Azzal a pimasz Fülig Jimmyvel suttogtál a hajón. - A fiú felé fordult zsebre dugott kézzel. - Egyszer épp akkor jöttem, amikor kétezer dollárt adtál annak az alaknak.
@@ -2662,7 +2662,7 @@ Engem már mindenfelé kerestek és mind cipőben. És rémülten.
 - Ször Egmontot megölték. Ő volt a bosszú első áldozata. (Folytatása következik.)
  
 TIZENHETEDIK FEJEZET
-1
+26
 A herceget összekötözték. Nyugodtan tűrte. Jól tudta, hogy meg kell halnia. Akár Warins, akár St. Antonio, itt nem számíthat irgalomra.
 - Engedjék meg - szólt a Hidegekhez mosolyogva, csengő hangon -, hogy elbúcsúzzam a barátomtól.
 Odalépett a Nagy Bivalyhoz, és kezet nyújtott.
@@ -2773,7 +2773,7 @@ TIZENNYOLCADIK FEJEZET
 Őfelségem I-ső Fülig Jimmy naplója
 Én egy marha vagyok saját eszüleg! Ez a gyanú kelt mint bent asz agyamban, és ahogy a kirájok írják asz időt: ambó dominó mai dátum.
 Mer ott volt a gyilkos velem, beszéltem vele és nem sejtém. És egész idő alatt nem sejtettem, hogy a kísértet kapitány kicsoda, ami pedig kézfekvően világos volt.
-Mer nem volt kísértet. Esz a kapitány, a hajón még úgy gondolom valami cinkosát járatta kapitányi ruhában, hogy asz ő gasztetteit másra tolhassa. De ő maga aki nyugodtan pipászott a kapitányi hídon, ő maga volt a gyilkos. Mer most jut eszembe, hogy éjjel a Sztáron-Nonolu hajó 1.lső osztályú folyosóján láttam, amikor meghalt Fernantesz, aki régen herceg.
+Mer nem volt kísértet. Esz a kapitány, a hajón még úgy gondolom valami cinkosát járatta kapitányi ruhában, hogy asz ő gasztetteit másra tolhassa. De ő maga aki nyugodtan pipászott a kapitányi hídon, ő maga volt a gyilkos. Mer most jut eszembe, hogy éjjel a Sztáron-Nonolu hajó 26.lső osztályú folyosóján láttam, amikor meghalt Fernantesz, aki régen herceg.
 Erre is magamtól jöttem rá.
 És kicsoda esz a kapitán? Warins! Ez a Warins Bob Szumbafáról nemoda szökött ahol várták. Hanem St. Antonio hajója elé Por-Cueszbe.
 Erre is magamtól jöttem rá.
@@ -2833,7 +2833,7 @@ Puff neki.
 Itt nagy baj van. Aszt láttam. De mindegy. A kiskapun gyorsan kisurrantam, és vadászatra indultam az éjszakában... Semmit sem bánok, most csak meglássam valahol a tengerészruhás Warinst! Csak mekfoghassam a nyakát és akkor... (Megfojtása következik. )
  
 TIZENKILENCEDIK FEJEZET
-1
+26
 Hogyan változott meg rövid idő alatt annyira a helyzet: halálos ítélet helyett házasság?
 Amikor őfelségét elvezették a Vészkijárathoz, a Nagy Bivaly fogai ismét hangosan csikorogtak. De mit tehetett ennyi ember ellen? Piszkos Fred most néhány egyenletes térdhajlással lecsúszott, és felemelkedett az ajtófélfa élénél, mert úgy látszott, hogy teljes hosszában viszket.
 - Azt hiszem - mondta Holdvilág Charley -, hogy ez a fiú megérdemelte a halált.
@@ -2975,7 +2975,7 @@ Senki sem sietett szerencsekívánatait kifejezni az ifjú párnak.
 - És most elég volt ebből az utálatos játékból - mondta megvetően Anna Alvarez, és fogalma sem volt róla, hogy e pillanatban már a Boldogság Szigetek királynője.
  
 HUSZADIK FEJEZET
-1
+26
 A herceg kiszédelgett a nagy teremből. Uram, Atyám! Mit tett?!! Elvette a lázadó elnök polgári származású leányát... mert ha Warins Bob néven is eskették, jól tudta, hogy az álnéven kötött házasság érvényes.
 Összevissza bolyongott a katakombák folyosóin, amelyek ezen a napon szokatlanul élénkek voltak. Végre megpillantotta az igazi Trebitschet. Őt kereste!
 - Ember! Ez mi volt, ami odabent történt ma a pappal? - kérdezte lihegve.
@@ -3091,7 +3091,7 @@ A nő arcán különös kín vonaglott át... "Gyilkos..." - mondta magában. "K
 Rémülten vette észre, hogy mindezek dacára képtelen arra, hogy utálja!
  
 HUSZONEGYEDIK FEJEZET
-1
+26
 Buzgó Mócsing már napok óta nem hagyta el a kajütjét. Félt a hercegtől. Ez a fiú ott kínozza, ahol éri. Különben mint írni és számolni tudó egyént az anyagraktárnál használták, irodavezetőnek. Ő könyvelte el, amit Piszkos Fred sikkasztott.
 Tizenkét óra tájban valami zajt hallott a szomszéd helyiségből. Elővette a revolverét, és lassan kinyitotta az ajtót.
 - Csendesen Mócsing, mert összenyomlak.
@@ -3268,7 +3268,7 @@ Szent Isten!
 Esz akit én leütöttem, őfelségem az igazi St. Antonio herceg Szingapurból. És úgy vágtam fejbe, hogy alig van élet benne. (Vége következik.)
  
 HUSZONHARMADIK FEJEZET
-1
+26
 Őfelsége csónakja a fülledt, ködös óceánon a sziget felé igyekezett.
 Nehéz húzni a jókora ladikot, és Buzgó Mócsing nagyokat nyög.
 - Mit teszünk, ha elérjük a partot? - kérdi tőle őfelsége.
@@ -3321,7 +3321,7 @@ Hallgattak. A fülledt éjszakában egy kakadu rikoltott élesen.
 ...És később őfelsége kíséret nélkül elindult, hogy visszatérjen ősei trónjára, a fellegvárba. Ám ebből az alkalomból Fülig Jimmy jól fejbe vágta.
  
 HUSZONNEGYEDIK FEJEZET
-1
+26
 A Kegyelmes az amerikai cirkálóval érkezett Almira kikötőjébe, és bevárta a Radzeert. Délután az admirális, Vöröskarom és a Kegyelmes látogatást tettek az angol hajón, és szívélyes tanácskozásra ültek össze Parker admirálissal.
 Az admirális figyelmesen végighallgatta a történetet.
 - Önök szerint St. Antonio herceg meghalt?
@@ -3397,7 +3397,7 @@ Amikor felálltam a sebesült asszony mellől, ez éppen jókor volt. Mer lesujt
 No asztán következett egy rövid testgyakorlás miután elástam (S.K.) Ámde benne felejtettem a műszert a fényképészbe.
 Ezzel zárom soraimat alanti tisztelettel felségednek régi barátja, ma is és a kedves mama őfelségének és az uralkodó őnacsságának kézcsókkal. KeIt most lent: Néhai kollégája:
 az eksz Fülig Jimmy, sajátulag.
-Almirában ma is szívesen emlékeznek vissza Fülig Jimmyre, az első uralkodójára a világnak, aki népével pertut ivott. És ma is érvényben ban a "LEX FÜLIG 193... 1. T.c.: A KÜLSŐ MEGJELENÉS KÖTELEZŐ EGYSZERŰSÉGÉRŐL, A KORONATANÁCSBAN", amely szerint harisnyában kell a koronatanácsban részt venni. A Nagy Bivaly ott maradt Almirában mint őfelsége testőre, és igen jó dolga volt.
+Almirában ma is szívesen emlékeznek vissza Fülig Jimmyre, az első uralkodójára a világnak, aki népével pertut ivott. És ma is érvényben ban a "LEX FÜLIG 193... 26. T.c.: A KÜLSŐ MEGJELENÉS KÖTELEZŐ EGYSZERŰSÉGÉRŐL, A KORONATANÁCSBAN", amely szerint harisnyában kell a koronatanácsban részt venni. A Nagy Bivaly ott maradt Almirában mint őfelsége testőre, és igen jó dolga volt.
 *
 És Piszkos Fred?
 Valaki mesélte, hogy nemrég Alaszkában látták, ahol játékbarlangot nyitott az örök hó birodalmában, és állítólag az aranyásók komoly formában foglalkoznak a gondolattal, hogy meglincselik. De mire kivitelre kerül a sor, a kapitány már bizonyára messze jár, mert olyan éles az esze, mint a borotva.

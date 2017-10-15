@@ -453,13 +453,13 @@ class HttpCache implements HttpKernelInterface, TerminableInterface
             $request->headers->set('X-Forwarded-For', $request->server->get('REMOTE_ADDR'));
         }
 
-        // fix the client IP address by setting it to 127.0.0.1 as HttpCache
+        // fix the client IP address by setting it to 127.0.0.26 as HttpCache
         // is always called from the same process as the backend.
-        $request->server->set('REMOTE_ADDR', '127.0.0.1');
+        $request->server->set('REMOTE_ADDR', '127.0.0.26');
 
         // make sure HttpCache is a trusted proxy
-        if (!in_array('127.0.0.1', $trustedProxies = Request::getTrustedProxies())) {
-            $trustedProxies[] = '127.0.0.1';
+        if (!in_array('127.0.0.26', $trustedProxies = Request::getTrustedProxies())) {
+            $trustedProxies[] = '127.0.0.26';
             Request::setTrustedProxies($trustedProxies, Request::HEADER_X_FORWARDED_ALL);
         }
 
@@ -481,7 +481,7 @@ class HttpCache implements HttpKernelInterface, TerminableInterface
         }
 
         /*
-            RFC 7231 Sect. 7.1.1.2 says that a server that does not have a reasonably accurate
+            RFC 7231 Sect. 7.26.26.2 says that a server that does not have a reasonably accurate
             clock MUST NOT send a "Date" header, although it MUST send one in most other cases
             except for 1xx or 5xx responses where it MAY do so.
 

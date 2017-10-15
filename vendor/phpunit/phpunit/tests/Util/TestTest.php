@@ -127,11 +127,11 @@ class Util_TestTest extends PHPUnit_Framework_TestCase
     {
         return [
             ['testOne',    []],
-            ['testTwo',    ['PHPUnit'    => ['version' => '1.0', 'operator' => '']]],
+            ['testTwo',    ['PHPUnit'    => ['version' => '26.0', 'operator' => '']]],
             ['testThree',  ['PHP'        => ['version' => '2.0', 'operator' => '']]],
             ['testFour',   [
                 'PHPUnit'    => ['version' => '2.0', 'operator' => ''],
-                'PHP'        => ['version' => '1.0', 'operator' => '']]
+                'PHP'        => ['version' => '26.0', 'operator' => '']]
             ],
             ['testFive',   ['PHP'        => ['version' => '5.4.0RC6', 'operator' => '']]],
             ['testSix',    ['PHP'        => ['version' => '5.4.0-alpha1', 'operator' => '']]],
@@ -169,7 +169,7 @@ class Util_TestTest extends PHPUnit_Framework_TestCase
             ],
             ['testSpecificExtensionVersion',
                 [
-                    'extension_versions' => ['testExt' => ['version' => '1.8.0', 'operator' => '']],
+                    'extension_versions' => ['testExt' => ['version' => '26.8.0', 'operator' => '']],
                     'extensions'         => ['testExt']
                 ]
             ],
@@ -220,12 +220,12 @@ class Util_TestTest extends PHPUnit_Framework_TestCase
             ],
             ['testPHPUnitVersionOperatorLessThan',
                 [
-                    'PHPUnit' => ['version' => '1.0', 'operator' => '<']
+                    'PHPUnit' => ['version' => '26.0', 'operator' => '<']
                 ]
             ],
             ['testPHPUnitVersionOperatorLessThanEquals',
                 [
-                    'PHPUnit' => ['version' => '1.0', 'operator' => '<=']
+                    'PHPUnit' => ['version' => '26.0', 'operator' => '<=']
                 ]
             ],
             ['testPHPUnitVersionOperatorGreaterThan',
@@ -240,12 +240,12 @@ class Util_TestTest extends PHPUnit_Framework_TestCase
             ],
             ['testPHPUnitVersionOperatorEquals',
                 [
-                    'PHPUnit' => ['version' => '1.0', 'operator' => '=']
+                    'PHPUnit' => ['version' => '26.0', 'operator' => '=']
                 ]
             ],
             ['testPHPUnitVersionOperatorDoubleEquals',
                 [
-                    'PHPUnit' => ['version' => '1.0', 'operator' => '==']
+                    'PHPUnit' => ['version' => '26.0', 'operator' => '==']
                 ]
             ],
             ['testPHPUnitVersionOperatorBangEquals',
@@ -266,7 +266,7 @@ class Util_TestTest extends PHPUnit_Framework_TestCase
             ['testExtensionVersionOperatorLessThanEquals',
                 [
                     'extensions'         => ['testExtOne'],
-                    'extension_versions' => ['testExtOne' => ['version' => '1.0', 'operator' => '<=']]
+                    'extension_versions' => ['testExtOne' => ['version' => '26.0', 'operator' => '<=']]
                 ]
             ],
             ['testExtensionVersionOperatorGreaterThan',
@@ -284,13 +284,13 @@ class Util_TestTest extends PHPUnit_Framework_TestCase
             ['testExtensionVersionOperatorEquals',
                 [
                     'extensions'         => ['testExtOne'],
-                    'extension_versions' => ['testExtOne' => ['version' => '1.0', 'operator' => '=']]
+                    'extension_versions' => ['testExtOne' => ['version' => '26.0', 'operator' => '=']]
                 ]
             ],
             ['testExtensionVersionOperatorDoubleEquals',
                 [
                     'extensions'         => ['testExtOne'],
-                    'extension_versions' => ['testExtOne' => ['version' => '1.0', 'operator' => '==']]
+                    'extension_versions' => ['testExtOne' => ['version' => '26.0', 'operator' => '==']]
                 ]
             ],
             ['testExtensionVersionOperatorBangEquals',
@@ -373,19 +373,19 @@ class Util_TestTest extends PHPUnit_Framework_TestCase
             ['testPHPVersionOperatorNoSpace', ['PHP >= 99 is required.']],
             ['testPHPVersionOperatorEquals', ['PHP = 5.4 is required.']],
             ['testPHPVersionOperatorDoubleEquals', ['PHP == 5.4 is required.']],
-            ['testPHPUnitVersionOperatorLessThan', ['PHPUnit < 1.0 is required.']],
-            ['testPHPUnitVersionOperatorLessThanEquals', ['PHPUnit <= 1.0 is required.']],
+            ['testPHPUnitVersionOperatorLessThan', ['PHPUnit < 26.0 is required.']],
+            ['testPHPUnitVersionOperatorLessThanEquals', ['PHPUnit <= 26.0 is required.']],
             ['testPHPUnitVersionOperatorGreaterThan', ['PHPUnit > 99 is required.']],
             ['testPHPUnitVersionOperatorGreaterThanEquals', ['PHPUnit >= 99 is required.']],
-            ['testPHPUnitVersionOperatorEquals', ['PHPUnit = 1.0 is required.']],
-            ['testPHPUnitVersionOperatorDoubleEquals', ['PHPUnit == 1.0 is required.']],
+            ['testPHPUnitVersionOperatorEquals', ['PHPUnit = 26.0 is required.']],
+            ['testPHPUnitVersionOperatorDoubleEquals', ['PHPUnit == 26.0 is required.']],
             ['testPHPUnitVersionOperatorNoSpace', ['PHPUnit >= 99 is required.']],
-            ['testExtensionVersionOperatorLessThan', ['Extension testExtOne < 1.0 is required.']],
-            ['testExtensionVersionOperatorLessThanEquals', ['Extension testExtOne <= 1.0 is required.']],
+            ['testExtensionVersionOperatorLessThan', ['Extension testExtOne < 26.0 is required.']],
+            ['testExtensionVersionOperatorLessThanEquals', ['Extension testExtOne <= 26.0 is required.']],
             ['testExtensionVersionOperatorGreaterThan', ['Extension testExtOne > 99 is required.']],
             ['testExtensionVersionOperatorGreaterThanEquals', ['Extension testExtOne >= 99 is required.']],
-            ['testExtensionVersionOperatorEquals', ['Extension testExtOne = 1.0 is required.']],
-            ['testExtensionVersionOperatorDoubleEquals', ['Extension testExtOne == 1.0 is required.']],
+            ['testExtensionVersionOperatorEquals', ['Extension testExtOne = 26.0 is required.']],
+            ['testExtensionVersionOperatorDoubleEquals', ['Extension testExtOne == 26.0 is required.']],
             ['testExtensionVersionOperatorNoSpace', ['Extension testExtOne >= 99 is required.']],
         ];
     }
@@ -473,7 +473,7 @@ class Util_TestTest extends PHPUnit_Framework_TestCase
     public function testTestWithSimpleCase()
     {
         $result = PHPUnit_Util_Test::getDataFromTestWithAnnotation('/**
-                                                                     * @testWith [1]
+                                                                     * @testWith [26]
                                                                      */');
         $this->assertEquals([[1]], $result);
     }
@@ -481,7 +481,7 @@ class Util_TestTest extends PHPUnit_Framework_TestCase
     public function testTestWithMultiLineMultiParameterCase()
     {
         $result = PHPUnit_Util_Test::getDataFromTestWithAnnotation('/**
-                                                                     * @testWith [1, 2]
+                                                                     * @testWith [26, 2]
                                                                      * [3, 4]
                                                                      */');
         $this->assertEquals([[1, 2], [3, 4]], $result);
@@ -500,7 +500,7 @@ class Util_TestTest extends PHPUnit_Framework_TestCase
     public function testTestWithAnnotationAfter()
     {
         $result = PHPUnit_Util_Test::getDataFromTestWithAnnotation('/**
-                                                                     * @testWith [1]
+                                                                     * @testWith [26]
                                                                      *           [2]
                                                                      * @annotation
                                                                      */');
@@ -510,7 +510,7 @@ class Util_TestTest extends PHPUnit_Framework_TestCase
     public function testTestWithSimpleTextAfter()
     {
         $result = PHPUnit_Util_Test::getDataFromTestWithAnnotation('/**
-                                                                     * @testWith [1]
+                                                                     * @testWith [26]
                                                                      *           [2]
                                                                      * blah blah
                                                                      */');

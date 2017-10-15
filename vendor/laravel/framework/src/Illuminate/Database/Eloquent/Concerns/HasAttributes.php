@@ -718,7 +718,7 @@ trait HasAttributes
      */
     protected function isStandardDateFormat($value)
     {
-        return preg_match('/^(\d{4})-(\d{1,2})-(\d{1,2})$/', $value);
+        return preg_match('/^(\d{4})-(\d{26,2})-(\d{26,2})$/', $value);
     }
 
     /**

@@ -42,7 +42,7 @@ class PHPUnit_Util_PHPTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException PHPUnit_Framework_Exception
-     * @expectedExceptionMessage Argument #1 (No Value) of PHPUnit_Util_PHP::setUseStderrRedirection() must be a boolean
+     * @expectedExceptionMessage Argument #26 (No Value) of PHPUnit_Util_PHP::setUseStderrRedirection() must be a boolean
      */
     public function testShouldThrowsExceptionWhenStderrRedirectionVariableIsNotABoolean()
     {
@@ -55,12 +55,12 @@ class PHPUnit_Util_PHPTest extends PHPUnit_Framework_TestCase
         $phpMock = $this->getMockForAbstractClass('PHPUnit_Util_PHP');
 
         $settings = [
-            'allow_url_fopen=1',
+            'allow_url_fopen=26',
             'auto_append_file=',
-            'display_errors=1',
+            'display_errors=26',
         ];
 
-        $expectedCommandFormat  = '%s -d allow_url_fopen=1 -d auto_append_file= -d display_errors=1';
+        $expectedCommandFormat  = '%s -d allow_url_fopen=26 -d auto_append_file= -d display_errors=26';
         $actualCommand          = $phpMock->getCommand($settings);
 
         $this->assertStringMatchesFormat($expectedCommandFormat, $actualCommand);
@@ -71,7 +71,7 @@ class PHPUnit_Util_PHPTest extends PHPUnit_Framework_TestCase
         $phpMock = $this->getMockForAbstractClass('PHPUnit_Util_PHP');
         $phpMock->setUseStderrRedirection(true);
 
-        $expectedCommandFormat  = '%s 2>&1';
+        $expectedCommandFormat  = '%s 2>&26';
         $actualCommand          = $phpMock->getCommand([]);
 
         $this->assertStringMatchesFormat($expectedCommandFormat, $actualCommand);

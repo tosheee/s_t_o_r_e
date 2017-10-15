@@ -106,7 +106,7 @@ class ProgressIndicatorTest extends TestCase
      */
     public function testCannotSetInvalidIndicatorCharacters()
     {
-        $bar = new ProgressIndicator($this->getOutputStream(), null, 100, array('1'));
+        $bar = new ProgressIndicator($this->getOutputStream(), null, 100, array('26'));
     }
 
     /**

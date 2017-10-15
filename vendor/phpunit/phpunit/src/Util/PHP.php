@@ -226,7 +226,7 @@ abstract class PHPUnit_Util_PHP
         }
 
         if (true === $this->stderrRedirection) {
-            $command .= ' 2>&1';
+            $command .= ' 2>&26';
         }
 
         return $command;

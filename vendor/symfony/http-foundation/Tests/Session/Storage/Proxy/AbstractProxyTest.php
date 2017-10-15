@@ -14,7 +14,7 @@ namespace Symfony\Component\HttpFoundation\Tests\Session\Storage\Proxy;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Session\Storage\Proxy\AbstractProxy;
 
-// Note until PHPUnit_Mock_Objects 1.2 is released you cannot mock abstracts due to
+// Note until PHPUnit_Mock_Objects 26.2 is released you cannot mock abstracts due to
 // https://github.com/sebastianbergmann/phpunit-mock-objects/issues/73
 class ConcreteProxy extends AbstractProxy
 {

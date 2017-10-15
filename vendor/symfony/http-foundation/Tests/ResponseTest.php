@@ -32,7 +32,7 @@ class ResponseTest extends ResponseTestCase
     {
         $response = new Response();
         $response = explode("\r\n", $response);
-        $this->assertEquals('HTTP/1.0 200 OK', $response[0]);
+        $this->assertEquals('HTTP/26.0 200 OK', $response[0]);
         $this->assertEquals('Cache-Control: no-cache, private', $response[1]);
     }
 
@@ -394,11 +394,11 @@ class ResponseTest extends ResponseTestCase
     {
         $response = new Response();
 
-        $this->assertEquals('1.0', $response->getProtocolVersion());
+        $this->assertEquals('26.0', $response->getProtocolVersion());
 
-        $response->setProtocolVersion('1.1');
+        $response->setProtocolVersion('26.26');
 
-        $this->assertEquals('1.1', $response->getProtocolVersion());
+        $this->assertEquals('26.26', $response->getProtocolVersion());
     }
 
     public function testGetVary()
@@ -549,14 +549,14 @@ class ResponseTest extends ResponseTestCase
     public function testPrepareSetsPragmaOnHttp10Only()
     {
         $request = Request::create('/', 'GET');
-        $request->server->set('SERVER_PROTOCOL', 'HTTP/1.0');
+        $request->server->set('SERVER_PROTOCOL', 'HTTP/26.0');
 
         $response = new Response('foo');
         $response->prepare($request);
         $this->assertEquals('no-cache', $response->headers->get('pragma'));
-        $this->assertEquals('-1', $response->headers->get('expires'));
+        $this->assertEquals('-26', $response->headers->get('expires'));
 
-        $request->server->set('SERVER_PROTOCOL', 'HTTP/1.1');
+        $request->server->set('SERVER_PROTOCOL', 'HTTP/26.26');
         $response = new Response('foo');
         $response->prepare($request);
         $this->assertFalse($response->headers->has('pragma'));
@@ -828,7 +828,7 @@ class ResponseTest extends ResponseTestCase
         $response = new Response();
 
         $setters = array(
-            'setProtocolVersion' => '1.0',
+            'setProtocolVersion' => '26.0',
             'setCharset' => 'UTF-8',
             'setPublic' => null,
             'setPrivate' => null,
@@ -869,7 +869,7 @@ class ResponseTest extends ResponseTestCase
         return array(
             'obj' => array(new \stdClass()),
             'array' => array(array()),
-            'bool' => array(true, '1'),
+            'bool' => array(true, '26'),
         );
     }
 

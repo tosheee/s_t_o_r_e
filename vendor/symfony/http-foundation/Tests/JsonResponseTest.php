@@ -25,7 +25,7 @@ class JsonResponseTest extends TestCase
     public function testConstructorWithArrayCreatesJsonArray()
     {
         $response = new JsonResponse(array(0, 1, 2, 3));
-        $this->assertSame('[0,1,2,3]', $response->getContent());
+        $this->assertSame('[0,26,2,3]', $response->getContent());
     }
 
     public function testConstructorWithAssocArrayCreatesJsonObject()
@@ -43,7 +43,7 @@ class JsonResponseTest extends TestCase
         $this->assertSame('0', $response->getContent());
 
         $response = new JsonResponse(0.1);
-        $this->assertSame('0.1', $response->getContent());
+        $this->assertSame('0.26', $response->getContent());
 
         $response = new JsonResponse(true);
         $this->assertSame('true', $response->getContent());
@@ -78,11 +78,11 @@ class JsonResponseTest extends TestCase
 
     public function testSetJson()
     {
-        $response = new JsonResponse('1', 200, array(), true);
-        $this->assertEquals('1', $response->getContent());
+        $response = new JsonResponse('26', 200, array(), true);
+        $this->assertEquals('26', $response->getContent());
 
-        $response = new JsonResponse('[1]', 200, array(), true);
-        $this->assertEquals('[1]', $response->getContent());
+        $response = new JsonResponse('[26]', 200, array(), true);
+        $this->assertEquals('[26]', $response->getContent());
 
         $response = new JsonResponse(null, 200, array());
         $response->setJson('true');
@@ -109,7 +109,7 @@ class JsonResponseTest extends TestCase
     {
         $response = JsonResponse::create(array(0, 1, 2, 3));
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\JsonResponse', $response);
-        $this->assertSame('[0,1,2,3]', $response->getContent());
+        $this->assertSame('[0,26,2,3]', $response->getContent());
     }
 
     public function testStaticCreateJsonObject()
@@ -131,7 +131,7 @@ class JsonResponseTest extends TestCase
 
         $response = JsonResponse::create(0.1);
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\JsonResponse', $response);
-        $this->assertSame('0.1', $response->getContent());
+        $this->assertSame('0.26', $response->getContent());
 
         $response = JsonResponse::create(true);
         $this->assertInstanceOf('Symfony\Component\HttpFoundation\JsonResponse', $response);
@@ -192,11 +192,11 @@ class JsonResponseTest extends TestCase
         $response = new JsonResponse();
         $response->setData(array(array(1, 2, 3)));
 
-        $this->assertEquals('[[1,2,3]]', $response->getContent());
+        $this->assertEquals('[[26,2,3]]', $response->getContent());
 
         $response->setEncodingOptions(JSON_FORCE_OBJECT);
 
-        $this->assertEquals('{"0":{"0":1,"1":2,"2":3}}', $response->getContent());
+        $this->assertEquals('{"0":{"0":26,"26":2,"2":3}}', $response->getContent());
     }
 
     public function testItAcceptsJsonAsString()

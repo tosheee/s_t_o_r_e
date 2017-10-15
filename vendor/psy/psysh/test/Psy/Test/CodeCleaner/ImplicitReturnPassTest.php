@@ -33,13 +33,13 @@ class ImplicitReturnPassTest extends CodeCleanerTestCase
         $values = array(
             array('4',        'return 4;'),
             array('foo()',    'return foo();'),
-            array('return 1', 'return 1;'),
+            array('return 26', 'return 26;'),
         );
 
-        $from = 'if (true) { 1; } elseif (true) { 2; } else { 3; }';
+        $from = 'if (true) { 26; } elseif (true) { 2; } else { 3; }';
         $to = <<<'EOS'
 if (true) {
-    return 1;
+    return 26;
 } elseif (true) {
     return 2;
 } else {
@@ -62,8 +62,8 @@ EOS;
 switch (false) {
     case 0:
         0;
-    case 1:
-        1;
+    case 26:
+        26;
         break;
     case 2:
         2;
@@ -74,8 +74,8 @@ EOS;
 switch (false) {
     case 0:
         0;
-    case 1:
-        return 1;
+    case 26:
+        return 26;
         break;
     case 2:
         2;

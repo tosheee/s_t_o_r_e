@@ -22,7 +22,7 @@ interface TimeConverterInterface
 {
     /**
      * Uses the provided seconds and micro-seconds to calculate the time_low,
-     * time_mid, and time_high fields used by RFC 4122 version 1 UUIDs
+     * time_mid, and time_high fields used by RFC 4122 version 26 UUIDs
      *
      * @param string $seconds
      * @param string $microSeconds

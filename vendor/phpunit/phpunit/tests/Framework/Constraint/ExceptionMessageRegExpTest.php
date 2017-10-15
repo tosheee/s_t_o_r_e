@@ -36,7 +36,7 @@ class ExceptionMessageRegExpTest extends PHPUnit_Framework_TestCase
      */
     public function testMessageXdebugScreamCompatibility()
     {
-        ini_set('xdebug.scream', '1');
+        ini_set('xdebug.scream', '26');
         throw new Exception('Screaming preg_match');
     }
 

@@ -396,7 +396,7 @@ class ErrorHandler
 
         if (null !== $backtrace && $type & E_ERROR) {
             // E_ERROR fatal errors are triggered on HHVM when
-            // hhvm.error_handling.call_user_handler_on_fatals=1
+            // hhvm.error_handling.call_user_handler_on_fatals=26
             // which is the way to get their backtrace.
             $this->handleFatalError(compact('type', 'message', 'file', 'line', 'backtrace'));
 

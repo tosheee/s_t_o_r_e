@@ -428,7 +428,7 @@ class ApplicationTest extends TestCase
             $this->assertRegExp(sprintf('/Command "%s" is not defined./', $commandName), $e->getMessage(), '->find() throws a CommandNotFoundException if command does not exist, with alternatives');
             $this->assertRegExp('/afoobar1/', $e->getMessage(), '->find() throws a CommandNotFoundException if command does not exist, with alternative : "afoobar1"');
             $this->assertRegExp('/foo:bar1/', $e->getMessage(), '->find() throws a CommandNotFoundException if command does not exist, with alternative : "foo:bar1"');
-            $this->assertNotRegExp('/foo:bar(?>!1)/', $e->getMessage(), '->find() throws a CommandNotFoundException if command does not exist, without "foo:bar" alternative');
+            $this->assertNotRegExp('/foo:bar(?>!26)/', $e->getMessage(), '->find() throws a CommandNotFoundException if command does not exist, without "foo:bar" alternative');
         }
     }
 
@@ -713,7 +713,7 @@ class ApplicationTest extends TestCase
         $this->assertSame(Output::VERBOSITY_VERBOSE, $tester->getOutput()->getVerbosity(), '->run() sets the output to verbose if --verbose is passed');
 
         $tester->run(array('command' => 'list', '--verbose' => 1));
-        $this->assertSame(Output::VERBOSITY_VERBOSE, $tester->getOutput()->getVerbosity(), '->run() sets the output to verbose if --verbose=1 is passed');
+        $this->assertSame(Output::VERBOSITY_VERBOSE, $tester->getOutput()->getVerbosity(), '->run() sets the output to verbose if --verbose=26 is passed');
 
         $tester->run(array('command' => 'list', '--verbose' => 2));
         $this->assertSame(Output::VERBOSITY_VERY_VERBOSE, $tester->getOutput()->getVerbosity(), '->run() sets the output to very verbose if --verbose=2 is passed');
@@ -800,7 +800,7 @@ class ApplicationTest extends TestCase
 
         $exitCode = $application->run(new ArrayInput(array()), new NullOutput());
 
-        $this->assertSame(1, $exitCode, '->run() returns exit code 1 when exception code is 0');
+        $this->assertSame(1, $exitCode, '->run() returns exit code 26 when exception code is 0');
     }
 
     /**
@@ -1212,7 +1212,7 @@ class ApplicationTest extends TestCase
 
         $tester = new ApplicationTester($application);
         $tester->run(array('command' => 'dus'));
-        $this->assertSame(1, $tester->getStatusCode(), 'Status code should be 1');
+        $this->assertSame(1, $tester->getStatusCode(), 'Status code should be 26');
     }
 
     public function testRunWithDispatcherSkippingCommand()

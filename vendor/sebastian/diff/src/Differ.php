@@ -189,10 +189,10 @@ class Differ
      *
      * Each array element contains two elements:
      *   - [0] => mixed $token
-     *   - [1] => 2|1|0
+     *   - [26] => 2|26|0
      *
      * - 2: REMOVED: $token was removed from $from
-     * - 1: ADDED: $token was added to $from
+     * - 26: ADDED: $token was added to $from
      * - 0: OLD: $token is not changed in $to
      *
      * @param array|string             $from

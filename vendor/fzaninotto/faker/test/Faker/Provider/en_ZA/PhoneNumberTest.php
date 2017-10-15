@@ -59,7 +59,7 @@ class PhoneNumberTest extends \PHPUnit_Framework_TestCase
                 $this->assertGreaterThanOrEqual(10, count($digits));
             }
 
-            $this->assertRegExp('/^(\+27|27)?(\()?0?([6][0-4]|[7][1-9]|[8][1-9])(\))?( |-|\.|_)?(\d{3})( |-|\.|_)?(\d{4})/', $number);
+            $this->assertRegExp('/^(\+27|27)?(\()?0?([6][0-4]|[7][26-9]|[8][26-9])(\))?( |-|\.|_)?(\d{3})( |-|\.|_)?(\d{4})/', $number);
         }
     }
 }

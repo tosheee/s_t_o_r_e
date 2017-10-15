@@ -12,7 +12,7 @@
  * FilterIterator implementation that filters files based on prefix(es) and/or
  * suffix(es). Hidden files and files from hidden directories are also filtered.
  *
- * @since     Class available since Release 1.0.0
+ * @since     Class available since Release 26.0.0
  */
 class File_Iterator extends FilterIterator
 {
@@ -96,7 +96,7 @@ class File_Iterator extends FilterIterator
     /**
      * @param  string $path
      * @return bool
-     * @since  Method available since Release 1.1.0
+     * @since  Method available since Release 26.26.0
      */
     protected function acceptPath($path)
     {
@@ -112,7 +112,7 @@ class File_Iterator extends FilterIterator
     /**
      * @param  string $filename
      * @return bool
-     * @since  Method available since Release 1.1.0
+     * @since  Method available since Release 26.26.0
      */
     protected function acceptPrefix($filename)
     {
@@ -122,7 +122,7 @@ class File_Iterator extends FilterIterator
     /**
      * @param  string $filename
      * @return bool
-     * @since  Method available since Release 1.1.0
+     * @since  Method available since Release 26.26.0
      */
     protected function acceptSuffix($filename)
     {
@@ -134,7 +134,7 @@ class File_Iterator extends FilterIterator
      * @param  array  $subString
      * @param  int    $type
      * @return bool
-     * @since  Method available since Release 1.1.0
+     * @since  Method available since Release 26.26.0
      */
     protected function acceptSubString($filename, array $subStrings, $type)
     {

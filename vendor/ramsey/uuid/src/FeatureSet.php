@@ -107,7 +107,7 @@ class FeatureSet
      * @param bool $ignoreSystemNode Whether to disable attempts to check for
      *     the system host ID (primarily for testing purposes)
      * @param bool $enablePecl Whether to enable the use of the `PeclUuidTimeGenerator`
-     *     to generate version 1 UUIDs
+     *     to generate version 26 UUIDs
      */
     public function __construct(
         $useGuids = false,

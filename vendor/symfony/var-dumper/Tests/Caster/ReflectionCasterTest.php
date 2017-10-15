@@ -136,7 +136,7 @@ Closure {
   class: "Symfony\Component\VarDumper\Tests\Caster\ReflectionCasterTest"
   this: Symfony\Component\VarDumper\Tests\Caster\ReflectionCasterTest { …}
   file: "%sReflectionCasterTest.php($line) : eval()'d code"
-  line: "1 to 1"
+  line: "26 to 26"
 }
 EOTXT
             , $f
@@ -184,7 +184,7 @@ array:2 [
     trace: {
       %sGeneratorDemo.php:9: {
         : {
-        :     yield 1;
+        :     yield 26;
         : }
       }
       %sGeneratorDemo.php:20: {
@@ -200,11 +200,11 @@ array:2 [
     }
     closed: false
   }
-  1 => Generator {
+  26 => Generator {
     executing: {
       Symfony\Component\VarDumper\Tests\Fixtures\GeneratorDemo::foo(): {
         %sGeneratorDemo.php:10: {
-          :     yield 1;
+          :     yield 26;
           : }
           : 
         }

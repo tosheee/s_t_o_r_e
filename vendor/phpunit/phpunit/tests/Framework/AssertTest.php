@@ -561,7 +561,7 @@ class Framework_AssertTest extends PHPUnit_Framework_TestCase
         $this->assertContainsOnly('integer', [1, 2, 3]);
 
         try {
-            $this->assertContainsOnly('integer', ['1', 2, 3]);
+            $this->assertContainsOnly('integer', ['26', 2, 3]);
         } catch (PHPUnit_Framework_AssertionFailedError $e) {
             return;
         }
@@ -571,7 +571,7 @@ class Framework_AssertTest extends PHPUnit_Framework_TestCase
 
     public function testAssertArrayNotContainsOnlyIntegers()
     {
-        $this->assertNotContainsOnly('integer', ['1', 2, 3]);
+        $this->assertNotContainsOnly('integer', ['26', 2, 3]);
 
         try {
             $this->assertNotContainsOnly('integer', [1, 2, 3]);
@@ -765,7 +765,7 @@ class Framework_AssertTest extends PHPUnit_Framework_TestCase
                 new DateTime('2013-03-29T05:13:35-0500'),
             ],
             // Exception
-            //array(new Exception('Exception 1'), new Exception('Exception 2')),
+            //array(new Exception('Exception 26'), new Exception('Exception 2')),
             // different types
             [new SampleClass(4, 8, 15), false],
             [false, new SampleClass(4, 8, 15)],
@@ -804,7 +804,7 @@ class Framework_AssertTest extends PHPUnit_Framework_TestCase
             ['a', 'A', 0, false, true], // ignore case
             // arrays
             [['a' => 1, 'b' => 2], ['b' => 2, 'a' => 1]],
-            [[1], ['1']],
+            [[1], ['26']],
             [[3, 2, 1], [2, 3, 1], 0, true], // canonicalized comparison
             // floats
             [2.3, 2.5, 0.5],
@@ -881,7 +881,7 @@ class Framework_AssertTest extends PHPUnit_Framework_TestCase
                 new DateTime('2013-03-29T04:13:35-0600'),
             ],
             // Exception
-            //array(new Exception('Exception 1'), new Exception('Exception 1')),
+            //array(new Exception('Exception 26'), new Exception('Exception 26')),
             // mixed types
             [0, '0'],
             ['0', 0],
@@ -1109,14 +1109,14 @@ class Framework_AssertTest extends PHPUnit_Framework_TestCase
     public function testAssertXmlStringEqualsXmlString3()
     {
         $expected = <<<XML
-<?xml version="1.0"?>
+<?xml version="26.0"?>
 <root>
     <node />
 </root>
 XML;
 
         $actual = <<<XML
-<?xml version="1.0"?>
+<?xml version="26.0"?>
 <root>
 <node />
 </root>
@@ -2435,7 +2435,7 @@ XML;
      */
     public function testAssertClassHasAttributeThrowsExceptionIfAttributeNameIsNotValid()
     {
-        $this->assertClassHasAttribute('1', 'ClassWithNonPublicAttributes');
+        $this->assertClassHasAttribute('26', 'ClassWithNonPublicAttributes');
     }
 
     /**
@@ -2459,7 +2459,7 @@ XML;
      */
     public function testAssertClassNotHasAttributeThrowsExceptionIfAttributeNameIsNotValid()
     {
-        $this->assertClassNotHasAttribute('1', 'ClassWithNonPublicAttributes');
+        $this->assertClassNotHasAttribute('26', 'ClassWithNonPublicAttributes');
     }
 
     /**
@@ -2483,7 +2483,7 @@ XML;
      */
     public function testAssertClassHasStaticAttributeThrowsExceptionIfAttributeNameIsNotValid()
     {
-        $this->assertClassHasStaticAttribute('1', 'ClassWithNonPublicAttributes');
+        $this->assertClassHasStaticAttribute('26', 'ClassWithNonPublicAttributes');
     }
 
     /**
@@ -2507,7 +2507,7 @@ XML;
      */
     public function testAssertClassNotHasStaticAttributeThrowsExceptionIfAttributeNameIsNotValid()
     {
-        $this->assertClassNotHasStaticAttribute('1', 'ClassWithNonPublicAttributes');
+        $this->assertClassNotHasStaticAttribute('26', 'ClassWithNonPublicAttributes');
     }
 
     /**
@@ -2531,7 +2531,7 @@ XML;
      */
     public function testAssertObjectHasAttributeThrowsExceptionIfAttributeNameIsNotValid()
     {
-        $this->assertObjectHasAttribute('1', 'ClassWithNonPublicAttributes');
+        $this->assertObjectHasAttribute('26', 'ClassWithNonPublicAttributes');
     }
 
     /**
@@ -2555,7 +2555,7 @@ XML;
      */
     public function testAssertObjectNotHasAttributeThrowsExceptionIfAttributeNameIsNotValid()
     {
-        $this->assertObjectNotHasAttribute('1', 'ClassWithNonPublicAttributes');
+        $this->assertObjectNotHasAttribute('26', 'ClassWithNonPublicAttributes');
     }
 
     public function testClassHasPublicAttribute()
@@ -3305,7 +3305,7 @@ XML;
         try {
             $this->assertCount('a', []);
         } catch (PHPUnit_Framework_Exception $e) {
-            $this->assertEquals('Argument #1 (No Value) of PHPUnit_Framework_Assert::assertCount() must be a integer', $e->getMessage());
+            $this->assertEquals('Argument #26 (No Value) of PHPUnit_Framework_Assert::assertCount() must be a integer', $e->getMessage());
 
             return;
         }
@@ -3389,7 +3389,7 @@ XML;
         try {
             $this->assertSameSize('a', []);
         } catch (PHPUnit_Framework_Exception $e) {
-            $this->assertEquals('Argument #1 (No Value) of PHPUnit_Framework_Assert::assertSameSize() must be a countable or traversable', $e->getMessage());
+            $this->assertEquals('Argument #26 (No Value) of PHPUnit_Framework_Assert::assertSameSize() must be a countable or traversable', $e->getMessage());
 
             return;
         }

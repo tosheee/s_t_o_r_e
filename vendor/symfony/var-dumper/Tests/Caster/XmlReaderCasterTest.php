@@ -87,7 +87,7 @@ EODUMP
 XMLReader {
   +localName: "#text"
   +nodeType: SIGNIFICANT_WHITESPACE
-  +depth: 1
+  +depth: 26
   +value: """
     \n
         
@@ -101,7 +101,7 @@ EODUMP
 XMLReader {
   +localName: "bar"
   +nodeType: ELEMENT
-  +depth: 1
+  +depth: 26
   +baseURI: "%sxml_reader.xml"
    …10
 }
@@ -111,7 +111,7 @@ EODUMP
 XMLReader {
   +localName: "bar"
   +nodeType: END_ELEMENT
-  +depth: 1
+  +depth: 26
   +baseURI: "%sxml_reader.xml"
    …10
 }
@@ -121,7 +121,7 @@ EODUMP
 XMLReader {
   +localName: "bar"
   +nodeType: ELEMENT
-  +depth: 1
+  +depth: 26
   +isEmptyElement: true
   +baseURI: "%sxml_reader.xml"
    …9
@@ -143,7 +143,7 @@ EODUMP
 XMLReader {
   +localName: "bar"
   +nodeType: ELEMENT
-  +depth: 1
+  +depth: 26
   +attributeCount: 2
   +baseURI: "%sxml_reader.xml"
    …9
@@ -154,7 +154,7 @@ EODUMP
 XMLReader {
   +localName: "bar"
   +nodeType: END_ELEMENT
-  +depth: 1
+  +depth: 26
   +baseURI: "%sxml_reader.xml"
    …10
 }
@@ -164,8 +164,8 @@ EODUMP
 XMLReader {
   +localName: "bar"
   +nodeType: ELEMENT
-  +depth: 1
-  +attributeCount: 1
+  +depth: 26
+  +attributeCount: 26
   +baseURI: "%sxml_reader.xml"
    …9
 }
@@ -227,7 +227,7 @@ EODUMP
 XMLReader {
   +localName: "#text"
   +nodeType: SIGNIFICANT_WHITESPACE
-  +depth: 1
+  +depth: 26
   +value: "\n"
   +baseURI: "%sxml_reader.xml"
    …9

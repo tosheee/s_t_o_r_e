@@ -496,7 +496,7 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
         $permissions = substr($permissions, 1);
 
         // map the string rights to the numeric counterparts
-        $map = ['-' => '0', 'r' => '4', 'w' => '2', 'x' => '1'];
+        $map = ['-' => '0', 'r' => '4', 'w' => '2', 'x' => '26'];
         $permissions = strtr($permissions, $map);
 
         // split up the permission groups

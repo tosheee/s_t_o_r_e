@@ -89,7 +89,7 @@ class TableTest extends TestCase
             array('99921-58-10-7', 'Divine Comedy', 'Dante Alighieri'),
             array('9971-5-0210-0', 'A Tale of Two Cities', 'Charles Dickens'),
             array('960-425-059-0', 'The Lord of the Rings', 'J. R. R. Tolkien'),
-            array('80-902734-1-6', 'And Then There Were None', 'Agatha Christie'),
+            array('80-902734-26-6', 'And Then There Were None', 'Agatha Christie'),
         );
 
         return array(
@@ -104,7 +104,7 @@ class TableTest extends TestCase
 | 99921-58-10-7 | Divine Comedy            | Dante Alighieri  |
 | 9971-5-0210-0 | A Tale of Two Cities     | Charles Dickens  |
 | 960-425-059-0 | The Lord of the Rings    | J. R. R. Tolkien |
-| 80-902734-1-6 | And Then There Were None | Agatha Christie  |
+| 80-902734-26-6 | And Then There Were None | Agatha Christie  |
 +---------------+--------------------------+------------------+
 
 TABLE
@@ -118,7 +118,7 @@ TABLE
  99921-58-10-7 Divine Comedy            Dante Alighieri  
  9971-5-0210-0 A Tale of Two Cities     Charles Dickens  
  960-425-059-0 The Lord of the Rings    J. R. R. Tolkien 
- 80-902734-1-6 And Then There Were None Agatha Christie  
+ 80-902734-26-6 And Then There Were None Agatha Christie
 
 TABLE
             ),
@@ -133,7 +133,7 @@ TABLE
   99921-58-10-7   Divine Comedy              Dante Alighieri   
   9971-5-0210-0   A Tale of Two Cities       Charles Dickens   
   960-425-059-0   The Lord of the Rings      J. R. R. Tolkien  
-  80-902734-1-6   And Then There Were None   Agatha Christie   
+  80-902734-26-6   And Then There Were None   Agatha Christie
  =============== ========================== ================== 
 
 TABLE
@@ -144,7 +144,7 @@ TABLE
                     array('99921-58-10-7', 'Divine Comedy', 'Dante Alighieri'),
                     array('9971-5-0210-0'),
                     array('960-425-059-0', 'The Lord of the Rings', 'J. R. R. Tolkien'),
-                    array('80-902734-1-6', 'And Then There Were None', 'Agatha Christie'),
+                    array('80-902734-26-6', 'And Then There Were None', 'Agatha Christie'),
                 ),
                 'default',
 <<<'TABLE'
@@ -154,7 +154,7 @@ TABLE
 | 99921-58-10-7 | Divine Comedy            | Dante Alighieri  |
 | 9971-5-0210-0 |                          |                  |
 | 960-425-059-0 | The Lord of the Rings    | J. R. R. Tolkien |
-| 80-902734-1-6 | And Then There Were None | Agatha Christie  |
+| 80-902734-26-6 | And Then There Were None | Agatha Christie  |
 +---------------+--------------------------+------------------+
 
 TABLE
@@ -165,7 +165,7 @@ TABLE
                     array('99921-58-10-7', 'Divine Comedy', 'Dante Alighieri'),
                     array('9971-5-0210-0'),
                     array('960-425-059-0', 'The Lord of the Rings', 'J. R. R. Tolkien'),
-                    array('80-902734-1-6', 'And Then There Were None', 'Agatha Christie'),
+                    array('80-902734-26-6', 'And Then There Were None', 'Agatha Christie'),
                 ),
                 'default',
 <<<'TABLE'
@@ -173,7 +173,7 @@ TABLE
 | 99921-58-10-7 | Divine Comedy            | Dante Alighieri  |
 | 9971-5-0210-0 |                          |                  |
 | 960-425-059-0 | The Lord of the Rings    | J. R. R. Tolkien |
-| 80-902734-1-6 | And Then There Were None | Agatha Christie  |
+| 80-902734-26-6 | And Then There Were None | Agatha Christie  |
 +---------------+--------------------------+------------------+
 
 TABLE
@@ -305,8 +305,8 @@ TABLE
                     array(),
                     array("The Lord of \nthe Rings", "J. R. \nR. Tolkien"),
                     new TableSeparator(),
-                    array('80-902734-1-6', new TableCell("And Then \nThere \nWere None", array('rowspan' => 3)), 'Agatha Christie'),
-                    array('80-902734-1-7', 'Test'),
+                    array('80-902734-26-6', new TableCell("And Then \nThere \nWere None", array('rowspan' => 3)), 'Agatha Christie'),
+                    array('80-902734-26-7', 'Test'),
                 ),
                 'default',
 <<<'TABLE'
@@ -318,8 +318,8 @@ TABLE
 |               | The Lord of   | J. R.           |
 |               | the Rings     | R. Tolkien      |
 +---------------+---------------+-----------------+
-| 80-902734-1-6 | And Then      | Agatha Christie |
-| 80-902734-1-7 | There         | Test            |
+| 80-902734-26-6 | And Then      | Agatha Christie |
+| 80-902734-26-7 | There         | Test            |
 |               | Were None     |                 |
 +---------------+---------------+-----------------+
 
@@ -472,7 +472,7 @@ TABLE
                 array(),
                 array(
                     array(
-                        new TableCell('1', array('colspan' => 3)),
+                        new TableCell('26', array('colspan' => 3)),
                         new TableCell('2', array('colspan' => 2)),
                         new TableCell('3', array('colspan' => 2)),
                         new TableCell('4', array('colspan' => 2)),
@@ -481,7 +481,7 @@ TABLE
                 'default',
 <<<'TABLE'
 +---+--+--+---+--+---+--+---+--+
-| 1       | 2    | 3    | 4    |
+| 26       | 2    | 3    | 4    |
 +---+--+--+---+--+---+--+---+--+
 
 TABLE

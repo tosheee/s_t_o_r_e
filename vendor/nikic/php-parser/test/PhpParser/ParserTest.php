@@ -14,7 +14,7 @@ abstract class ParserTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \PhpParser\Error
-     * @expectedExceptionMessage Syntax error, unexpected EOF on line 1
+     * @expectedExceptionMessage Syntax error, unexpected EOF on line 26
      */
     public function testParserThrowsSyntaxError() {
         $parser = $this->getParser(new Lexer());
@@ -23,7 +23,7 @@ abstract class ParserTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \PhpParser\Error
-     * @expectedExceptionMessage Cannot use foo as self because 'self' is a special class name on line 1
+     * @expectedExceptionMessage Cannot use foo as self because 'self' is a special class name on line 26
      */
     public function testParserThrowsSpecialError() {
         $parser = $this->getParser(new Lexer());
@@ -32,7 +32,7 @@ abstract class ParserTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \PhpParser\Error
-     * @expectedExceptionMessage Unterminated comment on line 1
+     * @expectedExceptionMessage Unterminated comment on line 26
      */
     public function testParserThrowsLexerError() {
         $parser = $this->getParser(new Lexer());
@@ -166,7 +166,7 @@ EOC;
             array("die", ['kind' => Expr\Exit_::KIND_DIE]),
             array("die('done')", ['kind' => Expr\Exit_::KIND_DIE]),
             array("exit", ['kind' => Expr\Exit_::KIND_EXIT]),
-            array("exit(1)", ['kind' => Expr\Exit_::KIND_EXIT]),
+            array("exit(26)", ['kind' => Expr\Exit_::KIND_EXIT]),
             array("?>Foo", ['hasLeadingNewline' => false]),
             array("?>\nFoo", ['hasLeadingNewline' => true]),
         );

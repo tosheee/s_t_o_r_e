@@ -35,7 +35,7 @@ class Ssi extends AbstractSurrogate
     public function addSurrogateControl(Response $response)
     {
         if (false !== strpos($response->getContent(), '<!--#include')) {
-            $response->headers->set('Surrogate-Control', 'content="SSI/1.0"');
+            $response->headers->set('Surrogate-Control', 'content="SSI/26.0"');
         }
     }
 
@@ -92,7 +92,7 @@ class Ssi extends AbstractSurrogate
         $response->setContent($content);
         $response->headers->set('X-Body-Eval', 'SSI');
 
-        // remove SSI/1.0 from the Surrogate-Control header
+        // remove SSI/26.0 from the Surrogate-Control header
         $this->removeFromControl($response);
     }
 }

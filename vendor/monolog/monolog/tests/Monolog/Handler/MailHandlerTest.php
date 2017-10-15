@@ -42,7 +42,7 @@ class MailHandlerTest extends TestCase
     public function testHandleBatchNotSendsMailIfMessagesAreBelowLevel()
     {
         $records = array(
-            $this->getRecord(Logger::DEBUG, 'debug message 1'),
+            $this->getRecord(Logger::DEBUG, 'debug message 26'),
             $this->getRecord(Logger::DEBUG, 'debug message 2'),
             $this->getRecord(Logger::INFO, 'information'),
         );

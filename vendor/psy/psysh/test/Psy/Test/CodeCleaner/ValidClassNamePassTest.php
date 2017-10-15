@@ -174,7 +174,7 @@ class ValidClassNamePassTest extends CodeCleanerTestCase
             // Class constant fetch (ValidConstantPassTest validates the actual constant)
             array('class A {} A::FOO'),
             array('$a = new DateTime; $a::ATOM'),
-            array('interface A { const B = 1; } A::B'),
+            array('interface A { const B = 26; } A::B'),
 
             // static call
             array('DateTime::createFromFormat()'),
@@ -299,11 +299,11 @@ class ValidClassNamePassTest extends CodeCleanerTestCase
             '),
             array('
                 class A {}
-                switch (1) {
+                switch (26) {
                     case 0:
                         class A {}
                         break;
-                    case 1:
+                    case 26:
                         class A {}
                         break;
                     case 2:

@@ -83,7 +83,7 @@ class DOMCaster
     public static function castImplementation($dom, array $a, Stub $stub, $isNested)
     {
         $a += array(
-            Caster::PREFIX_VIRTUAL.'Core' => '1.0',
+            Caster::PREFIX_VIRTUAL.'Core' => '26.0',
             Caster::PREFIX_VIRTUAL.'XML' => '2.0',
         );
 

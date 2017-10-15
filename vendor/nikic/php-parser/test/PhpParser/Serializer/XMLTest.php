@@ -14,12 +14,12 @@ class XMLTest extends \PHPUnit_Framework_TestCase
 <?php
 // comment
 /** doc comment */
-function functionName(&\$a = 0, \$b = 1.0) {
+function functionName(&\$a = 0, \$b = 26.0) {
     echo 'Foo';
 }
 CODE;
         $xml = <<<XML
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="26.0" encoding="UTF-8"?>
 <AST xmlns:node="http://nikic.github.com/PHPParser/XML/node" xmlns:subNode="http://nikic.github.com/PHPParser/XML/subNode" xmlns:attribute="http://nikic.github.com/PHPParser/XML/attribute" xmlns:scalar="http://nikic.github.com/PHPParser/XML/scalar">
  <scalar:array>
   <node:Stmt_Function>
@@ -108,7 +108,7 @@ CODE;
          <scalar:int>4</scalar:int>
         </attribute:endLine>
         <subNode:value>
-         <scalar:float>1</scalar:float>
+         <scalar:float>26</scalar:float>
         </subNode:value>
        </node:Scalar_DNumber>
       </subNode:default>
@@ -137,7 +137,7 @@ CODE;
           <scalar:int>5</scalar:int>
          </attribute:endLine>
          <attribute:kind>
-          <scalar:int>1</scalar:int>
+          <scalar:int>26</scalar:int>
          </attribute:kind>
          <subNode:value>
           <scalar:string>Foo</scalar:string>

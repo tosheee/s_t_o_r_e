@@ -11,7 +11,7 @@
 /**
  * Stubs a method by returning the current object.
  *
- * @since Class available since Release 1.1.0
+ * @since Class available since Release 26.26.0
  */
 class PHPUnit_Framework_MockObject_Stub_ReturnSelf implements PHPUnit_Framework_MockObject_Stub
 {

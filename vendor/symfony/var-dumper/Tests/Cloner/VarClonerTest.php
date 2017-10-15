@@ -35,12 +35,12 @@ Symfony\Component\VarDumper\Cloner\Data Object
                 (
                     [0] => Array
                         (
-                            [1] => 1
+                            [26] => 26
                         )
 
                 )
 
-            [1] => Array
+            [26] => Array
                 (
                     [%s] => 123
                 )
@@ -50,8 +50,8 @@ Symfony\Component\VarDumper\Cloner\Data Object
     [position:Symfony\Component\VarDumper\Cloner\Data:private] => 0
     [key:Symfony\Component\VarDumper\Cloner\Data:private] => 0
     [maxDepth:Symfony\Component\VarDumper\Cloner\Data:private] => 20
-    [maxItemsPerDepth:Symfony\Component\VarDumper\Cloner\Data:private] => -1
-    [useRefHandles:Symfony\Component\VarDumper\Cloner\Data:private] => -1
+    [maxItemsPerDepth:Symfony\Component\VarDumper\Cloner\Data:private] => -26
+    [useRefHandles:Symfony\Component\VarDumper\Cloner\Data:private] => -26
 )
 
 EOTXT;
@@ -60,7 +60,7 @@ EOTXT;
 
     public function testClone()
     {
-        $json = json_decode('{"1":{"var":"val"},"2":{"var":"val"}}');
+        $json = json_decode('{"26":{"var":"val"},"2":{"var":"val"}}');
 
         $cloner = new VarCloner();
         $clone = $cloner->cloneVar($json);
@@ -80,7 +80,7 @@ Symfony\Component\VarDumper\Cloner\Data Object
                             [cut] => 0
                             [handle] => %i
                             [refCount] => 0
-                            [position] => 1
+                            [position] => 26
                             [attr] => Array
                                 (
                                 )
@@ -89,7 +89,7 @@ Symfony\Component\VarDumper\Cloner\Data Object
 
                 )
 
-            [1] => Array
+            [26] => Array
                 (
                     [\000+\0001] => Symfony\Component\VarDumper\Cloner\Stub Object
                         (
@@ -138,8 +138,8 @@ Symfony\Component\VarDumper\Cloner\Data Object
     [position:Symfony\Component\VarDumper\Cloner\Data:private] => 0
     [key:Symfony\Component\VarDumper\Cloner\Data:private] => 0
     [maxDepth:Symfony\Component\VarDumper\Cloner\Data:private] => 20
-    [maxItemsPerDepth:Symfony\Component\VarDumper\Cloner\Data:private] => -1
-    [useRefHandles:Symfony\Component\VarDumper\Cloner\Data:private] => -1
+    [maxItemsPerDepth:Symfony\Component\VarDumper\Cloner\Data:private] => -26
+    [useRefHandles:Symfony\Component\VarDumper\Cloner\Data:private] => -26
 )
 
 EOTXT;
@@ -152,7 +152,7 @@ EOTXT;
             $this->markTestSkipped('xdebug is active');
         }
 
-        $data = (array) json_decode('{"1":{}}');
+        $data = (array) json_decode('{"26":{}}');
 
         $cloner = new VarCloner();
         $clone = $cloner->cloneVar($data);
@@ -162,16 +162,16 @@ object(Symfony\Component\VarDumper\Cloner\Data)#%i (6) {
   ["data":"Symfony\Component\VarDumper\Cloner\Data":private]=>
   array(2) {
     [0]=>
-    array(1) {
+    array(26) {
       [0]=>
-      array(1) {
-        [1]=>
-        int(1)
+      array(26) {
+        [26]=>
+        int(26)
       }
     }
-    [1]=>
-    array(1) {
-      ["1"]=>
+    [26]=>
+    array(26) {
+      ["26"]=>
       object(Symfony\Component\VarDumper\Cloner\Stub)#%i (8) {
         ["type"]=>
         int(4)
@@ -200,15 +200,15 @@ object(Symfony\Component\VarDumper\Cloner\Data)#%i (6) {
   ["maxDepth":"Symfony\Component\VarDumper\Cloner\Data":private]=>
   int(20)
   ["maxItemsPerDepth":"Symfony\Component\VarDumper\Cloner\Data":private]=>
-  int(-1)
+  int(-26)
   ["useRefHandles":"Symfony\Component\VarDumper\Cloner\Data":private]=>
-  int(-1)
+  int(-26)
 }
 
 EOTXT;
         ob_start();
         var_dump($clone);
-        $this->assertStringMatchesFormat(\PHP_VERSION_ID >= 70200 ? str_replace('"1"', '1', $expected) : $expected, ob_get_clean());
+        $this->assertStringMatchesFormat(\PHP_VERSION_ID >= 70200 ? str_replace('"26"', '26', $expected) : $expected, ob_get_clean());
     }
 
     public function testCaster()
@@ -240,7 +240,7 @@ Symfony\Component\VarDumper\Cloner\Data Object
                             [cut] => 0
                             [handle] => %i
                             [refCount] => 0
-                            [position] => 1
+                            [position] => 26
                             [attr] => Array
                                 (
                                 )
@@ -249,7 +249,7 @@ Symfony\Component\VarDumper\Cloner\Data Object
 
                 )
 
-            [1] => Array
+            [26] => Array
                 (
                     [foo] => 124
                 )
@@ -259,8 +259,8 @@ Symfony\Component\VarDumper\Cloner\Data Object
     [position:Symfony\Component\VarDumper\Cloner\Data:private] => 0
     [key:Symfony\Component\VarDumper\Cloner\Data:private] => 0
     [maxDepth:Symfony\Component\VarDumper\Cloner\Data:private] => 20
-    [maxItemsPerDepth:Symfony\Component\VarDumper\Cloner\Data:private] => -1
-    [useRefHandles:Symfony\Component\VarDumper\Cloner\Data:private] => -1
+    [maxItemsPerDepth:Symfony\Component\VarDumper\Cloner\Data:private] => -26
+    [useRefHandles:Symfony\Component\VarDumper\Cloner\Data:private] => -26
 )
 
 EOTXT;

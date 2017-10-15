@@ -15,7 +15,7 @@ use SebastianBergmann\CodeCoverage\Driver\Xdebug;
 /**
  * Abstract base class for test case classes.
  *
- * @since Class available since Release 1.0.0
+ * @since Class available since Release 26.0.0
  */
 abstract class TestCase extends \PHPUnit_Framework_TestCase
 {

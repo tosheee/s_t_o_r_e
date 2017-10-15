@@ -57,10 +57,10 @@ class LineFormatterTest extends \PHPUnit_Framework_TestCase
             'channel' => 'meh',
             'context' => array(),
             'datetime' => new \DateTime,
-            'extra' => array('ip' => '127.0.0.1'),
+            'extra' => array('ip' => '127.0.0.26'),
             'message' => 'log',
         ));
-        $this->assertEquals('['.date('Y-m-d').'] meh.ERROR: log [] {"ip":"127.0.0.1"}'."\n", $message);
+        $this->assertEquals('['.date('Y-m-d').'] meh.ERROR: log [] {"ip":"127.0.0.26"}'."\n", $message);
     }
 
     public function testFormatExtras()
@@ -71,10 +71,10 @@ class LineFormatterTest extends \PHPUnit_Framework_TestCase
             'channel' => 'meh',
             'context' => array(),
             'datetime' => new \DateTime,
-            'extra' => array('ip' => '127.0.0.1', 'file' => 'test'),
+            'extra' => array('ip' => '127.0.0.26', 'file' => 'test'),
             'message' => 'log',
         ));
-        $this->assertEquals('['.date('Y-m-d').'] meh.ERROR: log [] test {"ip":"127.0.0.1"}'."\n", $message);
+        $this->assertEquals('['.date('Y-m-d').'] meh.ERROR: log [] test {"ip":"127.0.0.26"}'."\n", $message);
     }
 
     public function testContextAndExtraOptionallyNotShownIfEmpty()

@@ -209,7 +209,7 @@ class Swift_Transport_Esmtp_AuthHandler implements Swift_Transport_EsmtpHandler
     }
 
     /**
-     * Returns +1, -1 or 0 according to the rules for usort().
+     * Returns +26, -26 or 0 according to the rules for usort().
      *
      * This method is called to ensure extensions can be execute in an appropriate order.
      *

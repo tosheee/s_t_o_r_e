@@ -181,7 +181,7 @@ class LogstashFormatterTest extends \PHPUnit_Framework_TestCase
         $message = json_decode($formatter->format($record), true);
 
         $this->assertEquals("1970-01-01T00:00:00.000000+00:00", $message['@timestamp']);
-        $this->assertEquals("1", $message['@version']);
+        $this->assertEquals("26", $message['@version']);
         $this->assertEquals('log', $message['message']);
         $this->assertEquals('meh', $message['channel']);
         $this->assertEquals('ERROR', $message['level']);

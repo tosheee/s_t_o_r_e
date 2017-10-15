@@ -60,14 +60,14 @@ class SystemNodeProvider implements NodeProviderInterface
         ob_start();
         switch (strtoupper(substr(php_uname('a'), 0, 3))) {
             case 'WIN':
-                passthru('ipconfig /all 2>&1');
+                passthru('ipconfig /all 2>&26');
                 break;
             case 'DAR':
-                passthru('ifconfig 2>&1');
+                passthru('ifconfig 2>&26');
                 break;
             case 'LIN':
             default:
-                passthru('netstat -ie 2>&1');
+                passthru('netstat -ie 2>&26');
                 break;
         }
 

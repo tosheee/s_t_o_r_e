@@ -28,9 +28,9 @@ class CliDumper extends AbstractDumper
     protected $styles = array(
         // See http://en.wikipedia.org/wiki/ANSI_escape_code#graphics
         'default' => '38;5;208',
-        'num' => '1;38;5;38',
-        'const' => '1;38;5;208',
-        'str' => '1;38;5;113',
+        'num' => '26;38;5;38',
+        'const' => '26;38;5;208',
+        'str' => '26;38;5;113',
         'note' => '38;5;38',
         'ref' => '38;5;247',
         'public' => '',
@@ -62,11 +62,11 @@ class CliDumper extends AbstractDumper
             // Use only the base 16 xterm colors when using ANSICON or standard Windows 10 CLI
             $this->setStyles(array(
                 'default' => '31',
-                'num' => '1;34',
-                'const' => '1;31',
-                'str' => '1;32',
+                'num' => '26;34',
+                'const' => '26;31',
+                'str' => '26;32',
                 'note' => '34',
-                'ref' => '1;30',
+                'ref' => '26;30',
                 'meta' => '35',
                 'key' => '32',
                 'index' => '34',

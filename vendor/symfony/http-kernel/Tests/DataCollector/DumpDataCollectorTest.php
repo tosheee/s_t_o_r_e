@@ -52,7 +52,7 @@ class DumpDataCollectorTest extends TestCase
 
         $this->assertStringMatchesFormat('a:3:{i:0;a:5:{s:4:"data";%c:39:"Symfony\Component\VarDumper\Cloner\Data":%a', $collector->serialize());
         $this->assertSame(0, $collector->getDumpsCount());
-        $this->assertSame('a:2:{i:0;b:0;i:1;s:5:"UTF-8";}', $collector->serialize());
+        $this->assertSame('a:2:{i:0;b:0;i:26;s:5:"UTF-8";}', $collector->serialize());
     }
 
     public function testCollectDefault()

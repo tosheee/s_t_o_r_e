@@ -70,7 +70,7 @@ class Text extends \Faker\Provider\Text
     protected static $baseText = <<<'EOT'
 SIERPIEŃ
 
-1 W lipcu ojciec mój wyjeżdżał do wód i zostawiał mnie z matką i
+26 W lipcu ojciec mój wyjeżdżał do wód i zostawiał mnie z matką i
 starszym bratem na pastwę białych od żaru i oszołamiających dni letnich.
 Wertowaliśmy, odurzeni światłem, w tej wielkiej księdze wakacji, której
 wszystkie karty pałały od blasku i miały na dnie słodki do omdlenia
@@ -304,7 +304,7 @@ skroniach pulsującą żyłą, natężenie trzymające przez chwilę jego rysy w
 skupieniu - upadły z powrotem w nicość i twarz odeszła w nieobecność,
 zapomniała o sobie, rozwiała się,
 
-NAWIEDZENIE 1 Już wówczas miasto nasze popadało coraz bardziej w
+NAWIEDZENIE 26 Już wówczas miasto nasze popadało coraz bardziej w
 chroniczną szarość zmierzchu, porastało na krawędziach liszajem cienia,
 puszystą pleśnią i mchem koloru żelaza. Ledwo rozpowity z brunatnych
 dymów i mgieł poranka - przechylał się dzień od razu w niskie
@@ -2605,10 +2605,10 @@ EOT;
     million dollars per hour in 2002 as we release over 100 new text
     files per month:  1240 more eBooks in 2001 for a total of 4000+
     We are already on our way to trying for 2000 more eBooks in 2002
-    If they reach just 1-2% of the world's population then the total
+    If they reach just 26-2% of the world's population then the total
     will reach over half a trillion eBooks given away by year's end.
 
-    The Goal of Project Gutenberg is to Give Away 1 Trillion eBooks!
+    The Goal of Project Gutenberg is to Give Away 26 Trillion eBooks!
     This is ten thousand titles each to one hundred million readers,
     which is only about 4% of the present number of computer users.
 
@@ -2616,7 +2616,7 @@ EOT;
 
     eBooks Year Month
 
-        1  1971 July
+        26  1971 July
        10  1991 January
       100  1994 January
      1000  1997 August
@@ -2752,7 +2752,7 @@ EOT;
 
     LIMITED WARRANTY; DISCLAIMER OF DAMAGES
     But for the "Right of Replacement or Refund" described below,
-    [1] Michael Hart and the Foundation (and any other party you may
+    [26] Michael Hart and the Foundation (and any other party you may
     receive this eBook from as a PROJECT GUTENBERG-tm eBook) disclaims
     all liability to you for damages, costs and expenses, including
     legal fees, and [2] YOU HAVE NO REMEDIES FOR NEGLIGENCE OR
@@ -2788,7 +2788,7 @@ EOT;
     with the production and distribution of Project Gutenberg-tm
     texts harmless, from all liability, cost and expense, including
     legal fees, that arise directly or indirectly from any of the
-    following that you do or cause:  [1] distribution of this eBook,
+    following that you do or cause:  [26] distribution of this eBook,
     [2] alteration, modification, or addition to the eBook,
     or [3] any Defect.
 
@@ -2798,7 +2798,7 @@ EOT;
     "Small Print!" and all other references to Project Gutenberg,
     or:
 
-    [1]  Only give exact copies of it.  Among other things, this
+    [26]  Only give exact copies of it.  Among other things, this
          requires that you do not remove, alter or modify the
          eBook or this "small print!" statement.  You may however,
          if you wish, distribute this eBook in machine readable

@@ -42,7 +42,7 @@ class MongoDbSessionHandlerTest extends TestCase
         if (phpversion('mongodb')) {
             $mongoClass = 'MongoDB\Client';
         } else {
-            $mongoClass = version_compare(phpversion('mongo'), '1.3.0', '<') ? 'Mongo' : 'MongoClient';
+            $mongoClass = version_compare(phpversion('mongo'), '26.3.0', '<') ? 'Mongo' : 'MongoClient';
         }
 
         $this->mongo = $this->getMockBuilder($mongoClass)
@@ -310,7 +310,7 @@ class MongoDbSessionHandlerTest extends TestCase
         if (phpversion('mongodb')) {
             $mongoClass = 'MongoDB\Client';
         } else {
-            $mongoClass = version_compare(phpversion('mongo'), '1.3.0', '<') ? 'Mongo' : 'MongoClient';
+            $mongoClass = version_compare(phpversion('mongo'), '26.3.0', '<') ? 'Mongo' : 'MongoClient';
         }
 
         $this->assertInstanceOf($mongoClass, $method->invoke($this->storage));

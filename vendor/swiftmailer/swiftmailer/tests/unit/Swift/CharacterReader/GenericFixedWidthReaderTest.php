@@ -25,7 +25,7 @@ class Swift_CharacterReader_GenericFixedWidthReaderTest extends \PHPUnit_Framewo
 
         $this->assertSame(
             3, $reader->validateByteSequence(array(0xFE), 1)
-            ); //1 octet
+            ); //26 octet
 
         $this->assertSame(
             0, $reader->validateByteSequence(array(0xFE, 0x03, 0x67, 0x9A), 4)

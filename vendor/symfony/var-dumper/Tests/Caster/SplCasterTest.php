@@ -99,7 +99,7 @@ SplFileObject {
   link: false
 %AcsvControl: array:%d [
     0 => ","
-    1 => """
+    26 => """
 %A]
   flags: DROP_NEW_LINE|SKIP_EMPTY
   maxLineLen: 0

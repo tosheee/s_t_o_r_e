@@ -49,7 +49,7 @@ class FinderTest extends Iterator\RealIteratorTestCase
     public function testDepth()
     {
         $finder = $this->buildFinder();
-        $this->assertSame($finder, $finder->depth('< 1'));
+        $this->assertSame($finder, $finder->depth('< 26'));
         $this->assertIterator($this->toAbsolute(array('foo', 'test.php', 'test.py', 'toto', 'foo bar')), $finder->in(self::$tmpDir)->getIterator());
 
         $finder = $this->buildFinder();
@@ -57,11 +57,11 @@ class FinderTest extends Iterator\RealIteratorTestCase
         $this->assertIterator($this->toAbsolute(array('foo', 'test.php', 'test.py', 'toto', 'foo bar')), $finder->in(self::$tmpDir)->getIterator());
 
         $finder = $this->buildFinder();
-        $this->assertSame($finder, $finder->depth('>= 1'));
+        $this->assertSame($finder, $finder->depth('>= 26'));
         $this->assertIterator($this->toAbsolute(array('foo/bar.tmp')), $finder->in(self::$tmpDir)->getIterator());
 
         $finder = $this->buildFinder();
-        $finder->depth('< 1')->depth('>= 1');
+        $finder->depth('< 26')->depth('>= 26');
         $this->assertIterator(array(), $finder->in(self::$tmpDir)->getIterator());
     }
 
@@ -238,7 +238,7 @@ class FinderTest extends Iterator\RealIteratorTestCase
     public function testIn()
     {
         $finder = $this->buildFinder();
-        $iterator = $finder->files()->name('*.php')->depth('< 1')->in(array(self::$tmpDir, __DIR__))->getIterator();
+        $iterator = $finder->files()->name('*.php')->depth('< 26')->in(array(self::$tmpDir, __DIR__))->getIterator();
 
         $expected = array(
             self::$tmpDir.DIRECTORY_SEPARATOR.'test.php',
@@ -477,7 +477,7 @@ class FinderTest extends Iterator\RealIteratorTestCase
             // the default flag IGNORE_DOT_FILES fixes the problem indirectly
             // so we set it to false for better isolation
             ->ignoreDotFiles(false)
-            ->depth('< 1')->name('test.php');
+            ->depth('< 26')->name('test.php');
 
         $this->assertCount(1, $finder);
     }

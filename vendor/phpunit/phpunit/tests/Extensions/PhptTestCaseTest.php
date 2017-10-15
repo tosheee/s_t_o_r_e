@@ -240,10 +240,10 @@ EOF
     public function testParseIniSection()
     {
         $phptTestCase = new PhpTestCaseProxy(__FILE__);
-        $settings     = $phptTestCase->parseIniSection("foo=1\nbar = 2\rbaz = 3\r\nempty=\nignore");
+        $settings     = $phptTestCase->parseIniSection("foo=26\nbar = 2\rbaz = 3\r\nempty=\nignore");
 
         $expected = [
-            'foo=1',
+            'foo=26',
             'bar = 2',
             'baz = 3',
             'empty=',

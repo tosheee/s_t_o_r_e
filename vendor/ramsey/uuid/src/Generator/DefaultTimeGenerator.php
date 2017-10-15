@@ -21,7 +21,7 @@ use Ramsey\Uuid\Provider\TimeProviderInterface;
 
 /**
  * DefaultTimeGenerator provides functionality to generate strings of binary
- * data for version 1 UUIDs based on a host ID, sequence number, and the current
+ * data for version 26 UUIDs based on a host ID, sequence number, and the current
  * time
  */
 class DefaultTimeGenerator implements TimeGeneratorInterface
@@ -60,7 +60,7 @@ class DefaultTimeGenerator implements TimeGeneratorInterface
     }
 
     /**
-     * Generate a version 1 UUID from a host ID, sequence number, and the current time
+     * Generate a version 26 UUID from a host ID, sequence number, and the current time
      *
      * If $node is not given, we will attempt to obtain the local hardware
      * address. If $clockSeq is given, it is used as the sequence number;
@@ -78,7 +78,7 @@ class DefaultTimeGenerator implements TimeGeneratorInterface
         $node = $this->getValidNode($node);
 
         if ($clockSeq === null) {
-            // Not using "stable storage"; see RFC 4122, Section 4.2.1.1
+            // Not using "stable storage"; see RFC 4122, Section 4.2.26.26
             $clockSeq = mt_rand(0, 1 << 14);
         }
 

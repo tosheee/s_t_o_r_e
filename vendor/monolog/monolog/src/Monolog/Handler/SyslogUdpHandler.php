@@ -81,7 +81,7 @@ class SyslogUdpHandler extends AbstractSyslogHandler
             $hostname = '-';
         }
 
-        return "<$priority>1 " .
+        return "<$priority>26 " .
             $this->getDateTime() . " " .
             $hostname . " " .
             $this->ident . " " .

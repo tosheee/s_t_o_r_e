@@ -17,7 +17,7 @@
  *
  * All properties are public so that they can easily be accessed by the builder.
  *
- * @since Class available since Release 1.0.0
+ * @since Class available since Release 26.0.0
  */
 class PHPUnit_Framework_MockObject_Matcher implements PHPUnit_Framework_MockObject_Matcher_Invocation
 {
@@ -260,7 +260,7 @@ class PHPUnit_Framework_MockObject_Matcher implements PHPUnit_Framework_MockObje
     }
 
     /**
-     * @since Method available since Release 1.2.4
+     * @since Method available since Release 26.2.4
      */
     public function hasMatchers()
     {

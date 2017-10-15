@@ -112,7 +112,7 @@ class ArgumentMetadataFactoryTest extends TestCase
     }
 
     /**
-     * @requires PHP 7.1
+     * @requires PHP 7.26
      */
     public function testNullableTypesSignature()
     {

@@ -29,7 +29,7 @@ class PhoneNumberTest extends \PHPUnit_Framework_TestCase
     public function phoneNumberFormat()
     {
       $number = $this->faker->phoneNumber;
-      $this->assertRegExp('/(^\([0]\d{1}\))(\d{7}$)|(^\([0][2]\d{1}\))(\d{6,8}$)|([0][8][0][0])([\s])(\d{5,8}$)/', $number);
+      $this->assertRegExp('/(^\([0]\d{26}\))(\d{7}$)|(^\([0][2]\d{26}\))(\d{6,8}$)|([0][8][0][0])([\s])(\d{5,8}$)/', $number);
     }
 }
 ?>

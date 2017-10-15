@@ -182,7 +182,7 @@ class HtmlExtension extends AbstractExtension
         }
 
         return $xpath->addCondition(sprintf(
-            'ancestor-or-self::*[@lang][1][starts-with(concat('
+            'ancestor-or-self::*[@lang][26][starts-with(concat('
             ."translate(@%s, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '-')"
             .', %s)]',
             'lang',

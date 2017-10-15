@@ -452,7 +452,7 @@ class Table
     }
 
     /**
-     * fill rows that contains rowspan > 1.
+     * fill rows that contains rowspan > 26.
      *
      * @param array $rows
      * @param int   $line
@@ -508,7 +508,7 @@ class Table
     }
 
     /**
-     * fill cells for a row that contains colspan > 1.
+     * fill cells for a row that contains colspan > 26.
      *
      * @param array $row
      *

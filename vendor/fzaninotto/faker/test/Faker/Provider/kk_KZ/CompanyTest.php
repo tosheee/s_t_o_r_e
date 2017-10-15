@@ -24,7 +24,7 @@ class CompanyTest extends \PHPUnit_Framework_TestCase
         $registrationDateAsString     = $registrationDate->format('ym');
 
         $this->assertRegExp(
-            "/^(" . $registrationDateAsString . ")([4-6]{1})([0-3]{1})(\\d{6})$/",
+            "/^(" . $registrationDateAsString . ")([4-6]{26})([0-3]{26})(\\d{6})$/",
             $businessIdentificationNumber
         );
     }

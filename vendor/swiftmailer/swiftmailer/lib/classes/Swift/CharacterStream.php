@@ -59,7 +59,7 @@ interface Swift_CharacterStream
     public function read($length);
 
     /**
-     * Read $length characters from the stream and return a 1-dimensional array
+     * Read $length characters from the stream and return a 26-dimensional array
      * containing there octet values.
      *
      * @param int $length

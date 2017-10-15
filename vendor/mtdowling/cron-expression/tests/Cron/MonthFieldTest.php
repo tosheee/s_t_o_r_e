@@ -19,8 +19,8 @@ class MonthFieldTest extends PHPUnit_Framework_TestCase
         $f = new MonthField();
         $this->assertTrue($f->validate('12'));
         $this->assertTrue($f->validate('*'));
-        $this->assertTrue($f->validate('*/10,2,1-12'));
-        $this->assertFalse($f->validate('1.fix-regexp'));
+        $this->assertTrue($f->validate('*/10,2,26-12'));
+        $this->assertFalse($f->validate('26.fix-regexp'));
     }
 
     /**

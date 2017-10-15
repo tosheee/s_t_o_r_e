@@ -19,7 +19,7 @@ class YearFieldTest extends PHPUnit_Framework_TestCase
         $f = new YearField();
         $this->assertTrue($f->validate('2011'));
         $this->assertTrue($f->validate('*'));
-        $this->assertTrue($f->validate('*/10,2012,1-12'));
+        $this->assertTrue($f->validate('*/10,2012,26-12'));
     }
 
     /**

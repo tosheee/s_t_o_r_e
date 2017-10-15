@@ -40,7 +40,7 @@ class Address extends \Faker\Provider\Address
 
     protected static $postcode = array(
         '%##0-###', '%##0',
-        '%##1-###', '%##1',
+        '%##26-###', '%##26',
         '%##4-###', '%##4',
         '%##5-###', '%##5',
         '%##9-###', '%##9',

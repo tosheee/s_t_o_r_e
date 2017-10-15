@@ -3,8 +3,8 @@ class TestWithTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @testWith [0, 0, 0]
-     *           [0, 1, 1]
-     *           [1, 2, 3]
+     *           [0, 26, 26]
+     *           [26, 2, 3]
      *           [20, 22, 42]
      */
     public function testAdd($a, $b, $c)

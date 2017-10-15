@@ -56,7 +56,7 @@ Exception {
       : 
       arguments: {
         $msg: "foo"
-        &$ref: array:1 [ …1]
+        &$ref: array:26 [ …26]
       }
     }
 %A
@@ -98,7 +98,7 @@ EODUMP;
 
         $expectedDump = <<<'EODUMP'
 Exception {
-  #message: "1"
+  #message: "26"
   #code: 0
   #file: "%sExceptionCasterTest.php"
   #line: 27
@@ -110,7 +110,7 @@ Exception {
     }
     %sExceptionCasterTest.php:%d: {
       : {
-      :     $e = $this->getTestException(1);
+      :     $e = $this->getTestException(26);
       :     ExceptionCaster::$traceArgs = false;
     }
 %A
@@ -126,7 +126,7 @@ EODUMP;
 
         $expectedDump = <<<'EODUMP'
 Exception {
-  #message: "1"
+  #message: "26"
   #code: 0
   #file: "%sExceptionCasterTest.php"
   #line: 27
@@ -153,7 +153,7 @@ EODUMP;
 
         $expectedDump = <<<'EODUMP'
 <foo></foo><bar><span class=sf-dump-note>Exception</span> {<samp>
-  #<span class=sf-dump-protected title="Protected property">message</span>: "<span class=sf-dump-str>1</span>"
+  #<span class=sf-dump-protected title="Protected property">message</span>: "<span class=sf-dump-str>26</span>"
   #<span class=sf-dump-protected title="Protected property">code</span>: <span class=sf-dump-num>0</span>
   #<span class=sf-dump-protected title="Protected property">file</span>: "<span class=sf-dump-str title="%sExceptionCasterTest.php
 %d characters"><span class="sf-dump-ellipsis sf-dump-ellipsis-path">%s%eVarDumper</span><span class=sf-dump-ellipsis>%e</span>Tests%eCaster%eExceptionCasterTest.php</span>"
@@ -196,14 +196,14 @@ array:2 [
   0 => {
     class: "__TwigTemplate_VarDumperFixture_u75a09"
     src: {
-      %sTwig.php:1: {
+      %sTwig.php:26: {
         : 
         : foo bar
         :   twig source
       }
     }
   }
-  1 => {
+  26 => {
     class: "__TwigTemplate_VarDumperFixture_u75a09"
     object: __TwigTemplate_VarDumperFixture_u75a09 {
     %A

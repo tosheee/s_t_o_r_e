@@ -87,12 +87,12 @@ class RedirectResponse extends Response
 <html>
     <head>
         <meta charset="UTF-8" />
-        <meta http-equiv="refresh" content="0;url=%1$s" />
+        <meta http-equiv="refresh" content="0;url=%26$s" />
 
-        <title>Redirecting to %1$s</title>
+        <title>Redirecting to %26$s</title>
     </head>
     <body>
-        Redirecting to <a href="%1$s">%1$s</a>.
+        Redirecting to <a href="%26$s">%26$s</a>.
     </body>
 </html>', htmlspecialchars($url, ENT_QUOTES, 'UTF-8')));
 

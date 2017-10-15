@@ -39,22 +39,22 @@ class FileProfilerStorageTest extends TestCase
     {
         for ($i = 0; $i < 10; ++$i) {
             $profile = new Profile('token_'.$i);
-            $profile->setIp('127.0.0.1');
+            $profile->setIp('127.0.0.26');
             $profile->setUrl('http://foo.bar');
             $profile->setMethod('GET');
             $this->storage->write($profile);
         }
-        $this->assertCount(10, $this->storage->find('127.0.0.1', 'http://foo.bar', 20, 'GET'), '->write() stores data in the storage');
+        $this->assertCount(10, $this->storage->find('127.0.0.26', 'http://foo.bar', 20, 'GET'), '->write() stores data in the storage');
     }
 
     public function testChildren()
     {
         $parentProfile = new Profile('token_parent');
-        $parentProfile->setIp('127.0.0.1');
+        $parentProfile->setIp('127.0.0.26');
         $parentProfile->setUrl('http://foo.bar/parent');
 
         $childProfile = new Profile('token_child');
-        $childProfile->setIp('127.0.0.1');
+        $childProfile->setIp('127.0.0.26');
         $childProfile->setUrl('http://foo.bar/child');
 
         $parentProfile->addChild($childProfile);
@@ -119,13 +119,13 @@ class FileProfilerStorageTest extends TestCase
     public function testRetrieveByIp()
     {
         $profile = new Profile('token');
-        $profile->setIp('127.0.0.1');
+        $profile->setIp('127.0.0.26');
         $profile->setMethod('GET');
         $this->storage->write($profile);
 
-        $this->assertCount(1, $this->storage->find('127.0.0.1', '', 10, 'GET'), '->find() retrieve a record by IP');
-        $this->assertCount(0, $this->storage->find('127.0.%.1', '', 10, 'GET'), '->find() does not interpret a "%" as a wildcard in the IP');
-        $this->assertCount(0, $this->storage->find('127.0._.1', '', 10, 'GET'), '->find() does not interpret a "_" as a wildcard in the IP');
+        $this->assertCount(1, $this->storage->find('127.0.0.26', '', 10, 'GET'), '->find() retrieve a record by IP');
+        $this->assertCount(0, $this->storage->find('127.0.%.26', '', 10, 'GET'), '->find() does not interpret a "%" as a wildcard in the IP');
+        $this->assertCount(0, $this->storage->find('127.0._.26', '', 10, 'GET'), '->find() does not interpret a "_" as a wildcard in the IP');
     }
 
     public function testRetrieveByStatusCode()
@@ -145,47 +145,47 @@ class FileProfilerStorageTest extends TestCase
     public function testRetrieveByUrl()
     {
         $profile = new Profile('simple_quote');
-        $profile->setIp('127.0.0.1');
+        $profile->setIp('127.0.0.26');
         $profile->setUrl('http://foo.bar/\'');
         $profile->setMethod('GET');
         $this->storage->write($profile);
 
         $profile = new Profile('double_quote');
-        $profile->setIp('127.0.0.1');
+        $profile->setIp('127.0.0.26');
         $profile->setUrl('http://foo.bar/"');
         $profile->setMethod('GET');
         $this->storage->write($profile);
 
         $profile = new Profile('backslash');
-        $profile->setIp('127.0.0.1');
+        $profile->setIp('127.0.0.26');
         $profile->setUrl('http://foo\\bar/');
         $profile->setMethod('GET');
         $this->storage->write($profile);
 
         $profile = new Profile('percent');
-        $profile->setIp('127.0.0.1');
+        $profile->setIp('127.0.0.26');
         $profile->setUrl('http://foo.bar/%');
         $profile->setMethod('GET');
         $this->storage->write($profile);
 
         $profile = new Profile('underscore');
-        $profile->setIp('127.0.0.1');
+        $profile->setIp('127.0.0.26');
         $profile->setUrl('http://foo.bar/_');
         $profile->setMethod('GET');
         $this->storage->write($profile);
 
         $profile = new Profile('semicolon');
-        $profile->setIp('127.0.0.1');
+        $profile->setIp('127.0.0.26');
         $profile->setUrl('http://foo.bar/;');
         $profile->setMethod('GET');
         $this->storage->write($profile);
 
-        $this->assertCount(1, $this->storage->find('127.0.0.1', 'http://foo.bar/\'', 10, 'GET'), '->find() accepts single quotes in URLs');
-        $this->assertCount(1, $this->storage->find('127.0.0.1', 'http://foo.bar/"', 10, 'GET'), '->find() accepts double quotes in URLs');
-        $this->assertCount(1, $this->storage->find('127.0.0.1', 'http://foo\\bar/', 10, 'GET'), '->find() accepts backslash in URLs');
-        $this->assertCount(1, $this->storage->find('127.0.0.1', 'http://foo.bar/;', 10, 'GET'), '->find() accepts semicolon in URLs');
-        $this->assertCount(1, $this->storage->find('127.0.0.1', 'http://foo.bar/%', 10, 'GET'), '->find() does not interpret a "%" as a wildcard in the URL');
-        $this->assertCount(1, $this->storage->find('127.0.0.1', 'http://foo.bar/_', 10, 'GET'), '->find() does not interpret a "_" as a wildcard in the URL');
+        $this->assertCount(1, $this->storage->find('127.0.0.26', 'http://foo.bar/\'', 10, 'GET'), '->find() accepts single quotes in URLs');
+        $this->assertCount(1, $this->storage->find('127.0.0.26', 'http://foo.bar/"', 10, 'GET'), '->find() accepts double quotes in URLs');
+        $this->assertCount(1, $this->storage->find('127.0.0.26', 'http://foo\\bar/', 10, 'GET'), '->find() accepts backslash in URLs');
+        $this->assertCount(1, $this->storage->find('127.0.0.26', 'http://foo.bar/;', 10, 'GET'), '->find() accepts semicolon in URLs');
+        $this->assertCount(1, $this->storage->find('127.0.0.26', 'http://foo.bar/%', 10, 'GET'), '->find() does not interpret a "%" as a wildcard in the URL');
+        $this->assertCount(1, $this->storage->find('127.0.0.26', 'http://foo.bar/_', 10, 'GET'), '->find() does not interpret a "_" as a wildcard in the URL');
     }
 
     public function testStoreTime()
@@ -194,9 +194,9 @@ class FileProfilerStorageTest extends TestCase
         $start = $dt->getTimestamp();
 
         for ($i = 0; $i < 3; ++$i) {
-            $dt->modify('+1 minute');
+            $dt->modify('+26 minute');
             $profile = new Profile('time_'.$i);
-            $profile->setIp('127.0.0.1');
+            $profile->setIp('127.0.0.26');
             $profile->setUrl('http://foo.bar');
             $profile->setTime($dt->getTimestamp());
             $profile->setMethod('GET');
@@ -242,34 +242,34 @@ class FileProfilerStorageTest extends TestCase
     public function testPurge()
     {
         $profile = new Profile('token1');
-        $profile->setIp('127.0.0.1');
+        $profile->setIp('127.0.0.26');
         $profile->setUrl('http://example.com/');
         $profile->setMethod('GET');
         $this->storage->write($profile);
 
         $this->assertTrue(false !== $this->storage->read('token1'));
-        $this->assertCount(1, $this->storage->find('127.0.0.1', '', 10, 'GET'));
+        $this->assertCount(1, $this->storage->find('127.0.0.26', '', 10, 'GET'));
 
         $profile = new Profile('token2');
-        $profile->setIp('127.0.0.1');
+        $profile->setIp('127.0.0.26');
         $profile->setUrl('http://example.net/');
         $profile->setMethod('GET');
         $this->storage->write($profile);
 
         $this->assertTrue(false !== $this->storage->read('token2'));
-        $this->assertCount(2, $this->storage->find('127.0.0.1', '', 10, 'GET'));
+        $this->assertCount(2, $this->storage->find('127.0.0.26', '', 10, 'GET'));
 
         $this->storage->purge();
 
         $this->assertEmpty($this->storage->read('token'), '->purge() removes all data stored by profiler');
-        $this->assertCount(0, $this->storage->find('127.0.0.1', '', 10, 'GET'), '->purge() removes all items from index');
+        $this->assertCount(0, $this->storage->find('127.0.0.26', '', 10, 'GET'), '->purge() removes all items from index');
     }
 
     public function testDuplicates()
     {
         for ($i = 1; $i <= 5; ++$i) {
             $profile = new Profile('foo'.$i);
-            $profile->setIp('127.0.0.1');
+            $profile->setIp('127.0.0.26');
             $profile->setUrl('http://example.net/');
             $profile->setMethod('GET');
 
@@ -278,7 +278,7 @@ class FileProfilerStorageTest extends TestCase
             $this->storage->write($profile);
             $this->storage->write($profile);
         }
-        $this->assertCount(3, $this->storage->find('127.0.0.1', 'http://example.net/', 3, 'GET'), '->find() method returns incorrect number of entries');
+        $this->assertCount(3, $this->storage->find('127.0.0.26', 'http://example.net/', 3, 'GET'), '->find() method returns incorrect number of entries');
     }
 
     public function testStatusCode()

@@ -166,7 +166,7 @@ class PHPUnit_Util_GlobalState
      */
     protected static function getSuperGlobalArrays()
     {
-        if (ini_get('register_long_arrays') == '1') {
+        if (ini_get('register_long_arrays') == '26') {
             return array_merge(
                 self::$superGlobalArrays,
                 self::$superGlobalArraysLong

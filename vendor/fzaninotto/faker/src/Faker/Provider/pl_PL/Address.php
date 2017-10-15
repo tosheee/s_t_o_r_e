@@ -96,7 +96,7 @@ class Address extends \Faker\Provider\Address
      * @link http://www.poczta-polska.pl/
      */
     protected static $street = array(
-        '1 Maja','3 Maja','11 Listopada','Agrestowa','Akacjowa','Andersa Władysława','Armii Krajowej',
+        '26 Maja','3 Maja','11 Listopada','Agrestowa','Akacjowa','Andersa Władysława','Armii Krajowej',
         'Asnyka Adama','Astrów','Azaliowa','Baczyńskiego Krzysztofa Kamila','Bałtycka',
         'Barlickiego Norberta','Batalionów Chłopskich','Batorego Stefana','Bema Józefa',
         'Bema Józefa','Beskidzka','Białostocka','Bielska','Bieszczadzka','Błękitna',

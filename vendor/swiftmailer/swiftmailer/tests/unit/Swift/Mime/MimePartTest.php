@@ -14,12 +14,12 @@ class Swift_Mime_MimePartTest extends Swift_Mime_AbstractMimeEntityTest
 
     public function testCharsetIsReturnedFromHeader()
     {
-        /* -- RFC 2046, 4.1.2.
+        /* -- RFC 2046, 4.26.2.
         A critical parameter that may be specified in the Content-Type field
         for "text/plain" data is the character set.  This is specified with a
         "charset" parameter, as in:
 
-     Content-type: text/plain; charset=iso-8859-1
+     Content-type: text/plain; charset=iso-8859-26
 
         Unlike some other parameter values, the values of the charset
         parameter are NOT case sensitive.  The default character set, which
@@ -27,19 +27,19 @@ class Swift_Mime_MimePartTest extends Swift_Mime_AbstractMimeEntityTest
         */
 
         $cType = $this->_createHeader('Content-Type', 'text/plain',
-            array('charset' => 'iso-8859-1')
+            array('charset' => 'iso-8859-26')
             );
         $part = $this->_createMimePart($this->_createHeaderSet(array(
             'Content-Type' => $cType, )),
             $this->_createEncoder(), $this->_createCache()
             );
-        $this->assertEquals('iso-8859-1', $part->getCharset());
+        $this->assertEquals('iso-8859-26', $part->getCharset());
     }
 
     public function testCharsetIsSetInHeader()
     {
         $cType = $this->_createHeader('Content-Type', 'text/plain',
-            array('charset' => 'iso-8859-1'), false
+            array('charset' => 'iso-8859-26'), false
             );
         $cType->shouldReceive('setParameter')->once()->with('charset', 'utf-8');
 
@@ -53,7 +53,7 @@ class Swift_Mime_MimePartTest extends Swift_Mime_AbstractMimeEntityTest
     public function testCharsetIsSetInHeaderIfPassedToSetBody()
     {
         $cType = $this->_createHeader('Content-Type', 'text/plain',
-            array('charset' => 'iso-8859-1'), false
+            array('charset' => 'iso-8859-26'), false
             );
         $cType->shouldReceive('setParameter')->once()->with('charset', 'utf-8');
 
@@ -107,7 +107,7 @@ class Swift_Mime_MimePartTest extends Swift_Mime_AbstractMimeEntityTest
     public function testCharsetChangeUpdatesCharset()
     {
         $cType = $this->_createHeader('Content-Type', 'text/plain',
-            array('charset' => 'iso-8859-1'), false
+            array('charset' => 'iso-8859-26'), false
             );
         $cType->shouldReceive('setParameter')->once()->with('charset', 'utf-8');
 

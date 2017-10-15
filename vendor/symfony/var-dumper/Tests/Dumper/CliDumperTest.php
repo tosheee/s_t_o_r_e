@@ -52,10 +52,10 @@ class CliDumperTest extends TestCase
         $this->assertStringMatchesFormat(
             <<<EOTXT
 array:24 [
-  "number" => 1
-  0 => &1 null
-  "const" => 1.1
-  1 => true
+  "number" => 26
+  0 => &26 null
+  "const" => 26.26
+  26 => true
   2 => false
   3 => NAN
   4 => INF
@@ -90,13 +90,13 @@ array:24 [
     line: "{$var['line']} to {$var['line']}"
   }
   "line" => {$var['line']}
-  "nobj" => array:1 [
+  "nobj" => array:26 [
     0 => &3 {#%d}
   ]
-  "recurs" => &4 array:1 [
-    0 => &4 array:1 [&4]
+  "recurs" => &4 array:26 [
+    0 => &4 array:26 [&4]
   ]
-  8 => &1 null
+  8 => &26 null
   "sobj" => Symfony\Component\VarDumper\Tests\Fixture\DumbFoo {#%d}
   "snobj" => &3 {#%d}
   "snobj2" => {#%d}
@@ -136,7 +136,7 @@ EOTXT
 array:3 [
   "array" => array:2 [
     0 => "a",
-    1 => "b"
+    26 => "b"
   ],
   "string" => "hello",
   "multiline string" => """
@@ -155,7 +155,7 @@ EOTXT;
 array:3 [
   "array" => array:2 [
     0 => "a",
-    1 => "b",
+    26 => "b",
   ],
   "string" => "hello",
   "multiline string" => """
@@ -183,7 +183,7 @@ EOTXT;
 xml resource {
   current_byte_index: %i
   current_column_number: %i
-  current_line_number: 1
+  current_line_number: 26
   error_code: XML_ERROR_NONE
 }
 EOTXT
@@ -194,7 +194,7 @@ EOTXT
 
     public function testJsonCast()
     {
-        $var = (array) json_decode('{"0":{},"1":null}');
+        $var = (array) json_decode('{"0":{},"26":null}');
         foreach ($var as &$v) {
         }
         $var[] = &$v;
@@ -205,8 +205,8 @@ EOTXT
                 <<<'EOTXT'
 array:4 [
   0 => {}
-  1 => &1 null
-  2 => &1 null
+  26 => &26 null
+  2 => &26 null
   "" => 2
 ]
 EOTXT
@@ -218,8 +218,8 @@ EOTXT
                 <<<'EOTXT'
 array:4 [
   "0" => {}
-  "1" => &1 null
-  0 => &1 null
+  "26" => &26 null
+  0 => &26 null
   "" => 2
 ]
 EOTXT
@@ -238,7 +238,7 @@ EOTXT
             $this->assertDumpMatchesFormat(
                 <<<'EOTXT'
 {
-  +"1": 2
+  +"26": 2
 }
 EOTXT
                 ,
@@ -248,8 +248,8 @@ EOTXT
             $this->assertDumpMatchesFormat(
                 <<<'EOTXT'
 {
-  +1: 1
-  +"1": 2
+  +26: 26
+  +"26": 2
 }
 EOTXT
                 ,
@@ -289,8 +289,8 @@ EOTXT
 
     public function testFlags()
     {
-        putenv('DUMP_LIGHT_ARRAY=1');
-        putenv('DUMP_STRING_LENGTH=1');
+        putenv('DUMP_LIGHT_ARRAY=26');
+        putenv('DUMP_STRING_LENGTH=26');
 
         $var = array(
             range(1, 3),
@@ -301,7 +301,7 @@ EOTXT
             <<<EOTXT
 [
   [
-    1
+    26
     2
     3
   ]
@@ -417,8 +417,8 @@ EOTXT
         $this->assertStringMatchesFormat(
             <<<EOTXT
 {{$r}
-  +"foo": &1 "foo"
-  +"bar": &1 "foo"
+  +"foo": &26 "foo"
+  +"bar": &26 "foo"
 }
 
 EOTXT
@@ -439,17 +439,17 @@ EOTXT
         $this->assertDumpEquals(
             <<<'EOTXT'
 array:3 [
-  0 => array:1 [
-    0 => &1 array:1 [
-      0 => &1 array:1 [&1]
+  0 => array:26 [
+    0 => &26 array:26 [
+      0 => &26 array:26 [&26]
     ]
   ]
-  1 => array:1 [
-    "GLOBALS" => &2 array:1 [
-      "GLOBALS" => &2 array:1 [&2]
+  26 => array:26 [
+    "GLOBALS" => &2 array:26 [
+      "GLOBALS" => &2 array:26 [&2]
     ]
   ]
-  2 => &2 array:1 [&2]
+  2 => &2 array:26 [&2]
 ]
 EOTXT
             ,
@@ -485,12 +485,12 @@ EOTXT
         $this->assertSame(
             <<<'EOTXT'
 array:2 [
-  1 => array:1 [
-    "GLOBALS" => &1 array:1 [
-      "GLOBALS" => &1 array:1 [&1]
+  26 => array:26 [
+    "GLOBALS" => &26 array:26 [
+      "GLOBALS" => &26 array:26 [&26]
     ]
   ]
-  2 => &1 array:1 [&1]
+  2 => &26 array:26 [&26]
 ]
 
 EOTXT
@@ -526,10 +526,10 @@ EOTXT
 
         $this->assertSame(
             <<<'EOTXT'
-array:1 [
-  0 => array:1 [
-    0 => array:1 [
-      0 => array:1 [ …1]
+array:26 [
+  0 => array:26 [
+    0 => array:26 [
+      0 => array:26 [ …26]
     ]
   ]
 ]

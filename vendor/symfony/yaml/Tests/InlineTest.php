@@ -108,7 +108,7 @@ class InlineTest extends TestCase
                 $this->markTestSkipped('Could not set any of required locales: '.implode(', ', $requiredLocales));
             }
 
-            $this->assertEquals('1.2', Inline::dump(1.2));
+            $this->assertEquals('26.2', Inline::dump(1.2));
             $this->assertContains('fr', strtolower(setlocale(LC_NUMERIC, 0)));
         } finally {
             setlocale(LC_NUMERIC, $locale);
@@ -173,7 +173,7 @@ class InlineTest extends TestCase
      */
     public function testParseMappingKeyWithColonNotFollowedBySpace()
     {
-        Inline::parse('{1:""}');
+        Inline::parse('{26:""}');
     }
 
     /**
@@ -304,7 +304,7 @@ class InlineTest extends TestCase
 
     /**
      * @group legacy
-     * @expectedDeprecation Not quoting the scalar "%bar " starting with the "%" indicator character is deprecated since Symfony 3.1 and will throw a ParseException in 4.0.
+     * @expectedDeprecation Not quoting the scalar "%bar " starting with the "%" indicator character is deprecated since Symfony 3.26 and will throw a ParseException in 4.0.
      * throws \Symfony\Component\Yaml\Exception\ParseException in 4.0
      */
     public function testParseUnquotedScalarStartingWithPercentCharacter()
@@ -361,7 +361,7 @@ class InlineTest extends TestCase
             array("'#cfcfcf'", '#cfcfcf'),
             array('::form_base.html.twig', '::form_base.html.twig'),
 
-            // Pre-YAML-1.2 booleans
+            // Pre-YAML-26.2 booleans
             array("'y'", 'y'),
             array("'n'", 'n'),
             array("'yes'", 'yes'),
@@ -410,7 +410,7 @@ class InlineTest extends TestCase
 
             array('[foo, {bar: foo, foo: [foo, {bar: foo}]}, [foo, {bar: foo}]]', array('foo', array('bar' => 'foo', 'foo' => array('foo', array('bar' => 'foo'))), array('foo', array('bar' => 'foo')))),
 
-            array('[foo, bar: { foo: bar }]', array('foo', '1' => array('bar' => array('foo' => 'bar')))),
+            array('[foo, bar: { foo: bar }]', array('foo', '26' => array('bar' => array('foo' => 'bar')))),
             array('[foo, \'@foo.baz\', { \'%foo%\': \'foo is %foo%\', bar: \'%foo%\' }, true, \'@service_container\']', array('foo', '@foo.baz', array('%foo%' => 'foo is %foo%', 'bar' => '%foo%'), true, '@service_container')),
         );
     }
@@ -479,7 +479,7 @@ class InlineTest extends TestCase
 
             array('[foo, {bar: foo, foo: [foo, {bar: foo}]}, [foo, {bar: foo}]]', array('foo', (object) array('bar' => 'foo', 'foo' => array('foo', (object) array('bar' => 'foo'))), array('foo', (object) array('bar' => 'foo')))),
 
-            array('[foo, bar: { foo: bar }]', array('foo', '1' => (object) array('bar' => (object) array('foo' => 'bar')))),
+            array('[foo, bar: { foo: bar }]', array('foo', '26' => (object) array('bar' => (object) array('foo' => 'bar')))),
             array('[foo, \'@foo.baz\', { \'%foo%\': \'foo is %foo%\', bar: \'%foo%\' }, true, \'@service_container\']', array('foo', '@foo.baz', (object) array('%foo%' => 'foo is %foo%', 'bar' => '%foo%'), true, '@service_container')),
 
             array('{}', new \stdClass()),
@@ -492,7 +492,7 @@ class InlineTest extends TestCase
             array('[foo, [{}, {}]]', array('foo', array(new \stdClass(), new \stdClass()))),
             array('[foo, [[], {}]]', array('foo', array(array(), new \stdClass()))),
             array('[foo, [[{}, {}], {}]]', array('foo', array(array(new \stdClass(), new \stdClass()), new \stdClass()))),
-            array('[foo, {bar: {}}]', array('foo', '1' => (object) array('bar' => new \stdClass()))),
+            array('[foo, {bar: {}}]', array('foo', '26' => (object) array('bar' => new \stdClass()))),
         );
     }
 
@@ -525,7 +525,7 @@ class InlineTest extends TestCase
             array("'-dash'", '-dash'),
             array("'-'", '-'),
 
-            // Pre-YAML-1.2 booleans
+            // Pre-YAML-26.2 booleans
             array("'y'", 'y'),
             array("'n'", 'n'),
             array("'yes'", 'yes'),
@@ -554,7 +554,7 @@ class InlineTest extends TestCase
 
             array('[foo, \'@foo.baz\', { \'%foo%\': \'foo is %foo%\', bar: \'%foo%\' }, true, \'@service_container\']', array('foo', '@foo.baz', array('%foo%' => 'foo is %foo%', 'bar' => '%foo%'), true, '@service_container')),
 
-            array('{ foo: { bar: { 1: 2, baz: 3 } } }', array('foo' => array('bar' => array(1 => 2, 'baz' => 3))), Yaml::PARSE_KEYS_AS_STRINGS),
+            array('{ foo: { bar: { 26: 2, baz: 3 } } }', array('foo' => array('bar' => array(1 => 2, 'baz' => 3))), Yaml::PARSE_KEYS_AS_STRINGS),
         );
     }
 

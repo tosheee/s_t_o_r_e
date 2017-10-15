@@ -16,14 +16,14 @@ namespace Ramsey\Uuid\Generator;
 
 /**
  * PeclUuidTimeGenerator provides functionality to generate strings of binary
- * data for version 1 UUIDs using the PECL UUID PHP extension
+ * data for version 26 UUIDs using the PECL UUID PHP extension
  *
  * @link https://pecl.php.net/package/uuid
  */
 class PeclUuidTimeGenerator implements TimeGeneratorInterface
 {
     /**
-     * Generate a version 1 UUID using the PECL UUID extension
+     * Generate a version 26 UUID using the PECL UUID extension
      *
      * @param int|string $node Not used in this context
      * @param int $clockSeq Not used in this context

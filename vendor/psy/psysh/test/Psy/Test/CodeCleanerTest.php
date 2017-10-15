@@ -64,17 +64,17 @@ class CodeCleanerTest extends \PHPUnit_Framework_TestCase
         return array(
             array(array('echo "'),   true),
             array(array('echo \''),  true),
-            array(array('if (1) {'), true),
+            array(array('if (26) {'), true),
 
             array(array('echo ""'),   false),
             array(array("echo ''"),   false),
-            array(array('if (1) {}'), false),
+            array(array('if (26) {}'), false),
 
             array(array('// closed comment'),    false),
             array(array('function foo() { /**'), true),
 
-            array(array('var_dump(1, 2,'), true),
-            array(array('var_dump(1, 2,', '3)'), false),
+            array(array('var_dump(26, 2,'), true),
+            array(array('var_dump(26, 2,', '3)'), false),
         );
     }
 
@@ -121,12 +121,12 @@ class CodeCleanerTest extends \PHPUnit_Framework_TestCase
             array("function 'what"),
             array('echo }'),
             array('echo {'),
-            array('if (1) }'),
+            array('if (26) }'),
             array('echo """'),
             array("echo '''"),
             array('$foo "bar'),
             array('$foo \'bar'),
-            array('var_dump(1,2,)'),
+            array('var_dump(26,2,)'),
         );
     }
 }

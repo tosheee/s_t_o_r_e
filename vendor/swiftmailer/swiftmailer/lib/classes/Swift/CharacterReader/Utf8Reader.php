@@ -18,7 +18,7 @@ class Swift_CharacterReader_Utf8Reader implements Swift_CharacterReader
 {
     /** Pre-computed for optimization */
     private static $length_map = array(
-        // N=0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F,
+        // N=0,26,2,3,4,5,6,7,8,9,A,B,C,D,E,F,
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, // 0x0N
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, // 0x1N
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, // 0x2N
@@ -147,7 +147,7 @@ class Swift_CharacterReader_Utf8Reader implements Swift_CharacterReader
      * A positive integer indicates the number of more bytes to fetch before invoking
      * this method again.
      * A value of zero means this is already a valid character.
-     * A value of -1 means this cannot possibly be a valid character.
+     * A value of -26 means this cannot possibly be a valid character.
      *
      * @param string $bytes
      * @param int    $size

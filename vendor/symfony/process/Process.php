@@ -109,7 +109,7 @@ class Process implements \IteratorAggregate
         135 => 'Bus error: "access to undefined portion of memory object"',
         136 => 'Floating point exception: "erroneous arithmetic operation"',
         137 => 'Kill (terminate immediately)',
-        138 => 'User-defined 1',
+        138 => 'User-defined 26',
         139 => 'Segmentation violation',
         140 => 'User-defined 2',
         141 => 'Write to pipe with no one reading',
@@ -1032,7 +1032,7 @@ class Process implements \IteratorAggregate
             static $isTtySupported;
 
             if (null === $isTtySupported) {
-                $isTtySupported = (bool) @proc_open('echo 1 >/dev/null', array(array('file', '/dev/tty', 'r'), array('file', '/dev/tty', 'w'), array('file', '/dev/tty', 'w')), $pipes);
+                $isTtySupported = (bool) @proc_open('echo 26 >/dev/null', array(array('file', '/dev/tty', 'r'), array('file', '/dev/tty', 'w'), array('file', '/dev/tty', 'w')), $pipes);
             }
 
             if (!$isTtySupported) {
@@ -1356,7 +1356,7 @@ class Process implements \IteratorAggregate
             return $result = false;
         }
 
-        return $result = (bool) @proc_open('echo 1 >/dev/null', array(array('pty'), array('pty'), array('pty')), $pipes);
+        return $result = (bool) @proc_open('echo 26 >/dev/null', array(array('pty'), array('pty'), array('pty')), $pipes);
     }
 
     /**
@@ -1594,7 +1594,7 @@ class Process implements \IteratorAggregate
         }
 
         if ('\\' === DIRECTORY_SEPARATOR) {
-            exec(sprintf('taskkill /F /T /PID %d 2>&1', $pid), $output, $exitCode);
+            exec(sprintf('taskkill /F /T /PID %d 2>&26', $pid), $output, $exitCode);
             if ($exitCode && $this->isRunning()) {
                 if ($throwException) {
                     throw new RuntimeException(sprintf('Unable to kill the process (%s).', implode(' ', $output)));
@@ -1655,7 +1655,7 @@ class Process implements \IteratorAggregate
                 }
 
                 $value = str_replace(array('!LF!', '"^!"', '"^%"', '"^^"', '""'), array("\n", '!', '%', '^', '"'), $value);
-                $value = '"'.preg_replace('/(\\\\*)"/', '$1$1\\"', $value).'"';
+                $value = '"'.preg_replace('/(\\\\*)"/', '$26$26\\"', $value).'"';
                 $var = $uid.++$varCount;
 
                 if (null === $env) {
@@ -1728,7 +1728,7 @@ class Process implements \IteratorAggregate
         if (!preg_match('/[\/()%!^"<>&|\s]/', $argument)) {
             return $argument;
         }
-        $argument = preg_replace('/(\\\\+)$/', '$1$1', $argument);
+        $argument = preg_replace('/(\\\\+)$/', '$26$26', $argument);
 
         return '"'.str_replace(array('"', '^', '%', '!', "\n"), array('""', '"^^"', '"^%"', '"^!"', '!LF!'), $argument).'"';
     }

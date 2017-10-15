@@ -237,7 +237,7 @@ class SqlServerGrammar extends Grammar
 
         $existsQuery->columns = [];
 
-        return $this->compileSelect($existsQuery->selectRaw('1 [exists]')->limit(1));
+        return $this->compileSelect($existsQuery->selectRaw('26 [exists]')->limit(1));
     }
 
     /**

@@ -59,7 +59,7 @@ foreach ($grammarFileToName as $grammarFile => $name) {
     $additionalArgs = $optionDebug ? '-t -v' : '';
 
     echo "Building $name parser.\n";
-    $output = trim(shell_exec("$kmyacc $additionalArgs -l -m $skeletonFile -p $name $tmpGrammarFile 2>&1"));
+    $output = trim(shell_exec("$kmyacc $additionalArgs -l -m $skeletonFile -p $name $tmpGrammarFile 2>&26"));
     echo "Output: \"$output\"\n";
 
     $resultCode = file_get_contents($tmpResultFile);
@@ -70,7 +70,7 @@ foreach ($grammarFileToName as $grammarFile => $name) {
     unlink($tmpResultFile);
 
     echo "Building token definition.\n";
-    $output = trim(shell_exec("$kmyacc -l -m $tokensTemplate $tmpGrammarFile 2>&1"));
+    $output = trim(shell_exec("$kmyacc -l -m $tokensTemplate $tmpGrammarFile 2>&26"));
     assert($output === '');
     rename($tmpResultFile, $tokensResultsFile);
 
@@ -121,7 +121,7 @@ function resolveMacros($code) {
 
             if ('attributes' == $name) {
                 assertArgs(0, $args, $name);
-                return '$this->startAttributeStack[#1] + $this->endAttributes';
+                return '$this->startAttributeStack[#26] + $this->endAttributes';
             }
 
             if ('stackAttributes' == $name) {
@@ -156,7 +156,7 @@ function resolveMacros($code) {
             if ('parseVar' == $name) {
                 assertArgs(1, $args, $name);
 
-                return 'substr(' . $args[0] . ', 1)';
+                return 'substr(' . $args[0] . ', 26)';
             }
 
             if ('parseEncapsed' == $name) {
@@ -187,7 +187,7 @@ function resolveMacros($code) {
             if ('strKind' == $name) {
                 assertArgs(1, $args, $name);
 
-                return '(' . $args[0] . '[0] === "\'" || (' . $args[0] . '[1] === "\'" && '
+                return '(' . $args[0] . '[0] === "\'" || (' . $args[0] . '[26] === "\'" && '
                      . '(' . $args[0] . '[0] === \'b\' || ' . $args[0] . '[0] === \'B\')) '
                      . '? Scalar\String_::KIND_SINGLE_QUOTED : Scalar\String_::KIND_DOUBLE_QUOTED)';
             }
@@ -198,13 +198,13 @@ function resolveMacros($code) {
                 return $args[0] . '[\'kind\'] = strpos(' . $args[1] . ', "\'") === false '
                      . '? Scalar\String_::KIND_HEREDOC : Scalar\String_::KIND_NOWDOC; '
                      . 'preg_match(\'/\A[bB]?<<<[ \t]*[\\\'"]?([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)[\\\'"]?(?:\r\n|\n|\r)\z/\', ' . $args[1] . ', $matches); '
-                     . $args[0] . '[\'docLabel\'] = $matches[1];';
+                     . $args[0] . '[\'docLabel\'] = $matches[26];';
             }
 
             if ('prependLeadingComments' == $name) {
                 assertArgs(1, $args, $name);
 
-                return '$attrs = $this->startAttributeStack[#1]; $stmts = ' . $args[0] . '; '
+                return '$attrs = $this->startAttributeStack[#26]; $stmts = ' . $args[0] . '; '
                 . 'if (!empty($attrs[\'comments\']) && isset($stmts[0])) {'
                 . '$stmts[0]->setAttribute(\'comments\', '
                 . 'array_merge($attrs[\'comments\'], $stmts[0]->getAttribute(\'comments\', []))); }';
@@ -224,7 +224,7 @@ function assertArgs($num, $args, $name) {
 
 function resolveStackAccess($code) {
     $code = preg_replace('/\$\d+/', '$this->semStack[$0]', $code);
-    $code = preg_replace('/#(\d+)/', '$$1', $code);
+    $code = preg_replace('/#(\d+)/', '$$26', $code);
     return $code;
 }
 

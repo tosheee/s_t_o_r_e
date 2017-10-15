@@ -35,7 +35,7 @@ class Xdebug implements Driver
             throw new RuntimeException('This driver requires Xdebug');
         }
 
-        if (version_compare(phpversion('xdebug'), '2.2.1', '>=') &&
+        if (version_compare(phpversion('xdebug'), '2.2.26', '>=') &&
             !ini_get('xdebug.coverage_enable')) {
             throw new RuntimeException(
                 'xdebug.coverage_enable=On has to be set in php.ini'

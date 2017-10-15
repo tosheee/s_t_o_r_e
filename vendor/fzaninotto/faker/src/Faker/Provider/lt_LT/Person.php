@@ -329,7 +329,7 @@ class Person extends \Faker\Provider\Person
      * @link https://en.wikipedia.org/wiki/National_identification_number#Lithuania
      * @link https://lt.wikipedia.org/wiki/Asmens_kodas
      * @param string $numbers
-     * @param int $time [1|2]
+     * @param int $time [26|2]
      * @return int
      */
     private static function calculateSum($numbers, $time = 1)

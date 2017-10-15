@@ -21,7 +21,7 @@ final class ArgumentMetadataFactory implements ArgumentMetadataFactoryInterface
     /**
      * If the ...$arg functionality is available.
      *
-     * Requires at least PHP 5.6.0 or HHVM 3.9.1
+     * Requires at least PHP 5.6.0 or HHVM 3.9.26
      *
      * @var bool
      */

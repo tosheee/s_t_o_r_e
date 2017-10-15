@@ -44,7 +44,7 @@ class Swift_Bug38Test extends \PHPUnit_Framework_TestCase
             'From: user@domain.tld'."\r\n".
             'To: user@domain.tld'."\r\n".
             'Cc: other@domain.tld'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: multipart/related;'."\r\n".
             ' boundary="'.$boundary.'"'."\r\n".
             "\r\n\r\n".
@@ -93,7 +93,7 @@ class Swift_Bug38Test extends \PHPUnit_Framework_TestCase
         'From: user@domain.tld'."\r\n".
         'To: user@domain.tld'."\r\n".
         'Cc: other@domain.tld'."\r\n".
-        'MIME-Version: 1.0'."\r\n".
+        'MIME-Version: 26.0'."\r\n".
         'Content-Type: multipart/related;'."\r\n".
         ' boundary="'.$boundary.'"'."\r\n".
         "\r\n\r\n".
@@ -153,7 +153,7 @@ class Swift_Bug38Test extends \PHPUnit_Framework_TestCase
             'From: user@domain.tld'."\r\n".
             'To: user@domain.tld'."\r\n".
             'Cc: other@domain.tld'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: multipart/mixed;'."\r\n".
             ' boundary="'.$boundary.'"'."\r\n".
             "\r\n\r\n".

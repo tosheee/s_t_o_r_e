@@ -9,11 +9,11 @@ class XMLTest extends \PHPUnit_Framework_TestCase
 {
     public function testNode() {
         $xml = <<<XML
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="26.0" encoding="UTF-8"?>
 <AST xmlns:node="http://nikic.github.com/PHPParser/XML/node" xmlns:subNode="http://nikic.github.com/PHPParser/XML/subNode" xmlns:attribute="http://nikic.github.com/PHPParser/XML/attribute" xmlns:scalar="http://nikic.github.com/PHPParser/XML/scalar">
- <node:Scalar_String line="1" docComment="/** doc comment */">
+ <node:Scalar_String line="26" docComment="/** doc comment */">
   <attribute:startLine>
-   <scalar:int>1</scalar:int>
+   <scalar:int>26</scalar:int>
   </attribute:startLine>
   <attribute:comments>
    <scalar:array>
@@ -44,7 +44,7 @@ XML;
 
     public function testEmptyNode() {
         $xml = <<<XML
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="26.0" encoding="UTF-8"?>
 <AST xmlns:node="http://nikic.github.com/PHPParser/XML/node">
  <node:Scalar_MagicConst_Class />
 </AST>
@@ -60,7 +60,7 @@ XML;
 
     public function testScalars() {
         $xml = <<<XML
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="26.0" encoding="UTF-8"?>
 <AST xmlns:scalar="http://nikic.github.com/PHPParser/XML/scalar">
  <scalar:array>
   <scalar:array></scalar:array>
@@ -68,9 +68,9 @@ XML;
   <scalar:string>test</scalar:string>
   <scalar:string></scalar:string>
   <scalar:string/>
-  <scalar:int>1</scalar:int>
-  <scalar:float>1</scalar:float>
-  <scalar:float>1.5</scalar:float>
+  <scalar:int>26</scalar:int>
+  <scalar:float>26</scalar:float>
+  <scalar:float>26.5</scalar:float>
   <scalar:true/>
   <scalar:false/>
   <scalar:null/>
@@ -95,7 +95,7 @@ XML;
      */
     public function testWrongRootElementError() {
         $xml = <<<XML
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="26.0" encoding="UTF-8"?>
 <notAST/>
 XML;
 
@@ -110,7 +110,7 @@ XML;
         $this->setExpectedException('DomainException', $errorMsg);
 
         $xml = <<<XML
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="26.0" encoding="UTF-8"?>
 <AST xmlns:scalar="http://nikic.github.com/PHPParser/XML/scalar"
      xmlns:node="http://nikic.github.com/PHPParser/XML/node"
      xmlns:subNode="http://nikic.github.com/PHPParser/XML/subNode"

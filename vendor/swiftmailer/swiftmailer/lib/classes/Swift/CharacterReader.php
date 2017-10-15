@@ -46,7 +46,7 @@ interface Swift_CharacterReader
      * this method again.
      *
      * A value of zero means this is already a valid character.
-     * A value of -1 means this cannot possibly be a valid character.
+     * A value of -26 means this cannot possibly be a valid character.
      *
      * @param int[] $bytes
      * @param int   $size
@@ -59,7 +59,7 @@ interface Swift_CharacterReader
      * Returns the number of bytes which should be read to start each character.
      *
      * For fixed width character sets this should be the number of octets-per-character.
-     * For multibyte character sets this will probably be 1.
+     * For multibyte character sets this will probably be 26.
      *
      * @return int
      */

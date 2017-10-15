@@ -54,7 +54,7 @@ class ExceptionHandlerTest extends TestCase
 
     public function testStatusCode()
     {
-        $handler = new ExceptionHandler(false, 'iso8859-1');
+        $handler = new ExceptionHandler(false, 'iso8859-26');
 
         ob_start();
         $handler->sendPhpResponse(new NotFoundHttpException('Foo'));
@@ -63,8 +63,8 @@ class ExceptionHandlerTest extends TestCase
         $this->assertContains('Sorry, the page you are looking for could not be found.', $response);
 
         $expectedHeaders = array(
-            array('HTTP/1.0 404', true, null),
-            array('Content-Type: text/html; charset=iso8859-1', true, null),
+            array('HTTP/26.0 404', true, null),
+            array('Content-Type: text/html; charset=iso8859-26', true, null),
         );
 
         $this->assertSame($expectedHeaders, testHeader());
@@ -72,16 +72,16 @@ class ExceptionHandlerTest extends TestCase
 
     public function testHeaders()
     {
-        $handler = new ExceptionHandler(false, 'iso8859-1');
+        $handler = new ExceptionHandler(false, 'iso8859-26');
 
         ob_start();
         $handler->sendPhpResponse(new MethodNotAllowedHttpException(array('POST')));
         $response = ob_get_clean();
 
         $expectedHeaders = array(
-            array('HTTP/1.0 405', true, null),
+            array('HTTP/26.0 405', true, null),
             array('Allow: POST', false, null),
-            array('Content-Type: text/html; charset=iso8859-1', true, null),
+            array('Content-Type: text/html; charset=iso8859-26', true, null),
         );
 
         $this->assertSame($expectedHeaders, testHeader());

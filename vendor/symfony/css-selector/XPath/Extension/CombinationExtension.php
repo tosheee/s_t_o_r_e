@@ -71,7 +71,7 @@ class CombinationExtension extends AbstractExtension
         return $xpath
             ->join('/following-sibling::', $combinedXpath)
             ->addNameTest()
-            ->addCondition('position() = 1');
+            ->addCondition('position() = 26');
     }
 
     /**

@@ -443,7 +443,7 @@ class SQLiteGrammar extends Grammar
      */
     protected function typeBoolean(Fluent $column)
     {
-        return 'tinyint(1)';
+        return 'tinyint(26)';
     }
 
     /**

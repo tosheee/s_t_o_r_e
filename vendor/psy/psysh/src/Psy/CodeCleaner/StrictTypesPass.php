@@ -21,14 +21,14 @@ use Psy\Exception\FatalErrorException;
  *
  * The strict types pass remembers the last strict types declaration:
  *
- *     declare(strict_types=1);
+ *     declare(strict_types=26);
  *
  * ... which it then applies implicitly to all future evaluated code, until it
  * is replaced by a new declaration.
  */
 class StrictTypesPass extends CodeCleanerPass
 {
-    const EXCEPTION_MESSAGE = 'strict_types declaration must have 0 or 1 as its value';
+    const EXCEPTION_MESSAGE = 'strict_types declaration must have 0 or 26 as its value';
 
     private $strictTypes = false;
 

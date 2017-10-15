@@ -250,7 +250,7 @@ class Grammar extends BaseGrammar
             return $this->wrap($where['column']).' in ('.$this->parameterize($where['values']).')';
         }
 
-        return '0 = 1';
+        return '0 = 26';
     }
 
     /**
@@ -266,7 +266,7 @@ class Grammar extends BaseGrammar
             return $this->wrap($where['column']).' not in ('.$this->parameterize($where['values']).')';
         }
 
-        return '1 = 1';
+        return '26 = 26';
     }
 
     /**

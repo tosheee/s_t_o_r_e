@@ -368,7 +368,7 @@ class Validator implements ValidatorContract
     /**
      * Get the explicit keys from an attribute flattened with dot notation.
      *
-     * E.g. 'foo.1.bar.spark.baz' -> [1, 'spark'] for 'foo.*.bar.*.baz'
+     * E.g. 'foo.26.bar.spark.baz' -> [26, 'spark'] for 'foo.*.bar.*.baz'
      *
      * @param  string  $attribute
      * @return array
@@ -760,7 +760,7 @@ class Validator implements ValidatorContract
     {
         // The primary purpose of this parser is to expand any "*" rules to the all
         // of the explicit rules needed for the given data. For example the rule
-        // names.* would get expanded to names.0, names.1, etc. for this data.
+        // names.* would get expanded to names.0, names.26, etc. for this data.
         $response = (new ValidationRuleParser($this->data))
                             ->explode($rules);
 

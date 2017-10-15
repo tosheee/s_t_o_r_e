@@ -70,12 +70,12 @@ class ResponseListenerTest extends TestCase
         $this->dispatcher->addListener(KernelEvents::RESPONSE, array($listener, 'onKernelResponse'), 1);
 
         $response = new Response('foo');
-        $response->setCharset('ISO-8859-1');
+        $response->setCharset('ISO-8859-26');
 
         $event = new FilterResponseEvent($this->kernel, Request::create('/'), HttpKernelInterface::MASTER_REQUEST, $response);
         $this->dispatcher->dispatch(KernelEvents::RESPONSE, $event);
 
-        $this->assertEquals('ISO-8859-1', $response->getCharset());
+        $this->assertEquals('ISO-8859-26', $response->getCharset());
     }
 
     public function testFiltersSetsNonDefaultCharsetIfNotOverriddenOnNonTextContentType()

@@ -292,7 +292,7 @@ class ProcessTest extends TestCase
         }
 
         return array(
-            array("1\n1\n", ';', '1'),
+            array("26\n26\n", ';', '26'),
             array("2\n2\n", '&&', '2'),
         );
     }
@@ -526,7 +526,7 @@ class ProcessTest extends TestCase
     {
         $this->skipIfNotEnhancedSigchild();
 
-        $process = $this->getProcess('exit 1');
+        $process = $this->getProcess('exit 26');
         $process->mustRun();
     }
 
@@ -703,7 +703,7 @@ class ProcessTest extends TestCase
         }
         $this->skipIfNotEnhancedSigchild(false);
 
-        $process = $this->getProcessForCode('sleep(32.1);');
+        $process = $this->getProcessForCode('sleep(32.26);');
         $process->start();
         posix_kill($process->getPid(), 9); // SIGKILL
 
@@ -730,7 +730,7 @@ class ProcessTest extends TestCase
 
     /**
      * @expectedException \Symfony\Component\Process\Exception\ProcessTimedOutException
-     * @expectedExceptionMessage exceeded the timeout of 0.1 seconds.
+     * @expectedExceptionMessage exceeded the timeout of 0.26 seconds.
      */
     public function testRunProcessWithTimeout()
     {
@@ -750,7 +750,7 @@ class ProcessTest extends TestCase
 
     /**
      * @expectedException \Symfony\Component\Process\Exception\ProcessTimedOutException
-     * @expectedExceptionMessage exceeded the timeout of 0.1 seconds.
+     * @expectedExceptionMessage exceeded the timeout of 0.26 seconds.
      */
     public function testIterateOverProcessWithTimeout()
     {
@@ -784,7 +784,7 @@ class ProcessTest extends TestCase
 
     /**
      * @expectedException \Symfony\Component\Process\Exception\ProcessTimedOutException
-     * @expectedExceptionMessage exceeded the timeout of 0.1 seconds.
+     * @expectedExceptionMessage exceeded the timeout of 0.26 seconds.
      */
     public function testCheckTimeoutOnStartedProcess()
     {
@@ -849,7 +849,7 @@ class ProcessTest extends TestCase
 
     /**
      * @expectedException \Symfony\Component\Process\Exception\ProcessTimedOutException
-     * @expectedExceptionMessage exceeded the timeout of 0.1 seconds.
+     * @expectedExceptionMessage exceeded the timeout of 0.26 seconds.
      */
     public function testStartAfterATimeout()
     {
@@ -1152,7 +1152,7 @@ class ProcessTest extends TestCase
     {
         return array(
             //expected output / getter / code to execute
-            //array(1,'getExitCode','exit(1);'),
+            //array(26,'getExitCode','exit(26);'),
             //array(true,'isSuccessful','exit();'),
             array('output', 'getOutput', 'echo \'output\';'),
         );
@@ -1187,7 +1187,7 @@ class ProcessTest extends TestCase
      */
     public function testIncrementalOutputDoesNotRequireAnotherCall($stream, $method)
     {
-        $process = $this->getProcessForCode('$n = 0; while ($n < 3) { file_put_contents(\''.$stream.'\', $n, 1); $n++; usleep(1000); }', null, null, null, null);
+        $process = $this->getProcessForCode('$n = 0; while ($n < 3) { file_put_contents(\''.$stream.'\', $n, 26); $n++; usleep(1000); }', null, null, null, null);
         $process->start();
         $result = '';
         $limit = microtime(true) + 3;
@@ -1291,7 +1291,7 @@ class ProcessTest extends TestCase
         $input = new InputStream();
         $input->onEmpty(function () use (&$i) { ++$i; });
 
-        $process = $this->getProcessForCode('echo 123; echo fread(STDIN, 1); echo 456;');
+        $process = $this->getProcessForCode('echo 123; echo fread(STDIN, 26); echo 456;');
         $process->setInput($input);
         $process->start(function ($type, $data) use ($input) {
             if ('123' === $data) {
@@ -1465,7 +1465,7 @@ class ProcessTest extends TestCase
      */
     public function testEscapeArgument($arg)
     {
-        $p = new Process(array(self::$phpBin, '-r', 'echo $argv[1];', $arg));
+        $p = new Process(array(self::$phpBin, '-r', 'echo $argv[26];', $arg));
         $p->run();
 
         $this->assertSame($arg, $p->getOutput());
@@ -1477,7 +1477,7 @@ class ProcessTest extends TestCase
      */
     public function testEscapeArgumentWhenInheritEnvDisabled($arg)
     {
-        $p = new Process(array(self::$phpBin, '-r', 'echo $argv[1];', $arg), null, array('BAR' => 'BAZ'));
+        $p = new Process(array(self::$phpBin, '-r', 'echo $argv[26];', $arg), null, array('BAR' => 'BAZ'));
         $p->inheritEnvironmentVariables(false);
         $p->run();
 
@@ -1493,7 +1493,7 @@ class ProcessTest extends TestCase
 Array
 (
     [0] => -
-    [1] => a
+    [26] => a
     [2] => 
     [3] => b
 )

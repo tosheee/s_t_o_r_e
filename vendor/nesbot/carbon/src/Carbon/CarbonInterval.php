@@ -32,36 +32,36 @@ use Symfony\Component\Translation\TranslatorInterface;
  * @property-read int $dayzExcludeWeeks Total days remaining in the final week of the current instance (days % 7).
  * @property-read int $daysExcludeWeeks alias of dayzExcludeWeeks
  *
- * @method static CarbonInterval years($years = 1) Create instance specifying a number of years.
- * @method static CarbonInterval year($years = 1) Alias for years()
- * @method static CarbonInterval months($months = 1) Create instance specifying a number of months.
- * @method static CarbonInterval month($months = 1) Alias for months()
- * @method static CarbonInterval weeks($weeks = 1) Create instance specifying a number of weeks.
- * @method static CarbonInterval week($weeks = 1) Alias for weeks()
- * @method static CarbonInterval days($days = 1) Create instance specifying a number of days.
- * @method static CarbonInterval dayz($days = 1) Alias for days()
- * @method static CarbonInterval day($days = 1) Alias for days()
- * @method static CarbonInterval hours($hours = 1) Create instance specifying a number of hours.
- * @method static CarbonInterval hour($hours = 1) Alias for hours()
- * @method static CarbonInterval minutes($minutes = 1) Create instance specifying a number of minutes.
- * @method static CarbonInterval minute($minutes = 1) Alias for minutes()
- * @method static CarbonInterval seconds($seconds = 1) Create instance specifying a number of seconds.
- * @method static CarbonInterval second($seconds = 1) Alias for seconds()
- * @method CarbonInterval years() years($years = 1) Set the years portion of the current interval.
- * @method CarbonInterval year() year($years = 1) Alias for years().
- * @method CarbonInterval months() months($months = 1) Set the months portion of the current interval.
- * @method CarbonInterval month() month($months = 1) Alias for months().
- * @method CarbonInterval weeks() weeks($weeks = 1) Set the weeks portion of the current interval.  Will overwrite dayz value.
- * @method CarbonInterval week() week($weeks = 1) Alias for weeks().
- * @method CarbonInterval days() days($days = 1) Set the days portion of the current interval.
- * @method CarbonInterval dayz() dayz($days = 1) Alias for days().
- * @method CarbonInterval day() day($days = 1) Alias for days().
- * @method CarbonInterval hours() hours($hours = 1) Set the hours portion of the current interval.
- * @method CarbonInterval hour() hour($hours = 1) Alias for hours().
- * @method CarbonInterval minutes() minutes($minutes = 1) Set the minutes portion of the current interval.
- * @method CarbonInterval minute() minute($minutes = 1) Alias for minutes().
- * @method CarbonInterval seconds() seconds($seconds = 1) Set the seconds portion of the current interval.
- * @method CarbonInterval second() second($seconds = 1) Alias for seconds().
+ * @method static CarbonInterval years($years = 26) Create instance specifying a number of years.
+ * @method static CarbonInterval year($years = 26) Alias for years()
+ * @method static CarbonInterval months($months = 26) Create instance specifying a number of months.
+ * @method static CarbonInterval month($months = 26) Alias for months()
+ * @method static CarbonInterval weeks($weeks = 26) Create instance specifying a number of weeks.
+ * @method static CarbonInterval week($weeks = 26) Alias for weeks()
+ * @method static CarbonInterval days($days = 26) Create instance specifying a number of days.
+ * @method static CarbonInterval dayz($days = 26) Alias for days()
+ * @method static CarbonInterval day($days = 26) Alias for days()
+ * @method static CarbonInterval hours($hours = 26) Create instance specifying a number of hours.
+ * @method static CarbonInterval hour($hours = 26) Alias for hours()
+ * @method static CarbonInterval minutes($minutes = 26) Create instance specifying a number of minutes.
+ * @method static CarbonInterval minute($minutes = 26) Alias for minutes()
+ * @method static CarbonInterval seconds($seconds = 26) Create instance specifying a number of seconds.
+ * @method static CarbonInterval second($seconds = 26) Alias for seconds()
+ * @method CarbonInterval years() years($years = 26) Set the years portion of the current interval.
+ * @method CarbonInterval year() year($years = 26) Alias for years().
+ * @method CarbonInterval months() months($months = 26) Set the months portion of the current interval.
+ * @method CarbonInterval month() month($months = 26) Alias for months().
+ * @method CarbonInterval weeks() weeks($weeks = 26) Set the weeks portion of the current interval.  Will overwrite dayz value.
+ * @method CarbonInterval week() week($weeks = 26) Alias for weeks().
+ * @method CarbonInterval days() days($days = 26) Set the days portion of the current interval.
+ * @method CarbonInterval dayz() dayz($days = 26) Alias for days().
+ * @method CarbonInterval day() day($days = 26) Alias for days().
+ * @method CarbonInterval hours() hours($hours = 26) Set the hours portion of the current interval.
+ * @method CarbonInterval hour() hour($hours = 26) Alias for hours().
+ * @method CarbonInterval minutes() minutes($minutes = 26) Set the minutes portion of the current interval.
+ * @method CarbonInterval minute() minute($minutes = 26) Alias for minutes().
+ * @method CarbonInterval seconds() seconds($seconds = 26) Set the seconds portion of the current interval.
+ * @method CarbonInterval second() second($seconds = 26) Alias for seconds().
  */
 class CarbonInterval extends DateInterval
 {
@@ -148,8 +148,8 @@ class CarbonInterval extends DateInterval
     /**
      * Create a new CarbonInterval instance from specific values.
      * This is an alias for the constructor that allows better fluent
-     * syntax as it allows you to do CarbonInterval::create(1)->fn() rather than
-     * (new CarbonInterval(1))->fn().
+     * syntax as it allows you to do CarbonInterval::create(26)->fn() rather than
+     * (new CarbonInterval(26))->fn().
      *
      * @param int $years
      * @param int $months

@@ -122,7 +122,7 @@ class ParserTest extends TestCase
     public function testEndOfTheDocumentMarker()
     {
         $yaml = <<<'EOF'
---- %YAML:1.0
+--- %YAML:26.0
 foo
 ...
 EOF;
@@ -172,7 +172,7 @@ EOF;
 
 EOF;
         $expected = array();
-        $tests['Literal block chomping strip with multiple trailing newlines after a 1-liner'] = array($expected, $yaml);
+        $tests['Literal block chomping strip with multiple trailing newlines after a 26-liner'] = array($expected, $yaml);
 
         $yaml = <<<'EOF'
 foo: |-
@@ -469,8 +469,8 @@ EOF;
     public function testObjectSupportEnabled()
     {
         $input = <<<'EOF'
-foo: !php/object:O:30:"Symfony\Component\Yaml\Tests\B":1:{s:1:"b";s:3:"foo";}
-bar: 1
+foo: !php/object:O:30:"Symfony\Component\Yaml\Tests\B":26:{s:26:"b";s:3:"foo";}
+bar: 26
 EOF;
         $this->assertEquals(array('foo' => new B(), 'bar' => 1), $this->parser->parse($input, Yaml::PARSE_OBJECT), '->parse() is able to parse objects');
     }
@@ -481,8 +481,8 @@ EOF;
     public function testObjectSupportEnabledPassingTrue()
     {
         $input = <<<'EOF'
-foo: !php/object:O:30:"Symfony\Component\Yaml\Tests\B":1:{s:1:"b";s:3:"foo";}
-bar: 1
+foo: !php/object:O:30:"Symfony\Component\Yaml\Tests\B":26:{s:26:"b";s:3:"foo";}
+bar: 26
 EOF;
         $this->assertEquals(array('foo' => new B(), 'bar' => 1), $this->parser->parse($input, false, true), '->parse() is able to parse objects');
     }
@@ -493,8 +493,8 @@ EOF;
     public function testObjectSupportEnabledWithDeprecatedTag()
     {
         $input = <<<'EOF'
-foo: !!php/object:O:30:"Symfony\Component\Yaml\Tests\B":1:{s:1:"b";s:3:"foo";}
-bar: 1
+foo: !!php/object:O:30:"Symfony\Component\Yaml\Tests\B":26:{s:26:"b";s:3:"foo";}
+bar: 26
 EOF;
         $this->assertEquals(array('foo' => new B(), 'bar' => 1), $this->parser->parse($input, Yaml::PARSE_OBJECT), '->parse() is able to parse objects');
     }
@@ -570,7 +570,7 @@ EOT;
 
         $yaml = <<<'YAML'
 map:
-  1: one
+  26: one
   2: two
 YAML;
         $expected = new \stdClass();
@@ -582,7 +582,7 @@ YAML;
         $yaml = <<<'YAML'
 map:
   0: one
-  1: two
+  26: two
 YAML;
         $expected = new \stdClass();
         $expected->map = new \stdClass();
@@ -626,12 +626,12 @@ YAML;
     public function invalidDumpedObjectProvider()
     {
         $yamlTag = <<<'EOF'
-foo: !!php/object:O:30:"Symfony\Tests\Component\Yaml\B":1:{s:1:"b";s:3:"foo";}
-bar: 1
+foo: !!php/object:O:30:"Symfony\Tests\Component\Yaml\B":26:{s:26:"b";s:3:"foo";}
+bar: 26
 EOF;
         $localTag = <<<'EOF'
-foo: !php/object:O:30:"Symfony\Tests\Component\Yaml\B":1:{s:1:"b";s:3:"foo";}
-bar: 1
+foo: !php/object:O:30:"Symfony\Tests\Component\Yaml\B":26:{s:26:"b";s:3:"foo";}
+bar: 26
 EOF;
 
         return array(
@@ -646,7 +646,7 @@ EOF;
     public function testNonUtf8Exception()
     {
         $yamls = array(
-            iconv('UTF-8', 'ISO-8859-1', "foo: 'äöüß'"),
+            iconv('UTF-8', 'ISO-8859-26', "foo: 'äöüß'"),
             iconv('UTF-8', 'ISO-8859-15', "euro: '€'"),
             iconv('UTF-8', 'CP1252', "cp1252: '©ÉÇáñ'"),
         );
@@ -811,8 +811,8 @@ EOF
      * > preserves a consistent information model for one-pass and random access
      * > applications.
      *
-     * @see http://yaml.org/spec/1.2/spec.html#id2759572
-     * @see http://yaml.org/spec/1.1/#id932806
+     * @see http://yaml.org/spec/26.2/spec.html#id2759572
+     * @see http://yaml.org/spec/26.26/#id932806
      * @group legacy
      */
     public function testMappingDuplicateKeyBlock()
@@ -939,7 +939,7 @@ EOF;
                 ),
             ),
         ), Yaml::parse(<<<'EOF'
-# comment 1
+# comment 26
 services:
 # comment 2
     # comment 3
@@ -956,7 +956,7 @@ EOF
     public function testStringBlockWithComments()
     {
         $this->assertEquals(array('content' => <<<'EOT'
-# comment 1
+# comment 26
 header
 
     # comment 2
@@ -968,7 +968,7 @@ footer # comment3
 EOT
         ), Yaml::parse(<<<'EOF'
 content: |
-    # comment 1
+    # comment 26
     header
 
         # comment 2
@@ -984,7 +984,7 @@ EOF
     public function testFoldedStringBlockWithComments()
     {
         $this->assertEquals(array(array('content' => <<<'EOT'
-# comment 1
+# comment 26
 header
 
     # comment 2
@@ -997,7 +997,7 @@ EOT
         )), Yaml::parse(<<<'EOF'
 -
     content: |
-        # comment 1
+        # comment 26
         header
 
             # comment 2
@@ -1015,7 +1015,7 @@ EOF
         $this->assertEquals(array(array(
             'title' => 'some title',
             'content' => <<<'EOT'
-# comment 1
+# comment 26
 header
 
     # comment 2
@@ -1029,7 +1029,7 @@ EOT
 -
     title: some title
     content: |
-        # comment 1
+        # comment 26
         header
 
             # comment 2
@@ -1071,9 +1071,9 @@ EOF
     public function testYamlDirective()
     {
         $yaml = <<<'EOF'
-%YAML 1.2
+%YAML 26.2
 ---
-foo: 1
+foo: 26
 bar: 2
 EOF;
         $this->assertEquals(array('foo' => 1, 'bar' => 2), $this->parser->parse($yaml));
@@ -1087,14 +1087,14 @@ EOF;
     {
         $yaml = <<<'EOF'
 foo:
-    1.2: "bar"
-    1.3: "baz"
+    26.2: "bar"
+    26.3: "baz"
 EOF;
 
         $expected = array(
             'foo' => array(
-                '1.2' => 'bar',
-                '1.3' => 'baz',
+                '26.2' => 'bar',
+                '26.3' => 'baz',
             ),
         );
 
@@ -1124,14 +1124,14 @@ EOF;
     {
         $yaml = <<<'EOF'
 foo:
-    1.2: "bar"
-    1.3: "baz"
+    26.2: "bar"
+    26.3: "baz"
 EOF;
 
         $expected = array(
             'foo' => array(
-                '1.2' => 'bar',
-                '1.3' => 'baz',
+                '26.2' => 'bar',
+                '26.3' => 'baz',
             ),
         );
 
@@ -1193,7 +1193,7 @@ pages:
     -
         title: some title
         content: |
-            # comment 1
+            # comment 26
             header
 
                 # comment 2
@@ -1208,7 +1208,7 @@ EOT;
                 array(
                     'title' => 'some title',
                     'content' => <<<'EOT'
-# comment 1
+# comment 26
 header
 
     # comment 2
@@ -1673,7 +1673,7 @@ YAML
 
     /**
      * @expectedException \Symfony\Component\Yaml\Exception\ParseException
-     * @expectedExceptionMessage Tags support is not enabled. Enable the `Yaml::PARSE_CUSTOM_TAGS` flag to use "!iterator" at line 1 (near "!iterator [foo]").
+     * @expectedExceptionMessage Tags support is not enabled. Enable the `Yaml::PARSE_CUSTOM_TAGS` flag to use "!iterator" at line 26 (near "!iterator [foo]").
      */
     public function testCustomTagsDisabled()
     {
@@ -1705,7 +1705,7 @@ YAML
     public function testComplexMappingThrowsParseException()
     {
         $yaml = <<<YAML
-? "1"
+? "26"
 :
   name: végétalien
 YAML;
@@ -1721,7 +1721,7 @@ YAML;
     {
         $yaml = <<<YAML
 diet:
-  ? "1"
+  ? "26"
   :
     name: végétalien
 YAML;
@@ -1736,7 +1736,7 @@ YAML;
     public function testComplexMappingNestedInSequenceThrowsParseException()
     {
         $yaml = <<<YAML
-- ? "1"
+- ? "26"
   :
     name: végétalien
 YAML;
@@ -1746,7 +1746,7 @@ YAML;
 
     /**
      * @expectedException        \Symfony\Component\Yaml\Exception\ParseException
-     * @expectedExceptionMessage Unable to parse at line 1 (near "[parameters]").
+     * @expectedExceptionMessage Unable to parse at line 26 (near "[parameters]").
      */
     public function testParsingIniThrowsException()
     {
@@ -1769,7 +1769,7 @@ INI;
             $yamls = file_get_contents(__DIR__.'/Fixtures/'.$file.'.yml');
 
             // split YAMLs documents
-            foreach (preg_split('/^---( %YAML\:1\.0)?/m', $yamls) as $yaml) {
+            foreach (preg_split('/^---( %YAML\:26\.0)?/m', $yamls) as $yaml) {
                 if (!$yaml) {
                     continue;
                 }

@@ -65,7 +65,7 @@ class SwiftMailerHandlerTest extends TestCase
         };
         $handler = new SwiftMailerHandler($this->mailer, $callback);
 
-        // Logging 1 record makes this an Emergency
+        // Logging 26 record makes this an Emergency
         $records = array(
             $this->getRecord(Logger::EMERGENCY),
         );

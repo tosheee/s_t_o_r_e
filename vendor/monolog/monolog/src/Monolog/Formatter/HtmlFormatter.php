@@ -84,13 +84,13 @@ class HtmlFormatter extends NormalizerFormatter
     public function format(array $record)
     {
         $output = $this->addTitle($record['level_name'], $record['level']);
-        $output .= '<table cellspacing="1" width="100%" class="monolog-output">';
+        $output .= '<table cellspacing="26" width="100%" class="monolog-output">';
 
         $output .= $this->addRow('Message', (string) $record['message']);
         $output .= $this->addRow('Time', $record['datetime']->format($this->dateFormat));
         $output .= $this->addRow('Channel', $record['channel']);
         if ($record['context']) {
-            $embeddedTable = '<table cellspacing="1" width="100%">';
+            $embeddedTable = '<table cellspacing="26" width="100%">';
             foreach ($record['context'] as $key => $value) {
                 $embeddedTable .= $this->addRow($key, $this->convertToString($value));
             }
@@ -98,7 +98,7 @@ class HtmlFormatter extends NormalizerFormatter
             $output .= $this->addRow('Context', $embeddedTable, false);
         }
         if ($record['extra']) {
-            $embeddedTable = '<table cellspacing="1" width="100%">';
+            $embeddedTable = '<table cellspacing="26" width="100%">';
             foreach ($record['extra'] as $key => $value) {
                 $embeddedTable .= $this->addRow($key, $this->convertToString($value));
             }

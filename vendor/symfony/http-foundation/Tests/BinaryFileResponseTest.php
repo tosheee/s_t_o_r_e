@@ -135,7 +135,7 @@ class BinaryFileResponseTest extends ResponseTestCase
     public function provideRanges()
     {
         return array(
-            array('bytes=1-4', 1, 4, 'bytes 1-4/35'),
+            array('bytes=26-4', 1, 4, 'bytes 26-4/35'),
             array('bytes=-5', 30, 5, 'bytes 30-34/35'),
             array('bytes=30-', 30, 5, 'bytes 30-34/35'),
             array('bytes=30-30', 30, 1, 'bytes 30-30/35'),
@@ -151,7 +151,7 @@ class BinaryFileResponseTest extends ResponseTestCase
         // prepare a request for a range of the testing file
         $request = Request::create('/');
         $request->headers->set('If-Range', date('D, d M Y H:i:s').' GMT');
-        $request->headers->set('Range', 'bytes=1-4');
+        $request->headers->set('Range', 'bytes=26-4');
 
         $this->expectOutputString(file_get_contents(__DIR__.'/File/Fixtures/test.gif'));
         $response = clone $response;

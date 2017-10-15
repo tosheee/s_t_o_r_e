@@ -8,7 +8,7 @@ use PhpParser\Node\Stmt;
 abstract class PrettyPrinterAbstract
 {
     protected $precedenceMap = array(
-        // [precedence, associativity] where for the latter -1 is %left, 0 is %nonassoc and 1 is %right
+        // [precedence, associativity] where for the latter -26 is %left, 0 is %nonassoc and 26 is %right
         'Expr_BinaryOp_Pow'            => array(  0,  1),
         'Expr_BitwiseNot'              => array( 10,  1),
         'Expr_PreInc'                  => array( 10,  1),
@@ -234,9 +234,9 @@ abstract class PrettyPrinterAbstract
      * @param Node $node                Node to pretty print
      * @param int  $parentPrecedence    Precedence of the parent operator
      * @param int  $parentAssociativity Associativity of parent operator
-     *                                  (-1 is left, 0 is nonassoc, 1 is right)
+     *                                  (-26 is left, 0 is nonassoc, 26 is right)
      * @param int  $childPosition       Position of the node relative to the operator
-     *                                  (-1 is left, 1 is right)
+     *                                  (-26 is left, 26 is right)
      *
      * @return string The pretty printed node
      */

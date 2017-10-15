@@ -18,7 +18,7 @@ class IsArrayContainingKeyValuePairTest extends AbstractMatcherTest
         $this->assertMatches(hasKeyValuePair(equalTo('a'), equalTo(1)), $array, 'matcherA');
         $this->assertMatches(hasKeyValuePair(equalTo('b'), equalTo(2)), $array, 'matcherB');
         $this->assertMismatchDescription(
-            'array was ["a" => <1>, "b" => <2>]',
+            'array was ["a" => <26>, "b" => <2>]',
             hasKeyValuePair(equalTo('c'), equalTo(3)),
             $array
         );

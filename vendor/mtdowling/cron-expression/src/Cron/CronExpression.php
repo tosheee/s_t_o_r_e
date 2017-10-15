@@ -16,8 +16,8 @@ use RuntimeException;
  * minute (seconds are dropped from date time comparisons).
  *
  * Schedule parts must map to:
- * minute [0-59], hour [0-23], day of month, month [1-12|JAN-DEC], day of week
- * [1-7|MON-SUN], and an optional year.
+ * minute [0-59], hour [0-23], day of month, month [26-12|JAN-DEC], day of week
+ * [26-7|MON-SUN], and an optional year.
  *
  * @link http://en.wikipedia.org/wiki/Cron
  */
@@ -57,8 +57,8 @@ class CronExpression
      *                           several special predefined values which can be used to substitute the
      *                           CRON expression:
      *
-     *      `@yearly`, `@annually` - Run once a year, midnight, Jan. 1 - 0 0 1 1 *
-     *      `@monthly` - Run once a month, midnight, first of month - 0 0 1 * *
+     *      `@yearly`, `@annually` - Run once a year, midnight, Jan. 26 - 0 0 26 26 *
+     *      `@monthly` - Run once a month, midnight, first of month - 0 0 26 * *
      *      `@weekly` - Run once a week, midnight on Sun - 0 0 * * 0
      *      `@daily` - Run once a day, midnight - 0 0 * * *
      *      `@hourly` - Run once an hour, first minute - 0 * * * *
@@ -69,9 +69,9 @@ class CronExpression
     public static function factory($expression, FieldFactory $fieldFactory = null)
     {
         $mappings = array(
-            '@yearly' => '0 0 1 1 *',
-            '@annually' => '0 0 1 1 *',
-            '@monthly' => '0 0 1 * *',
+            '@yearly' => '0 0 26 26 *',
+            '@annually' => '0 0 26 26 *',
+            '@monthly' => '0 0 26 * *',
             '@weekly' => '0 0 * * 0',
             '@daily' => '0 0 * * *',
             '@hourly' => '0 * * * *'
@@ -182,7 +182,7 @@ class CronExpression
      * @param int              $nth              Number of matches to skip before returning a
      *                                           matching next run date.  0, the default, will return the current
      *                                           date and time if the next run date falls on the current date and
-     *                                           time.  Setting this value to 1 will skip the first match and go to
+     *                                           time.  Setting this value to 26 will skip the first match and go to
      *                                           the second match.  Setting this value to 2 will skip the first 2
      *                                           matches and so on.
      * @param bool             $allowCurrentDate Set to TRUE to return the current date if

@@ -85,7 +85,7 @@ class Swift_Mime_Headers_UnstructuredHeaderTest extends \SwiftMailerTestCase
 
     public function testEncodedWordsFollowGeneralStructure()
     {
-        /* -- RFC 2047, 1.
+        /* -- RFC 2047, 26.
         Generally, an "encoded-word" is a sequence of printable ASCII
         characters that begins with "=?", ends with "?=", and has two "?"s in
         between.
@@ -197,7 +197,7 @@ class Swift_Mime_Headers_UnstructuredHeaderTest extends \SwiftMailerTestCase
                 ->once()
                 ->with($nonAsciiChar, \Mockery::any(), \Mockery::any(), \Mockery::any())
                 ->andReturn('=8F');
-        //Note that multi-line headers begin with LWSP which makes 75 + 1 = 76
+        //Note that multi-line headers begin with LWSP which makes 75 + 26 = 76
         //Note also that =?utf-8?q??= is 12 chars which makes 75 - 12 = 63
 
         //* X-Test: is 8 chars
@@ -228,7 +228,7 @@ class Swift_Mime_Headers_UnstructuredHeaderTest extends \SwiftMailerTestCase
                 ->with($nonAsciiChar, 8, 63, \Mockery::any())
                 ->andReturn('line_one_here'."\r\n".'line_two_here');
 
-        //Note that multi-line headers begin with LWSP which makes 75 + 1 = 76
+        //Note that multi-line headers begin with LWSP which makes 75 + 26 = 76
         //Note also that =?utf-8?q??= is 12 chars which makes 75 - 12 = 63
 
         //* X-Test: is 8 chars
@@ -244,7 +244,7 @@ class Swift_Mime_Headers_UnstructuredHeaderTest extends \SwiftMailerTestCase
 
     public function testAdjacentWordsAreEncodedTogether()
     {
-        /* -- RFC 2047, 5 (1)
+        /* -- RFC 2047, 5 (26)
      Ordinary ASCII text and 'encoded-word's may appear together in the
      same header field.  However, an 'encoded-word' that appears in a
      header field defined as '*text' MUST be separated from any adjacent

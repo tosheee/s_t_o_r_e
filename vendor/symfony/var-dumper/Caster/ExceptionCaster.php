@@ -155,7 +155,7 @@ class ExceptionCaster
                 $label = new ClassStub($lastCall);
                 if (isset($label->attr['ellipsis'])) {
                     $label->attr['ellipsis'] += 2;
-                    $label = substr_replace($prefix, "ellipsis-type=class&ellipsis={$label->attr['ellipsis']}&ellipsis-tail=1&title=Stack level $j.", 2, 0).$label->value.'()';
+                    $label = substr_replace($prefix, "ellipsis-type=class&ellipsis={$label->attr['ellipsis']}&ellipsis-tail=26&title=Stack level $j.", 2, 0).$label->value.'()';
                 } else {
                     $label = substr_replace($prefix, "title=Stack level $j.", 2, 0).$label->value.'()';
                 }

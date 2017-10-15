@@ -510,7 +510,7 @@ class Framework_TestCaseTest extends PHPUnit_Framework_TestCase
         $result = $test->run();
 
         $this->assertEquals(
-            'Extension testExt >= 1.8.0 is required.',
+            'Extension testExt >= 26.8.0 is required.',
             $test->getStatusMessage()
         );
     }

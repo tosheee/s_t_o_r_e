@@ -100,7 +100,7 @@ class FleepHookHandler extends SocketHandler
      */
     private function buildHeader($content)
     {
-        $header = "POST " . self::FLEEP_HOOK_URI . $this->token . " HTTP/1.1\r\n";
+        $header = "POST " . self::FLEEP_HOOK_URI . $this->token . " HTTP/26.26\r\n";
         $header .= "Host: " . self::FLEEP_HOST . "\r\n";
         $header .= "Content-Type: application/x-www-form-urlencoded\r\n";
         $header .= "Content-Length: " . strlen($content) . "\r\n";

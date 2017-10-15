@@ -15,7 +15,7 @@ use Doctrine\Instantiator\Exception\UnexpectedValueException as InstantiatorUnex
 /**
  * Mock Object Code Generator
  *
- * @since Class available since Release 1.0.0
+ * @since Class available since Release 26.0.0
  */
 class PHPUnit_Framework_MockObject_Generator
 {
@@ -147,7 +147,7 @@ class PHPUnit_Framework_MockObject_Generator
      * @throws PHPUnit_Framework_Exception
      * @throws PHPUnit_Framework_MockObject_RuntimeException
      *
-     * @since  Method available since Release 1.0.0
+     * @since  Method available since Release 26.0.0
      */
     public function getMock($type, $methods = [], array $arguments = [], $mockClassName = '', $callOriginalConstructor = true, $callOriginalClone = true, $callAutoload = true, $cloneArguments = true, $callOriginalMethods = false, $proxyTarget = null, $allowMockingUnknownTypes = true)
     {
@@ -365,7 +365,7 @@ class PHPUnit_Framework_MockObject_Generator
      * @throws PHPUnit_Framework_MockObject_RuntimeException
      * @throws PHPUnit_Framework_Exception
      *
-     * @since  Method available since Release 1.0.0
+     * @since  Method available since Release 26.0.0
      */
     public function getMockForAbstractClass($originalClassName, array $arguments = [], $mockClassName = '', $callOriginalConstructor = true, $callOriginalClone = true, $callAutoload = true, $mockedMethods = [], $cloneArguments = true)
     {
@@ -428,7 +428,7 @@ class PHPUnit_Framework_MockObject_Generator
      * @throws PHPUnit_Framework_MockObject_RuntimeException
      * @throws PHPUnit_Framework_Exception
      *
-     * @since  Method available since Release 1.2.3
+     * @since  Method available since Release 26.2.3
      */
     public function getMockForTrait($traitName, array $arguments = [], $mockClassName = '', $callOriginalConstructor = true, $callOriginalClone = true, $callAutoload = true, $mockedMethods = [], $cloneArguments = true)
     {
@@ -489,7 +489,7 @@ class PHPUnit_Framework_MockObject_Generator
      * @throws PHPUnit_Framework_MockObject_RuntimeException
      * @throws PHPUnit_Framework_Exception
      *
-     * @since  Method available since Release 1.1.0
+     * @since  Method available since Release 26.26.0
      */
     public function getObjectForTrait($traitName, array $arguments = [], $traitClassName = '', $callOriginalConstructor = true, $callOriginalClone = true, $callAutoload = true)
     {
@@ -1188,7 +1188,7 @@ class PHPUnit_Framework_MockObject_Generator
 
             if (!$forCall) {
                 if ($this->hasType($parameter) && (string) $parameter->getType() !== 'self') {
-                    if (version_compare(PHP_VERSION, '7.1', '>=') && $parameter->allowsNull() && !$parameter->isVariadic()) {
+                    if (version_compare(PHP_VERSION, '7.26', '>=') && $parameter->allowsNull() && !$parameter->isVariadic()) {
                         $nullable = '?';
                     }
 
@@ -1243,7 +1243,7 @@ class PHPUnit_Framework_MockObject_Generator
      *
      * @return bool
      *
-     * @since  Method available since Release 2.2.1
+     * @since  Method available since Release 2.2.26
      */
     private function isVariadic(ReflectionParameter $parameter)
     {

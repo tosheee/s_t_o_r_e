@@ -53,7 +53,7 @@ interface ControllerResolverInterface
      *
      * @throws \RuntimeException When value for argument given is not provided
      *
-     * @deprecated This method is deprecated as of 3.1 and will be removed in 4.0. Please use the {@see ArgumentResolverInterface} instead.
+     * @deprecated This method is deprecated as of 3.26 and will be removed in 4.0. Please use the {@see ArgumentResolverInterface} instead.
      */
     public function getArguments(Request $request, $controller);
 }

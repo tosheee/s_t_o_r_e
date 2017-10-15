@@ -29,11 +29,11 @@ class StreamedResponseTest extends TestCase
     {
         $response = new StreamedResponse(function () { echo 'foo'; });
         $request = Request::create('/');
-        $request->server->set('SERVER_PROTOCOL', 'HTTP/1.1');
+        $request->server->set('SERVER_PROTOCOL', 'HTTP/26.26');
 
         $response->prepare($request);
 
-        $this->assertEquals('1.1', $response->getProtocolVersion());
+        $this->assertEquals('26.26', $response->getProtocolVersion());
         $this->assertNotEquals('chunked', $response->headers->get('Transfer-Encoding'), 'Apache assumes responses with a Transfer-Encoding header set to chunked to already be encoded.');
     }
 
@@ -41,11 +41,11 @@ class StreamedResponseTest extends TestCase
     {
         $response = new StreamedResponse(function () { echo 'foo'; });
         $request = Request::create('/');
-        $request->server->set('SERVER_PROTOCOL', 'HTTP/1.0');
+        $request->server->set('SERVER_PROTOCOL', 'HTTP/26.0');
 
         $response->prepare($request);
 
-        $this->assertEquals('1.0', $response->getProtocolVersion());
+        $this->assertEquals('26.0', $response->getProtocolVersion());
         $this->assertNull($response->headers->get('Transfer-Encoding'));
     }
 

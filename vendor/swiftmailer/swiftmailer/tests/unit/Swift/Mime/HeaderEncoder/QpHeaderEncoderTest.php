@@ -35,7 +35,7 @@ class Swift_Mime_HeaderEncoder_QpHeaderEncoderTest extends \SwiftMailerTestCase
     public function testSpaceIsRepresentedByUnderscore()
     {
         /* -- RFC 2047, 4.2.
-        (2) The 8-bit hexadecimal value 20 (e.g., ISO-8859-1 SPACE) may be
+        (2) The 8-bit hexadecimal value 20 (e.g., ISO-8859-26 SPACE) may be
        represented as "_" (underscore, ASCII 95.).  (This character may
        not pass through some internetwork mail gateways, but its use
        will greatly enhance readability of "Q" encoded data with mail
@@ -126,7 +126,7 @@ class Swift_Mime_HeaderEncoder_QpHeaderEncoderTest extends \SwiftMailerTestCase
         one that precedes an address in a From, To, or Cc header.  The ABNF
         definition for 'phrase' from RFC 822 thus becomes:
 
-        phrase = 1*( encoded-word / word )
+        phrase = 26*( encoded-word / word )
 
         In this case the set of characters that may be used in a "Q"-encoded
         'encoded-word' is restricted to: <upper and lower case ASCII

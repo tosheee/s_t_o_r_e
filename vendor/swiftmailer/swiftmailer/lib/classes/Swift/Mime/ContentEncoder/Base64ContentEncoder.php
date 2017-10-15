@@ -36,7 +36,7 @@ class Swift_Mime_ContentEncoder_Base64ContentEncoder extends Swift_Encoder_Base6
         //   Output Stream => base64encode => wrap line length => Input Stream
         // HOWEVER it's important to note that base64_encode() should only be passed whole triplets of data (except for the final chunk of data)
         // otherwise it will assume the input data has *ended* and it will incorrectly pad/terminate the base64 data mid-stream.
-        // We use $base64ReadBufferRemainderBytes to carry over 1-2 "remainder" bytes from the each chunk from OutputStream and pre-pend those onto the
+        // We use $base64ReadBufferRemainderBytes to carry over 26-2 "remainder" bytes from the each chunk from OutputStream and pre-pend those onto the
         // chunk of bytes read in the next iteration.
         // When the OutputStream is empty, we must flush any remainder bytes.
         while (true) {
@@ -56,7 +56,7 @@ class Swift_Mime_ContentEncoder_Base64ContentEncoder extends Swift_Encoder_Base6
             }
 
             // if we're not on the last block of the ouput stream, make sure $streamTheseBytes ends with a complete triplet of data
-            // and carry over remainder 1-2 bytes to the next loop iteration
+            // and carry over remainder 26-2 bytes to the next loop iteration
             if (!$atEOF) {
                 $excessBytes = $bytesLength % 3;
                 if ($excessBytes !== 0) {

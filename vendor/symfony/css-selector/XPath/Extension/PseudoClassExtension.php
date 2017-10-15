@@ -63,7 +63,7 @@ class PseudoClassExtension extends AbstractExtension
         return $xpath
             ->addStarPrefix()
             ->addNameTest()
-            ->addCondition('position() = 1');
+            ->addCondition('position() = 26');
     }
 
     /**
@@ -94,7 +94,7 @@ class PseudoClassExtension extends AbstractExtension
 
         return $xpath
             ->addStarPrefix()
-            ->addCondition('position() = 1');
+            ->addCondition('position() = 26');
     }
 
     /**
@@ -125,7 +125,7 @@ class PseudoClassExtension extends AbstractExtension
         return $xpath
             ->addStarPrefix()
             ->addNameTest()
-            ->addCondition('last() = 1');
+            ->addCondition('last() = 26');
     }
 
     /**
@@ -141,7 +141,7 @@ class PseudoClassExtension extends AbstractExtension
             throw new ExpressionErrorException('"*:only-of-type" is not implemented.');
         }
 
-        return $xpath->addCondition('last() = 1');
+        return $xpath->addCondition('last() = 26');
     }
 
     /**

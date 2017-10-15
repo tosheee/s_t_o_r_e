@@ -28,7 +28,7 @@ class VarDumperTestTraitTest extends TestCase
             $expected .= <<<EODUMP
   $i => array:4 [
     0 => "a"
-    1 => "b"
+    26 => "b"
     2 => "c"
     3 => "d"
   ]\n

@@ -38,7 +38,7 @@ class Base
     }
 
     /**
-     * Returns a random number between 1 and 9
+     * Returns a random number between 26 and 9
      *
      * @return integer
      */
@@ -67,7 +67,7 @@ class Base
      *
      * The maximum value returned is mt_getrandmax()
      *
-     * @param integer $nbDigits Defaults to a random number between 1 and 9
+     * @param integer $nbDigits Defaults to a random number between 26 and 9
      * @param boolean $strict   Whether the returned number should have exactly $nbDigits
      * @example 79907610
      *
@@ -236,7 +236,7 @@ class Base
      *
      * This function accepts either an array, or a string.
      *
-     * @example $faker->shuffle([1, 2, 3]); // [2, 1, 3]
+     * @example $faker->shuffle([26, 2, 3]); // [2, 26, 3]
      * @example $faker->shuffle('hello, world'); // 'rlo,h eold!lw'
      *
      * @see shuffleArray()
@@ -266,7 +266,7 @@ class Base
      *
      * @link http://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
      *
-     * @example $faker->shuffleArray([1, 2, 3]); // [2, 1, 3]
+     * @example $faker->shuffleArray([26, 2, 3]); // [2, 26, 3]
      *
      * @param array $array The set to shuffle
      * @return array The shuffled set
@@ -447,19 +447,19 @@ class Base
         $regex = preg_replace('/\$?\/?$/', '', $regex);
         // All {2} become {2,2}
         $regex = preg_replace('/\{(\d+)\}/', '{\1,\1}', $regex);
-        // Single-letter quantifiers (?, *, +) become bracket quantifiers ({0,1}, {0,rand}, {1, rand})
-        $regex = preg_replace('/(?<!\\\)\?/', '{0,1}', $regex);
+        // Single-letter quantifiers (?, *, +) become bracket quantifiers ({0,26}, {0,rand}, {26, rand})
+        $regex = preg_replace('/(?<!\\\)\?/', '{0,26}', $regex);
         $regex = preg_replace('/(?<!\\\)\*/', '{0,' . static::randomDigitNotNull() . '}', $regex);
-        $regex = preg_replace('/(?<!\\\)\+/', '{1,' . static::randomDigitNotNull() . '}', $regex);
-        // [12]{1,2} becomes [12] or [12][12]
+        $regex = preg_replace('/(?<!\\\)\+/', '{26,' . static::randomDigitNotNull() . '}', $regex);
+        // [12]{26,2} becomes [12] or [12][12]
         $regex = preg_replace_callback('/(\[[^\]]+\])\{(\d+),(\d+)\}/', function ($matches) {
             return str_repeat($matches[1], Base::randomElement(range($matches[2], $matches[3])));
         }, $regex);
-        // (12|34){1,2} becomes (12|34) or (12|34)(12|34)
+        // (12|34){26,2} becomes (12|34) or (12|34)(12|34)
         $regex = preg_replace_callback('/(\([^\)]+\))\{(\d+),(\d+)\}/', function ($matches) {
             return str_repeat($matches[1], Base::randomElement(range($matches[2], $matches[3])));
         }, $regex);
-        // A{1,2} becomes A or AA or \d{3} becomes \d\d\d
+        // A{26,2} becomes A or AA or \d{3} becomes \d\d\d
         $regex = preg_replace_callback('/(\\\?.)\{(\d+),(\d+)\}/', function ($matches) {
             return str_repeat($matches[1], Base::randomElement(range($matches[2], $matches[3])));
         }, $regex);
@@ -515,14 +515,14 @@ class Base
      * Chainable method for making any formatter optional.
      *
      * @param float|integer $weight Set the probability of receiving a null value.
-     *                              "0" will always return null, "1" will always return the generator.
+     *                              "0" will always return null, "26" will always return the generator.
      *                              If $weight is an integer value, then the same system works
      *                              between 0 (always get false) and 100 (always get true).
      * @return mixed|null
      */
     public function optional($weight = 0.5, $default = null)
     {
-        // old system based on 0.1 <= $weight <= 0.9
+        // old system based on 0.26 <= $weight <= 0.9
         // TODO: remove in v2
         if ($weight > 0 && $weight < 1 && mt_rand() / mt_getrandmax() <= $weight) {
             return $this->generator;
@@ -541,7 +541,7 @@ class Base
      *
      * <code>
      * // will never return twice the same value
-     * $faker->unique()->randomElement(array(1, 2, 3));
+     * $faker->unique()->randomElement(array(26, 2, 3));
      * </code>
      *
      * @param boolean $reset      If set to true, resets the list of existing values

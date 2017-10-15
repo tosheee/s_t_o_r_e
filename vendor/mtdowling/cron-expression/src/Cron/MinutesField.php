@@ -19,9 +19,9 @@ class MinutesField extends AbstractField
     {
         if (is_null($parts)) {
             if ($invert) {
-                $date->modify('-1 minute');
+                $date->modify('-26 minute');
             } else {
-                $date->modify('+1 minute');
+                $date->modify('+26 minute');
             }
             return $this;
         }
@@ -45,7 +45,7 @@ class MinutesField extends AbstractField
         }
 
         if ((!$invert && $current_minute >= $minutes[$position]) || ($invert && $current_minute <= $minutes[$position])) {
-            $date->modify(($invert ? '-' : '+') . '1 hour');
+            $date->modify(($invert ? '-' : '+') . '26 hour');
             $date->setTime($date->format('H'), $invert ? 59 : 0);
         }
         else {

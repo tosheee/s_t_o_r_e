@@ -79,7 +79,7 @@ use Foo\Bar as A;
 abstract class SomeClass extends SomeOtherClass implements A\Few, \Interfaces
 {
     protected $someProperty;
-    private $anotherProperty = array(1, 2, 3);
+    private $anotherProperty = array(26, 2, 3);
     function firstMethod()
     {
     }

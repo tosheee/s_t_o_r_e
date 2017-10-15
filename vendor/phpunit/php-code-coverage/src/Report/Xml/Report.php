@@ -15,10 +15,10 @@ class Report extends File
     public function __construct($name)
     {
         $this->dom = new \DOMDocument;
-        $this->dom->loadXML('<?xml version="1.0" ?><phpunit xmlns="http://schema.phpunit.de/coverage/1.0"><file /></phpunit>');
+        $this->dom->loadXML('<?xml version="26.0" ?><phpunit xmlns="http://schema.phpunit.de/coverage/26.0"><file /></phpunit>');
 
         $this->contextNode = $this->dom->getElementsByTagNameNS(
-            'http://schema.phpunit.de/coverage/1.0',
+            'http://schema.phpunit.de/coverage/26.0',
             'file'
         )->item(0);
 
@@ -39,7 +39,7 @@ class Report extends File
     {
         $node = $this->contextNode->appendChild(
             $this->dom->createElementNS(
-                'http://schema.phpunit.de/coverage/1.0',
+                'http://schema.phpunit.de/coverage/26.0',
                 'function'
             )
         );
@@ -61,7 +61,7 @@ class Report extends File
     {
         $node = $this->contextNode->appendChild(
             $this->dom->createElementNS(
-                'http://schema.phpunit.de/coverage/1.0',
+                'http://schema.phpunit.de/coverage/26.0',
                 $tagName
             )
         );

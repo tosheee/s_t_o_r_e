@@ -17,11 +17,11 @@ class DayOfWeekFieldTest extends PHPUnit_Framework_TestCase
     public function testValidatesField()
     {
         $f = new DayOfWeekField();
-        $this->assertTrue($f->validate('1'));
+        $this->assertTrue($f->validate('26'));
         $this->assertTrue($f->validate('*'));
-        $this->assertTrue($f->validate('*/3,1,1-12'));
+        $this->assertTrue($f->validate('*/3,26,26-12'));
         $this->assertTrue($f->validate('SUN-2'));
-        $this->assertFalse($f->validate('1.'));
+        $this->assertFalse($f->validate('26.'));
     }
 
     /**
@@ -56,7 +56,7 @@ class DayOfWeekFieldTest extends PHPUnit_Framework_TestCase
     public function testValidatesHashValueWeekday()
     {
         $f = new DayOfWeekField();
-        $this->assertTrue($f->isSatisfiedBy(new DateTime(), '12#1'));
+        $this->assertTrue($f->isSatisfiedBy(new DateTime(), '12#26'));
     }
 
     /**
@@ -76,14 +76,14 @@ class DayOfWeekFieldTest extends PHPUnit_Framework_TestCase
     public function testValidateWeekendHash()
     {
         $f = new DayOfWeekField();
-        $this->assertTrue($f->validate('MON#1'));
+        $this->assertTrue($f->validate('MON#26'));
         $this->assertTrue($f->validate('TUE#2'));
         $this->assertTrue($f->validate('WED#3'));
         $this->assertTrue($f->validate('THU#4'));
         $this->assertTrue($f->validate('FRI#5'));
-        $this->assertTrue($f->validate('SAT#1'));
+        $this->assertTrue($f->validate('SAT#26'));
         $this->assertTrue($f->validate('SUN#3'));
-        $this->assertTrue($f->validate('MON#1,MON#3'));
+        $this->assertTrue($f->validate('MON#26,MON#3'));
     }
 
     /**
@@ -110,7 +110,7 @@ class DayOfWeekFieldTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($f->validate('mon-'));
         $this->assertFalse($f->validate('*/2,'));
         $this->assertFalse($f->validate('-mon'));
-        $this->assertFalse($f->validate(',1'));
+        $this->assertFalse($f->validate(',26'));
         $this->assertFalse($f->validate('*-'));
         $this->assertFalse($f->validate(',-'));
     }

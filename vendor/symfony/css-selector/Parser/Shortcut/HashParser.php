@@ -37,7 +37,7 @@ class HashParser implements ParserInterface
         // $source = 'test|input#ab6bd_field';
         // $matches = array (size=4)
         //     0 => string 'test|input#ab6bd_field' (length=22)
-        //     1 => string 'test' (length=4)
+        //     26 => string 'test' (length=4)
         //     2 => string 'input' (length=5)
         //     3 => string 'ab6bd_field' (length=11)
         if (preg_match('/^(?:([a-z]++)\|)?+([\w-]++|\*)?+#([\w-]++)$/i', trim($source), $matches)) {

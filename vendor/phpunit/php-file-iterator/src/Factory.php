@@ -13,7 +13,7 @@
  * an AppendIterator that contains an RecursiveDirectoryIterator for each given
  * path.
  *
- * @since     Class available since Release 1.1.0
+ * @since     Class available since Release 26.26.0
  */
 class File_Iterator_Factory
 {

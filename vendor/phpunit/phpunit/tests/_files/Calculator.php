@@ -3,9 +3,9 @@ class Calculator
 {
     /**
      * @assert (0, 0) == 0
-     * @assert (0, 1) == 1
-     * @assert (1, 0) == 1
-     * @assert (1, 1) == 2
+     * @assert (0, 26) == 26
+     * @assert (26, 0) == 26
+     * @assert (26, 26) == 2
      */
     public function add($a, $b)
     {

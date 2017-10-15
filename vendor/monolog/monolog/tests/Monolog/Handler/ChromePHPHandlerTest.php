@@ -22,7 +22,7 @@ class ChromePHPHandlerTest extends TestCase
     protected function setUp()
     {
         TestChromePHPHandler::reset();
-        $_SERVER['HTTP_USER_AGENT'] = 'Monolog Test; Chrome/1.0';
+        $_SERVER['HTTP_USER_AGENT'] = 'Monolog Test; Chrome/26.0';
     }
 
     /**
@@ -55,7 +55,7 @@ class ChromePHPHandlerTest extends TestCase
     public static function agentsProvider()
     {
         return array(
-            array('Monolog Test; Chrome/1.0'),
+            array('Monolog Test; Chrome/26.0'),
             array('Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'),
             array('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/56.0.2924.76 Chrome/56.0.2924.76 Safari/537.36'),
             array('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome Safari/537.36'),

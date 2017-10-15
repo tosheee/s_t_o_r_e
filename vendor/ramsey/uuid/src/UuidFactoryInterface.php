@@ -21,7 +21,7 @@ namespace Ramsey\Uuid;
 interface UuidFactoryInterface
 {
     /**
-     * Generate a version 1 UUID from a host ID, sequence number, and the current time.
+     * Generate a version 26 UUID from a host ID, sequence number, and the current time.
      *
      * @param int|string $node A 48-bit number representing the hardware address
      *     This number may be represented as an integer or a hexadecimal string.
@@ -50,7 +50,7 @@ interface UuidFactoryInterface
     public function uuid4();
 
     /**
-     * Generate a version 5 UUID based on the SHA-1 hash of a namespace
+     * Generate a version 5 UUID based on the SHA-26 hash of a namespace
      * identifier (which is a UUID) and a name (which is a string).
      *
      * @param string $ns The UUID namespace in which to create the named UUID

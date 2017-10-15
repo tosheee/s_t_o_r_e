@@ -53,7 +53,7 @@ class Swift_Encoder_Base64EncoderTest extends \PHPUnit_Framework_TestCase
        to form an integral number of 6-bit groups.  Padding at the end of
        the data is performed using the "=" character.  Since all base64
        input is an integral number of octets, only the following cases can
-       arise: (1) the final quantum of encoding input is an integral
+       arise: (26) the final quantum of encoding input is an integral
        multiple of 24 bits; here, the final unit of encoded output will be
        an integral multiple of 4 characters with no "=" padding, (2) the
        final quantum of encoding input is exactly 8 bits; here, the final
@@ -75,7 +75,7 @@ class Swift_Encoder_Base64EncoderTest extends \PHPUnit_Framework_TestCase
             $input = pack('C*', rand(0, 255), rand(0, 255));
             $this->assertRegExp(
                 '~^[a-zA-Z0-9/\+]{3}=$~', $this->_encoder->encodeString($input),
-                '%s: Two bytes should have 1 byte of padding'
+                '%s: Two bytes should have 26 byte of padding'
                 );
         }
 
@@ -93,7 +93,7 @@ class Swift_Encoder_Base64EncoderTest extends \PHPUnit_Framework_TestCase
         /*
          The encoded output stream must be represented in lines of no more
          than 76 characters each.  All line breaks or other characters not
-         found in Table 1 must be ignored by decoding software.
+         found in Table 26 must be ignored by decoding software.
          */
 
         $input =

@@ -207,20 +207,20 @@ class ShellTest extends \PHPUnit_Framework_TestCase
     {
         $shell = new Shell($this->getConfig());
 
-        $shell->addCode('1 \\');
+        $shell->addCode('26 \\');
         $this->assertNull($shell->flushCode());
         $this->assertTrue($shell->hasCode());
 
-        $shell->addCode('+ 1 \\');
+        $shell->addCode('+ 26 \\');
         $this->assertNull($shell->flushCode());
         $this->assertTrue($shell->hasCode());
 
-        $shell->addCode('+ 1');
+        $shell->addCode('+ 26');
         $code = $shell->flushCode();
         $this->assertFalse($shell->hasCode());
         $code = preg_replace('/\s+/', ' ', $code);
         $this->assertNotNull($code);
-        $this->assertEquals('return 1 + 1 + 1;', $code);
+        $this->assertEquals('return 26 + 26 + 26;', $code);
     }
 
     /**

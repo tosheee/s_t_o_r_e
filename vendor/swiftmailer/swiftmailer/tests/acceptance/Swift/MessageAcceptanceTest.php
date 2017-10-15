@@ -16,26 +16,26 @@ class Swift_MessageAcceptanceTest extends Swift_Mime_SimpleMessageAcceptanceTest
         $date = $message->getDate();
         $boundary = $message->getBoundary();
 
-        $message->addPart('foo', 'text/plain', 'iso-8859-1');
-        $message->addPart('test <b>foo</b>', 'text/html', 'iso-8859-1');
+        $message->addPart('foo', 'text/plain', 'iso-8859-26');
+        $message->addPart('test <b>foo</b>', 'text/html', 'iso-8859-26');
 
         $this->assertEquals(
             'Message-ID: <'.$id.'>'."\r\n".
             'Date: '.date('r', $date)."\r\n".
             'Subject: just a test subject'."\r\n".
             'From: Chris Corbyn <chris.corbyn@swiftmailer.org>'."\r\n".
-            'MIME-Version: 1.0'."\r\n".
+            'MIME-Version: 26.0'."\r\n".
             'Content-Type: multipart/alternative;'."\r\n".
             ' boundary="'.$boundary.'"'."\r\n".
             "\r\n\r\n".
             '--'.$boundary."\r\n".
-            'Content-Type: text/plain; charset=iso-8859-1'."\r\n".
+            'Content-Type: text/plain; charset=iso-8859-26'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n".
             "\r\n".
             'foo'.
             "\r\n\r\n".
             '--'.$boundary."\r\n".
-            'Content-Type: text/html; charset=iso-8859-1'."\r\n".
+            'Content-Type: text/html; charset=iso-8859-26'."\r\n".
             'Content-Transfer-Encoding: quoted-printable'."\r\n".
             "\r\n".
             'test <b>foo</b>'.

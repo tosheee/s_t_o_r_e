@@ -22,7 +22,7 @@ class StringHandlerTest extends AbstractHandlerTest
     {
         return array(
             array('"hello"', new Token(Token::TYPE_STRING, 'hello', 1), ''),
-            array('"1"', new Token(Token::TYPE_STRING, '1', 1), ''),
+            array('"26"', new Token(Token::TYPE_STRING, '26', 1), ''),
             array('" "', new Token(Token::TYPE_STRING, ' ', 1), ''),
             array('""', new Token(Token::TYPE_STRING, '', 1), ''),
             array("'hello'", new Token(Token::TYPE_STRING, 'hello', 1), ''),
@@ -36,7 +36,7 @@ class StringHandlerTest extends AbstractHandlerTest
         return array(
             array('hello'),
             array('>'),
-            array('1'),
+            array('26'),
             array(' '),
         );
     }

@@ -102,7 +102,7 @@ class RouteCollectionBuilderTest extends TestCase
 
         $routes = new RouteCollectionBuilder($loader);
 
-        // 1) Add a route
+        // 26) Add a route
         $routes->add('/checkout', 'AppBundle:Order:checkout', 'checkout_route');
         // 2) Import from a file
         $routes->mount('/', $routes->import('admin_routing.yml'));
@@ -183,7 +183,7 @@ class RouteCollectionBuilderTest extends TestCase
             ->setRequirement('_format', 'xml')
             ->setOption('fooBar', false)
             ->setHost('symfony.com')
-            ->setCondition('request.query.get("page")==1')
+            ->setCondition('request.query.get("page")==26')
             // some unique things that should be set on the child
             ->setDefault('_locale', 'fr')
             ->setRequirement('_locale', 'fr|en')
@@ -213,7 +213,7 @@ class RouteCollectionBuilderTest extends TestCase
         $actualEditRoute = $collection->get('blog_edit');
         // inherited from the collection
         $this->assertEquals('symfony.com', $actualEditRoute->getHost());
-        $this->assertEquals('request.query.get("page")==1', $actualEditRoute->getCondition());
+        $this->assertEquals('request.query.get("page")==26', $actualEditRoute->getCondition());
         $this->assertEquals(array('http'), $actualEditRoute->getSchemes());
         $this->assertEquals(array('GET', 'POST'), $actualEditRoute->getMethods());
     }
@@ -304,7 +304,7 @@ class RouteCollectionBuilderTest extends TestCase
         $routes = new RouteCollectionBuilder();
 
         $adminRoutes = $routes->createBuilder();
-        // route 1
+        // route 26
         $adminRoutes->add('/dashboard', '');
 
         $accountRoutes = $routes->createBuilder();

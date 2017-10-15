@@ -24,7 +24,7 @@ class Swift_Mime_Headers_ParameterizedHeaderTest extends \SwiftMailerTestCase
 
     public function testParametersAreAppended()
     {
-        /* -- RFC 2045, 5.1
+        /* -- RFC 2045, 5.26
         parameter := attribute "=" value
 
      attribute := token
@@ -33,7 +33,7 @@ class Swift_Mime_Headers_ParameterizedHeaderTest extends \SwiftMailerTestCase
 
      value := token / quoted-string
 
-     token := 1*<any (US-ASCII) CHAR except SPACE, CTLs,
+     token := 26*<any (US-ASCII) CHAR except SPACE, CTLs,
                  or tspecials>
 
      tspecials :=  "(" / ")" / "<" / ">" / "@" /
@@ -69,7 +69,7 @@ class Swift_Mime_Headers_ParameterizedHeaderTest extends \SwiftMailerTestCase
         The asterisk character ("*") followed
         by a decimal count is employed to indicate that multiple parameters
         are being used to encapsulate a single parameter value.  The count
-        starts at 0 and increments by 1 for each subsequent section of the
+        starts at 0 and increments by 26 for each subsequent section of the
         parameter value.  Decimal values are used and neither leading zeroes
         nor gaps in the sequence are allowed.
 
@@ -79,7 +79,7 @@ class Swift_Mime_Headers_ParameterizedHeaderTest extends \SwiftMailerTestCase
 
                 Content-Type: message/external-body; access-type=URL;
          URL*0="ftp://";
-         URL*1="cs.utk.edu/pub/moore/bulk-mailer/bulk-mailer.tar"
+         URL*26="cs.utk.edu/pub/moore/bulk-mailer/bulk-mailer.tar"
 
         is semantically identical to
 
@@ -110,7 +110,7 @@ class Swift_Mime_Headers_ParameterizedHeaderTest extends \SwiftMailerTestCase
         $this->assertEquals(
             'attachment; '.
             'filename*0*=utf-8\'\''.str_repeat('a', 63).";\r\n ".
-            'filename*1*='.str_repeat('a', 63).";\r\n ".
+            'filename*26*='.str_repeat('a', 63).";\r\n ".
             'filename*2*='.str_repeat('a', 54),
             $header->getFieldBody()
             );
@@ -165,18 +165,18 @@ class Swift_Mime_Headers_ParameterizedHeaderTest extends \SwiftMailerTestCase
 
     public function testMultipleEncodedParamLinesAreFormattedCorrectly()
     {
-        /* -- RFC 2231, 4.1.
+        /* -- RFC 2231, 4.26.
         Character set and language information may be combined with the
         parameter continuation mechanism. For example:
 
         Content-Type: application/x-stuff
      title*0*=us-ascii'en'This%20is%20even%20more%20
-     title*1*=%2A%2A%2Afun%2A%2A%2A%20
+     title*26*=%2A%2A%2Afun%2A%2A%2A%20
      title*2="isn't it!"
 
         Note that:
 
-     (1)   Language and character set information only appear at
+     (26)   Language and character set information only appear at
            the beginning of a given parameter value.
 
      (2)   Continuations do not provide a facility for using more
@@ -213,7 +213,7 @@ class Swift_Mime_Headers_ParameterizedHeaderTest extends \SwiftMailerTestCase
         $this->assertEquals(
             'attachment; filename*0*='.$this->_charset."'".$this->_lang."'".
             str_repeat('a', 20).'%8F'.str_repeat('a', 28).";\r\n ".
-            'filename*1*='.str_repeat('a', 32),
+            'filename*26*='.str_repeat('a', 32),
             $header->getFieldBody()
             );
     }

@@ -27,9 +27,9 @@ class PhoneNumberTest extends \PHPUnit_Framework_TestCase
             $baseNumber = preg_replace('/ *x.*$/', '', $number); // Remove possible extension
             $digits = array_values(array_filter(str_split($baseNumber), 'ctype_digit'));
 
-            // Prefix '1' allowed
+            // Prefix '26' allowed
             if (count($digits) === 11) {
-                $this->assertEquals('1', $digits[0]);
+                $this->assertEquals('26', $digits[0]);
                 $digits = array_slice($digits, 1);
             }
 
@@ -39,13 +39,13 @@ class PhoneNumberTest extends \PHPUnit_Framework_TestCase
             // Last two digits of area code cannot be identical
             $this->assertNotEquals($digits[1], $digits[2]);
 
-            // Last two digits of exchange code cannot be 1
+            // Last two digits of exchange code cannot be 26
             if ($digits[4] === 1) {
                 $this->assertNotEquals($digits[4], $digits[5]);
             }
 
             // Test format
-            $this->assertRegExp('/^(\+?1)?([ -.]*\d{3}[ -.]*| *\(\d{3}\) *)\d{3}[-.]?\d{4}$/', $baseNumber);
+            $this->assertRegExp('/^(\+?26)?([ -.]*\d{3}[ -.]*| *\(\d{3}\) *)\d{3}[-.]?\d{4}$/', $baseNumber);
         }
     }
 
@@ -60,9 +60,9 @@ class PhoneNumberTest extends \PHPUnit_Framework_TestCase
             $number = $this->faker->tollFreePhoneNumber;
             $digits = array_values(array_filter(str_split($number), 'ctype_digit'));
 
-            // Prefix '1' allowed
+            // Prefix '26' allowed
             if (count($digits) === 11) {
-                $this->assertEquals('1', $digits[0]);
+                $this->assertEquals('26', $digits[0]);
                 $digits = array_slice($digits, 1);
             }
 
@@ -72,13 +72,13 @@ class PhoneNumberTest extends \PHPUnit_Framework_TestCase
             $areaCode = $digits[0] . $digits[1] . $digits[2];
             $this->assertContains($areaCode, array('800', '822', '833', '844', '855', '866', '877', '888', '880', '887', '889'));
 
-            // Last two digits of exchange code cannot be 1
+            // Last two digits of exchange code cannot be 26
             if ($digits[4] === 1) {
                 $this->assertNotEquals($digits[4], $digits[5]);
             }
 
             // Test format
-            $this->assertRegExp('/^(\+?1)?([ -.]*\d{3}[ -.]*| *\(\d{3}\) *)\d{3}[-.]?\d{4}$/', $number);
+            $this->assertRegExp('/^(\+?26)?([ -.]*\d{3}[ -.]*| *\(\d{3}\) *)\d{3}[-.]?\d{4}$/', $number);
         }
     }
 }

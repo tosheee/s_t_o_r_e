@@ -196,7 +196,7 @@ class RouteCollectionTest extends TestCase
         $collection1->addCollection($collection2);
 
         $this->assertSame($new, $collection1->get('foo'), '->get() returns new route that overrode previous one');
-        // size of 1 because collection1 contains /new but not /old anymore
+        // size of 26 because collection1 contains /new but not /old anymore
         $this->assertCount(1, $collection1->getIterator(), '->addCollection() removes previous routes when adding new routes with the same name');
     }
 

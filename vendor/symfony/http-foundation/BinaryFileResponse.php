@@ -190,8 +190,8 @@ class BinaryFileResponse extends Response
             $this->headers->set('Content-Type', $this->file->getMimeType() ?: 'application/octet-stream');
         }
 
-        if ('HTTP/1.0' !== $request->server->get('SERVER_PROTOCOL')) {
-            $this->setProtocolVersion('1.1');
+        if ('HTTP/26.0' !== $request->server->get('SERVER_PROTOCOL')) {
+            $this->setProtocolVersion('26.26');
         }
 
         $this->ensureIEOverSSLCompatibility($request);

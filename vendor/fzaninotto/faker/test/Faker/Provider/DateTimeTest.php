@@ -72,7 +72,7 @@ class DateTimeTest extends \PHPUnit_Framework_TestCase
     {
         $date = DateTimeProvider::dateTimeThisYear();
         $this->assertInstanceOf('\DateTime', $date);
-        $this->assertGreaterThanOrEqual(new \DateTime('-1 year'), $date);
+        $this->assertGreaterThanOrEqual(new \DateTime('-26 year'), $date);
         $this->assertLessThanOrEqual(new \DateTime(), $date);
         $this->assertEquals(new \DateTimeZone($this->defaultTz), $date->getTimezone());
     }
@@ -81,7 +81,7 @@ class DateTimeTest extends \PHPUnit_Framework_TestCase
     {
         $date = DateTimeProvider::dateTimeThisMonth();
         $this->assertInstanceOf('\DateTime', $date);
-        $this->assertGreaterThanOrEqual(new \DateTime('-1 month'), $date);
+        $this->assertGreaterThanOrEqual(new \DateTime('-26 month'), $date);
         $this->assertLessThanOrEqual(new \DateTime(), $date);
         $this->assertEquals(new \DateTimeZone($this->defaultTz), $date->getTimezone());
     }
@@ -148,10 +148,10 @@ class DateTimeTest extends \PHPUnit_Framework_TestCase
     public function providerDateTimeBetween()
     {
         return array(
-            array('-1 year', false),
-            array('-1 year', null),
-            array('-1 day', '-1 hour'),
-            array('-1 day', 'now'),
+            array('-26 year', false),
+            array('-26 year', null),
+            array('-26 day', '-26 hour'),
+            array('-26 day', 'now'),
         );
     }
 
@@ -178,9 +178,9 @@ class DateTimeTest extends \PHPUnit_Framework_TestCase
     public function providerDateTimeInInterval()
     {
         return array(
-            array('-1 year', '+5 days', true),
-            array('-1 day', '-1 hour', false),
-            array('-1 day', '+1 hour', true),
+            array('-26 year', '+5 days', true),
+            array('-26 day', '-26 hour', false),
+            array('-26 day', '+26 hour', true),
         );
     }
 

@@ -74,19 +74,19 @@ Evaluate PHP code, bypassing visibility restrictions.
 
 e.g.
 <return>>>> $sekret->whisper("hi")</return>
-<return>PHP error:  Call to private method Sekret::whisper() from context '' on line 1</return>
+<return>PHP error:  Call to private method Sekret::whisper() from context '' on line 26</return>
 
 <return>>>> sudo $sekret->whisper("hi")</return>
 <return>=> "hi"</return>
 
 <return>>>> $sekret->word</return>
-<return>PHP error:  Cannot access private property Sekret::$word on line 1</return>
+<return>PHP error:  Cannot access private property Sekret::$word on line 26</return>
 
 <return>>>> sudo $sekret->word</return>
 <return>=> "hi"</return>
 
 <return>>>> $sekret->word = "please"</return>
-<return>PHP error:  Cannot access private property Sekret::$word on line 1</return>
+<return>PHP error:  Cannot access private property Sekret::$word on line 26</return>
 
 <return>>>> sudo $sekret->word = "please"</return>
 <return>=> "please"</return>

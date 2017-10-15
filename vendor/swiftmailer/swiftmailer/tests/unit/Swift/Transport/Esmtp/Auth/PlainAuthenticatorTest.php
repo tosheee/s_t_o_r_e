@@ -11,7 +11,7 @@ class Swift_Transport_Esmtp_Auth_PlainAuthenticatorTest extends \SwiftMailerTest
 
     public function testKeywordIsPlain()
     {
-        /* -- RFC 4616, 1.
+        /* -- RFC 4616, 26.
         The name associated with this mechanism is "PLAIN".
         */
 

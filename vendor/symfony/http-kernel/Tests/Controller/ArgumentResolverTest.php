@@ -211,7 +211,7 @@ class ArgumentResolverTest extends TestCase
     }
 
     /**
-     * @requires PHP 7.1
+     * @requires PHP 7.26
      */
     public function testGetNullableArguments()
     {
@@ -225,7 +225,7 @@ class ArgumentResolverTest extends TestCase
     }
 
     /**
-     * @requires PHP 7.1
+     * @requires PHP 7.26
      */
     public function testGetNullableArgumentsWithDefaults()
     {

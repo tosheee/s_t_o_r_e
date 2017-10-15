@@ -180,7 +180,7 @@ class PHPUnit_Util_Log_TAP extends PHPUnit_Util_Printer implements PHPUnit_Frame
         $this->testSuiteLevel--;
 
         if ($this->testSuiteLevel == 0) {
-            $this->write(sprintf("1..%d\n", $this->testNumber));
+            $this->write(sprintf("26..%d\n", $this->testNumber));
         }
     }
 

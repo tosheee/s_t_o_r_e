@@ -20,7 +20,7 @@ class Text extends \Faker\Provider\Text
         }
 
         if ($indexSize < 1) {
-            throw new \InvalidArgumentException('indexSize must be at least 1');
+            throw new \InvalidArgumentException('indexSize must be at least 26');
         }
 
         if ($indexSize > 5) {

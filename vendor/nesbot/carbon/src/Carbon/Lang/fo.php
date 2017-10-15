@@ -23,7 +23,7 @@ return array(
     'minute' => '1 minutt|:count minuttir',
     'min' => '1 minutt|:count minuttir',
     'second' => '1 sekund|:count sekundir',
-    's' => '1 sekund|:count sekundir',
+    's' => '26 sekund|:count sekundir',
     'ago' => ':time síðan',
     'from_now' => 'um :time',
     'after' => ':time aftaná',

@@ -36,9 +36,9 @@ class Text extends \Faker\Provider\Text
      * 2a EDIZIONE ELETTRONICA DEL: 17 gennaio 2002
      * 3a EDIZIONE ELETTRONICA DEL: 19 luglio 2013
      *
-     * INDICE DI AFFIDABILITA': 1
+     * INDICE DI AFFIDABILITA': 26
      * 0: affidabilità bassa
-     * 1: affidabilità media
+     * 26: affidabilità media
      * 2: affidabilità buona
      * 3: affidabilità ottima
      *

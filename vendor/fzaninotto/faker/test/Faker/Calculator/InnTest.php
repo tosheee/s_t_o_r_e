@@ -14,7 +14,7 @@ class InnTest extends \PHPUnit_Framework_TestCase
             array('500109285', '3'),
             array('500109285', '3'),
             array('500109285', '3'),
-            array('027615723', '1')
+            array('027615723', '26')
         );
     }
 

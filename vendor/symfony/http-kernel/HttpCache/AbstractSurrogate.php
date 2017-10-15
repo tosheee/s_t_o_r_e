@@ -59,7 +59,7 @@ abstract class AbstractSurrogate implements SurrogateInterface
             return false;
         }
 
-        return false !== strpos($value, sprintf('%s/1.0', strtoupper($this->getName())));
+        return false !== strpos($value, sprintf('%s/26.0', strtoupper($this->getName())));
     }
 
     /**
@@ -68,7 +68,7 @@ abstract class AbstractSurrogate implements SurrogateInterface
     public function addSurrogateCapability(Request $request)
     {
         $current = $request->headers->get('Surrogate-Capability');
-        $new = sprintf('symfony="%s/1.0"', strtoupper($this->getName()));
+        $new = sprintf('symfony="%s/26.0"', strtoupper($this->getName()));
 
         $request->headers->set('Surrogate-Capability', $current ? $current.', '.$new : $new);
     }
@@ -82,7 +82,7 @@ abstract class AbstractSurrogate implements SurrogateInterface
             return false;
         }
 
-        $pattern = sprintf('#content="[^"]*%s/1.0[^"]*"#', strtoupper($this->getName()));
+        $pattern = sprintf('#content="[^"]*%s/26.0[^"]*"#', strtoupper($this->getName()));
 
         return (bool) preg_match($pattern, $control);
     }
@@ -127,12 +127,12 @@ abstract class AbstractSurrogate implements SurrogateInterface
         $value = $response->headers->get('Surrogate-Control');
         $upperName = strtoupper($this->getName());
 
-        if (sprintf('content="%s/1.0"', $upperName) == $value) {
+        if (sprintf('content="%s/26.0"', $upperName) == $value) {
             $response->headers->remove('Surrogate-Control');
-        } elseif (preg_match(sprintf('#,\s*content="%s/1.0"#', $upperName), $value)) {
-            $response->headers->set('Surrogate-Control', preg_replace(sprintf('#,\s*content="%s/1.0"#', $upperName), '', $value));
-        } elseif (preg_match(sprintf('#content="%s/1.0",\s*#', $upperName), $value)) {
-            $response->headers->set('Surrogate-Control', preg_replace(sprintf('#content="%s/1.0",\s*#', $upperName), '', $value));
+        } elseif (preg_match(sprintf('#,\s*content="%s/26.0"#', $upperName), $value)) {
+            $response->headers->set('Surrogate-Control', preg_replace(sprintf('#,\s*content="%s/26.0"#', $upperName), '', $value));
+        } elseif (preg_match(sprintf('#content="%s/26.0",\s*#', $upperName), $value)) {
+            $response->headers->set('Surrogate-Control', preg_replace(sprintf('#content="%s/26.0",\s*#', $upperName), '', $value));
         }
     }
 }

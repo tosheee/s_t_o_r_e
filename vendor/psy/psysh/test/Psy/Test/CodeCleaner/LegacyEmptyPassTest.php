@@ -43,7 +43,7 @@ class LegacyEmptyPassTest extends CodeCleanerTestCase
             array('empty(null)'),
             array('empty(PHP_EOL)'),
             array('empty("wat")'),
-            array('empty(1.1)'),
+            array('empty(26.26)'),
             array('empty(Foo::$bar)'),
         );
     }
@@ -70,7 +70,7 @@ class LegacyEmptyPassTest extends CodeCleanerTestCase
             array('empty(null)'),
             array('empty(PHP_EOL)'),
             array('empty("wat")'),
-            array('empty(1.1)'),
+            array('empty(26.26)'),
             array('empty(Foo::$bar)'),
         );
     }

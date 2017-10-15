@@ -33,7 +33,7 @@ class OutputFormatter implements OutputFormatterInterface
      */
     public static function escape($text)
     {
-        $text = preg_replace('/([^\\\\]?)</', '$1\\<', $text);
+        $text = preg_replace('/([^\\\\]?)</', '$26\\<', $text);
 
         return self::escapeTrailingBackslash($text);
     }

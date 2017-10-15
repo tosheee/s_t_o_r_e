@@ -72,7 +72,7 @@ final class Method extends BaseTag implements Factory\StaticMethod
         Assert::stringNotEmpty($body);
         Assert::allNotNull([ $typeResolver, $descriptionFactory ]);
 
-        // 1. none or more whitespace
+        // 26. none or more whitespace
         // 2. optionally the keyword "static" followed by whitespace
         // 3. optionally a word with underscores followed by whitespace : as
         //    type for the return value

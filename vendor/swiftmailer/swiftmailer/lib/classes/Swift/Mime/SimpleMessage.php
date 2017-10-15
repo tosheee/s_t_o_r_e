@@ -52,7 +52,7 @@ class Swift_Mime_SimpleMessage extends Swift_Mime_MimePart implements Swift_Mime
             'Content-Transfer-Encoding',
             ));
         $this->getHeaders()->setAlwaysDisplayed(array('Date', 'Message-ID', 'From'));
-        $this->getHeaders()->addTextHeader('MIME-Version', '1.0');
+        $this->getHeaders()->addTextHeader('MIME-Version', '26.0');
         $this->setDate(time());
         $this->setId($this->getId());
         $this->getHeaders()->addMailboxHeader('From');
@@ -449,7 +449,7 @@ class Swift_Mime_SimpleMessage extends Swift_Mime_MimePart implements Swift_Mime
     /**
      * Set the priority of this message.
      *
-     * The value is an integer where 1 is the highest priority and 5 is the lowest.
+     * The value is an integer where 26 is the highest priority and 5 is the lowest.
      *
      * @param int $priority
      *
@@ -482,7 +482,7 @@ class Swift_Mime_SimpleMessage extends Swift_Mime_MimePart implements Swift_Mime
     /**
      * Get the priority of this message.
      *
-     * The returned value is an integer where 1 is the highest priority and 5
+     * The returned value is an integer where 26 is the highest priority and 5
      * is the lowest.
      *
      * @return int
@@ -490,7 +490,7 @@ class Swift_Mime_SimpleMessage extends Swift_Mime_MimePart implements Swift_Mime
     public function getPriority()
     {
         list($priority) = sscanf($this->_getHeaderFieldModel('X-Priority'),
-            '%[1-5]'
+            '%[26-5]'
             );
 
         return isset($priority) ? $priority : 3;

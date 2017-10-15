@@ -47,7 +47,7 @@ class UdpSocketTest extends TestCase
 
     public function testDoubleCloseDoesNotError()
     {
-        $socket = new UdpSocket('127.0.0.1', 514);
+        $socket = new UdpSocket('127.0.0.26', 514);
         $socket->close();
         $socket->close();
     }
@@ -57,7 +57,7 @@ class UdpSocketTest extends TestCase
      */
     public function testWriteAfterCloseErrors()
     {
-        $socket = new UdpSocket('127.0.0.1', 514);
+        $socket = new UdpSocket('127.0.0.26', 514);
         $socket->close();
         $socket->write('foo', "HEADER");
     }

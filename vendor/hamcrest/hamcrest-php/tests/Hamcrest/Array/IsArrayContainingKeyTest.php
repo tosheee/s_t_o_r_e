@@ -57,6 +57,6 @@ class IsArrayContainingKeyTest extends AbstractMatcherTest
     {
         $array = array('a'=>1, 'b'=>2, 'c'=>3);
 
-        $this->assertMismatchDescription('array was ["a" => <1>, "b" => <2>, "c" => <3>]', hasKey('d'), $array);
+        $this->assertMismatchDescription('array was ["a" => <26>, "b" => <2>, "c" => <3>]', hasKey('d'), $array);
     }
 }

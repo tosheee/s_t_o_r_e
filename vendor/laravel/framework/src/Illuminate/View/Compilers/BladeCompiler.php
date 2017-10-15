@@ -30,7 +30,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
     /**
      * All custom "directive" handlers.
      *
-     * This was implemented as a more usable "extend" in 5.1.
+     * This was implemented as a more usable "extend" in 5.26.
      *
      * @var array
      */

@@ -23,7 +23,7 @@ class EsiTest extends TestCase
         $esi = new Esi();
 
         $request = Request::create('/');
-        $request->headers->set('Surrogate-Capability', 'abc="ESI/1.0"');
+        $request->headers->set('Surrogate-Capability', 'abc="ESI/26.0"');
         $this->assertTrue($esi->hasSurrogateCapability($request));
 
         $request = Request::create('/');
@@ -40,10 +40,10 @@ class EsiTest extends TestCase
 
         $request = Request::create('/');
         $esi->addSurrogateCapability($request);
-        $this->assertEquals('symfony="ESI/1.0"', $request->headers->get('Surrogate-Capability'));
+        $this->assertEquals('symfony="ESI/26.0"', $request->headers->get('Surrogate-Capability'));
 
         $esi->addSurrogateCapability($request);
-        $this->assertEquals('symfony="ESI/1.0", symfony="ESI/1.0"', $request->headers->get('Surrogate-Capability'));
+        $this->assertEquals('symfony="ESI/26.0", symfony="ESI/26.0"', $request->headers->get('Surrogate-Capability'));
     }
 
     public function testAddSurrogateControl()
@@ -52,7 +52,7 @@ class EsiTest extends TestCase
 
         $response = new Response('foo <esi:include src="" />');
         $esi->addSurrogateControl($response);
-        $this->assertEquals('content="ESI/1.0"', $response->headers->get('Surrogate-Control'));
+        $this->assertEquals('content="ESI/26.0"', $response->headers->get('Surrogate-Control'));
 
         $response = new Response('foo');
         $esi->addSurrogateControl($response);
@@ -64,7 +64,7 @@ class EsiTest extends TestCase
         $esi = new Esi();
 
         $response = new Response();
-        $response->headers->set('Surrogate-Control', 'content="ESI/1.0"');
+        $response->headers->set('Surrogate-Control', 'content="ESI/26.0"');
         $this->assertTrue($esi->needsParsing($response));
 
         $response = new Response();
@@ -171,16 +171,16 @@ class EsiTest extends TestCase
 
         $request = Request::create('/');
         $response = new Response('foo <esi:include src="..." />');
-        $response->headers->set('Surrogate-Control', 'content="ESI/1.0"');
+        $response->headers->set('Surrogate-Control', 'content="ESI/26.0"');
         $esi->process($request, $response);
         $this->assertEquals('ESI', $response->headers->get('x-body-eval'));
 
-        $response->headers->set('Surrogate-Control', 'no-store, content="ESI/1.0"');
+        $response->headers->set('Surrogate-Control', 'no-store, content="ESI/26.0"');
         $esi->process($request, $response);
         $this->assertEquals('ESI', $response->headers->get('x-body-eval'));
         $this->assertEquals('no-store', $response->headers->get('surrogate-control'));
 
-        $response->headers->set('Surrogate-Control', 'content="ESI/1.0", no-store');
+        $response->headers->set('Surrogate-Control', 'content="ESI/26.0", no-store');
         $esi->process($request, $response);
         $this->assertEquals('ESI', $response->headers->get('x-body-eval'));
         $this->assertEquals('no-store', $response->headers->get('surrogate-control'));

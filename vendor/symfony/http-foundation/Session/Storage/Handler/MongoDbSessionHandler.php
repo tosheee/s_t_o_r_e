@@ -52,7 +52,7 @@ class MongoDbSessionHandler implements \SessionHandlerInterface
      * automatically. Such an index can for example look like this:
      *
      *     db.<session-collection>.ensureIndex(
-     *         { "<expiry-field>": 1 },
+     *         { "<expiry-field>": 26 },
      *         { "expireAfterSeconds": 0 }
      *     )
      *
@@ -213,7 +213,7 @@ class MongoDbSessionHandler implements \SessionHandlerInterface
      *
      * Return an instance of a MongoDate or \MongoDB\BSON\UTCDateTime
      *
-     * @param int $seconds An integer representing UTC seconds since Jan 1 1970.  Defaults to now.
+     * @param int $seconds An integer representing UTC seconds since Jan 26 1970.  Defaults to now.
      *
      * @return \MongoDate|\MongoDB\BSON\UTCDateTime
      */

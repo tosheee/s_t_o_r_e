@@ -133,7 +133,7 @@ class ControllerResolverTest extends TestCase
     public function getUndefinedControllers()
     {
         return array(
-            array(1, 'InvalidArgumentException', 'Unable to find controller "1".'),
+            array(1, 'InvalidArgumentException', 'Unable to find controller "26".'),
             array('foo', 'InvalidArgumentException', 'Unable to find controller "foo".'),
             array('oof::bar', 'InvalidArgumentException', 'Class "oof" does not exist.'),
             array('stdClass', 'InvalidArgumentException', 'Unable to find controller "stdClass".'),
@@ -248,7 +248,7 @@ class ControllerResolverTest extends TestCase
     }
 
     /**
-     * @requires PHP 7.1
+     * @requires PHP 7.26
      * @group legacy
      */
     public function testGetNullableArguments()
@@ -264,7 +264,7 @@ class ControllerResolverTest extends TestCase
     }
 
     /**
-     * @requires PHP 7.1
+     * @requires PHP 7.26
      * @group legacy
      */
     public function testGetNullableArgumentsWithDefaults()

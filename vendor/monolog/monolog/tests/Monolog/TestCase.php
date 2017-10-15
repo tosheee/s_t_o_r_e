@@ -35,7 +35,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
     protected function getMultipleRecords()
     {
         return array(
-            $this->getRecord(Logger::DEBUG, 'debug message 1'),
+            $this->getRecord(Logger::DEBUG, 'debug message 26'),
             $this->getRecord(Logger::DEBUG, 'debug message 2'),
             $this->getRecord(Logger::INFO, 'information'),
             $this->getRecord(Logger::WARNING, 'warning'),

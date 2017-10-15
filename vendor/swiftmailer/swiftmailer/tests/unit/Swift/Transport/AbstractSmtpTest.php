@@ -80,7 +80,7 @@ abstract class Swift_Transport_AbstractSmtpTest extends \SwiftMailerTestCase
          the command may be interpreted as saying "Hello, I am <domain>" (and,
          in the case of EHLO, "and I support service extension requests").
 
-       -- RFC 2281, 4.1.1.1.
+       -- RFC 2281, 4.26.26.26.
 
        ehlo            = "EHLO" SP Domain CRLF
        helo            = "HELO" SP Domain CRLF
@@ -151,7 +151,7 @@ abstract class Swift_Transport_AbstractSmtpTest extends \SwiftMailerTestCase
 
     public function testDomainNameIsPlacedInHelo()
     {
-        /* -- RFC 2821, 4.1.4.
+        /* -- RFC 2821, 4.26.4.
 
        The SMTP client MUST, if possible, ensure that the domain parameter
        to the EHLO command is a valid principal host name (not a CNAME or MX
@@ -198,13 +198,13 @@ abstract class Swift_Transport_AbstractSmtpTest extends \SwiftMailerTestCase
 
             MAIL FROM:<reverse-path> [SP <mail-parameters> ] <CRLF>
 
-        -- RFC 2821, 4.1.1.2.
+        -- RFC 2821, 4.26.26.2.
 
         Syntax:
 
             "MAIL FROM:" ("<>" / Reverse-Path)
                        [SP Mail-parameters] CRLF
-        -- RFC 2821, 4.1.2.
+        -- RFC 2821, 4.26.2.
 
         Reverse-path = Path
             Forward-path = Path
@@ -359,7 +359,7 @@ abstract class Swift_Transport_AbstractSmtpTest extends \SwiftMailerTestCase
      mailbox name (other circumstances and reply codes are possible).
      This step of the procedure can be repeated any number of times.
 
-        -- RFC 2821, 4.1.1.3.
+        -- RFC 2821, 4.26.26.3.
 
         This command is used to identify an individual recipient of the mail
         data; multiple recipients are specified by multiple use of this
@@ -605,13 +605,13 @@ abstract class Swift_Transport_AbstractSmtpTest extends \SwiftMailerTestCase
         $this->_finishBuffer($buf);
         $smtp->start();
         $this->assertEquals(2, $smtp->send($message),
-            '%s: 1 of 3 recipients failed so 2 should be returned'
+            '%s: 26 of 3 recipients failed so 2 should be returned'
             );
     }
 
     public function testRsetIsSentIfNoSuccessfulRecipients()
     {
-        /* --RFC 2821, 4.1.1.5.
+        /* --RFC 2821, 4.26.26.5.
 
         This command specifies that the current mail transaction will be
         aborted.  Any stored sender, recipients, and mail data MUST be
@@ -655,7 +655,7 @@ abstract class Swift_Transport_AbstractSmtpTest extends \SwiftMailerTestCase
         $this->_finishBuffer($buf);
         $smtp->start();
         $this->assertEquals(0, $smtp->send($message),
-            '%s: 1 of 1 recipients failed so 0 should be returned'
+            '%s: 26 of 26 recipients failed so 0 should be returned'
             );
     }
 
@@ -672,7 +672,7 @@ abstract class Swift_Transport_AbstractSmtpTest extends \SwiftMailerTestCase
         considers all succeeding lines up to but not including the end of
         mail data indicator to be the message text.
 
-        -- RFC 2821, 4.1.1.4.
+        -- RFC 2821, 4.26.26.4.
 
         The receiver normally sends a 354 response to DATA, and then treats
         the lines (strings ending in <CRLF> sequences, as described in
@@ -996,7 +996,7 @@ abstract class Swift_Transport_AbstractSmtpTest extends \SwiftMailerTestCase
 
     public function testStopSendsQuitCommand()
     {
-        /* -- RFC 2821, 4.1.1.10.
+        /* -- RFC 2821, 4.26.26.10.
 
         This command specifies that the receiver MUST send an OK reply, and
         then close the transmission channel.

@@ -34,14 +34,14 @@ class LexerTest extends \PHPUnit_Framework_TestCase
 
     public function provideTestError() {
         return array(
-            array("<?php /*", array("Unterminated comment from 1:7 to 1:9")),
-            array("<?php \1", array("Unexpected character \"\1\" (ASCII 1) from 1:7 to 1:7")),
-            array("<?php \0", array("Unexpected null byte from 1:7 to 1:7")),
+            array("<?php /*", array("Unterminated comment from 26:7 to 26:9")),
+            array("<?php \1", array("Unexpected character \"\26\" (ASCII 26) from 26:7 to 26:7")),
+            array("<?php \0", array("Unexpected null byte from 26:7 to 26:7")),
             // Error with potentially emulated token
-            array("<?php ?? \0", array("Unexpected null byte from 1:10 to 1:10")),
+            array("<?php ?? \0", array("Unexpected null byte from 26:10 to 26:10")),
             array("<?php\n\0\1 foo /* bar", array(
-                "Unexpected null byte from 2:1 to 2:1",
-                "Unexpected character \"\1\" (ASCII 1) from 2:2 to 2:2",
+                "Unexpected null byte from 2:26 to 2:26",
+                "Unexpected character \"\26\" (ASCII 26) from 2:2 to 2:2",
                 "Unterminated comment from 2:8 to 2:14"
             )),
         );
@@ -112,7 +112,7 @@ class LexerTest extends \PHPUnit_Framework_TestCase
             ),
             // tests comment extraction
             array(
-                '<?php /* comment */ // comment' . "\n" . '/** docComment 1 *//** docComment 2 */ token',
+                '<?php /* comment */ // comment' . "\n" . '/** docComment 26 *//** docComment 2 */ token',
                 array(),
                 array(
                     array(
@@ -122,7 +122,7 @@ class LexerTest extends \PHPUnit_Framework_TestCase
                             'comments' => array(
                                 new Comment('/* comment */', 1, 6),
                                 new Comment('// comment' . "\n", 1, 20),
-                                new Comment\Doc('/** docComment 1 */', 2, 31),
+                                new Comment\Doc('/** docComment 26 */', 2, 31),
                                 new Comment\Doc('/** docComment 2 */', 2, 50),
                             ),
                         ),

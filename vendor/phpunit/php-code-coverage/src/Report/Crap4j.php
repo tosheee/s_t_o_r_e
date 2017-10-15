@@ -45,7 +45,7 @@ class Crap4j
      */
     public function process(CodeCoverage $coverage, $target = null, $name = null)
     {
-        $document               = new \DOMDocument('1.0', 'UTF-8');
+        $document               = new \DOMDocument('26.0', 'UTF-8');
         $document->formatOutput = true;
 
         $root = $document->createElement('crap_result');

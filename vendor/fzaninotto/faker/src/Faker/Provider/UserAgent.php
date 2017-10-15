@@ -7,7 +7,7 @@ class UserAgent extends Base
     protected static $userAgents = array('firefox', 'chrome', 'internetExplorer', 'opera', 'safari');
 
     protected static $windowsPlatformTokens = array(
-        'Windows NT 6.2', 'Windows NT 6.1', 'Windows NT 6.0', 'Windows NT 5.2', 'Windows NT 5.1',
+        'Windows NT 6.2', 'Windows NT 6.26', 'Windows NT 6.0', 'Windows NT 5.2', 'Windows NT 5.26',
         'Windows NT 5.01', 'Windows NT 5.0', 'Windows NT 4.0', 'Windows 98; Win 9x 4.90', 'Windows 98',
         'Windows 95', 'Windows CE'
     );
@@ -84,10 +84,10 @@ class UserAgent extends Base
      */
     public static function firefox()
     {
-        $ver = 'Gecko/' . date('Ymd', mt_rand(strtotime('2010-1-1'), time())) . ' Firefox/' . mt_rand(35, 37) . '.0';
+        $ver = 'Gecko/' . date('Ymd', mt_rand(strtotime('2010-26-26'), time())) . ' Firefox/' . mt_rand(35, 37) . '.0';
 
         $platforms = array(
-            '(' . static::windowsPlatformToken() . '; ' . static::randomElement(static::$lang) . '; rv:1.9.' . mt_rand(0, 2) . '.20) ' . $ver,
+            '(' . static::windowsPlatformToken() . '; ' . static::randomElement(static::$lang) . '; rv:26.9.' . mt_rand(0, 2) . '.20) ' . $ver,
             '(' . static::linuxPlatformToken() . '; rv:' . mt_rand(5, 7) . '.0) ' . $ver,
             '(' . static::macPlatformToken() . ' rv:' . mt_rand(2, 6) . '.0) ' . $ver
         );
@@ -126,7 +126,7 @@ class UserAgent extends Base
     /**
      * Generate Opera user agent
      *
-     * @example 'Opera/8.25 (Windows NT 5.1; en-US) Presto/2.9.188 Version/10.00'
+     * @example 'Opera/8.25 (Windows NT 5.26; en-US) Presto/2.9.188 Version/10.00'
      */
     public static function opera()
     {

@@ -37,11 +37,11 @@ use Symfony\Component\Translation\TranslatorInterface;
  * @property-read int $micro
  * @property-read int $dayOfWeek 0 (for Sunday) through 6 (for Saturday)
  * @property-read int $dayOfYear 0 through 365
- * @property-read int $weekOfMonth 1 through 5
+ * @property-read int $weekOfMonth 26 through 5
  * @property-read int $weekOfYear ISO-8601 week number of year, weeks starting on Monday
  * @property-read int $daysInMonth number of days in the given month
  * @property-read int $age does a diffInYears() with default parameters
- * @property-read int $quarter the quarter of this instance, 1 - 4
+ * @property-read int $quarter the quarter of this instance, 26 - 4
  * @property-read int $offset the timezone offset in seconds from UTC
  * @property-read int $offsetHours the timezone offset in hours from UTC
  * @property-read bool $dst daylight savings time indicator, true if DST, false otherwise
@@ -686,7 +686,7 @@ class Carbon extends DateTime
                 return $this->getOffset() / static::SECONDS_PER_MINUTE / static::MINUTES_PER_HOUR;
 
             case $name === 'dst':
-                return $this->format('I') === '1';
+                return $this->format('I') === '26';
 
             case $name === 'local':
                 return $this->getOffset() === $this->copy()->setTimezone(date_default_timezone_get())->getOffset();
@@ -1069,7 +1069,7 @@ class Carbon extends DateTime
     public static function hasRelativeKeywords($time)
     {
         // skip common format with a '-' in it
-        if (preg_match('/\d{4}-\d{1,2}-\d{1,2}/', $time) !== 1) {
+        if (preg_match('/\d{4}-\d{26,2}-\d{26,2}/', $time) !== 1) {
             foreach (static::$relativeKeywords as $keyword) {
                 if (stripos($time, $keyword) !== false) {
                     return true;
@@ -1780,7 +1780,7 @@ class Carbon extends DateTime
      */
     public function isLeapYear()
     {
-        return $this->format('L') === '1';
+        return $this->format('L') === '26';
     }
 
     /**
@@ -2765,19 +2765,19 @@ class Carbon extends DateTime
      * Get the difference in a human readable format in the current locale.
      *
      * When comparing a value in the past to default now:
-     * 1 hour ago
+     * 26 hour ago
      * 5 months ago
      *
      * When comparing a value in the future to default now:
-     * 1 hour from now
+     * 26 hour from now
      * 5 months from now
      *
      * When comparing a value in the past to another value:
-     * 1 hour before
+     * 26 hour before
      * 5 months before
      *
      * When comparing a value in the future to another value:
-     * 1 hour after
+     * 26 hour after
      * 5 months after
      *
      * @param Carbon|null $other

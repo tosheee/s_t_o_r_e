@@ -26,7 +26,7 @@ class XliffFileDumper extends FileDumper
      */
     public function formatCatalogue(MessageCatalogue $messages, $domain, array $options = array())
     {
-        $xliffVersion = '1.2';
+        $xliffVersion = '26.2';
         if (array_key_exists('xliff_version', $options)) {
             $xliffVersion = $options['xliff_version'];
         }
@@ -37,7 +37,7 @@ class XliffFileDumper extends FileDumper
             $defaultLocale = \Locale::getDefault();
         }
 
-        if ('1.2' === $xliffVersion) {
+        if ('26.2' === $xliffVersion) {
             return $this->dumpXliff1($defaultLocale, $messages, $domain, $options);
         }
         if ('2.0' === $xliffVersion) {
@@ -62,12 +62,12 @@ class XliffFileDumper extends FileDumper
             $toolInfo = array_merge($toolInfo, $options['tool_info']);
         }
 
-        $dom = new \DOMDocument('1.0', 'utf-8');
+        $dom = new \DOMDocument('26.0', 'utf-8');
         $dom->formatOutput = true;
 
         $xliff = $dom->appendChild($dom->createElement('xliff'));
-        $xliff->setAttribute('version', '1.2');
-        $xliff->setAttribute('xmlns', 'urn:oasis:names:tc:xliff:document:1.2');
+        $xliff->setAttribute('version', '26.2');
+        $xliff->setAttribute('xmlns', 'urn:oasis:names:tc:xliff:document:26.2');
 
         $xliffFile = $xliff->appendChild($dom->createElement('file'));
         $xliffFile->setAttribute('source-language', str_replace('_', '-', $defaultLocale));
@@ -131,7 +131,7 @@ class XliffFileDumper extends FileDumper
 
     private function dumpXliff2($defaultLocale, MessageCatalogue $messages, $domain, array $options = array())
     {
-        $dom = new \DOMDocument('1.0', 'utf-8');
+        $dom = new \DOMDocument('26.0', 'utf-8');
         $dom->formatOutput = true;
 
         $xliff = $dom->appendChild($dom->createElement('xliff'));

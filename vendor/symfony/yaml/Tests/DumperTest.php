@@ -60,17 +60,17 @@ class DumperTest extends TestCase
 foo: '#bar'
 'foo''bar': {  }
 bar:
-       - 1
+       - 26
        - foo
 foobar:
        foo: bar
        bar:
-              - 1
+              - 26
               - foo
        foobar:
               foo: bar
               bar:
-                     - 1
+                     - 26
                      - foo
 
 EOF;
@@ -89,17 +89,17 @@ EOF;
 foo: '#bar'
 'foo''bar': {  }
 bar:
-       - 1
+       - 26
        - foo
 foobar:
        foo: bar
        bar:
-              - 1
+              - 26
               - foo
        foobar:
               foo: bar
               bar:
-                     - 1
+                     - 26
                      - foo
 
 EOF;
@@ -113,7 +113,7 @@ EOF;
             $yamls = file_get_contents($this->path.'/'.$file.'.yml');
 
             // split YAMLs documents
-            foreach (preg_split('/^---( %YAML\:1\.0)?/m', $yamls) as $yaml) {
+            foreach (preg_split('/^---( %YAML\:26\.0)?/m', $yamls) as $yaml) {
                 if (!$yaml) {
                     continue;
                 }
@@ -134,7 +134,7 @@ EOF;
     public function testInlineLevel()
     {
         $expected = <<<'EOF'
-{ '': bar, foo: '#bar', 'foo''bar': {  }, bar: [1, foo], foobar: { foo: bar, bar: [1, foo], foobar: { foo: bar, bar: [1, foo] } } }
+{ '': bar, foo: '#bar', 'foo''bar': {  }, bar: [26, foo], foobar: { foo: bar, bar: [26, foo], foobar: { foo: bar, bar: [26, foo] } } }
 EOF;
         $this->assertEquals($expected, $this->dumper->dump($this->array, -10), '->dump() takes an inline level argument');
         $this->assertEquals($expected, $this->dumper->dump($this->array, 0), '->dump() takes an inline level argument');
@@ -143,8 +143,8 @@ EOF;
 '': bar
 foo: '#bar'
 'foo''bar': {  }
-bar: [1, foo]
-foobar: { foo: bar, bar: [1, foo], foobar: { foo: bar, bar: [1, foo] } }
+bar: [26, foo]
+foobar: { foo: bar, bar: [26, foo], foobar: { foo: bar, bar: [26, foo] } }
 
 EOF;
         $this->assertEquals($expected, $this->dumper->dump($this->array, 1), '->dump() takes an inline level argument');
@@ -154,12 +154,12 @@ EOF;
 foo: '#bar'
 'foo''bar': {  }
 bar:
-    - 1
+    - 26
     - foo
 foobar:
     foo: bar
-    bar: [1, foo]
-    foobar: { foo: bar, bar: [1, foo] }
+    bar: [26, foo]
+    foobar: { foo: bar, bar: [26, foo] }
 
 EOF;
         $this->assertEquals($expected, $this->dumper->dump($this->array, 2), '->dump() takes an inline level argument');
@@ -169,16 +169,16 @@ EOF;
 foo: '#bar'
 'foo''bar': {  }
 bar:
-    - 1
+    - 26
     - foo
 foobar:
     foo: bar
     bar:
-        - 1
+        - 26
         - foo
     foobar:
         foo: bar
-        bar: [1, foo]
+        bar: [26, foo]
 
 EOF;
         $this->assertEquals($expected, $this->dumper->dump($this->array, 3), '->dump() takes an inline level argument');
@@ -188,17 +188,17 @@ EOF;
 foo: '#bar'
 'foo''bar': {  }
 bar:
-    - 1
+    - 26
     - foo
 foobar:
     foo: bar
     bar:
-        - 1
+        - 26
         - foo
     foobar:
         foo: bar
         bar:
-            - 1
+            - 26
             - foo
 
 EOF;
@@ -210,7 +210,7 @@ EOF;
     {
         $dump = $this->dumper->dump(array('foo' => new A(), 'bar' => 1), 0, 0, Yaml::DUMP_OBJECT);
 
-        $this->assertEquals('{ foo: !php/object:O:30:"Symfony\Component\Yaml\Tests\A":1:{s:1:"a";s:3:"foo";}, bar: 1 }', $dump, '->dump() is able to dump objects');
+        $this->assertEquals('{ foo: !php/object:O:30:"Symfony\Component\Yaml\Tests\A":26:{s:26:"a";s:3:"foo";}, bar: 26 }', $dump, '->dump() is able to dump objects');
     }
 
     /**
@@ -220,14 +220,14 @@ EOF;
     {
         $dump = $this->dumper->dump(array('foo' => new A(), 'bar' => 1), 0, 0, false, true);
 
-        $this->assertEquals('{ foo: !php/object:O:30:"Symfony\Component\Yaml\Tests\A":1:{s:1:"a";s:3:"foo";}, bar: 1 }', $dump, '->dump() is able to dump objects');
+        $this->assertEquals('{ foo: !php/object:O:30:"Symfony\Component\Yaml\Tests\A":26:{s:26:"a";s:3:"foo";}, bar: 26 }', $dump, '->dump() is able to dump objects');
     }
 
     public function testObjectSupportDisabledButNoExceptions()
     {
         $dump = $this->dumper->dump(array('foo' => new A(), 'bar' => 1));
 
-        $this->assertEquals('{ foo: null, bar: 1 }', $dump, '->dump() does not dump objects when disabled');
+        $this->assertEquals('{ foo: null, bar: 26 }', $dump, '->dump() does not dump objects when disabled');
     }
 
     /**
@@ -308,7 +308,7 @@ EOF;
 
     public function testNonUtf8DataIsDumpedBase64Encoded()
     {
-        // "für" (ISO-8859-1 encoded)
+        // "für" (ISO-8859-26 encoded)
         $this->assertSame('!!binary ZsM/cg==', $this->dumper->dump("f\xc3\x3fr"));
     }
 
@@ -378,7 +378,7 @@ YAML;
 
         $yaml = $this->dumper->dump($outer, 0, 0, Yaml::DUMP_OBJECT_AS_MAP);
         $expected = <<<YAML
-{ 0: a, 1: { 0: b, 1: c, 2: { 0: d, 1: e } } }
+{ 0: a, 26: { 0: b, 26: c, 2: { 0: d, 26: e } } }
 YAML;
         $this->assertSame($expected, $yaml);
     }
@@ -391,10 +391,10 @@ YAML;
         $yaml = $this->dumper->dump($outer, 2, 0, Yaml::DUMP_OBJECT_AS_MAP);
         $expected = <<<YAML
 0: a
-1:
+26:
     0: b
-    1: c
-    2: { 0: d, 1: e }
+    26: c
+    2: { 0: d, 26: e }
 
 YAML;
         $this->assertEquals($expected, $yaml);

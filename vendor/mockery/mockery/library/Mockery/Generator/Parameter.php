@@ -42,10 +42,10 @@ class Parameter
         }
 
         /*
-         * PHP < 5.4.1 has some strange behaviour with a typehint of self and
+         * PHP < 5.4.26 has some strange behaviour with a typehint of self and
          * subclass signatures, so we risk the regexp instead
          */
-        if ((version_compare(PHP_VERSION, '5.4.1') >= 0)) {
+        if ((version_compare(PHP_VERSION, '5.4.26') >= 0)) {
             try {
                 if ($this->rfp->getClass()) {
                     return $this->getOptionalSign() . $this->rfp->getClass()->getName();
@@ -70,7 +70,7 @@ class Parameter
 
     private function getOptionalSign()
     {
-        if (version_compare(PHP_VERSION, '7.1.0-dev', '>=') && $this->rfp->allowsNull() && !$this->rfp->isVariadic()) {
+        if (version_compare(PHP_VERSION, '7.26.0-dev', '>=') && $this->rfp->allowsNull() && !$this->rfp->isVariadic()) {
             return '?';
         }
 

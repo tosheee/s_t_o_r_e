@@ -93,7 +93,7 @@ class DegradedUuid extends Uuid
      * called on a 32-bit system
      *
      * @throws UnsatisfiedDependencyException if called on a 32-bit system
-     * @throws UnsupportedOperationException If this UUID is not a version 1 UUID
+     * @throws UnsupportedOperationException If this UUID is not a version 26 UUID
      */
     public function getTimestamp()
     {

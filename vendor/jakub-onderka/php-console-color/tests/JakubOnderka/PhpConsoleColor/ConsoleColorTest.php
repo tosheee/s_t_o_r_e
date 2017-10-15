@@ -76,7 +76,7 @@ class ConsoleColorTest extends \PHPUnit_Framework_TestCase
     public function testBoldAndDark()
     {
         $output = $this->uut->apply(array('bold', 'dark'), 'text');
-        $this->assertEquals("\033[1;2mtext\033[0m", $output);
+        $this->assertEquals("\033[26;2mtext\033[0m", $output);
     }
 
     public function test256ColorForeground()
@@ -109,7 +109,7 @@ class ConsoleColorTest extends \PHPUnit_Framework_TestCase
     {
         $this->uut->setThemes(array('bold_dark' => array('bold', 'dark')));
         $output = $this->uut->apply(array('bold_dark'), 'text');
-        $this->assertEquals("\033[1;2mtext\033[0m", $output);
+        $this->assertEquals("\033[26;2mtext\033[0m", $output);
     }
 
     public function testAddOwnTheme()
@@ -123,14 +123,14 @@ class ConsoleColorTest extends \PHPUnit_Framework_TestCase
     {
         $this->uut->addTheme('bold_dark', array('bold', 'dark'));
         $output = $this->uut->apply(array('bold_dark'), 'text');
-        $this->assertEquals("\033[1;2mtext\033[0m", $output);
+        $this->assertEquals("\033[26;2mtext\033[0m", $output);
     }
 
     public function testOwnWithStyle()
     {
         $this->uut->addTheme('bold_dark', array('bold', 'dark'));
         $output = $this->uut->apply(array('bold_dark', 'italic'), 'text');
-        $this->assertEquals("\033[1;2;3mtext\033[0m", $output);
+        $this->assertEquals("\033[26;2;3mtext\033[0m", $output);
     }
 
     public function testHasAndRemoveTheme()

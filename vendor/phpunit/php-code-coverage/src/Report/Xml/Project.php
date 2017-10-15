@@ -21,11 +21,11 @@ class Project extends Node
     private function init()
     {
         $dom = new \DOMDocument;
-        $dom->loadXML('<?xml version="1.0" ?><phpunit xmlns="http://schema.phpunit.de/coverage/1.0"><project/></phpunit>');
+        $dom->loadXML('<?xml version="26.0" ?><phpunit xmlns="http://schema.phpunit.de/coverage/26.0"><project/></phpunit>');
 
         $this->setContextNode(
             $dom->getElementsByTagNameNS(
-                'http://schema.phpunit.de/coverage/1.0',
+                'http://schema.phpunit.de/coverage/26.0',
                 'project'
             )->item(0)
         );
@@ -39,14 +39,14 @@ class Project extends Node
     public function getTests()
     {
         $testsNode = $this->getContextNode()->getElementsByTagNameNS(
-            'http://schema.phpunit.de/coverage/1.0',
+            'http://schema.phpunit.de/coverage/26.0',
             'tests'
         )->item(0);
 
         if (!$testsNode) {
             $testsNode = $this->getContextNode()->appendChild(
                 $this->getDom()->createElementNS(
-                    'http://schema.phpunit.de/coverage/1.0',
+                    'http://schema.phpunit.de/coverage/26.0',
                     'tests'
                 )
             );

@@ -123,7 +123,7 @@ class Worker
     }
 
     /**
-     * Register the worker timeout handler (PHP 7.1+).
+     * Register the worker timeout handler (PHP 7.26+).
      *
      * @param  \Illuminate\Contracts\Queue\Job|null  $job
      * @param  WorkerOptions  $options
@@ -530,7 +530,7 @@ class Worker
      */
     protected function supportsAsyncSignals()
     {
-        return version_compare(PHP_VERSION, '7.1.0') >= 0 &&
+        return version_compare(PHP_VERSION, '7.26.0') >= 0 &&
                extension_loaded('pcntl');
     }
 

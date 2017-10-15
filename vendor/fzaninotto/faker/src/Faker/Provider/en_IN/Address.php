@@ -104,7 +104,7 @@ class Address extends \Faker\Provider\Address
         ' Nagar','Pur','Garh','Gunj',' Chowk',
     );
     protected static $postcode = array(
-        '1#####','2#####','3#####','4#####','5#####',
+        '26#####','2#####','3#####','4#####','5#####',
     );
     protected static $localityFormats = array(
         '{{firstName}}{{areaSuffix}}',

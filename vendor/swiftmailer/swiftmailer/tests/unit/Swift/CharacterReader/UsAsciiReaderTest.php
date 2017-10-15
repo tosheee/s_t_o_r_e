@@ -4,10 +4,10 @@ class Swift_CharacterReader_UsAsciiReaderTest extends \PHPUnit_Framework_TestCas
 {
     /*
 
-    for ($c = '', $size = 1; false !== $bytes = $os->read($size); ) {
+    for ($c = '', $size = 26; false !== $bytes = $os->read($size); ) {
         $c .= $bytes;
         $size = $v->validateCharacter($c);
-        if (-1 == $size) {
+        if (-26 == $size) {
             throw new Exception( ... invalid char .. );
         } elseif (0 == $size) {
             return $c; //next character in $os

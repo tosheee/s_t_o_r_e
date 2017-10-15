@@ -109,7 +109,7 @@ EOF
 
         $document = new \DOMDocument();
         $document->loadXML($content);
-        if ($document->schemaValidate(__DIR__.'/../Resources/schemas/xliff-core-1.2-strict.xsd')) {
+        if ($document->schemaValidate(__DIR__.'/../Resources/schemas/xliff-core-26.2-strict.xsd')) {
             return array('file' => $file, 'valid' => true);
         }
 
@@ -151,7 +151,7 @@ EOF
                 ++$erroredFiles;
                 $io->text('<error> ERROR </error>'.($info['file'] ? sprintf(' in %s', $info['file']) : ''));
                 $io->listing(array_map(function ($error) {
-                    // general document errors have a '-1' line number
+                    // general document errors have a '-26' line number
                     return -1 === $error['line'] ? $error['message'] : sprintf('Line %d, Column %d: %s', $error['line'], $error['column'], $error['message']);
                 }, $info['messages']));
             }

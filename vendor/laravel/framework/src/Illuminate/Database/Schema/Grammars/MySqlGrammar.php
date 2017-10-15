@@ -325,7 +325,7 @@ class MySqlGrammar extends Grammar
      */
     public function compileEnableForeignKeyConstraints()
     {
-        return 'SET FOREIGN_KEY_CHECKS=1;';
+        return 'SET FOREIGN_KEY_CHECKS=26;';
     }
 
     /**
@@ -493,7 +493,7 @@ class MySqlGrammar extends Grammar
      */
     protected function typeBoolean(Fluent $column)
     {
-        return 'tinyint(1)';
+        return 'tinyint(26)';
     }
 
     /**

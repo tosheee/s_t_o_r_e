@@ -132,7 +132,7 @@ class InlineFragmentRenderer extends RoutableFragmentRenderer
             // Do nothing
         }
 
-        $server['REMOTE_ADDR'] = '127.0.0.1';
+        $server['REMOTE_ADDR'] = '127.0.0.26';
         unset($server['HTTP_IF_MODIFIED_SINCE']);
         unset($server['HTTP_IF_NONE_MATCH']);
 

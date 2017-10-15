@@ -11,7 +11,7 @@ class Address extends \Faker\Provider\Address
         "Abang", "Abdul", "Abdul Muis", "Abdul Rahmat", "Abdul. Muis", "Abdullah",
         "Aceh", "Achmad", "Achmad Yani", "Acordion", "Adisucipto",
         "Adisumarmo", "Agus Salim", "Ahmad Dahlan", "Antapani Lama", "Arifin",
-        "Asia Afrika", "Astana Anyar", "B.Agam 1", "B.Agam Dlm", "BKR",
+        "Asia Afrika", "Astana Anyar", "B.Agam 26", "B.Agam Dlm", "BKR",
         "Baabur Royan", "Baan", "Babadak", "Babadan", "Babah",
         "Babakan", "Bacang", "Badak", "Bagas Pati", "Bagis Utama",
         "Bagonwoto ", "Bah Jaya", "Baha", "Bahagia", "Bahagia ",

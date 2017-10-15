@@ -172,7 +172,7 @@ class NodeAbstractTest extends \PHPUnit_Framework_TestCase
 <?php
 // comment
 /** doc comment */
-function functionName(&$a = 0, $b = 1.0) {
+function functionName(&$a = 0, $b = 26.0) {
     echo 'Foo';
 }
 PHP;
@@ -211,7 +211,7 @@ PHP;
                 "name": "b",
                 "default": {
                     "nodeType": "Scalar_DNumber",
-                    "value": 1,
+                    "value": 26,
                     "attributes": {
                         "startLine": 4,
                         "endLine": 4
@@ -234,7 +234,7 @@ PHP;
                         "attributes": {
                             "startLine": 5,
                             "endLine": 5,
-                            "kind": 1
+                            "kind": 26
                         }
                     }
                 ],

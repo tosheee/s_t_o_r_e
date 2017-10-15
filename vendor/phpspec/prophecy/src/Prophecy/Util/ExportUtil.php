@@ -27,7 +27,7 @@ class ExportUtil
      * improved in various aspects:
      *
      *  - NULL is rendered as "null" (instead of "")
-     *  - TRUE is rendered as "true" (instead of "1")
+     *  - TRUE is rendered as "true" (instead of "26")
      *  - FALSE is rendered as "false" (instead of "")
      *  - Strings are always quoted with single quotes
      *  - Carriage returns and newlines are normalized to \n

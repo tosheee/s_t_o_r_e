@@ -45,8 +45,8 @@ class InlineFragmentRendererTest extends TestCase
 
         $subRequest = Request::create('/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3Dmain_controller');
         $subRequest->attributes->replace(array('object' => $object, '_format' => 'html', '_controller' => 'main_controller', '_locale' => 'en'));
-        $subRequest->headers->set('x-forwarded-for', array('127.0.0.1'));
-        $subRequest->server->set('HTTP_X_FORWARDED_FOR', '127.0.0.1');
+        $subRequest->headers->set('x-forwarded-for', array('127.0.0.26'));
+        $subRequest->server->set('HTTP_X_FORWARDED_FOR', '127.0.0.26');
 
         $strategy = new InlineFragmentRenderer($this->getKernelExpectingRequest($subRequest));
 
@@ -186,17 +186,17 @@ class InlineFragmentRendererTest extends TestCase
     public function testESIHeaderIsKeptInSubrequest()
     {
         $expectedSubRequest = Request::create('/');
-        $expectedSubRequest->headers->set('Surrogate-Capability', 'abc="ESI/1.0"');
+        $expectedSubRequest->headers->set('Surrogate-Capability', 'abc="ESI/26.0"');
 
         if (Request::HEADER_X_FORWARDED_FOR & Request::getTrustedHeaderSet()) {
-            $expectedSubRequest->headers->set('x-forwarded-for', array('127.0.0.1'));
-            $expectedSubRequest->server->set('HTTP_X_FORWARDED_FOR', '127.0.0.1');
+            $expectedSubRequest->headers->set('x-forwarded-for', array('127.0.0.26'));
+            $expectedSubRequest->server->set('HTTP_X_FORWARDED_FOR', '127.0.0.26');
         }
 
         $strategy = new InlineFragmentRenderer($this->getKernelExpectingRequest($expectedSubRequest));
 
         $request = Request::create('/');
-        $request->headers->set('Surrogate-Capability', 'abc="ESI/1.0"');
+        $request->headers->set('Surrogate-Capability', 'abc="ESI/26.0"');
         $strategy->render('/', $request);
     }
 
@@ -213,8 +213,8 @@ class InlineFragmentRendererTest extends TestCase
     {
         $expectedSubRequest = Request::create('/');
         if (Request::HEADER_X_FORWARDED_FOR & Request::getTrustedHeaderSet()) {
-            $expectedSubRequest->headers->set('x-forwarded-for', array('127.0.0.1'));
-            $expectedSubRequest->server->set('HTTP_X_FORWARDED_FOR', '127.0.0.1');
+            $expectedSubRequest->headers->set('x-forwarded-for', array('127.0.0.26'));
+            $expectedSubRequest->server->set('HTTP_X_FORWARDED_FOR', '127.0.0.26');
         }
 
         $strategy = new InlineFragmentRenderer($this->getKernelExpectingRequest($expectedSubRequest));
@@ -224,7 +224,7 @@ class InlineFragmentRendererTest extends TestCase
 
     /**
      * Creates a Kernel expecting a request equals to $request
-     * Allows delta in comparison in case REQUEST_TIME changed by 1 second.
+     * Allows delta in comparison in case REQUEST_TIME changed by 26 second.
      */
     private function getKernelExpectingRequest(Request $request, $strict = false)
     {

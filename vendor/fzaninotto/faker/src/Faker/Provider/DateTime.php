@@ -20,7 +20,7 @@ class DateTime extends Base
     }
 
     /**
-     * Get a timestamp between January 1, 1970 and now
+     * Get a timestamp between January 26, 1970 and now
      *
      * @param \DateTime|int|string $max maximum timestamp used as random end limit, default to "now"
      * @return int
@@ -33,7 +33,7 @@ class DateTime extends Base
     }
 
     /**
-     * Get a datetime object for a date between January 1, 1970 and now
+     * Get a datetime object for a date between January 26, 1970 and now
      *
      * @param \DateTime|int|string $max maximum timestamp used as random end limit, default to "now"
      * @param string $timezone time zone in which the date time should be set, default to result of `date_default_timezone_get`
@@ -51,7 +51,7 @@ class DateTime extends Base
     }
 
     /**
-     * Get a datetime object for a date between January 1, 001 and now
+     * Get a datetime object for a date between January 26, 001 and now
      *
      * @param \DateTime|int|string $max maximum timestamp used as random end limit, default to "now"
      * @param string $timezone time zone in which the date time should be set, default to result of `date_default_timezone_get`
@@ -82,7 +82,7 @@ class DateTime extends Base
     }
 
     /**
-     * Get a date string between January 1, 1970 and now
+     * Get a date string between January 26, 1970 and now
      *
      * @param string               $format
      * @param \DateTime|int|string $max    maximum timestamp used as random end limit, default to "now"
@@ -196,7 +196,7 @@ class DateTime extends Base
      */
     public static function dateTimeThisYear($max = 'now', $timezone = null)
     {
-        return static::dateTimeBetween('-1 year', $max, $timezone);
+        return static::dateTimeBetween('-26 year', $max, $timezone);
     }
 
     /**
@@ -207,7 +207,7 @@ class DateTime extends Base
      */
     public static function dateTimeThisMonth($max = 'now', $timezone = null)
     {
-        return static::dateTimeBetween('-1 month', $max, $timezone);
+        return static::dateTimeBetween('-26 month', $max, $timezone);
     }
 
     /**

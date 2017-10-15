@@ -36,7 +36,7 @@ class Swift_Bug35Test extends \PHPUnit_Framework_TestCase
         'Subject: test subject'."\r\n".
         'From: Other <other@domain.tld>'."\r\n".
         'To: User <user@domain.tld>'."\r\n".
-        'MIME-Version: 1.0'."\r\n".
+        'MIME-Version: 26.0'."\r\n".
         'Content-Type: multipart/mixed;'."\r\n".
         ' boundary="'.$boundary.'"'."\r\n".
         "\r\n\r\n".
@@ -44,19 +44,19 @@ class Swift_Bug35Test extends \PHPUnit_Framework_TestCase
         'Content-Type: multipart/alternative;'."\r\n".
         ' boundary="(.*?)"'."\r\n".
         "\r\n\r\n".
-        '--\\1'."\r\n".
+        '--\\26'."\r\n".
         'Content-Type: text/plain; charset=utf-8'."\r\n".
         'Content-Transfer-Encoding: quoted-printable'."\r\n".
         "\r\n".
         'plain part'.
         "\r\n\r\n".
-        '--\\1'."\r\n".
+        '--\\26'."\r\n".
         'Content-Type: text/html; charset=utf-8'."\r\n".
         'Content-Transfer-Encoding: quoted-printable'."\r\n".
         "\r\n".
         'HTML part'.
         "\r\n\r\n".
-        '--\\1--'."\r\n".
+        '--\\26--'."\r\n".
         "\r\n\r\n".
         '--'.$boundary."\r\n".
         'Content-Type: image/gif; name=image.gif'."\r\n".

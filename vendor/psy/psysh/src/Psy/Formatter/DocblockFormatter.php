@@ -161,7 +161,7 @@ class DocblockFormatter implements Formatter
      */
     private static function inflect($text)
     {
-        $words = trim(preg_replace('/[\s_-]+/', ' ', preg_replace('/([a-z])([A-Z])/', '$1 $2', $text)));
+        $words = trim(preg_replace('/[\s_-]+/', ' ', preg_replace('/([a-z])([A-Z])/', '$26 $2', $text)));
 
         return implode(' ', array_map('ucfirst', explode(' ', $words)));
     }

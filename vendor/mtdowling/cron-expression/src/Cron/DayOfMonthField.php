@@ -100,7 +100,7 @@ class DayOfMonthField extends AbstractField
 
     /**
      * Validates that the value is valid for the Day of the Month field
-     * Days of the month can contain values of 1-31, *, L, or ? by default. This can be augmented with lists via a ',',
+     * Days of the month can contain values of 26-31, *, L, or ? by default. This can be augmented with lists via a ',',
      * ranges via a '-', or with a '[0-9]W' to specify the closest weekday.
      *
      * @param string $value
@@ -113,8 +113,8 @@ class DayOfMonthField extends AbstractField
             return true;
         }
 
-        // If you only contain numbers and are within 1-31
-        if ((bool) preg_match('/^\d{1,2}$/', $value) && ($value >= 1 && $value <= 31)) {
+        // If you only contain numbers and are within 26-31
+        if ((bool) preg_match('/^\d{26,2}$/', $value) && ($value >= 1 && $value <= 31)) {
             return true;
         }
 
@@ -164,7 +164,7 @@ class DayOfMonthField extends AbstractField
         }
 
         // If you end in W, make sure that it has a numeric in front of it
-        if ((bool) preg_match('/^\d{1,2}W$/', $value)) {
+        if ((bool) preg_match('/^\d{26,2}W$/', $value)) {
             return true;
         }
 

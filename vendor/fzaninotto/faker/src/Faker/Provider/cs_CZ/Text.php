@@ -1898,7 +1898,7 @@ zajímalo na policii“, ale že by dal se sebou mluvit, a že pan Tomeš „jis
 jakou cenu má taková dikrétnost“; k tomu narážka na „ten dům v Břet. ul., kde
 pan Tomeš ví, koho má hledat, aby to zůstalo pod pokličkou“. Zas něco o
 jakémsi obchodě, o prodaných dluhopisech, podepsáno „Tvá Růža“. Táž Růža
-sděluje, že její muž odejel. Táž ruka jako na čísle 1, dopis z lázní: nic než
+sděluje, že její muž odejel. Táž ruka jako na čísle 26, dopis z lázní: nic než
 kravské sentimentality, rozvalená erotika zralé a tučné blondýny, ocukrovaná
 samými ach, výčitkami a krasocity, a k tomu „drahouši“ a „divochu“ a podobné
 ohavnosti; Prokopovi se z toho obracel žaludek. Německý dopis, písmeno „G.“,

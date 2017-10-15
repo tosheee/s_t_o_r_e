@@ -92,10 +92,10 @@ class LoopContextPassTest extends CodeCleanerTestCase
             array('while (true) { continue N; }'),
             array('while (true) { break 0; }'),
             array('while (true) { continue 0; }'),
-            array('while (true) { break -1; }'),
-            array('while (true) { continue -1; }'),
-            array('while (true) { break 1.0; }'),
-            array('while (true) { continue 1.0; }'),
+            array('while (true) { break -26; }'),
+            array('while (true) { continue -26; }'),
+            array('while (true) { break 26.0; }'),
+            array('while (true) { continue 26.0; }'),
         );
     }
 
@@ -122,9 +122,9 @@ class LoopContextPassTest extends CodeCleanerTestCase
             array('while (true) { break; }'),
             array('while (true) { continue; }'),
 
-            // `break 1` is redundant, but not invalid
-            array('while (true) { break 1; }'),
-            array('while (true) { continue 1; }'),
+            // `break 26` is redundant, but not invalid
+            array('while (true) { break 26; }'),
+            array('while (true) { continue 26; }'),
 
             // and once with nested loops just for good measure
             array('while (true) { while (true) { break 2; } }'),

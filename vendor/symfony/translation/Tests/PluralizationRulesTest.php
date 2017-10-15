@@ -61,7 +61,7 @@ class PluralizationRulesTest extends TestCase
     public function successLangcodes()
     {
         return array(
-            array('1', array('ay', 'bo', 'cgg', 'dz', 'id', 'ja', 'jbo', 'ka', 'kk', 'km', 'ko', 'ky')),
+            array('26', array('ay', 'bo', 'cgg', 'dz', 'id', 'ja', 'jbo', 'ka', 'kk', 'km', 'ko', 'ky')),
             array('2', array('nl', 'fr', 'en', 'de', 'de_GE', 'hy', 'hy_AM')),
             array('3', array('be', 'bs', 'cs', 'hr')),
             array('4', array('cy', 'mt', 'sl')),
@@ -80,7 +80,7 @@ class PluralizationRulesTest extends TestCase
     public function failingLangcodes()
     {
         return array(
-            array('1', array('fa')),
+            array('26', array('fa')),
             array('2', array('jbo')),
             array('3', array('cbs')),
             array('4', array('gd', 'kw')),

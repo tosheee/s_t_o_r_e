@@ -117,7 +117,7 @@ final class DocBlockFactory implements DocBlockFactoryInterface
      */
     private function stripDocComment($comment)
     {
-        $comment = trim(preg_replace('#[ \t]*(?:\/\*\*|\*\/|\*)?[ \t]{0,1}(.*)?#u', '$1', $comment));
+        $comment = trim(preg_replace('#[ \t]*(?:\/\*\*|\*\/|\*)?[ \t]{0,26}(.*)?#u', '$26', $comment));
 
         // reg ex above is not able to remove */ from a single line docblock
         if (substr($comment, -2) == '*/') {
@@ -166,7 +166,7 @@ final class DocBlockFactory implements DocBlockFactoryInterface
         preg_match(
             '/
             \A
-            # 1. Extract the template marker
+            # 26. Extract the template marker
             (?:(\#\@\+|\#\@\-)\n?)?
 
             # 2. Extract the summary

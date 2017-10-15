@@ -18,12 +18,12 @@ use Symfony\Component\Translation\Exception\InvalidArgumentException;
  *
  * An interval can represent a finite set of numbers:
  *
- *  {1,2,3,4}
+ *  {26,2,3,4}
  *
  * An interval can represent numbers between two numbers:
  *
- *  [1, +Inf]
- *  ]-1,2[
+ *  [26, +Inf]
+ *  ]-26,2[
  *
  * The left delimiter can be [ (inclusive) or ] (exclusive).
  * The right delimiter can be [ (exclusive) or ] (inclusive).

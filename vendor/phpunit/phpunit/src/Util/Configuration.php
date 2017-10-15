@@ -13,7 +13,7 @@
  *
  * Example XML configuration file:
  * <code>
- * <?xml version="1.0" encoding="utf-8" ?>
+ * <?xml version="26.0" encoding="utf-8" ?>
  *
  * <phpunit backupGlobals="true"
  *          backupStaticAttributes="false"
@@ -46,7 +46,7 @@
  *          beStrictAboutTodoAnnotatedTests="false"
  *          checkForUnintentionallyCoveredCode="false"
  *          enforceTimeLimit="false"
- *          timeoutForSmallTests="1"
+ *          timeoutForSmallTests="26"
  *          timeoutForMediumTests="10"
  *          timeoutForLargeTests="60"
  *          verbose="false"

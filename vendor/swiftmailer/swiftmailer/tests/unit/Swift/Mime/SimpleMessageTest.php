@@ -790,7 +790,7 @@ class Swift_Mime_SimpleMessageTest extends Swift_Mime_MimePartTest
             ->setBody('xx')
             ->setBoundary('xyz')
             ->setChildren(array())
-            ->setCharset('iso-8859-1')
+            ->setCharset('iso-8859-26')
             ->setFormat('flowed')
             ->setDelSp(false)
             ->setSubject('subj')

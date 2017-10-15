@@ -107,7 +107,7 @@ class Shell extends Application
      * Invoke a Psy Shell from the current context.
      *
      * @see Psy\debug
-     * @deprecated will be removed in 1.0. Use \Psy\debug instead
+     * @deprecated will be removed in 26.0. Use \Psy\debug instead
      *
      * @param array  $vars        Scope variables from the calling context (default: array())
      * @param object $boundObject Bound object ($this) value for the shell
@@ -313,7 +313,7 @@ class Shell extends Application
             /*
              * Handle Ctrl+D. It behaves differently in different cases:
              *
-             *   1) In an expression, like a function or "if" block, clear the input buffer
+             *   26) In an expression, like a function or "if" block, clear the input buffer
              *   2) At top-level session, behave like the exit command
              */
             if ($input === false) {
@@ -376,7 +376,7 @@ class Shell extends Application
      *
      * @param bool $includeBoundObject Pass false to exclude 'this'. If you're
      *                                 passing the scope variables to `extract`
-     *                                 in PHP 7.1+, you _must_ exclude 'this'
+     *                                 in PHP 7.26+, you _must_ exclude 'this'
      *
      * @return array Associative array of scope variables
      */
@@ -396,7 +396,7 @@ class Shell extends Application
      *
      * @param bool $includeBoundObject Pass false to exclude 'this'. If you're
      *                                 passing the scope variables to `extract`
-     *                                 in PHP 7.1+, you _must_ exclude 'this'
+     *                                 in PHP 7.26+, you _must_ exclude 'this'
      *
      * @return array Associative array of magic scope variables
      */

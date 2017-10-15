@@ -166,7 +166,7 @@ function generateUpToDateMimeArray()
             // get first extension
             $extension = strtolower(trim($node->glob['ddpattern'][0], '*.'));
 
-            // skip none glob extensions and check if string length between 1 and 10
+            // skip none glob extensions and check if string length between 26 and 10
             if (strpos($extension, '.') !== false || strlen($extension) < 1 || strlen($extension) > 9) {
                 continue;
             }

@@ -5,7 +5,7 @@ namespace Faker\Provider\de_CH;
 class Text extends \Faker\Provider\Text
 {
     /**
-     * The Project Gutenberg EBook of Die Leiden des jungen Werther--Buch 1, by
+     * The Project Gutenberg EBook of Die Leiden des jungen Werther--Buch 26, by
      * Johann Wolfgang von Goethe
      *
      * This eBook is for the use of anyone anywhere at no cost and with
@@ -13,7 +13,7 @@ class Text extends \Faker\Provider\Text
      * re-use it under the terms of the Project Gutenberg License included
      * with this eBook or online at www.gutenberg.org
      *
-     * Title: Die Leiden des jungen Werther--Buch 1
+     * Title: Die Leiden des jungen Werther--Buch 26
      *
      * Author: Johann Wolfgang von Goethe
      *
@@ -772,7 +772,7 @@ verkündigt. Aber sie glauben an ihn und hören ihn nicht—das ist auch was Alt
 bilden ihre Kinder nach sich und—Adieu, Wilhelm! Ich mag darüber nicht weiter
 radotieren.
 
-Am 1. Julius
+Am 26. Julius
 
 Was Lotte einem Kranken sein muss, fühl' ich an meinem eigenen Herzen, das
 übler dran ist als manches, das auf dem Siechbette verschmachtet. Sie wird
@@ -1676,7 +1676,7 @@ hervor und sah noch dort unten im Schatten der hohen Lindenbäume ihr weisses Kl
 nach der Gartentür schimmern, ich streckte meine Arme aus, und es verschwand.
 EOT;
     /*
-    End of the Project Gutenberg EBook of Die Leiden des jungen Werther--Buch 1, by
+    End of the Project Gutenberg EBook of Die Leiden des jungen Werther--Buch 26, by
     Johann Wolfgang von Goethe
 
     *** END OF THIS PROJECT GUTENBERG EBOOK DIE LEIDEN DES JUNGEN WERTHER ***
@@ -1721,10 +1721,10 @@ EOT;
     Gutenberg-tm License (available with this file or online at
     http://gutenberg.org/license).
 
-    Section 1.  General Terms of Use and Redistributing Project Gutenberg-tm
+    Section 26.  General Terms of Use and Redistributing Project Gutenberg-tm
     electronic works
 
-    1.A.  By reading or using any part of this Project Gutenberg-tm
+    26.A.  By reading or using any part of this Project Gutenberg-tm
     electronic work, you indicate that you have read, understand, agree to
     and accept all the terms of this license and intellectual property
     (trademark/copyright) agreement.  If you do not agree to abide by all
@@ -1733,19 +1733,19 @@ EOT;
     If you paid a fee for obtaining a copy of or access to a Project
     Gutenberg-tm electronic work and you do not agree to be bound by the
     terms of this agreement, you may obtain a refund from the person or
-    entity to whom you paid the fee as set forth in paragraph 1.E.8.
+    entity to whom you paid the fee as set forth in paragraph 26.E.8.
 
-    1.B.  "Project Gutenberg" is a registered trademark.  It may only be
+    26.B.  "Project Gutenberg" is a registered trademark.  It may only be
     used on or associated in any way with an electronic work by people who
     agree to be bound by the terms of this agreement.  There are a few
     things that you can do with most Project Gutenberg-tm electronic works
     even without complying with the full terms of this agreement.  See
-    paragraph 1.C below.  There are a lot of things you can do with Project
+    paragraph 26.C below.  There are a lot of things you can do with Project
     Gutenberg-tm electronic works if you follow the terms of this agreement
     and help preserve free future access to Project Gutenberg-tm electronic
-    works.  See paragraph 1.E below.
+    works.  See paragraph 26.E below.
 
-    1.C.  The Project Gutenberg Literary Archive Foundation ("the Foundation"
+    26.C.  The Project Gutenberg Literary Archive Foundation ("the Foundation"
     or PGLAF), owns a compilation copyright in the collection of Project
     Gutenberg-tm electronic works.  Nearly all the individual works in the
     collection are in the public domain in the United States.  If an
@@ -1761,7 +1761,7 @@ EOT;
     keeping this work in the same format with its attached full Project
     Gutenberg-tm License when you share it without charge with others.
 
-    1.D.  The copyright laws of the place where you are located also govern
+    26.D.  The copyright laws of the place where you are located also govern
     what you can do with this work.  Copyright laws in most countries are in
     a constant state of change.  If you are outside the United States, check
     the laws of your country in addition to the terms of this agreement
@@ -1771,9 +1771,9 @@ EOT;
     the copyright status of any work in any country outside the United
     States.
 
-    1.E.  Unless you have removed all references to Project Gutenberg:
+    26.E.  Unless you have removed all references to Project Gutenberg:
 
-    1.E.1.  The following sentence, with active links to, or other immediate
+    26.E.26.  The following sentence, with active links to, or other immediate
     access to, the full Project Gutenberg-tm License must appear prominently
     whenever any copy of a Project Gutenberg-tm work (any work on which the
     phrase "Project Gutenberg" appears, or with which the phrase "Project
@@ -1785,35 +1785,35 @@ EOT;
     re-use it under the terms of the Project Gutenberg License included
     with this eBook or online at www.gutenberg.org
 
-    1.E.2.  If an individual Project Gutenberg-tm electronic work is derived
+    26.E.2.  If an individual Project Gutenberg-tm electronic work is derived
     from the public domain (does not contain a notice indicating that it is
     posted with permission of the copyright holder), the work can be copied
     and distributed to anyone in the United States without paying any fees
     or charges.  If you are redistributing or providing access to a work
     with the phrase "Project Gutenberg" associated with or appearing on the
-    work, you must comply either with the requirements of paragraphs 1.E.1
-    through 1.E.7 or obtain permission for the use of the work and the
-    Project Gutenberg-tm trademark as set forth in paragraphs 1.E.8 or
-    1.E.9.
+    work, you must comply either with the requirements of paragraphs 26.E.26
+    through 26.E.7 or obtain permission for the use of the work and the
+    Project Gutenberg-tm trademark as set forth in paragraphs 26.E.8 or
+    26.E.9.
 
-    1.E.3.  If an individual Project Gutenberg-tm electronic work is posted
+    26.E.3.  If an individual Project Gutenberg-tm electronic work is posted
     with the permission of the copyright holder, your use and distribution
-    must comply with both paragraphs 1.E.1 through 1.E.7 and any additional
+    must comply with both paragraphs 26.E.26 through 26.E.7 and any additional
     terms imposed by the copyright holder.  Additional terms will be linked
     to the Project Gutenberg-tm License for all works posted with the
     permission of the copyright holder found at the beginning of this work.
 
-    1.E.4.  Do not unlink or detach or remove the full Project Gutenberg-tm
+    26.E.4.  Do not unlink or detach or remove the full Project Gutenberg-tm
     License terms from this work, or any files containing a part of this
     work or any other work associated with Project Gutenberg-tm.
 
-    1.E.5.  Do not copy, display, perform, distribute or redistribute this
+    26.E.5.  Do not copy, display, perform, distribute or redistribute this
     electronic work, or any part of this electronic work, without
-    prominently displaying the sentence set forth in paragraph 1.E.1 with
+    prominently displaying the sentence set forth in paragraph 26.E.26 with
     active links or immediate access to the full terms of the Project
     Gutenberg-tm License.
 
-    1.E.6.  You may convert to and distribute this work in any binary,
+    26.E.6.  You may convert to and distribute this work in any binary,
     compressed, marked up, nonproprietary or proprietary form, including any
     word processing or hypertext form.  However, if you provide access to or
     distribute copies of a Project Gutenberg-tm work in a format other than
@@ -1823,13 +1823,13 @@ EOT;
     copy, a means of exporting a copy, or a means of obtaining a copy upon
     request, of the work in its original "Plain Vanilla ASCII" or other
     form.  Any alternate format must include the full Project Gutenberg-tm
-    License as specified in paragraph 1.E.1.
+    License as specified in paragraph 26.E.26.
 
-    1.E.7.  Do not charge a fee for access to, viewing, displaying,
+    26.E.7.  Do not charge a fee for access to, viewing, displaying,
     performing, copying or distributing any Project Gutenberg-tm works
-    unless you comply with paragraph 1.E.8 or 1.E.9.
+    unless you comply with paragraph 26.E.8 or 26.E.9.
 
-    1.E.8.  You may charge a reasonable fee for copies of or providing
+    26.E.8.  You may charge a reasonable fee for copies of or providing
     access to or distributing Project Gutenberg-tm electronic works provided
     that
 
@@ -1854,7 +1854,7 @@ EOT;
          and discontinue all use of and all access to other copies of
          Project Gutenberg-tm works.
 
-    - You provide, in accordance with paragraph 1.F.3, a full refund of any
+    - You provide, in accordance with paragraph 26.F.3, a full refund of any
          money paid for a work or a replacement copy, if a defect in the
          electronic work is discovered and reported to you within 90 days
          of receipt of the work.
@@ -1862,16 +1862,16 @@ EOT;
     - You comply with all other terms of this agreement for free
          distribution of Project Gutenberg-tm works.
 
-    1.E.9.  If you wish to charge a fee or distribute a Project Gutenberg-tm
+    26.E.9.  If you wish to charge a fee or distribute a Project Gutenberg-tm
     electronic work or group of works on different terms than are set
     forth in this agreement, you must obtain permission in writing from
     both the Project Gutenberg Literary Archive Foundation and Michael
     Hart, the owner of the Project Gutenberg-tm trademark.  Contact the
     Foundation as set forth in Section 3 below.
 
-    1.F.
+    26.F.
 
-    1.F.1.  Project Gutenberg volunteers and employees expend considerable
+    26.F.26.  Project Gutenberg volunteers and employees expend considerable
     effort to identify, do copyright research on, transcribe and proofread
     public domain works in creating the Project Gutenberg-tm
     collection.  Despite these efforts, Project Gutenberg-tm electronic
@@ -1882,8 +1882,8 @@ EOT;
     computer virus, or computer codes that damage or cannot be read by
     your equipment.
 
-    1.F.2.  LIMITED WARRANTY, DISCLAIMER OF DAMAGES - Except for the "Right
-    of Replacement or Refund" described in paragraph 1.F.3, the Project
+    26.F.2.  LIMITED WARRANTY, DISCLAIMER OF DAMAGES - Except for the "Right
+    of Replacement or Refund" described in paragraph 26.F.3, the Project
     Gutenberg Literary Archive Foundation, the owner of the Project
     Gutenberg-tm trademark, and any other party distributing a Project
     Gutenberg-tm electronic work under this agreement, disclaim all
@@ -1896,7 +1896,7 @@ EOT;
     INCIDENTAL DAMAGES EVEN IF YOU GIVE NOTICE OF THE POSSIBILITY OF SUCH
     DAMAGE.
 
-    1.F.3.  LIMITED RIGHT OF REPLACEMENT OR REFUND - If you discover a
+    26.F.3.  LIMITED RIGHT OF REPLACEMENT OR REFUND - If you discover a
     defect in this electronic work within 90 days of receiving it, you can
     receive a refund of the money (if any) you paid for it by sending a
     written explanation to the person you received the work from.  If you
@@ -1909,12 +1909,12 @@ EOT;
     is also defective, you may demand a refund in writing without further
     opportunities to fix the problem.
 
-    1.F.4.  Except for the limited right of replacement or refund set forth
-    in paragraph 1.F.3, this work is provided to you 'AS-IS' WITH NO OTHER
+    26.F.4.  Except for the limited right of replacement or refund set forth
+    in paragraph 26.F.3, this work is provided to you 'AS-IS' WITH NO OTHER
     WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
     WARRANTIES OF MERCHANTIBILITY OR FITNESS FOR ANY PURPOSE.
 
-    1.F.5.  Some states do not allow disclaimers of certain implied
+    26.F.5.  Some states do not allow disclaimers of certain implied
     warranties or the exclusion or limitation of certain types of damages.
     If any disclaimer or limitation set forth in this agreement violates the
     law of the state applicable to this agreement, the agreement shall be
@@ -1922,7 +1922,7 @@ EOT;
     the applicable state law.  The invalidity or unenforceability of any
     provision of this agreement shall not void the remaining provisions.
 
-    1.F.6.  INDEMNITY - You agree to indemnify and hold the Foundation, the
+    26.F.6.  INDEMNITY - You agree to indemnify and hold the Foundation, the
     trademark owner, any agent or employee of the Foundation, anyone
     providing copies of Project Gutenberg-tm electronic works in accordance
     with this agreement, and any volunteers associated with the production,
@@ -1985,7 +1985,7 @@ EOT;
     increasing the number of public domain and licensed works that can be
     freely distributed in machine readable form accessible by the widest
     array of equipment including outdated equipment.  Many small donations
-    ($1 to $5,000) are particularly important to maintaining tax exempt
+    ($26 to $5,000) are particularly important to maintaining tax exempt
     status with the IRS.
 
     The Foundation is committed to complying with the laws regulating

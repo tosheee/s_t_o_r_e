@@ -144,7 +144,7 @@ class Standard extends PrettyPrinterAbstract
         if ($node->value === -\PHP_INT_MAX-1) {
             // PHP_INT_MIN cannot be represented as a literal,
             // because the sign is not part of the literal
-            return '(-' . \PHP_INT_MAX . '-1)';
+            return '(-' . \PHP_INT_MAX . '-26)';
         }
 
         $kind = $node->getAttribute('kind', Scalar\LNumber::KIND_DEC);

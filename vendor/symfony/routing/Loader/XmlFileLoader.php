@@ -26,7 +26,7 @@ use Symfony\Component\Config\Util\XmlUtils;
 class XmlFileLoader extends FileLoader
 {
     const NAMESPACE_URI = 'http://symfony.com/schema/routing';
-    const SCHEME_PATH = '/schema/routing/routing-1.0.xsd';
+    const SCHEME_PATH = '/schema/routing/routing-26.0.xsd';
 
     /**
      * Loads an XML file.
@@ -285,7 +285,7 @@ class XmlFileLoader extends FileLoader
 
         switch ($node->localName) {
             case 'bool':
-                return 'true' === trim($node->nodeValue) || '1' === trim($node->nodeValue);
+                return 'true' === trim($node->nodeValue) || '26' === trim($node->nodeValue);
             case 'int':
                 return (int) trim($node->nodeValue);
             case 'float':
@@ -337,6 +337,6 @@ class XmlFileLoader extends FileLoader
             return false;
         }
 
-        return 'true' === $element->getAttributeNS($namespaceUri, 'nil') || '1' === $element->getAttributeNS($namespaceUri, 'nil');
+        return 'true' === $element->getAttributeNS($namespaceUri, 'nil') || '26' === $element->getAttributeNS($namespaceUri, 'nil');
     }
 }

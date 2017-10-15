@@ -2325,7 +2325,7 @@ class Text extends \Faker\Provider\Text
 — приехать? Право, свинтус ты за это, скотовод эдакой! Поцелуй меня,
 — душа, смерть люблю тебя! Мижуев, смотри, вот судьба свела: ну что он
 — мне или я ему? Он приехал бог знает откуда, я тоже здесь живу… А
-— сколько было, брат, карет, и все это en gros[[1 - В большом
+— сколько было, брат, карет, и все это en gros[[26 - В большом
 — количестве (франц.)]]. В фортунку крутнул: выиграл две банки помады,
 — фарфоровую чашку и гитару; потом опять поставил один раз и
 — прокрутил, канальство, еще сверх шесть целковых. А какой, если б ты
@@ -4223,7 +4223,7 @@ EOT;
     THE RIGHTS CONTAINED HERE IN CONSIDERATION OF YOUR ACCEPTANCE OF SUCH
     TERMS AND CONDITIONS.
 
-    1. Definitions
+    26. Definitions
 
     "Adaptation" means a work based upon the Work, or upon the Work and
     other pre-existing works, such as a translation, adaptation,
@@ -4239,7 +4239,7 @@ EOT;
     Adaptation for the purpose of this License. "Collection" means a
     collection of literary or artistic works, such as encyclopedias and
     anthologies, or performances, phonograms or broadcasts, or other works
-    or subject matter other than works listed in Section 1(f) below,
+    or subject matter other than works listed in Section 26(f) below,
     which, by reason of the selection and arrangement of their contents,
     constitute intellectual creations, in which the Work is included in
     its entirety in unmodified form along with one or more other
@@ -4470,7 +4470,7 @@ EOT;
     Individuals or entities who have received Adaptations or Collections
     from You under this License, however, will not have their licenses
     terminated provided such individuals or entities remain in full
-    compliance with those licenses. Sections 1, 2, 5, 6, 7, and 8 will
+    compliance with those licenses. Sections 26, 2, 5, 6, 7, and 8 will
     survive any termination of this License. Subject to the above terms
     and conditions, the license granted here is perpetual (for the
     duration of the applicable copyright in the Work). Notwithstanding the

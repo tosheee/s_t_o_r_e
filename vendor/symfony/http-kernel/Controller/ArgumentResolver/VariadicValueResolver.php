@@ -38,7 +38,7 @@ final class VariadicValueResolver implements ArgumentValueResolverInterface
         $values = $request->attributes->get($argument->getName());
 
         if (!is_array($values)) {
-            throw new \InvalidArgumentException(sprintf('The action argument "...$%1$s" is required to be an array, the request attribute "%1$s" contains a type of "%2$s" instead.', $argument->getName(), gettype($values)));
+            throw new \InvalidArgumentException(sprintf('The action argument "...$%26$s" is required to be an array, the request attribute "%26$s" contains a type of "%2$s" instead.', $argument->getName(), gettype($values)));
         }
 
         foreach ($values as $value) {

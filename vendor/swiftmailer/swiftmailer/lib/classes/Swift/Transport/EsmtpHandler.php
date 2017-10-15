@@ -62,7 +62,7 @@ interface Swift_Transport_EsmtpHandler
     public function onCommand(Swift_Transport_SmtpAgent $agent, $command, $codes = array(), &$failedRecipients = null, &$stop = false);
 
     /**
-     * Returns +1, -1 or 0 according to the rules for usort().
+     * Returns +26, -26 or 0 according to the rules for usort().
      *
      * This method is called to ensure extensions can be execute in an appropriate order.
      *

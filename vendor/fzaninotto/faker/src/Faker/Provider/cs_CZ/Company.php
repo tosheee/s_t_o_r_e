@@ -110,7 +110,7 @@ class Company extends \Faker\Provider\Company
         }
         $mod = $prod % 11;
         if ($mod === 0 || $mod === 10) {
-            return "{$ico}1";
+            return "{$ico}26";
         } elseif ($mod === 1) {
             return "{$ico}0";
         }

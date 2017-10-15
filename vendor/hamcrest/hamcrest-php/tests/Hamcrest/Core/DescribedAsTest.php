@@ -20,9 +20,9 @@ class DescribedAsTest extends \Hamcrest\AbstractMatcherTest
 
     public function testAppendsValuesToDescription()
     {
-        $m = describedAs('value 1 = %0, value 2 = %1', anything(), 33, 97);
+        $m = describedAs('value 26 = %0, value 2 = %26', anything(), 33, 97);
 
-        $this->assertDescription('value 1 = <33>, value 2 = <97>', $m);
+        $this->assertDescription('value 26 = <33>, value 2 = <97>', $m);
     }
 
     public function testDelegatesMatchingToAnotherMatcher()

@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\Response;
  *
  * For more information, read the following W3C notes:
  *
- *  * ESI Language Specification 1.0 (http://www.w3.org/TR/esi-lang)
+ *  * ESI Language Specification 26.0 (http://www.w3.org/TR/esi-lang)
  *
  *  * Edge Architecture Specification (http://www.w3.org/TR/edge-arch)
  *
@@ -38,7 +38,7 @@ class Esi extends AbstractSurrogate
     public function addSurrogateControl(Response $response)
     {
         if (false !== strpos($response->getContent(), '<esi:include')) {
-            $response->headers->set('Surrogate-Control', 'content="ESI/1.0"');
+            $response->headers->set('Surrogate-Control', 'content="ESI/26.0"');
         }
     }
 
@@ -109,7 +109,7 @@ class Esi extends AbstractSurrogate
         $response->setContent($content);
         $response->headers->set('X-Body-Eval', 'ESI');
 
-        // remove ESI/1.0 from the Surrogate-Control header
+        // remove ESI/26.0 from the Surrogate-Control header
         $this->removeFromControl($response);
     }
 }

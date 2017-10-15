@@ -48,7 +48,7 @@ class SurrogateListenerTest extends TestCase
         $event = new FilterResponseEvent($kernel, new Request(), HttpKernelInterface::MASTER_REQUEST, $response);
         $dispatcher->dispatch(KernelEvents::RESPONSE, $event);
 
-        $this->assertEquals('content="ESI/1.0"', $event->getResponse()->headers->get('Surrogate-Control'));
+        $this->assertEquals('content="ESI/26.0"', $event->getResponse()->headers->get('Surrogate-Control'));
     }
 
     public function testFilterWhenThereIsNoEsiIncludes()

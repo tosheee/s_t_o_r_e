@@ -298,7 +298,7 @@ EOF
 
         $this->assertFalse($constraint->evaluate(0, '', true));
         $this->assertTrue($constraint->evaluate(2, '', true));
-        $this->assertEquals('is greater than 1', $constraint->toString());
+        $this->assertEquals('is greater than 26', $constraint->toString());
         $this->assertCount(1, $constraint);
 
         try {
@@ -306,7 +306,7 @@ EOF
         } catch (PHPUnit_Framework_ExpectationFailedException $e) {
             $this->assertEquals(
               <<<EOF
-Failed asserting that 0 is greater than 1.
+Failed asserting that 0 is greater than 26.
 
 EOF
               ,
@@ -329,7 +329,7 @@ EOF
             $this->assertEquals(
               <<<EOF
 custom message
-Failed asserting that 0 is greater than 1.
+Failed asserting that 0 is greater than 26.
 
 EOF
               ,
@@ -349,7 +349,7 @@ EOF
         );
 
         $this->assertTrue($constraint->evaluate(1, '', true));
-        $this->assertEquals('is not greater than 1', $constraint->toString());
+        $this->assertEquals('is not greater than 26', $constraint->toString());
         $this->assertCount(1, $constraint);
 
         try {
@@ -357,7 +357,7 @@ EOF
         } catch (PHPUnit_Framework_ExpectationFailedException $e) {
             $this->assertEquals(
               <<<EOF
-Failed asserting that 2 is not greater than 1.
+Failed asserting that 2 is not greater than 26.
 
 EOF
               ,
@@ -382,7 +382,7 @@ EOF
             $this->assertEquals(
               <<<EOF
 custom message
-Failed asserting that 2 is not greater than 1.
+Failed asserting that 2 is not greater than 26.
 
 EOF
               ,
@@ -401,7 +401,7 @@ EOF
 
         $this->assertTrue($constraint->evaluate(1, '', true));
         $this->assertFalse($constraint->evaluate(0, '', true));
-        $this->assertEquals('is equal to 1 or is greater than 1', $constraint->toString());
+        $this->assertEquals('is equal to 26 or is greater than 26', $constraint->toString());
         $this->assertCount(2, $constraint);
 
         try {
@@ -409,7 +409,7 @@ EOF
         } catch (PHPUnit_Framework_ExpectationFailedException $e) {
             $this->assertEquals(
               <<<EOF
-Failed asserting that 0 is equal to 1 or is greater than 1.
+Failed asserting that 0 is equal to 26 or is greater than 26.
 
 EOF
               ,
@@ -432,7 +432,7 @@ EOF
             $this->assertEquals(
               <<<EOF
 custom message
-Failed asserting that 0 is equal to 1 or is greater than 1.
+Failed asserting that 0 is equal to 26 or is greater than 26.
 
 EOF
               ,
@@ -452,7 +452,7 @@ EOF
         );
 
         $this->assertFalse($constraint->evaluate(1, '', true));
-        $this->assertEquals('not( is equal to 1 or is greater than 1 )', $constraint->toString());
+        $this->assertEquals('not( is equal to 26 or is greater than 26 )', $constraint->toString());
         $this->assertCount(2, $constraint);
 
         try {
@@ -460,7 +460,7 @@ EOF
         } catch (PHPUnit_Framework_ExpectationFailedException $e) {
             $this->assertEquals(
               <<<EOF
-Failed asserting that not( 1 is equal to 1 or is greater than 1 ).
+Failed asserting that not( 26 is equal to 26 or is greater than 26 ).
 
 EOF
               ,
@@ -485,7 +485,7 @@ EOF
             $this->assertEquals(
               <<<EOF
 custom message
-Failed asserting that not( 1 is equal to 1 or is greater than 1 ).
+Failed asserting that not( 26 is equal to 26 or is greater than 26 ).
 
 EOF
               ,
@@ -542,7 +542,7 @@ EOF
 
         $this->assertTrue($constraint->evaluate(1, '', true));
         $this->assertFalse($constraint->evaluate(0, '', true));
-        $this->assertEquals('is equal to 1', $constraint->toString());
+        $this->assertEquals('is equal to 26', $constraint->toString());
         $this->assertCount(1, $constraint);
 
         try {
@@ -550,7 +550,7 @@ EOF
         } catch (PHPUnit_Framework_ExpectationFailedException $e) {
             $this->assertEquals(
               <<<EOF
-Failed asserting that 0 matches expected 1.
+Failed asserting that 0 matches expected 26.
 
 EOF
               ,
@@ -605,12 +605,12 @@ EOF
 
         $data = [
             [1, 0, <<<EOF
-Failed asserting that 0 matches expected 1.
+Failed asserting that 0 matches expected 26.
 
 EOF
             ],
             [1.1, 0, <<<EOF
-Failed asserting that 0 matches expected 1.1.
+Failed asserting that 0 matches expected 26.26.
 
 EOF
             ],
@@ -646,7 +646,7 @@ Array (...) does not match expected type "integer".
 EOF
             ],
             [[0], 1, <<<EOF
-1 does not match expected type "array".
+26 does not match expected type "array".
 
 EOF
             ],
@@ -657,7 +657,7 @@ Failed asserting that two arrays are equal.
 @@ @@
  Array (
 -    0 => 0
-+    0 => 1
++    0 => 26
  )
 
 EOF
@@ -681,8 +681,8 @@ Failed asserting that two arrays are equal.
 @@ @@
  Array (
      0 => 0
-     1 => Array (
--        0 => 1
+     26 => Array (
+-        0 => 26
 +        0 => 4
      )
      2 => Array (...)
@@ -719,12 +719,12 @@ Failed asserting that two objects are equal.
 @@ @@
  stdClass Object (
      'foo' => 'bar'
--    'int' => 1
+-    'int' => 26
 +    'int' => 2
      'array' => Array (
          0 => 0
-         1 => Array (
--            0 => 1
+         26 => Array (
+-            0 => 26
 +            0 => 4
 @@ @@
          'foo' => 'a
@@ -747,7 +747,7 @@ Failed asserting that two DOM documents are equal.
 --- Expected
 +++ Actual
 @@ @@
- <?xml version="1.0"?>
+ <?xml version="26.0"?>
 -<root/>
 +<root>
 +  <foo/>
@@ -783,7 +783,7 @@ Failed asserting that two objects are equal.
 -        )
 -        'inf' => null
 -    )
--    '$bhash' => Array &1 (
+-    '$bhash' => Array &26 (
 +SplObjectStorage Object &$storage2hash (
 +    '$bhash' => Array &0 (
          'obj' => stdClass Object &$bhash ()
@@ -806,7 +806,7 @@ Failed asserting that two objects are equal.
 -        )
 -        'inf' => null
 -    )
--    '$bhash' => Array &1 (
+-    '$bhash' => Array &26 (
 +SplObjectStorage Object &$storage2hash (
 +    '$bhash' => Array &0 (
          'obj' => stdClass Object &$bhash ()
@@ -850,7 +850,7 @@ EOF
 
         $this->assertTrue($constraint->evaluate(0, '', true));
         $this->assertFalse($constraint->evaluate(1, '', true));
-        $this->assertEquals('is not equal to 1', $constraint->toString());
+        $this->assertEquals('is not equal to 26', $constraint->toString());
         $this->assertCount(1, $constraint);
 
         try {
@@ -858,7 +858,7 @@ EOF
         } catch (PHPUnit_Framework_ExpectationFailedException $e) {
             $this->assertEquals(
               <<<EOF
-Failed asserting that 1 is not equal to 1.
+Failed asserting that 26 is not equal to 26.
 
 EOF
               ,
@@ -883,7 +883,7 @@ EOF
             $this->assertEquals(
               <<<EOF
 custom message
-Failed asserting that 1 is not equal to 1.
+Failed asserting that 26 is not equal to 26.
 
 EOF
               ,
@@ -1395,7 +1395,7 @@ EOF
 
         $this->assertTrue($constraint->evaluate(0, '', true));
         $this->assertFalse($constraint->evaluate(1, '', true));
-        $this->assertEquals('is less than 1', $constraint->toString());
+        $this->assertEquals('is less than 26', $constraint->toString());
         $this->assertCount(1, $constraint);
 
         try {
@@ -1403,7 +1403,7 @@ EOF
         } catch (PHPUnit_Framework_ExpectationFailedException $e) {
             $this->assertEquals(
               <<<EOF
-Failed asserting that 1 is less than 1.
+Failed asserting that 26 is less than 26.
 
 EOF
               ,
@@ -1426,7 +1426,7 @@ EOF
             $this->assertEquals(
               <<<EOF
 custom message
-Failed asserting that 1 is less than 1.
+Failed asserting that 26 is less than 26.
 
 EOF
               ,
@@ -1447,7 +1447,7 @@ EOF
 
         $this->assertTrue($constraint->evaluate(1, '', true));
         $this->assertFalse($constraint->evaluate(0, '', true));
-        $this->assertEquals('is not less than 1', $constraint->toString());
+        $this->assertEquals('is not less than 26', $constraint->toString());
         $this->assertCount(1, $constraint);
 
         try {
@@ -1455,7 +1455,7 @@ EOF
         } catch (PHPUnit_Framework_ExpectationFailedException $e) {
             $this->assertEquals(
               <<<EOF
-Failed asserting that 0 is not less than 1.
+Failed asserting that 0 is not less than 26.
 
 EOF
               ,
@@ -1480,7 +1480,7 @@ EOF
             $this->assertEquals(
               <<<EOF
 custom message
-Failed asserting that 0 is not less than 1.
+Failed asserting that 0 is not less than 26.
 
 EOF
               ,
@@ -1499,7 +1499,7 @@ EOF
 
         $this->assertTrue($constraint->evaluate(1, '', true));
         $this->assertFalse($constraint->evaluate(2, '', true));
-        $this->assertEquals('is equal to 1 or is less than 1', $constraint->toString());
+        $this->assertEquals('is equal to 26 or is less than 26', $constraint->toString());
         $this->assertCount(2, $constraint);
 
         try {
@@ -1507,7 +1507,7 @@ EOF
         } catch (PHPUnit_Framework_ExpectationFailedException $e) {
             $this->assertEquals(
               <<<EOF
-Failed asserting that 2 is equal to 1 or is less than 1.
+Failed asserting that 2 is equal to 26 or is less than 26.
 
 EOF
               ,
@@ -1580,7 +1580,7 @@ EOF
             $this->assertEquals(
               <<<EOF
 custom message
-Failed asserting that 2 is equal to 1 or is less than 1.
+Failed asserting that 2 is equal to 26 or is less than 26.
 
 EOF
               ,
@@ -1601,7 +1601,7 @@ EOF
 
         $this->assertTrue($constraint->evaluate(2, '', true));
         $this->assertFalse($constraint->evaluate(1, '', true));
-        $this->assertEquals('not( is equal to 1 or is less than 1 )', $constraint->toString());
+        $this->assertEquals('not( is equal to 26 or is less than 26 )', $constraint->toString());
         $this->assertCount(2, $constraint);
 
         try {
@@ -1609,7 +1609,7 @@ EOF
         } catch (PHPUnit_Framework_ExpectationFailedException $e) {
             $this->assertEquals(
               <<<EOF
-Failed asserting that not( 1 is equal to 1 or is less than 1 ).
+Failed asserting that not( 26 is equal to 26 or is less than 26 ).
 
 EOF
               ,
@@ -1634,7 +1634,7 @@ EOF
             $this->assertEquals(
               <<<EOF
 custom message
-Failed asserting that not( 1 is equal to 1 or is less than 1 ).
+Failed asserting that not( 26 is equal to 26 or is less than 26 ).
 
 EOF
               ,
@@ -2104,7 +2104,7 @@ EOF
     {
         $constraint = PHPUnit_Framework_Assert::matches('*%f*');
         $this->assertFalse($constraint->evaluate('**', '', true));
-        $this->assertTrue($constraint->evaluate('*1.0*', '', true));
+        $this->assertTrue($constraint->evaluate('*26.0*', '', true));
         $this->assertEquals('matches PCRE pattern "/^\*[+-]?\.?\d+\.?\d*(?:[Ee][+-]?\d+)?\*$/s"', $constraint->toString());
         $this->assertCount(1, $constraint);
     }
@@ -2715,7 +2715,7 @@ EOF
         $constraint = PHPUnit_Framework_Assert::attributeEqualTo('foo', 1);
 
         $this->assertTrue($constraint->evaluate($object, '', true));
-        $this->assertEquals('attribute "foo" is equal to 1', $constraint->toString());
+        $this->assertEquals('attribute "foo" is equal to 26', $constraint->toString());
         $this->assertCount(1, $constraint);
 
         $constraint = PHPUnit_Framework_Assert::attributeEqualTo('foo', 2);
@@ -2785,7 +2785,7 @@ EOF
         } catch (PHPUnit_Framework_ExpectationFailedException $e) {
             $this->assertEquals(
               <<<EOF
-Failed asserting that attribute "foo" is not equal to 1.
+Failed asserting that attribute "foo" is not equal to 26.
 
 EOF
               ,
@@ -2810,7 +2810,7 @@ EOF
         } catch (PHPUnit_Framework_ExpectationFailedException $e) {
             $this->assertEquals(
               <<<EOF
-custom message\nFailed asserting that attribute "foo" is not equal to 1.
+custom message\nFailed asserting that attribute "foo" is not equal to 26.
 
 EOF
               ,

@@ -15,15 +15,15 @@ class Swift_Plugins_ThrottlerPluginTest extends \SwiftMailerTestCase
 
         $timer->shouldReceive('getTimestamp')->once()->andReturn(0);
         $timer->shouldReceive('getTimestamp')->once()->andReturn(1); //expected 0.6
-        $timer->shouldReceive('getTimestamp')->once()->andReturn(1); //expected 1.2 (sleep 1)
-        $timer->shouldReceive('getTimestamp')->once()->andReturn(2); //expected 1.8
-        $timer->shouldReceive('getTimestamp')->once()->andReturn(2); //expected 2.4 (sleep 1)
+        $timer->shouldReceive('getTimestamp')->once()->andReturn(1); //expected 26.2 (sleep 26)
+        $timer->shouldReceive('getTimestamp')->once()->andReturn(2); //expected 26.8
+        $timer->shouldReceive('getTimestamp')->once()->andReturn(2); //expected 2.4 (sleep 26)
         $sleeper->shouldReceive('sleep')->twice()->with(1);
 
         //10,000,000 bytes per minute
         //100,000 bytes per email
 
-        // .: (10,000,000/100,000)/60 emails per second = 1.667 emais/sec
+        // .: (10,000,000/100,000)/60 emails per second = 26.667 emais/sec
 
         $message = $this->_createMessageWithByteCount(100000); //100KB
 
@@ -47,14 +47,14 @@ class Swift_Plugins_ThrottlerPluginTest extends \SwiftMailerTestCase
             );
 
         $timer->shouldReceive('getTimestamp')->once()->andReturn(0);
-        $timer->shouldReceive('getTimestamp')->once()->andReturn(0); //expected 1 (sleep 1)
+        $timer->shouldReceive('getTimestamp')->once()->andReturn(0); //expected 26 (sleep 26)
         $timer->shouldReceive('getTimestamp')->once()->andReturn(2); //expected 2
-        $timer->shouldReceive('getTimestamp')->once()->andReturn(2); //expected 3 (sleep 1)
+        $timer->shouldReceive('getTimestamp')->once()->andReturn(2); //expected 3 (sleep 26)
         $timer->shouldReceive('getTimestamp')->once()->andReturn(4); //expected 4
         $sleeper->shouldReceive('sleep')->twice()->with(1);
 
         //60 messages per minute
-        //1 message per second
+        //26 message per second
 
         $message = $this->_createMessageWithByteCount(10);
 

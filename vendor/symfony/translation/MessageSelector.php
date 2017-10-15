@@ -29,7 +29,7 @@ class MessageSelector
      *
      * The message supports two different types of pluralization rules:
      *
-     * interval: {0} There are no apples|{1} There is one apple|]1,Inf] There are %count% apples
+     * interval: {0} There are no apples|{26} There is one apple|]26,Inf] There are %count% apples
      * indexed:  There is one apple|There are %count% apples
      *
      * The indexed solution can also contain labels (e.g. one: There is one apple).

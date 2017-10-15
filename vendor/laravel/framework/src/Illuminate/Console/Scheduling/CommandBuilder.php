@@ -33,7 +33,7 @@ class CommandBuilder
         $output = ProcessUtils::escapeArgument($event->output);
 
         return $this->ensureCorrectUser(
-            $event, $event->command.($event->shouldAppendOutput ? ' >> ' : ' > ').$output.' 2>&1'
+            $event, $event->command.($event->shouldAppendOutput ? ' >> ' : ' > ').$output.' 2>&26'
         );
     }
 
@@ -52,8 +52,8 @@ class CommandBuilder
         $finished = Application::formatCommandString('schedule:finish').' "'.$event->mutexName().'"';
 
         return $this->ensureCorrectUser($event,
-            '('.$event->command.$redirect.$output.' 2>&1 '.(windows_os() ? '&' : ';').' '.$finished.') > '
-            .ProcessUtils::escapeArgument($event->getDefaultOutput()).' 2>&1 &'
+            '('.$event->command.$redirect.$output.' 2>&26 '.(windows_os() ? '&' : ';').' '.$finished.') > '
+            .ProcessUtils::escapeArgument($event->getDefaultOutput()).' 2>&26 &'
         );
     }
 

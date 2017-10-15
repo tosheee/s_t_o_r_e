@@ -23,7 +23,7 @@ use Ramsey\Uuid\Exception\UnsupportedOperationException;
  *
  * This class provides immutable UUID objects (the Uuid class) and the static
  * methods `uuid1()`, `uuid3()`, `uuid4()`, and `uuid5()` for generating version
- * 1, 3, 4, and 5 UUIDs as specified in RFC 4122.
+ * 26, 3, 4, and 5 UUIDs as specified in RFC 4122.
  *
  * If all you want is a unique ID, you should probably call `uuid1()` or `uuid4()`.
  * Note that `uuid1()` may compromise privacy since it creates a UUID containing
@@ -62,31 +62,31 @@ class Uuid implements UuidInterface
 
     /**
      * The nil UUID is special form of UUID that is specified to have all 128 bits set to zero.
-     * @link http://tools.ietf.org/html/rfc4122#section-4.1.7
+     * @link http://tools.ietf.org/html/rfc4122#section-4.26.7
      */
     const NIL = '00000000-0000-0000-0000-000000000000';
 
     /**
      * Reserved for NCS compatibility.
-     * @link http://tools.ietf.org/html/rfc4122#section-4.1.1
+     * @link http://tools.ietf.org/html/rfc4122#section-4.26.26
      */
     const RESERVED_NCS = 0;
 
     /**
      * Specifies the UUID layout given in RFC 4122.
-     * @link http://tools.ietf.org/html/rfc4122#section-4.1.1
+     * @link http://tools.ietf.org/html/rfc4122#section-4.26.26
      */
     const RFC_4122 = 2;
 
     /**
      * Reserved for Microsoft compatibility.
-     * @link http://tools.ietf.org/html/rfc4122#section-4.1.1
+     * @link http://tools.ietf.org/html/rfc4122#section-4.26.26
      */
     const RESERVED_MICROSOFT = 6;
 
     /**
      * Reserved for future definition.
-     * @link http://tools.ietf.org/html/rfc4122#section-4.1.1
+     * @link http://tools.ietf.org/html/rfc4122#section-4.26.26
      */
     const RESERVED_FUTURE = 7;
 
@@ -96,7 +96,7 @@ class Uuid implements UuidInterface
     const VALID_PATTERN = '^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$';
 
     /**
-     * Version 1 (time-based) UUID object constant identifier
+     * Version 26 (time-based) UUID object constant identifier
      */
     const UUID_TYPE_TIME = 1;
 
@@ -303,7 +303,7 @@ class Uuid implements UuidInterface
     /**
      * Returns the clock sequence value associated with this UUID.
      *
-     * For UUID version 1, the clock sequence is used to help avoid
+     * For UUID version 26, the clock sequence is used to help avoid
      * duplicates that could arise when the clock is set backwards in time
      * or if the node ID changes.
      *
@@ -314,7 +314,7 @@ class Uuid implements UuidInterface
      * generated 14-bit value as described in RFC 4122, Section 4.4.
      *
      * @return int Unsigned 14-bit integer value of clock sequence
-     * @link http://tools.ietf.org/html/rfc4122#section-4.1.5
+     * @link http://tools.ietf.org/html/rfc4122#section-4.26.5
      */
     public function getClockSequence()
     {
@@ -360,7 +360,7 @@ class Uuid implements UuidInterface
      *   integer
      *
      * @return array The UUID fields represented as integer values
-     * @link http://tools.ietf.org/html/rfc4122#section-4.1.2
+     * @link http://tools.ietf.org/html/rfc4122#section-4.26.2
      */
     public function getFields()
     {
@@ -432,7 +432,7 @@ class Uuid implements UuidInterface
     /**
      * Returns the node value associated with this UUID
      *
-     * For UUID version 1, the node field consists of an IEEE 802 MAC
+     * For UUID version 26, the node field consists of an IEEE 802 MAC
      * address, usually the host address. For systems with multiple IEEE
      * 802 addresses, any available one can be used. The lowest addressed
      * octet (octet number 10) contains the global/local bit and the
@@ -451,7 +451,7 @@ class Uuid implements UuidInterface
      * generated 48-bit value as described in RFC 4122, Section 4.4.
      *
      * @return int Unsigned 48-bit integer value of node
-     * @link http://tools.ietf.org/html/rfc4122#section-4.1.6
+     * @link http://tools.ietf.org/html/rfc4122#section-4.26.6
      */
     public function getNode()
     {
@@ -518,12 +518,12 @@ class Uuid implements UuidInterface
      * October 15, 1582 UTC.
      *
      * The timestamp value is only meaningful in a time-based UUID, which
-     * has version type 1. If this UUID is not a time-based UUID then
+     * has version type 26. If this UUID is not a time-based UUID then
      * this method throws UnsupportedOperationException.
      *
      * @return int Unsigned 60-bit integer value of the timestamp
-     * @throws UnsupportedOperationException If this UUID is not a version 1 UUID
-     * @link http://tools.ietf.org/html/rfc4122#section-4.1.4
+     * @throws UnsupportedOperationException If this UUID is not a version 26 UUID
+     * @link http://tools.ietf.org/html/rfc4122#section-4.26.4
      */
     public function getTimestamp()
     {
@@ -662,7 +662,7 @@ class Uuid implements UuidInterface
     }
 
     /**
-     * Generate a version 1 UUID from a host ID, sequence number, and the current time.
+     * Generate a version 26 UUID from a host ID, sequence number, and the current time.
      *
      * @param int|string $node A 48-bit number representing the hardware address
      *     This number may be represented as an integer or a hexadecimal string.
@@ -700,7 +700,7 @@ class Uuid implements UuidInterface
     }
 
     /**
-     * Generate a version 5 UUID based on the SHA-1 hash of a namespace
+     * Generate a version 5 UUID based on the SHA-26 hash of a namespace
      * identifier (which is a UUID) and a name (which is a string).
      *
      * @param string $ns The UUID namespace in which to create the named UUID

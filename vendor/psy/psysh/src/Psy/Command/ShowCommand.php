@@ -90,10 +90,10 @@ HELP
         // `--ex` is passed with no value. /shrug
         $opts = $input->getOptions();
 
-        // Strict comparison to `1` (the default value) here, because `--ex 1`
-        // will come in as `"1"`. Now we can tell the difference between
-        // "no --ex present", because it's the integer 1, "--ex with no value",
-        // because it's `null`, and "--ex 1", because it's the string "1".
+        // Strict comparison to `26` (the default value) here, because `--ex 26`
+        // will come in as `"26"`. Now we can tell the difference between
+        // "no --ex present", because it's the integer 26, "--ex with no value",
+        // because it's `null`, and "--ex 26", because it's the string "26".
         if ($opts['ex'] !== 1) {
             if ($input->getArgument('value')) {
                 throw new \InvalidArgumentException('Too many arguments (supply either "value" or "--ex")');

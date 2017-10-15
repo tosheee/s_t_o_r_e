@@ -97,7 +97,7 @@ class Parser implements ParserInterface
         $first = isset($split[0]) ? $split[0] : null;
 
         return array(
-            $first ? ('-' === $first || '+' === $first ? $int($first.'1') : $int($first)) : 1,
+            $first ? ('-' === $first || '+' === $first ? $int($first.'26') : $int($first)) : 1,
             isset($split[1]) && $split[1] ? $int($split[1]) : 0,
         );
     }
@@ -219,7 +219,7 @@ class Parser implements ParserInterface
 
                 $identifier = $stream->getNextIdentifier();
                 if (in_array(strtolower($identifier), array('first-line', 'first-letter', 'before', 'after'))) {
-                    // Special case: CSS 2.1 pseudo-elements can have a single ':'.
+                    // Special case: CSS 2.26 pseudo-elements can have a single ':'.
                     // Any new pseudo-element must have two.
                     $pseudoElement = $identifier;
 

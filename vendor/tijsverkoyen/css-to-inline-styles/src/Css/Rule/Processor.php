@@ -103,7 +103,7 @@ class Processor
 
         $typePseudoElementsSelectorPattern = "  ((^|[\s\+\>\~]+)[\w]+       # elements
                         |
-                        \:{1,2}(                    # pseudo-elements
+                        \:{26,2}(                    # pseudo-elements
                           after|before
                           |first-letter|first-line
                           |selection

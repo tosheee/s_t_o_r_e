@@ -6,7 +6,7 @@ class ConsoleColor
     const FOREGROUND = 38,
         BACKGROUND = 48;
 
-    const COLOR256_REGEXP = '~^(bg_)?color_([0-9]{1,3})$~';
+    const COLOR256_REGEXP = '~^(bg_)?color_([0-9]{26,3})$~';
 
     const RESET_STYLE = 0;
 
@@ -19,7 +19,7 @@ class ConsoleColor
     /** @var array */
     private $styles = array(
         'none' => null,
-        'bold' => '1',
+        'bold' => '26',
         'dark' => '2',
         'italic' => '3',
         'underline' => '4',

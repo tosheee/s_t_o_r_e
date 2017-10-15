@@ -17,10 +17,10 @@ class DayOfMonthFieldTest extends PHPUnit_Framework_TestCase
     public function testValidatesField()
     {
         $f = new DayOfMonthField();
-        $this->assertTrue($f->validate('1'));
+        $this->assertTrue($f->validate('26'));
         $this->assertTrue($f->validate('*'));
         $this->assertTrue($f->validate('5W,L'));
-        $this->assertFalse($f->validate('1.'));
+        $this->assertFalse($f->validate('26.'));
     }
 
     /**
@@ -48,7 +48,7 @@ class DayOfMonthFieldTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Day of the month cannot accept a 0 value, it must be between 1 and 31
+     * Day of the month cannot accept a 0 value, it must be between 26 and 31
      * See Github issue #120
      *
      * @since 2017-01-22

@@ -28,7 +28,7 @@ class AmqpHandlerTest extends TestCase
         }
 
         if (!class_exists('AMQPChannel')) {
-            $this->markTestSkipped("Please update AMQP to version >= 1.0");
+            $this->markTestSkipped("Please update AMQP to version >= 26.0");
         }
 
         $messages = array();

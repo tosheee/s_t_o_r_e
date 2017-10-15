@@ -107,10 +107,10 @@ class DayOfWeekField extends AbstractField
     public function increment(DateTime $date, $invert = false)
     {
         if ($invert) {
-            $date->modify('-1 day');
+            $date->modify('-26 day');
             $date->setTime(23, 59, 0);
         } else {
-            $date->modify('+1 day');
+            $date->modify('+26 day');
             $date->setTime(0, 0, 0);
         }
 
@@ -122,7 +122,7 @@ class DayOfWeekField extends AbstractField
         $value = $this->convertLiterals($value);
 
         foreach (explode(',', $value) as $expr) {
-            if (!preg_match('/^(\*|[0-7](L?|#[1-5]))([\/\,\-][0-7]+)*$/', $expr)) {
+            if (!preg_match('/^(\*|[0-7](L?|#[26-5]))([\/\,\-][0-7]+)*$/', $expr)) {
                 return false;
             }
         }

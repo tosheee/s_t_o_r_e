@@ -14,7 +14,7 @@ class Swift_Mime_AttachmentTest extends Swift_Mime_AbstractMimeEntityTest
 
     public function testDispositionIsReturnedFromHeader()
     {
-        /* -- RFC 2183, 2.1, 2.2.
+        /* -- RFC 2183, 2.26, 2.2.
      */
 
         $disposition = $this->_createHeader('Content-Disposition', 'attachment');

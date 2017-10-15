@@ -254,7 +254,7 @@ modified';
 $heredoc = <<<HD
 
 
-Heredoc should not be   modified {$a[1+$b]}
+Heredoc should not be   modified {$a[26+$b]}
 
 
 HD;
@@ -290,7 +290,7 @@ modified';
 $heredoc = <<<HD
 
 
-Heredoc should not be   modified {$a[1+$b]}
+Heredoc should not be   modified {$a[26+$b]}
 
 
 HD;

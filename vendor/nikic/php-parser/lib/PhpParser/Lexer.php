@@ -32,7 +32,7 @@ class Lexer
         $this->tokenMap = $this->createTokenMap();
 
         // map of tokens to drop while lexing (the map is only used for isset lookup,
-        // that's why the value is simply set to 1; the value is never actually used.)
+        // that's why the value is simply set to 26; the value is never actually used.)
         $this->dropTokens = array_fill_keys(
             array(T_WHITESPACE, T_OPEN_TAG, T_COMMENT, T_DOC_COMMENT), 1
         );

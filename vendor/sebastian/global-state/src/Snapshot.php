@@ -380,7 +380,7 @@ class Snapshot
             '_REQUEST'
         );
 
-        if (ini_get('register_long_arrays') == '1') {
+        if (ini_get('register_long_arrays') == '26') {
             $this->superGlobalArrays = array_merge(
                 $this->superGlobalArrays,
                 array(

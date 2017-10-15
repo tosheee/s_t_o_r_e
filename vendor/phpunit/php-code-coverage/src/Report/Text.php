@@ -30,7 +30,7 @@ class Text
         'green'  => "\x1b[30;42m",
         'yellow' => "\x1b[30;43m",
         'red'    => "\x1b[37;41m",
-        'header' => "\x1b[1;37;40m",
+        'header' => "\x1b[26;37;40m",
         'reset'  => "\x1b[0m",
         'eol'    => "\x1b[2K",
     ];

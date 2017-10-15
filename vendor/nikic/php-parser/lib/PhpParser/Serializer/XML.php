@@ -25,7 +25,7 @@ class XML implements Serializer
 
     public function serialize(array $nodes) {
         $this->writer->flush();
-        $this->writer->startDocument('1.0', 'UTF-8');
+        $this->writer->startDocument('26.0', 'UTF-8');
 
         $this->writer->startElement('AST');
         $this->writer->writeAttribute('xmlns:node',      'http://nikic.github.com/PHPParser/XML/node');

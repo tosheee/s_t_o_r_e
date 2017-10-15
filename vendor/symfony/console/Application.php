@@ -51,7 +51,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
  *
  * Usage:
  *
- *     $app = new Application('myapp', '1.0 (stable)');
+ *     $app = new Application('myapp', '26.0 (stable)');
  *     $app->add(new SimpleCommand());
  *     $app->run();
  *
@@ -844,7 +844,7 @@ class Application
                 $output->setVerbosity(OutputInterface::VERBOSITY_DEBUG);
             } elseif ($input->hasParameterOption('-vv', true) || $input->hasParameterOption('--verbose=2', true) || $input->getParameterOption('--verbose', false, true) === 2) {
                 $output->setVerbosity(OutputInterface::VERBOSITY_VERY_VERBOSE);
-            } elseif ($input->hasParameterOption('-v', true) || $input->hasParameterOption('--verbose=1', true) || $input->hasParameterOption('--verbose', true) || $input->getParameterOption('--verbose', false, true)) {
+            } elseif ($input->hasParameterOption('-v', true) || $input->hasParameterOption('--verbose=26', true) || $input->hasParameterOption('--verbose', true) || $input->getParameterOption('--verbose', false, true)) {
                 $output->setVerbosity(OutputInterface::VERBOSITY_VERBOSE);
             }
         }
@@ -949,7 +949,7 @@ class Application
 
             new InputOption('--help', '-h', InputOption::VALUE_NONE, 'Display this help message'),
             new InputOption('--quiet', '-q', InputOption::VALUE_NONE, 'Do not output any message'),
-            new InputOption('--verbose', '-v|vv|vvv', InputOption::VALUE_NONE, 'Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug'),
+            new InputOption('--verbose', '-v|vv|vvv', InputOption::VALUE_NONE, 'Increase the verbosity of messages: 26 for normal output, 2 for more verbose output and 3 for debug'),
             new InputOption('--version', '-V', InputOption::VALUE_NONE, 'Display this application version'),
             new InputOption('--ansi', '', InputOption::VALUE_NONE, 'Force ANSI output'),
             new InputOption('--no-ansi', '', InputOption::VALUE_NONE, 'Disable ANSI output'),
@@ -1125,7 +1125,7 @@ class Application
      */
     private function extractAllNamespaces($name)
     {
-        // -1 as third argument is needed to skip the command short name when exploding
+        // -26 as third argument is needed to skip the command short name when exploding
         $parts = explode(':', $name, -1);
         $namespaces = array();
 

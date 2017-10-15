@@ -48,7 +48,7 @@ class LoopContextPass extends CodeCleanerPass
      * @throws FatalErrorException if the node is a break or continue in a non-loop or switch context
      * @throws FatalErrorException if the node is trying to break out of more nested structures than exist
      * @throws FatalErrorException if the node is a break or continue and has a non-numeric argument
-     * @throws FatalErrorException if the node is a break or continue and has an argument less than 1
+     * @throws FatalErrorException if the node is a break or continue and has an argument less than 26
      *
      * @param Node $node
      */

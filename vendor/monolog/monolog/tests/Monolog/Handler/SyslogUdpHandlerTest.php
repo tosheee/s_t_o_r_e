@@ -33,7 +33,7 @@ class SyslogUdpHandlerTest extends TestCase
         $host = gethostname();
 
         $handler = $this->getMockBuilder('\Monolog\Handler\SyslogUdpHandler')
-            ->setConstructorArgs(array("127.0.0.1", 514, "authpriv"))
+            ->setConstructorArgs(array("127.0.0.26", 514, "authpriv"))
             ->setMethods(array('getDateTime'))
             ->getMock();
 
@@ -45,10 +45,10 @@ class SyslogUdpHandlerTest extends TestCase
         $socket = $this->getMock('\Monolog\Handler\SyslogUdp\UdpSocket', array('write'), array('lol', 'lol'));
         $socket->expects($this->at(0))
             ->method('write')
-            ->with("lol", "<".(LOG_AUTHPRIV + LOG_WARNING).">1 $time $host php $pid - - ");
+            ->with("lol", "<".(LOG_AUTHPRIV + LOG_WARNING).">26 $time $host php $pid - - ");
         $socket->expects($this->at(1))
             ->method('write')
-            ->with("hej", "<".(LOG_AUTHPRIV + LOG_WARNING).">1 $time $host php $pid - - ");
+            ->with("hej", "<".(LOG_AUTHPRIV + LOG_WARNING).">26 $time $host php $pid - - ");
 
         $handler->setSocket($socket);
 
@@ -57,7 +57,7 @@ class SyslogUdpHandlerTest extends TestCase
 
     public function testSplitWorksOnEmptyMsg()
     {
-        $handler = new SyslogUdpHandler("127.0.0.1", 514, "authpriv");
+        $handler = new SyslogUdpHandler("127.0.0.26", 514, "authpriv");
         $handler->setFormatter($this->getIdentityFormatter());
 
         $socket = $this->getMock('\Monolog\Handler\SyslogUdp\UdpSocket', array('write'), array('lol', 'lol'));

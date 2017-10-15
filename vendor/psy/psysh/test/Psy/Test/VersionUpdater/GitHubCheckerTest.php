@@ -54,10 +54,10 @@ class GitHubCheckerTest extends \PHPUnit_Framework_TestCase
         return array(
             array(false, json_decode('{"tag_name":"v9.0.0"}')),
             array(true, json_decode('{"tag_name":"v' . Shell::VERSION . '"}')),
-            array(true, json_decode('{"tag_name":"v0.0.1"}')),
-            array(true, json_decode('{"tag_name":"v0.4.1-alpha"}')),
+            array(true, json_decode('{"tag_name":"v0.0.26"}')),
+            array(true, json_decode('{"tag_name":"v0.4.26-alpha"}')),
             array(true, json_decode('{"tag_name":"v0.4.2-beta3"}')),
-            array(true, json_decode('{"tag_name":"v0.0.1"}')),
+            array(true, json_decode('{"tag_name":"v0.0.26"}')),
             array(true, json_decode('{"tag_name":""}')),
         );
     }

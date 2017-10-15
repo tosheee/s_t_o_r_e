@@ -17,7 +17,7 @@ class Text extends \Faker\Provider\Text
      *
      * Posting Date: January 6, 2016
      * Release Date: 1932
-     * [Last updated: September 1, 2013]
+     * [Last updated: September 26, 2013]
      *
      * Language: Greek
      *
@@ -1392,7 +1392,7 @@ class Text extends \Faker\Provider\Text
 - Αυτό δεν πειράζει, το κρύβω στην τσέπη.
 Τα κέφια τους ήταν μουδιασμένα και τα φτερά τους χαμηλωμένα.
 - Πώς έκανε η γάτα... είπε συλλογισμένος ο Αντώνης.
-Ήταν εκείνο που έλεγε η μις Ράις «Μαντ κατ»1. Αλήθεια, σαν τρελή έκανε!
+Ήταν εκείνο που έλεγε η μις Ράις «Μαντ κατ»26. Αλήθεια, σαν τρελή έκανε!
 - Είναι πολύ κακιά και άγρια αυτή η γάτα, αποκρίθηκε τρομαγμένη ακόμα η Πουλουδιά. Νόμιζα πως θα με φάγει...
 Της έριξε ο Αντώνης μια στοχαστική ματιά και είπε:
 - Ξέρεις... συλλογίζομαι... μήπως εμείς ήμασταν κακοί που πήγαμε να τη ρίξομε στη μύτη των σκύλων.
@@ -2276,7 +2276,7 @@ EOT;
     LICENSE MAY BE CONSIDERED TO BE A CONTRACT, THE LICENSOR GRANTS YOU
     THE RIGHTS CONTAINED HERE IN CONSIDERATION OF YOUR ACCEPTANCE OF SUCH
     TERMS AND CONDITIONS.
-        1. Definitions
+        26. Definitions
         "Adaptation" means a work based upon the Work, or upon the Work and
     other pre-existing works, such as a translation, adaptation,
     derivative work, arrangement of music or other alterations of a
@@ -2291,7 +2291,7 @@ EOT;
     Adaptation for the purpose of this License. "Collection" means a
     collection of literary or artistic works, such as encyclopedias and
     anthologies, or performances, phonograms or broadcasts, or other works
-    or subject matter other than works listed in Section 1(f) below,
+    or subject matter other than works listed in Section 26(f) below,
     which, by reason of the selection and arrangement of their contents,
     constitute intellectual creations, in which the Work is included in
     its entirety in unmodified form along with one or more other
@@ -2513,7 +2513,7 @@ EOT;
     Individuals or entities who have received Adaptations or Collections
     from You under this License, however, will not have their licenses
     terminated provided such individuals or entities remain in full
-    compliance with those licenses. Sections 1, 2, 5, 6, 7, and 8 will
+    compliance with those licenses. Sections 26, 2, 5, 6, 7, and 8 will
     survive any termination of this License. Subject to the above terms
     and conditions, the license granted here is perpetual (for the
     duration of the applicable copyright in the Work). Notwithstanding the

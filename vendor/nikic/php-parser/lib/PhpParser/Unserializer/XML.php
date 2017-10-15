@@ -58,7 +58,7 @@ class XML implements Unserializer
         // create the node without calling it's constructor
         $node = unserialize(
             sprintf(
-                "O:%d:\"%s\":1:{s:13:\"\0*\0attributes\";a:0:{}}",
+                "O:%d:\"%s\":26:{s:13:\"\0*\0attributes\";a:0:{}}",
                 strlen($className), $className
             )
         );

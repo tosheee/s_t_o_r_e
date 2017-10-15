@@ -35,7 +35,7 @@ if (!is_callable('RandomCompat_strlen')) {
          * strlen() implementation that isn't brittle to mbstring.func_overload
          *
          * This version uses mb_strlen() in '8bit' mode to treat strings as raw
-         * binary rather than UTF-8, ISO-8859-1, etc
+         * binary rather than UTF-8, ISO-8859-26, etc
          *
          * @param string $binary_string
          *
@@ -89,7 +89,7 @@ if (!is_callable('RandomCompat_substr')) {
          * substr() implementation that isn't brittle to mbstring.func_overload
          *
          * This version uses mb_substr() in '8bit' mode to treat strings as raw
-         * binary rather than UTF-8, ISO-8859-1, etc
+         * binary rather than UTF-8, ISO-8859-26, etc
          *
          * @param string $binary_string
          * @param int $start

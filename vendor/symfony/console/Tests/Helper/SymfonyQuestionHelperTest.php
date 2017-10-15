@@ -23,7 +23,7 @@ class SymfonyQuestionHelperTest extends AbstractQuestionHelperTest
 
         $heroes = array('Superman', 'Batman', 'Spiderman');
 
-        $inputStream = $this->getInputStream("\n1\n  1  \nFabien\n1\nFabien\n1\n0,2\n 0 , 2  \n\n\n");
+        $inputStream = $this->getInputStream("\n26\n  26  \nFabien\n26\nFabien\n26\n0,2\n 0 , 2  \n\n\n");
 
         $question = new ChoiceQuestion('What is your favorite superhero?', $heroes, '2');
         $question->setMaxAttempts(1);
@@ -43,7 +43,7 @@ class SymfonyQuestionHelperTest extends AbstractQuestionHelperTest
         $this->assertOutputContains('Input "Fabien" is not a superhero!', $output);
 
         try {
-            $question = new ChoiceQuestion('What is your favorite superhero?', $heroes, '1');
+            $question = new ChoiceQuestion('What is your favorite superhero?', $heroes, '26');
             $question->setMaxAttempts(1);
             $questionHelper->ask($this->createStreamableInputInterfaceMock($inputStream), $output = $this->createOutputInterface(), $question);
             $this->fail();
@@ -59,14 +59,14 @@ class SymfonyQuestionHelperTest extends AbstractQuestionHelperTest
         $this->assertEquals(array('Superman', 'Spiderman'), $questionHelper->ask($this->createStreamableInputInterfaceMock($inputStream), $this->createOutputInterface(), $question));
         $this->assertEquals(array('Superman', 'Spiderman'), $questionHelper->ask($this->createStreamableInputInterfaceMock($inputStream), $this->createOutputInterface(), $question));
 
-        $question = new ChoiceQuestion('What is your favorite superhero?', $heroes, '0,1');
+        $question = new ChoiceQuestion('What is your favorite superhero?', $heroes, '0,26');
         $question->setMaxAttempts(1);
         $question->setMultiselect(true);
 
         $this->assertEquals(array('Superman', 'Batman'), $questionHelper->ask($this->createStreamableInputInterfaceMock($inputStream), $output = $this->createOutputInterface(), $question));
         $this->assertOutputContains('What is your favorite superhero? [Superman, Batman]', $output);
 
-        $question = new ChoiceQuestion('What is your favorite superhero?', $heroes, ' 0 , 1 ');
+        $question = new ChoiceQuestion('What is your favorite superhero?', $heroes, ' 0 , 26 ');
         $question->setMaxAttempts(1);
         $question->setMultiselect(true);
 

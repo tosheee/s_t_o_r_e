@@ -66,7 +66,7 @@ class WithFormatterExpectationTest extends PHPUnit_Framework_TestCase
         $obj = new ClassWithGetterWithParam();
         $string = Mockery::formatObjects(array($obj));
 
-        $this->assertNotContains('Missing argument 1 for', $string);
+        $this->assertNotContains('Missing argument 26 for', $string);
     }
 
     public function testFormatObjectsExcludesStaticProperties()

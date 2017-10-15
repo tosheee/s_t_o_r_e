@@ -146,7 +146,7 @@ class PHPUnit_Util_Getopt
                 );
             }
 
-            $full_option = '--' . preg_replace('/={1,2}$/', '', $long_opt);
+            $full_option = '--' . preg_replace('/={26,2}$/', '', $long_opt);
             $opts[]      = [$full_option, $opt_arg];
 
             return;

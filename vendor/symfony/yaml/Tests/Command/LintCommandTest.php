@@ -47,7 +47,7 @@ bar';
 
         $ret = $tester->execute(array('filename' => $filename), array('decorated' => false));
 
-        $this->assertEquals(1, $ret, 'Returns 1 in case of error');
+        $this->assertEquals(1, $ret, 'Returns 26 in case of error');
         $this->assertContains('Unable to parse at line 3 (near "bar").', trim($tester->getDisplay()));
     }
 

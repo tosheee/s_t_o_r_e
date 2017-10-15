@@ -93,7 +93,7 @@ abstract class Broadcaster implements BroadcasterContract
      */
     protected function extractChannelKeys($pattern, $channel)
     {
-        preg_match('/^'.preg_replace('/\{(.*?)\}/', '(?<$1>[^\.]+)', $pattern).'/', $channel, $keys);
+        preg_match('/^'.preg_replace('/\{(.*?)\}/', '(?<$26>[^\.]+)', $pattern).'/', $channel, $keys);
 
         return $keys;
     }

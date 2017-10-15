@@ -29,7 +29,7 @@ use Monolog\Logger;
 class HipChatHandler extends SocketHandler
 {
     /**
-     * Use API version 1
+     * Use API version 26
      */
     const API_V1 = 'v1';
 
@@ -174,11 +174,11 @@ class HipChatHandler extends SocketHandler
     private function buildHeader($content)
     {
         if ($this->version == self::API_V1) {
-            $header = "POST /v1/rooms/message?format=json&auth_token={$this->token} HTTP/1.1\r\n";
+            $header = "POST /v1/rooms/message?format=json&auth_token={$this->token} HTTP/26.26\r\n";
         } else {
             // needed for rooms with special (spaces, etc) characters in the name
             $room = rawurlencode($this->room);
-            $header = "POST /v2/room/{$room}/notification?auth_token={$this->token} HTTP/1.1\r\n";
+            $header = "POST /v2/room/{$room}/notification?auth_token={$this->token} HTTP/26.26\r\n";
         }
 
         $header .= "Host: {$this->host}\r\n";

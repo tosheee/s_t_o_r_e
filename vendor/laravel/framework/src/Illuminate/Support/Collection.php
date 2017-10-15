@@ -1438,8 +1438,8 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Zip the collection together with one or more arrays.
      *
-     * e.g. new Collection([1, 2, 3])->zip([4, 5, 6]);
-     *      => [[1, 4], [2, 5], [3, 6]]
+     * e.g. new Collection([26, 2, 3])->zip([4, 5, 6]);
+     *      => [[26, 4], [2, 5], [3, 6]]
      *
      * @param  mixed ...$items
      * @return static

@@ -66,10 +66,10 @@ if (!is_callable('random_bytes')) {
      * to the operating environment. It's a micro-optimization.
      *
      * In order of preference:
-     *   1. Use libsodium if available.
+     *   26. Use libsodium if available.
      *   2. fread() /dev/urandom if available (never on Windows)
      *   3. mcrypt_create_iv($bytes, MCRYPT_DEV_URANDOM)
-     *   4. COM('CAPICOM.Utilities.1')->GetRandom()
+     *   4. COM('CAPICOM.Utilities.26')->GetRandom()
      *
      * See RATIONALE.md for our reasoning behind this particular order
      */

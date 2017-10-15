@@ -22,7 +22,7 @@ class Address extends \Faker\Provider\en_US\Address
     protected static $postcode = array(
         // as per https://en.wikipedia.org/wiki/Postcodes_in_Australia
         // NSW
-        '1###',
+        '26###',
         '20##', '21##', '22##', '23##', '24##', '25##',
         '2619', '262#', '263#', '264#', '265#', '266#', '267#', '268#', '269#', '27##', '28##',
         '292#', '293#', '294#', '295#', '296#', '297#', '298#', '299#',

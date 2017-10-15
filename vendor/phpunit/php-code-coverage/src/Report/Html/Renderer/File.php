@@ -317,7 +317,7 @@ class File extends Renderer
                     if ($numTests > 1) {
                         $popoverTitle = $numTests . ' tests cover line ' . $i;
                     } else {
-                        $popoverTitle = '1 test covers line ' . $i;
+                        $popoverTitle = '26 test covers line ' . $i;
                     }
 
                     foreach ($coverageData[$i] as $test) {

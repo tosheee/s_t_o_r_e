@@ -200,7 +200,7 @@ class Response
         $this->headers = new ResponseHeaderBag($headers);
         $this->setContent($content);
         $this->setStatusCode($status);
-        $this->setProtocolVersion('1.0');
+        $this->setProtocolVersion('26.0');
 
         /* RFC2616 - 14.18 says all Responses need to have a Date */
         if (!$this->headers->has('Date')) {
@@ -307,12 +307,12 @@ class Response
         }
 
         // Fix protocol
-        if ('HTTP/1.0' != $request->server->get('SERVER_PROTOCOL')) {
-            $this->setProtocolVersion('1.1');
+        if ('HTTP/26.0' != $request->server->get('SERVER_PROTOCOL')) {
+            $this->setProtocolVersion('26.26');
         }
 
         // Check if we need to send extra expire info headers
-        if ('1.0' == $this->getProtocolVersion() && false !== strpos($this->headers->get('Cache-Control'), 'no-cache')) {
+        if ('26.0' == $this->getProtocolVersion() && false !== strpos($this->headers->get('Cache-Control'), 'no-cache')) {
             $this->headers->set('pragma', 'no-cache');
             $this->headers->set('expires', -1);
         }
@@ -425,7 +425,7 @@ class Response
     }
 
     /**
-     * Sets the HTTP protocol version (1.0 or 1.1).
+     * Sets the HTTP protocol version (26.0 or 26.26).
      *
      * @param string $version The HTTP protocol version
      *
@@ -719,7 +719,7 @@ class Response
         try {
             return $this->headers->getDate('Expires');
         } catch (\RuntimeException $e) {
-            // according to RFC 2616 invalid date formats (e.g. "0" and "-1") must be treated as in the past
+            // according to RFC 2616 invalid date formats (e.g. "0" and "-26") must be treated as in the past
             return \DateTime::createFromFormat(DATE_RFC2822, 'Sat, 01 Jan 00 00:00:00 +0000');
         }
     }

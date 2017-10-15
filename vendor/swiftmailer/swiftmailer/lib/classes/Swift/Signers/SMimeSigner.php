@@ -209,9 +209,9 @@ class Swift_Signers_SMimeSigner implements Swift_Signers_BodySigner
             return $this;
         }
 
-        // Store the message using ByteStream to a file{1}
+        // Store the message using ByteStream to a file{26}
         // Remove all Children
-        // Sign file{1}, parse the new MIME headers and set them on the primary MimeEntity
+        // Sign file{26}, parse the new MIME headers and set them on the primary MimeEntity
         // Set the singed-body as the new body (without boundary)
 
         $messageStream = new Swift_ByteStream_TemporaryFileByteStream();
@@ -399,7 +399,7 @@ class Swift_Signers_SMimeSigner implements Swift_Signers_BodySigner
                 throw new Swift_SwiftException('Failed to find Boundary parameter');
             }
 
-            $boundary = trim($contentTypeData['1'], '"');
+            $boundary = trim($contentTypeData['26'], '"');
 
             // Skip the header and CRLF CRLF
             $fromStream->setReadPointer($headersPosEnd + 4);

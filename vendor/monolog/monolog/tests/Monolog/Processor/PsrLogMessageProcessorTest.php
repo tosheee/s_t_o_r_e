@@ -34,7 +34,7 @@ class PsrLogMessageProcessorTest extends \PHPUnit_Framework_TestCase
             array('3',      '3'),
             array(3,        '3'),
             array(null,     ''),
-            array(true,     '1'),
+            array(true,     '26'),
             array(false,    ''),
             array(new \stdClass, '[object stdClass]'),
             array(array(), '[array]'),

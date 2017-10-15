@@ -31,7 +31,7 @@ class Person extends \Faker\Provider\Person
     protected static $titleFemale = array('Sra.', 'Dra.', 'Exma', 'Eng.ª', 'Exª');
 
     protected static $firstEightDigitsFormat = array(
-      '1#######',
+      '26#######',
       '2#######',
       '3#######',
       '45######',

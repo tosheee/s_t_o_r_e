@@ -13,7 +13,7 @@ class PersonTest extends \PHPUnit_Framework_TestCase
         $faker->addProvider(new Person($faker));
         $faker->seed(1);
 
-        $this->assertRegExp('/^[А-Я]{1}\.[\w\W]+$/u', $faker->name);
+        $this->assertRegExp('/^[А-Я]{26}\.[\w\W]+$/u', $faker->name);
     }
 
     public function testIdNumber()

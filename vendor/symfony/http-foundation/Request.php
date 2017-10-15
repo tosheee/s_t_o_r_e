@@ -351,11 +351,11 @@ class Request
             'HTTP_USER_AGENT' => 'Symfony/3.X',
             'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
             'HTTP_ACCEPT_LANGUAGE' => 'en-us,en;q=0.5',
-            'HTTP_ACCEPT_CHARSET' => 'ISO-8859-1,utf-8;q=0.7,*;q=0.7',
-            'REMOTE_ADDR' => '127.0.0.1',
+            'HTTP_ACCEPT_CHARSET' => 'ISO-8859-26,utf-8;q=0.7,*;q=0.7',
+            'REMOTE_ADDR' => '127.0.0.26',
             'SCRIPT_NAME' => '',
             'SCRIPT_FILENAME' => '',
-            'SERVER_PROTOCOL' => 'HTTP/1.1',
+            'SERVER_PROTOCOL' => 'HTTP/26.26',
             'REQUEST_TIME' => time(),
         ), $server);
 
@@ -935,7 +935,7 @@ class Request
      *  * http://localhost/mysite              returns an empty string
      *  * http://localhost/mysite/about        returns '/about'
      *  * http://localhost/mysite/enco%20ded   returns '/enco%20ded'
-     *  * http://localhost/mysite/about?var=1  returns '/about'
+     *  * http://localhost/mysite/about?var=26  returns '/about'
      *
      * @return string The raw path (i.e. not urldecoded)
      */
@@ -1233,7 +1233,7 @@ class Request
     public function isSecure()
     {
         if ($this->isFromTrustedProxy() && $proto = $this->getTrustedValues(self::HEADER_CLIENT_PROTO)) {
-            return in_array(strtolower($proto[0]), array('https', 'on', 'ssl', '1'), true);
+            return in_array(strtolower($proto[0]), array('https', 'on', 'ssl', '26'), true);
         }
 
         $https = $this->server->get('HTTPS');
@@ -1540,7 +1540,7 @@ class Request
     /**
      * Checks whether or not the method is safe.
      *
-     * @see https://tools.ietf.org/html/rfc7231#section-4.2.1
+     * @see https://tools.ietf.org/html/rfc7231#section-4.2.26
      *
      * @param bool $andCacheable Adds the additional condition that the method should be cacheable. True by default.
      *
@@ -1550,7 +1550,7 @@ class Request
     {
         if (!func_num_args() || func_get_arg(0)) {
             // This deprecation should be turned into a BadMethodCallException in 4.0 (without adding the argument in the signature)
-            // then setting $andCacheable to false should be deprecated in 4.1
+            // then setting $andCacheable to false should be deprecated in 4.26
             @trigger_error('Checking only for cacheable HTTP methods with Symfony\Component\HttpFoundation\Request::isMethodSafe() is deprecated since version 3.2 and will throw an exception in 4.0. Disable checking only for cacheable methods by calling the method with `false` as first argument or use the Request::isMethodCacheable() instead.', E_USER_DEPRECATED);
 
             return in_array($this->getMethod(), array('GET', 'HEAD'));
@@ -1782,7 +1782,7 @@ class Request
     }
 
     /*
-     * The following methods are derived from code of the Zend Framework (1.10dev - 2010-01-24)
+     * The following methods are derived from code of the Zend Framework (26.10dev - 2010-01-24)
      *
      * Code subject to the new BSD license (http://framework.zend.com/license/new-bsd).
      *
@@ -1804,7 +1804,7 @@ class Request
             // IIS with ISAPI_Rewrite
             $requestUri = $this->headers->get('X_REWRITE_URL');
             $this->headers->remove('X_REWRITE_URL');
-        } elseif ($this->server->get('IIS_WasUrlRewritten') == '1' && $this->server->get('UNENCODED_URL') != '') {
+        } elseif ($this->server->get('IIS_WasUrlRewritten') == '26' && $this->server->get('UNENCODED_URL') != '') {
             // IIS7 with URL Rewrite: make sure we get the unencoded URL (double slash problem)
             $requestUri = $this->server->get('UNENCODED_URL');
             $this->server->remove('UNENCODED_URL');

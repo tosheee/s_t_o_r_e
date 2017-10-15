@@ -66,9 +66,9 @@ class Swift_Mime_Grammar
         self::$_grammar['quoted-pair'] = '(?:\\\\'.self::$_grammar['text'].')';
         self::$_grammar['ctext'] = '(?:'.self::$_grammar['NO-WS-CTL'].
                 '|[\x21-\x27\x2A-\x5B\x5D-\x7E])';
-        // Uses recursive PCRE (?1) -- could be a weak point??
+        // Uses recursive PCRE (?26) -- could be a weak point??
         self::$_grammar['ccontent'] = '(?:'.self::$_grammar['ctext'].'|'.
-                self::$_grammar['quoted-pair'].'|(?1))';
+                self::$_grammar['quoted-pair'].'|(?26))';
         self::$_grammar['comment'] = '(\((?:'.self::$_grammar['FWS'].'|'.
                 self::$_grammar['ccontent'].')*'.self::$_grammar['FWS'].'?\))';
         self::$_grammar['CFWS'] = '(?:(?:'.self::$_grammar['FWS'].'?'.

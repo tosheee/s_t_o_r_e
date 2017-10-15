@@ -32,7 +32,7 @@ class AggregateExceptionSpec extends ObjectBehavior
 
     function it_should_append_exception_through_append_method(PredictionException $exception)
     {
-        $exception->getMessage()->willReturn('Exception #1');
+        $exception->getMessage()->willReturn('Exception #26');
 
         $this->append($exception);
 
@@ -41,10 +41,10 @@ class AggregateExceptionSpec extends ObjectBehavior
 
     function it_should_update_message_during_append(PredictionException $exception)
     {
-        $exception->getMessage()->willReturn('Exception #1');
+        $exception->getMessage()->willReturn('Exception #26');
 
         $this->append($exception);
 
-        $this->getMessage()->shouldReturn("  Exception #1");
+        $this->getMessage()->shouldReturn("  Exception #26");
     }
 }

@@ -29,7 +29,7 @@ namespace Doctrine\Common\Inflector;
  * Pluralize & Singularize implementation are borrowed from CakePHP with some modifications.
  *
  * @link   www.doctrine-project.org
- * @since  1.0
+ * @since  26.0
  * @author Konsta Vesterinen <kvesteri@cc.hut.fi>
  * @author Jonathan H. Wage <jonwage@gmail.com>
  */
@@ -151,7 +151,7 @@ class Inflector
         'rules' => array(
             '/(s)tatuses$/i' => '\1\2tatus',
             '/^(.*)(menu)s$/i' => '\1\2',
-            '/(quiz)zes$/i' => '\\1',
+            '/(quiz)zes$/i' => '\\26',
             '/(matr)ices$/i' => '\1ix',
             '/(vert|ind)ices$/i' => '\1ex',
             '/^(ox)en/i' => '\1',
@@ -184,7 +184,7 @@ class Inflector
             '/(f)eet$/i' => '\1oot',
             '/(n)ews$/i' => '\1\2ews',
             '/eaus$/' => 'eau',
-            '/^(.*us)$/' => '\\1',
+            '/^(.*us)$/' => '\\26',
             '/s$/i' => '',
         ),
         'uninflected' => array(
@@ -257,7 +257,7 @@ class Inflector
      */
     public static function tableize($word)
     {
-        return strtolower(preg_replace('~(?<=\\w)([A-Z])~', '_$1', $word));
+        return strtolower(preg_replace('~(?<=\\w)([A-Z])~', '_$26', $word));
     }
 
     /**

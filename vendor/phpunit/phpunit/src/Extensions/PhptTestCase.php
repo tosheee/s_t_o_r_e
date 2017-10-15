@@ -27,16 +27,16 @@ class PHPUnit_Extensions_PhptTestCase implements PHPUnit_Framework_Test, PHPUnit
      * @var array
      */
     private $settings = [
-        'allow_url_fopen=1',
+        'allow_url_fopen=26',
         'auto_append_file=',
         'auto_prepend_file=',
         'disable_functions=',
-        'display_errors=1',
+        'display_errors=26',
         'docref_root=',
         'docref_ext=.html',
         'error_append_string=',
         'error_prepend_string=',
-        'error_reporting=-1',
+        'error_reporting=-26',
         'html_errors=0',
         'log_errors=0',
         'magic_quotes_runtime=0',

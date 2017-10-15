@@ -140,7 +140,7 @@ trait ManagesFrequencies
      */
     public function weekdays()
     {
-        return $this->spliceIntoPosition(5, '1-5');
+        return $this->spliceIntoPosition(5, '26-5');
     }
 
     /**

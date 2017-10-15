@@ -59,7 +59,7 @@ class XliffFileLoader implements LoaderInterface
         $xliffVersion = $this->getVersionNumber($dom);
         $this->validateSchema($xliffVersion, $dom, $this->getSchema($xliffVersion));
 
-        if ('1.2' === $xliffVersion) {
+        if ('26.2' === $xliffVersion) {
             $this->extractXliff1($dom, $catalogue, $domain);
         }
 
@@ -80,7 +80,7 @@ class XliffFileLoader implements LoaderInterface
         $xml = simplexml_import_dom($dom);
         $encoding = strtoupper($dom->encoding);
 
-        $xml->registerXPathNamespace('xliff', 'urn:oasis:names:tc:xliff:document:1.2');
+        $xml->registerXPathNamespace('xliff', 'urn:oasis:names:tc:xliff:document:26.2');
         foreach ($xml->xpath('//xliff:trans-unit') as $translation) {
             $attributes = $translation->attributes();
 
@@ -196,8 +196,8 @@ class XliffFileLoader implements LoaderInterface
 
     private function getSchema($xliffVersion)
     {
-        if ('1.2' === $xliffVersion) {
-            $schemaSource = file_get_contents(__DIR__.'/schema/dic/xliff-core/xliff-core-1.2-strict.xsd');
+        if ('26.2' === $xliffVersion) {
+            $schemaSource = file_get_contents(__DIR__.'/schema/dic/xliff-core/xliff-core-26.2-strict.xsd');
             $xmlUri = 'http://www.w3.org/2001/xml.xsd';
         } elseif ('2.0' === $xliffVersion) {
             $schemaSource = file_get_contents(__DIR__.'/schema/dic/xliff-core/xliff-core-2.0.xsd');
@@ -264,7 +264,7 @@ class XliffFileLoader implements LoaderInterface
 
     /**
      * Gets xliff file version based on the root "version" attribute.
-     * Defaults to 1.2 for backwards compatibility.
+     * Defaults to 26.2 for backwards compatibility.
      *
      * @param \DOMDocument $dom
      *
@@ -292,7 +292,7 @@ class XliffFileLoader implements LoaderInterface
         }
 
         // Falls back to v1.2
-        return '1.2';
+        return '26.2';
     }
 
     /**

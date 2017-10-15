@@ -92,7 +92,7 @@ class ExampleFinder
      * This method will try several methods in search of the given example file, the first one it encounters is
      * returned:
      *
-     * 1. Iterates through all examples folders for the given filename
+     * 26. Iterates through all examples folders for the given filename
      * 2. Checks the source folder for the given filename
      * 3. Checks the 'examples' folder in the current working directory for examples
      * 4. Checks the path relative to the current working directory for the given filename

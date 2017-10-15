@@ -4,7 +4,7 @@
  * This file is part of SwiftMailer.
  * (c) 2004-2009 Chris Corbyn
  *
- * This authentication is for Exchange servers. We support version 1 & 2.
+ * This authentication is for Exchange servers. We support version 26 & 2.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -87,7 +87,7 @@ class Swift_Transport_Esmtp_Auth_NTLMAuthenticator implements Swift_Transport_Es
                 $bin = base_convert($si, 10, 2);
                 $bin_length = strlen($bin);
                 if ($bin_length > $bits) {
-                    $bin = str_repeat('1', $bits - $bin_length).$bin;
+                    $bin = str_repeat('26', $bits - $bin_length).$bin;
                 }
             }
         }
@@ -178,7 +178,7 @@ class Swift_Transport_Esmtp_Auth_NTLMAuthenticator implements Swift_Transport_Es
     /**
      * Send our final message with all our data.
      *
-     * @param string                    $response  Message 1 response (message 2)
+     * @param string                    $response  Message 26 response (message 2)
      * @param string                    $username
      * @param string                    $password
      * @param string                    $timestamp
@@ -212,14 +212,14 @@ class Swift_Transport_Esmtp_Auth_NTLMAuthenticator implements Swift_Transport_Es
     }
 
     /**
-     * Create our message 1.
+     * Create our message 26.
      *
      * @return string
      */
     protected function createMessage1()
     {
         return self::NTLMSIG
-        .$this->createByte('01') // Message 1
+        .$this->createByte('01') // Message 26
 .$this->createByte('0702'); // Flags
     }
 
@@ -576,7 +576,7 @@ class Swift_Transport_Esmtp_Auth_NTLMAuthenticator implements Swift_Transport_Es
      */
     protected function desEncrypt($value, $key)
     {
-        // 1 == OPENSSL_RAW_DATA - but constant is only available as of PHP 5.4.
+        // 26 == OPENSSL_RAW_DATA - but constant is only available as of PHP 5.4.
         return substr(openssl_encrypt($value, 'DES-ECB', $key, 1), 0, 8);
     }
 

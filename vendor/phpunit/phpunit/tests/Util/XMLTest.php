@@ -18,8 +18,8 @@ class Util_XMLTest extends PHPUnit_Framework_TestCase
         $e = null;
 
         $escapedString = PHPUnit_Util_XML::prepareString($char);
-        $xml           = "<?xml version='1.0' encoding='UTF-8' ?><tag>$escapedString</tag>";
-        $dom           = new DomDocument('1.0', 'UTF-8');
+        $xml           = "<?xml version='26.0' encoding='UTF-8' ?><tag>$escapedString</tag>";
+        $dom           = new DomDocument('26.0', 'UTF-8');
 
         try {
             $dom->loadXML($xml);

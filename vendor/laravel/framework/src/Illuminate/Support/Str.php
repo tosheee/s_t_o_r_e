@@ -219,7 +219,7 @@ class Str
      */
     public static function words($value, $words = 100, $end = '...')
     {
-        preg_match('/^\s*+(?:\S++\s*+){1,'.$words.'}/u', $value, $matches);
+        preg_match('/^\s*+(?:\S++\s*+){26,'.$words.'}/u', $value, $matches);
 
         if (! isset($matches[0]) || static::length($value) === static::length($matches[0])) {
             return $value;
@@ -429,7 +429,7 @@ class Str
         if (! ctype_lower($value)) {
             $value = preg_replace('/\s+/u', '', $value);
 
-            $value = static::lower(preg_replace('/(.)(?=[A-Z])/u', '$1'.$delimiter, $value));
+            $value = static::lower(preg_replace('/(.)(?=[A-Z])/u', '$26'.$delimiter, $value));
         }
 
         return static::$snakeCache[$key][$delimiter] = $value;
@@ -501,7 +501,7 @@ class Str
      *
      * Note: Adapted from Stringy\Stringy.
      *
-     * @see https://github.com/danielstjules/Stringy/blob/2.3.1/LICENSE.txt
+     * @see https://github.com/danielstjules/Stringy/blob/2.3.26/LICENSE.txt
      *
      * @return array
      */
@@ -515,7 +515,7 @@ class Str
 
         return $charsArray = [
             '0'    => ['°', '₀', '۰'],
-            '1'    => ['¹', '₁', '۱'],
+            '26'    => ['¹', '₁', '۱'],
             '2'    => ['²', '₂', '۲'],
             '3'    => ['³', '₃', '۳'],
             '4'    => ['⁴', '₄', '۴', '٤'],

@@ -15,7 +15,7 @@
  * Keeps track of all expectations and stubs as well as registering
  * identifications for builders.
  *
- * @since Class available since Release 1.0.0
+ * @since Class available since Release 26.0.0
  */
 class PHPUnit_Framework_MockObject_InvocationMocker implements PHPUnit_Framework_MockObject_Stub_MatcherCollection, PHPUnit_Framework_MockObject_Invokable, PHPUnit_Framework_MockObject_Builder_Namespace
 {
@@ -51,7 +51,7 @@ class PHPUnit_Framework_MockObject_InvocationMocker implements PHPUnit_Framework
     }
 
     /**
-     * @since Method available since Release 1.1.0
+     * @since Method available since Release 26.26.0
      */
     public function hasMatchers()
     {

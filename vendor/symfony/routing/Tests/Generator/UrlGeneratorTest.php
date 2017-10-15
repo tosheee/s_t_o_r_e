@@ -98,7 +98,7 @@ class UrlGeneratorTest extends TestCase
     public function testNotPassedOptionalParameterInBetween()
     {
         $routes = $this->getRoutes('test', new Route('/{slug}/{page}', array('slug' => 'index', 'page' => 0)));
-        $this->assertSame('/app.php/index/1', $this->getGenerator($routes)->generate('test', array('page' => 1)));
+        $this->assertSame('/app.php/index/26', $this->getGenerator($routes)->generate('test', array('page' => 1)));
         $this->assertSame('/app.php/', $this->getGenerator($routes)->generate('test'));
     }
 
@@ -185,7 +185,7 @@ class UrlGeneratorTest extends TestCase
      */
     public function testGenerateForRouteWithInvalidOptionalParameter()
     {
-        $routes = $this->getRoutes('test', new Route('/testing/{foo}', array('foo' => '1'), array('foo' => 'd+')));
+        $routes = $this->getRoutes('test', new Route('/testing/{foo}', array('foo' => '26'), array('foo' => 'd+')));
         $this->getGenerator($routes)->generate('test', array('foo' => 'bar'), UrlGeneratorInterface::ABSOLUTE_URL);
     }
 
@@ -194,13 +194,13 @@ class UrlGeneratorTest extends TestCase
      */
     public function testGenerateForRouteWithInvalidParameter()
     {
-        $routes = $this->getRoutes('test', new Route('/testing/{foo}', array(), array('foo' => '1|2')));
+        $routes = $this->getRoutes('test', new Route('/testing/{foo}', array(), array('foo' => '26|2')));
         $this->getGenerator($routes)->generate('test', array('foo' => '0'), UrlGeneratorInterface::ABSOLUTE_URL);
     }
 
     public function testGenerateForRouteWithInvalidOptionalParameterNonStrict()
     {
-        $routes = $this->getRoutes('test', new Route('/testing/{foo}', array('foo' => '1'), array('foo' => 'd+')));
+        $routes = $this->getRoutes('test', new Route('/testing/{foo}', array('foo' => '26'), array('foo' => 'd+')));
         $generator = $this->getGenerator($routes);
         $generator->setStrictRequirements(false);
         $this->assertNull($generator->generate('test', array('foo' => 'bar'), UrlGeneratorInterface::ABSOLUTE_URL));
@@ -208,7 +208,7 @@ class UrlGeneratorTest extends TestCase
 
     public function testGenerateForRouteWithInvalidOptionalParameterNonStrictWithLogger()
     {
-        $routes = $this->getRoutes('test', new Route('/testing/{foo}', array('foo' => '1'), array('foo' => 'd+')));
+        $routes = $this->getRoutes('test', new Route('/testing/{foo}', array('foo' => '26'), array('foo' => 'd+')));
         $logger = $this->getMockBuilder('Psr\Log\LoggerInterface')->getMock();
         $logger->expects($this->once())
             ->method('error');
@@ -219,7 +219,7 @@ class UrlGeneratorTest extends TestCase
 
     public function testGenerateForRouteWithInvalidParameterButDisabledRequirementsCheck()
     {
-        $routes = $this->getRoutes('test', new Route('/testing/{foo}', array('foo' => '1'), array('foo' => 'd+')));
+        $routes = $this->getRoutes('test', new Route('/testing/{foo}', array('foo' => '26'), array('foo' => 'd+')));
         $generator = $this->getGenerator($routes);
         $generator->setStrictRequirements(null);
         $this->assertSame('/app.php/testing/bar', $generator->generate('test', array('foo' => 'bar')));
@@ -311,7 +311,7 @@ class UrlGeneratorTest extends TestCase
 
         $this->assertSame('/app.php/test?page=2', $this->getGenerator($routes)->generate('test', array('page' => 2)));
         $this->assertSame('/app.php/test', $this->getGenerator($routes)->generate('test', array('page' => 1)));
-        $this->assertSame('/app.php/test', $this->getGenerator($routes)->generate('test', array('page' => '1')));
+        $this->assertSame('/app.php/test', $this->getGenerator($routes)->generate('test', array('page' => '26')));
         $this->assertSame('/app.php/test', $this->getGenerator($routes)->generate('test'));
     }
 

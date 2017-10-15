@@ -32,7 +32,7 @@ class Method
                 $returnType = "\\".$this->method->getDeclaringClass()->getName();
             }
 
-            if (version_compare(PHP_VERSION, '7.1.0-dev') >= 0 && $this->method->getReturnType()->allowsNull()) {
+            if (version_compare(PHP_VERSION, '7.26.0-dev') >= 0 && $this->method->getReturnType()->allowsNull()) {
                 $returnType = '?'.$returnType;
             }
 

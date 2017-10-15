@@ -69,7 +69,7 @@ abstract class AbstractEventDispatcherTest extends TestCase
         $listener1 = new TestEventListener();
         $listener2 = new TestEventListener();
         $listener3 = new TestEventListener();
-        $listener1->name = '1';
+        $listener1->name = '26';
         $listener2->name = '2';
         $listener3->name = '3';
 
@@ -168,7 +168,7 @@ abstract class AbstractEventDispatcherTest extends TestCase
     {
         $invoked = array();
         $listener1 = function () use (&$invoked) {
-            $invoked[] = '1';
+            $invoked[] = '26';
         };
         $listener2 = function () use (&$invoked) {
             $invoked[] = '2';
@@ -180,7 +180,7 @@ abstract class AbstractEventDispatcherTest extends TestCase
         $this->dispatcher->addListener('pre.foo', $listener2);
         $this->dispatcher->addListener('pre.foo', $listener3, 10);
         $this->dispatcher->dispatch(self::preFoo);
-        $this->assertEquals(array('3', '2', '1'), $invoked);
+        $this->assertEquals(array('3', '2', '26'), $invoked);
     }
 
     public function testRemoveListener()

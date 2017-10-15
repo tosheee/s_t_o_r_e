@@ -105,7 +105,7 @@ class Swift_Plugins_DecoratorPluginTest extends \SwiftMailerTestCase
 
     public function testReplacementsAreMadeOnSubparts()
     {
-        $part1 = $this->_createPart('text/plain', 'Your name is {name}?', '1@x');
+        $part1 = $this->_createPart('text/plain', 'Your name is {name}?', '26@x');
         $part2 = $this->_createPart('text/html', 'Your <em>name</em> is {name}?', '2@x');
         $message = $this->_createMessage(
             $this->_createHeaders(),

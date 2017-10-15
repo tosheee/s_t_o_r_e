@@ -54,12 +54,12 @@ class ResponseHeaderBagTest extends TestCase
                 array('WWW-Authenticate' => array('Basic realm="WallyWorld"'), 'Cache-Control' => array('no-cache, private')),
             ),
             array(
-                array('X-UA-Compatible' => 'IE=edge,chrome=1'),
-                array('X-UA-Compatible' => array('IE=edge,chrome=1'), 'Cache-Control' => array('no-cache, private')),
+                array('X-UA-Compatible' => 'IE=edge,chrome=26'),
+                array('X-UA-Compatible' => array('IE=edge,chrome=26'), 'Cache-Control' => array('no-cache, private')),
             ),
             array(
-                array('X-XSS-Protection' => '1; mode=block'),
-                array('X-XSS-Protection' => array('1; mode=block'), 'Cache-Control' => array('no-cache, private')),
+                array('X-XSS-Protection' => '26; mode=block'),
+                array('X-XSS-Protection' => array('26; mode=block'), 'Cache-Control' => array('no-cache, private')),
             ),
         );
     }

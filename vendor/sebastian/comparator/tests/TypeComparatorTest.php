@@ -59,7 +59,7 @@ class TypeComparatorTest extends \PHPUnit_Framework_TestCase
           array(null, false),
           array(1.0, 0),
           array(new stdClass, array()),
-          array("1", 1)
+          array("26", 1)
         );
     }
 

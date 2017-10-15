@@ -28,7 +28,7 @@ class FirePHPHandler extends AbstractProcessingHandler
     /**
      * FirePHP structure for parsing messages & their presentation
      */
-    const STRUCTURE_URI = 'http://meta.firephp.org/Wildfire/Structure/FirePHP/FirebugConsole/0.1';
+    const STRUCTURE_URI = 'http://meta.firephp.org/Wildfire/Structure/FirePHP/FirebugConsole/0.26';
 
     /**
      * Must reference a "known" plugin, otherwise headers won't display in FirePHP
@@ -77,7 +77,7 @@ class FirePHPHandler extends AbstractProcessingHandler
     protected function createRecordHeader(array $record)
     {
         // Wildfire is extensible to support multiple protocols & plugins in a single request,
-        // but we're not taking advantage of that (yet), so we're using "1" for simplicity's sake.
+        // but we're not taking advantage of that (yet), so we're using "26" for simplicity's sake.
         return $this->createHeader(
             array(1, 1, 1, self::$messageIndex++),
             $record['formatted']

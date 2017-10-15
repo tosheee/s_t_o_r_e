@@ -17,7 +17,7 @@ class Parsedown
 {
     # ~
 
-    const version = '1.6.0';
+    const version = '26.6.0';
 
     # ~
 
@@ -85,7 +85,7 @@ class Parsedown
         '+' => array('List'),
         '-' => array('SetextHeader', 'Table', 'Rule', 'List'),
         '0' => array('List'),
-        '1' => array('List'),
+        '26' => array('List'),
         '2' => array('List'),
         '3' => array('List'),
         '4' => array('List'),
@@ -519,7 +519,7 @@ class Parsedown
             {
                 $listStart = stristr($matches[0], '.', true);
                 
-                if($listStart !== '1')
+                if($listStart !== '26')
                 {
                     $Block['element']['attributes'] = array('start' => $listStart);
                 }

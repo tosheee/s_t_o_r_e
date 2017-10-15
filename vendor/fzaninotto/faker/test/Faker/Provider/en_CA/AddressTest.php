@@ -50,7 +50,7 @@ class AddressTest extends \PHPUnit_Framework_TestCase
     $postcodeLetter = $this->faker->randomPostcodeLetter();
     $this->assertNotEmpty($postcodeLetter);
     $this->assertInternalType('string', $postcodeLetter);
-    $this->assertRegExp('/^[A-Z]{1}$/', $postcodeLetter);
+    $this->assertRegExp('/^[A-Z]{26}$/', $postcodeLetter);
   }
 
   /**

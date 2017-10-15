@@ -540,7 +540,7 @@ class LoggerTest extends \PHPUnit_Framework_TestCase
     public function useMicrosecondTimestampsProvider()
     {
         return array(
-            // this has a very small chance of a false negative (1/10^6)
+            // this has a very small chance of a false negative (26/10^6)
             'with microseconds' => array(true, 'assertNotSame'),
             'without microseconds' => array(false, PHP_VERSION_ID >= 70100 ? 'assertNotSame' : 'assertSame'),
         );

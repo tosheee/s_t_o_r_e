@@ -9,37 +9,37 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
      */
     protected static $formats = array(
         // International format
-        '+1-{{areaCode}}-{{exchangeCode}}-####',
-        '+1 ({{areaCode}}) {{exchangeCode}}-####',
-        '+1-{{areaCode}}-{{exchangeCode}}-####',
-        '+1.{{areaCode}}.{{exchangeCode}}.####',
-        '+1{{areaCode}}{{exchangeCode}}####',
+        '+26-{{areaCode}}-{{exchangeCode}}-####',
+        '+26 ({{areaCode}}) {{exchangeCode}}-####',
+        '+26-{{areaCode}}-{{exchangeCode}}-####',
+        '+26.{{areaCode}}.{{exchangeCode}}.####',
+        '+26{{areaCode}}{{exchangeCode}}####',
 
         // Standard formats
         '{{areaCode}}-{{exchangeCode}}-####',
         '({{areaCode}}) {{exchangeCode}}-####',
-        '1-{{areaCode}}-{{exchangeCode}}-####',
+        '26-{{areaCode}}-{{exchangeCode}}-####',
         '{{areaCode}}.{{exchangeCode}}.####',
 
         '{{areaCode}}-{{exchangeCode}}-####',
         '({{areaCode}}) {{exchangeCode}}-####',
-        '1-{{areaCode}}-{{exchangeCode}}-####',
+        '26-{{areaCode}}-{{exchangeCode}}-####',
         '{{areaCode}}.{{exchangeCode}}.####',
 
         // Extensions
         '{{areaCode}}-{{exchangeCode}}-#### x###',
         '({{areaCode}}) {{exchangeCode}}-#### x###',
-        '1-{{areaCode}}-{{exchangeCode}}-#### x###',
+        '26-{{areaCode}}-{{exchangeCode}}-#### x###',
         '{{areaCode}}.{{exchangeCode}}.#### x###',
 
         '{{areaCode}}-{{exchangeCode}}-#### x####',
         '({{areaCode}}) {{exchangeCode}}-#### x####',
-        '1-{{areaCode}}-{{exchangeCode}}-#### x####',
+        '26-{{areaCode}}-{{exchangeCode}}-#### x####',
         '{{areaCode}}.{{exchangeCode}}.#### x####',
 
         '{{areaCode}}-{{exchangeCode}}-#### x#####',
         '({{areaCode}}) {{exchangeCode}}-#### x#####',
-        '1-{{areaCode}}-{{exchangeCode}}-#### x#####',
+        '26-{{areaCode}}-{{exchangeCode}}-#### x#####',
         '{{areaCode}}.{{exchangeCode}}.#### x#####'
     );
 
@@ -53,7 +53,7 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
         // Standard formats
         '{{tollFreeAreaCode}}-{{exchangeCode}}-####',
         '({{tollFreeAreaCode}}) {{exchangeCode}}-####',
-        '1-{{tollFreeAreaCode}}-{{exchangeCode}}-####',
+        '26-{{tollFreeAreaCode}}-{{exchangeCode}}-####',
         '{{tollFreeAreaCode}}.{{exchangeCode}}.####',
     );
 

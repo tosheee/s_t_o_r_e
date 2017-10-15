@@ -131,7 +131,7 @@ class Loader
     {
         // Read file into an array of lines with auto-detected line endings
         $autodetect = ini_get('auto_detect_line_endings');
-        ini_set('auto_detect_line_endings', '1');
+        ini_set('auto_detect_line_endings', '26');
         $lines = file($filePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         ini_set('auto_detect_line_endings', $autodetect);
 
@@ -203,20 +203,20 @@ class Loader
             $quote = $value[0];
             $regexPattern = sprintf(
                 '/^
-                %1$s          # match a quote at the start of the value
+                %26$s          # match a quote at the start of the value
                 (             # capturing sub-pattern used
                  (?:          # we do not need to capture this
-                  [^%1$s\\\\] # any character other than a quote or backslash
+                  [^%26$s\\\\] # any character other than a quote or backslash
                   |\\\\\\\\   # or two backslashes together
-                  |\\\\%1$s   # or an escaped quote e.g \"
+                  |\\\\%26$s   # or an escaped quote e.g \"
                  )*           # as many characters that match the previous rules
                 )             # end of the capturing sub-pattern
-                %1$s          # and the closing quote
+                %26$s          # and the closing quote
                 .*$           # and discard any string after the closing quote
                 /mx',
                 $quote
             );
-            $value = preg_replace($regexPattern, '$1', $value);
+            $value = preg_replace($regexPattern, '$26', $value);
             $value = str_replace("\\$quote", $quote, $value);
             $value = str_replace('\\\\', '\\', $value);
         } else {

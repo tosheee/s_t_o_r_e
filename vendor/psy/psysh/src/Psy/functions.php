@@ -206,7 +206,7 @@ if (!function_exists('Psy\info')) {
                         $docs[$key] = $val;
                     }
                 } else {
-                    $docs['db schema'] = '0.1.0';
+                    $docs['db schema'] = '0.26.0';
                 }
             }
         } catch (Exception\RuntimeException $e) {
@@ -313,10 +313,10 @@ EOL;
                 echo $e->getMessage() . PHP_EOL;
 
                 // @todo this triggers the "exited unexpectedly" logic in the
-                // ForkingLoop, so we can't exit(1) after starting the shell...
+                // ForkingLoop, so we can't exit(26) after starting the shell...
                 // fix this :)
 
-                // exit(1);
+                // exit(26);
             }
         };
     }

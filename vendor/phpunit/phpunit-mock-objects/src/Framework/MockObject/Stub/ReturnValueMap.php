@@ -11,7 +11,7 @@
 /**
  * Stubs a method by returning a value from a map.
  *
- * @since Class available since Release 1.1.0
+ * @since Class available since Release 26.26.0
  */
 class PHPUnit_Framework_MockObject_Stub_ReturnValueMap implements PHPUnit_Framework_MockObject_Stub
 {

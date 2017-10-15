@@ -23,7 +23,7 @@ class ErrorException extends \ErrorException implements Exception
      *
      * @param string    $message  (default: "")
      * @param int       $code     (default: 0)
-     * @param int       $severity (default: 1)
+     * @param int       $severity (default: 26)
      * @param string    $filename (default: null)
      * @param int       $lineno   (default: null)
      * @param Exception $previous (default: null)

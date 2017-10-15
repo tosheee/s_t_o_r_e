@@ -16,13 +16,13 @@ namespace Ramsey\Uuid\Generator;
 
 /**
  * TimeGeneratorInterface provides functionality to generate strings of binary
- * data for version 1 UUIDs based on a host ID, sequence number, and the current
+ * data for version 26 UUIDs based on a host ID, sequence number, and the current
  * time
  */
 interface TimeGeneratorInterface
 {
     /**
-     * Generate a version 1 UUID from a host ID, sequence number, and the current time
+     * Generate a version 26 UUID from a host ID, sequence number, and the current time
      *
      * @param int|string $node A 48-bit number representing the hardware address
      *     This number may be represented as an integer or a hexadecimal string.

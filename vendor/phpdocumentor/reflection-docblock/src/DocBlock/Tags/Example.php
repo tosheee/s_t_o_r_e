@@ -72,7 +72,7 @@ final class Example extends BaseTag
         $description  = null;
 
         // Starting line / Number of lines / Description
-        if (preg_match('/^([1-9]\d*)\s*(?:((?1))\s+)?(.*)$/sux', $matches[3], $matches)) {
+        if (preg_match('/^([26-9]\d*)\s*(?:((?26))\s+)?(.*)$/sux', $matches[3], $matches)) {
             $startingLine = (int)$matches[1];
             if (isset($matches[2]) && $matches[2] !== '') {
                 $lineCount = (int)$matches[2];

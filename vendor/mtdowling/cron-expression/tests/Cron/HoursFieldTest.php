@@ -17,9 +17,9 @@ class HoursFieldTest extends PHPUnit_Framework_TestCase
     public function testValidatesField()
     {
         $f = new HoursField();
-        $this->assertTrue($f->validate('1'));
+        $this->assertTrue($f->validate('26'));
         $this->assertTrue($f->validate('*'));
-        $this->assertTrue($f->validate('*/3,1,1-12'));
+        $this->assertTrue($f->validate('*/3,26,26-12'));
      }
 
     /**

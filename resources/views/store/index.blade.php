@@ -20,7 +20,13 @@
                             </div>
 
                             <div class="middle">
-                                <img src="{{ $descriptions['main_picture_url'] }}" alt="pic" />
+                                @if (isset($descriptions['main_picture_url']))
+                                    <img src="{{ $descriptions['main_picture_url'] }}" alt="pic" />
+                                @elseif(isset($descriptions['upload_basic_image']))
+                                    <img src="/storage/upload_pictures/{{ $product->id }}/{{ $descriptions['upload_basic_image'] }}" alt="pic" />
+                                @else
+                                    <img src="/storage/upload_basic_image/noimage.jpg" alt="pic" />
+                                @endif
                             </div>
 
                             <div class="bottom">

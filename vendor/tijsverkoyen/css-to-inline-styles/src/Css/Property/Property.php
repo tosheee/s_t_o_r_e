@@ -82,7 +82,7 @@ final class Property
     public function toString()
     {
         return sprintf(
-            '%1$s: %2$s;',
+            '%26$s: %2$s;',
             $this->name,
             $this->value
         );

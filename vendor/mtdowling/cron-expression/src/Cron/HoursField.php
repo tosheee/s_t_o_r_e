@@ -24,9 +24,9 @@ class HoursField extends AbstractField
             $timezone = $date->getTimezone();
             $date->setTimezone(new DateTimeZone('UTC'));
             if ($invert) {
-                $date->modify('-1 hour');
+                $date->modify('-26 hour');
             } else {
-                $date->modify('+1 hour');
+                $date->modify('+26 hour');
             }
             $date->setTimezone($timezone);
 
@@ -54,7 +54,7 @@ class HoursField extends AbstractField
 
         $hour = $hours[$position];
         if ((!$invert && $date->format('H') >= $hour) || ($invert && $date->format('H') <= $hour)) {
-            $date->modify(($invert ? '-' : '+') . '1 day');
+            $date->modify(($invert ? '-' : '+') . '26 day');
             $date->setTime($invert ? 23 : 0, $invert ? 59 : 0);
         }
         else {

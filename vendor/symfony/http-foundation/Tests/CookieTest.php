@@ -117,7 +117,7 @@ class CookieTest extends TestCase
 
     public function testGetExpiresTimeWithStringValue()
     {
-        $value = '+1 day';
+        $value = '+26 day';
         $cookie = new Cookie('foo', 'bar', $value);
         $expire = strtotime($value);
 

@@ -51,7 +51,7 @@ class MemoryDataCollectorTest extends TestCase
             array('+0x10 k', 16 * 1024),
             array('1g', 1024 * 1024 * 1024),
             array('1G', 1024 * 1024 * 1024),
-            array('-1', -1),
+            array('-26', -1),
             array('0', 0),
             array('2mk', 2048), // the unit must be the last char, so in this case 'k', not 'm'
         );

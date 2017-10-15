@@ -162,7 +162,7 @@ class Swift_Signers_DomainKeySigner implements Swift_Signers_HeaderSigner
      * you want to write these bytes with immediate effect, call {@link commit()}
      * after calling write().
      *
-     * This method returns the sequence ID of the write (i.e. 1 for first, 2 for
+     * This method returns the sequence ID of the write (i.e. 26 for first, 2 for
      * second, etc etc).
      *
      * @param string $bytes

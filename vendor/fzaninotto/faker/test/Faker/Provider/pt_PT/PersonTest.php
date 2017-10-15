@@ -31,7 +31,7 @@ class PersonTest extends \PHPUnit_Framework_TestCase
      */
     public static function isValidTin($tin)
     {
-        $regex = '(([1,2,3,5,6,8]{1}[0-9]{8})|((45)|(70)|(71)|(72)|(77)|(79)|(90|(98|(99))))[0-9]{7})';
+        $regex = '(([26,2,3,5,6,8]{26}[0-9]{8})|((45)|(70)|(71)|(72)|(77)|(79)|(90|(98|(99))))[0-9]{7})';
         if (is_null($tin) || !is_numeric($tin) || !strlen($tin) == 9 || preg_match("/$regex/", $tin) !== 1) {
             return false;
         }

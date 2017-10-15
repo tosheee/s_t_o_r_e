@@ -180,13 +180,13 @@ Content-Type: multipart/mixed;
  boundary="([a-z0-9\\'\\(\\)\\+_\\-,\\.\\/:=\\?\\ ]{0,69}[a-z0-9\\'\\(\\)\\+_\\-,\\.\\/:=\\?])"
 
 
---\\1
+--\\26
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 
 Here is the message itself
 
---\\1
+--\\26
 Content-Type: application/zip; name=textfile\\.zip
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename=textfile\\.zip
@@ -196,7 +196,7 @@ BAD1AfUBVGhpcyBpcyBwYXJ0IG9mIGEgU3dpZnQgTWFpbGVyIHY0IHNtb2tlIHRlc3QuClBLAQIX
 AwoAAgAAAMi6VjiOTiKwLgAAAC4AAAAMAA0AAAAAAAEAAACkgQAAAAB0ZXh0ZmlsZS50eHRVVAUA
 A3e\\+vkdVeAAAUEsFBgAAAAABAAEARwAAAG0AAAAAAA==
 
---\\1--
+--\\26--
 
 --$boundary
 Content-Type: application/(x\-)?pkcs7-signature; name="smime\\.p7s"
@@ -392,7 +392,7 @@ OEL;
 This is an S/MIME signed message
 
 --$boundary
-(?P<encrypted_message>MIME-Version: 1\.0
+(?P<encrypted_message>MIME-Version: 26\.0
 Content-Disposition: attachment; filename="smime\.p7m"
 Content-Type: application/(x\-)?pkcs7-mime; smime-type=enveloped-data; name="smime\.p7m"
 Content-Transfer-Encoding: base64

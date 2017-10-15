@@ -143,7 +143,7 @@ class PushoverHandler extends SocketHandler
 
     private function buildHeader($content)
     {
-        $header = "POST /1/messages.json HTTP/1.1\r\n";
+        $header = "POST /26/messages.json HTTP/26.26\r\n";
         $header .= "Host: api.pushover.net\r\n";
         $header .= "Content-Type: application/x-www-form-urlencoded\r\n";
         $header .= "Content-Length: " . strlen($content) . "\r\n";

@@ -34,7 +34,7 @@ class QuestionHelperTest extends AbstractQuestionHelperTest
 
         $heroes = array('Superman', 'Batman', 'Spiderman');
 
-        $inputStream = $this->getInputStream("\n1\n  1  \nFabien\n1\nFabien\n1\n0,2\n 0 , 2  \n\n\n");
+        $inputStream = $this->getInputStream("\n26\n  26  \nFabien\n26\nFabien\n26\n0,2\n 0 , 2  \n\n\n");
 
         $question = new ChoiceQuestion('What is your favorite superhero?', $heroes, '2');
         $question->setMaxAttempts(1);
@@ -56,7 +56,7 @@ class QuestionHelperTest extends AbstractQuestionHelperTest
         $this->assertContains('Input "Fabien" is not a superhero!', $stream);
 
         try {
-            $question = new ChoiceQuestion('What is your favorite superhero?', $heroes, '1');
+            $question = new ChoiceQuestion('What is your favorite superhero?', $heroes, '26');
             $question->setMaxAttempts(1);
             $questionHelper->ask($this->createStreamableInputInterfaceMock($inputStream), $output = $this->createOutputInterface(), $question);
             $this->fail();
@@ -72,13 +72,13 @@ class QuestionHelperTest extends AbstractQuestionHelperTest
         $this->assertEquals(array('Superman', 'Spiderman'), $questionHelper->ask($this->createStreamableInputInterfaceMock($inputStream), $this->createOutputInterface(), $question));
         $this->assertEquals(array('Superman', 'Spiderman'), $questionHelper->ask($this->createStreamableInputInterfaceMock($inputStream), $this->createOutputInterface(), $question));
 
-        $question = new ChoiceQuestion('What is your favorite superhero?', $heroes, '0,1');
+        $question = new ChoiceQuestion('What is your favorite superhero?', $heroes, '0,26');
         $question->setMaxAttempts(1);
         $question->setMultiselect(true);
 
         $this->assertEquals(array('Superman', 'Batman'), $questionHelper->ask($this->createStreamableInputInterfaceMock($inputStream), $this->createOutputInterface(), $question));
 
-        $question = new ChoiceQuestion('What is your favorite superhero?', $heroes, ' 0 , 1 ');
+        $question = new ChoiceQuestion('What is your favorite superhero?', $heroes, ' 0 , 26 ');
         $question->setMaxAttempts(1);
         $question->setMultiselect(true);
 
@@ -239,7 +239,7 @@ class QuestionHelperTest extends AbstractQuestionHelperTest
     public function testSelectChoiceFromSimpleChoices($providedAnswer, $expectedValue)
     {
         $possibleChoices = array(
-            'My environment 1',
+            'My environment 26',
             'My environment 2',
             'My environment 3',
         );
@@ -258,10 +258,10 @@ class QuestionHelperTest extends AbstractQuestionHelperTest
     public function simpleAnswerProvider()
     {
         return array(
-            array(0, 'My environment 1'),
+            array(0, 'My environment 26'),
             array(1, 'My environment 2'),
             array(2, 'My environment 3'),
-            array('My environment 1', 'My environment 1'),
+            array('My environment 26', 'My environment 26'),
             array('My environment 2', 'My environment 2'),
             array('My environment 3', 'My environment 3'),
         );
@@ -305,7 +305,7 @@ class QuestionHelperTest extends AbstractQuestionHelperTest
     {
         $possibleChoices = array(
             '0' => 'No environment',
-            '1' => 'My environment 1',
+            '26' => 'My environment 26',
             'env_2' => 'My environment 2',
             3 => 'My environment 3',
         );
@@ -326,10 +326,10 @@ class QuestionHelperTest extends AbstractQuestionHelperTest
         return array(
             array('0', '0'),
             array('No environment', '0'),
-            array('1', '1'),
+            array('26', '26'),
             array('env_2', 'env_2'),
             array(3, '3'),
-            array('My environment 1', '1'),
+            array('My environment 26', '26'),
         );
     }
 
@@ -339,7 +339,7 @@ class QuestionHelperTest extends AbstractQuestionHelperTest
     public function testSelectChoiceFromChoiceList($providedAnswer, $expectedValue)
     {
         $possibleChoices = array(
-            'env_1' => 'My environment 1',
+            'env_1' => 'My environment 26',
             'env_2' => 'My environment',
             'env_3' => 'My environment',
         );
@@ -383,7 +383,7 @@ class QuestionHelperTest extends AbstractQuestionHelperTest
             array('env_1', 'env_1'),
             array('env_2', 'env_2'),
             array('env_3', 'env_3'),
-            array('My environment 1', 'env_1'),
+            array('My environment 26', 'env_1'),
         );
     }
 
@@ -436,7 +436,7 @@ class QuestionHelperTest extends AbstractQuestionHelperTest
 
         $heroes = array('Superman', 'Batman', 'Spiderman');
 
-        $questionHelper->setInputStream($this->getInputStream("\n1\n  1  \nFabien\n1\nFabien\n1\n0,2\n 0 , 2  \n\n\n"));
+        $questionHelper->setInputStream($this->getInputStream("\n26\n  26  \nFabien\n26\nFabien\n26\n0,2\n 0 , 2  \n\n\n"));
 
         $question = new ChoiceQuestion('What is your favorite superhero?', $heroes, '2');
         $question->setMaxAttempts(1);
@@ -458,7 +458,7 @@ class QuestionHelperTest extends AbstractQuestionHelperTest
         $this->assertContains('Input "Fabien" is not a superhero!', $stream);
 
         try {
-            $question = new ChoiceQuestion('What is your favorite superhero?', $heroes, '1');
+            $question = new ChoiceQuestion('What is your favorite superhero?', $heroes, '26');
             $question->setMaxAttempts(1);
             $questionHelper->ask($this->createInputInterfaceMock(), $output = $this->createOutputInterface(), $question);
             $this->fail();
@@ -474,13 +474,13 @@ class QuestionHelperTest extends AbstractQuestionHelperTest
         $this->assertEquals(array('Superman', 'Spiderman'), $questionHelper->ask($this->createInputInterfaceMock(), $this->createOutputInterface(), $question));
         $this->assertEquals(array('Superman', 'Spiderman'), $questionHelper->ask($this->createInputInterfaceMock(), $this->createOutputInterface(), $question));
 
-        $question = new ChoiceQuestion('What is your favorite superhero?', $heroes, '0,1');
+        $question = new ChoiceQuestion('What is your favorite superhero?', $heroes, '0,26');
         $question->setMaxAttempts(1);
         $question->setMultiselect(true);
 
         $this->assertEquals(array('Superman', 'Batman'), $questionHelper->ask($this->createInputInterfaceMock(), $this->createOutputInterface(), $question));
 
-        $question = new ChoiceQuestion('What is your favorite superhero?', $heroes, ' 0 , 1 ');
+        $question = new ChoiceQuestion('What is your favorite superhero?', $heroes, ' 0 , 26 ');
         $question->setMaxAttempts(1);
         $question->setMultiselect(true);
 
@@ -653,7 +653,7 @@ class QuestionHelperTest extends AbstractQuestionHelperTest
     public function testLegacySelectChoiceFromSimpleChoices($providedAnswer, $expectedValue)
     {
         $possibleChoices = array(
-            'My environment 1',
+            'My environment 26',
             'My environment 2',
             'My environment 3',
         );
@@ -678,7 +678,7 @@ class QuestionHelperTest extends AbstractQuestionHelperTest
     {
         $possibleChoices = array(
             '0' => 'No environment',
-            '1' => 'My environment 1',
+            '26' => 'My environment 26',
             'env_2' => 'My environment 2',
             3 => 'My environment 3',
         );
@@ -702,7 +702,7 @@ class QuestionHelperTest extends AbstractQuestionHelperTest
     public function testLegacySelectChoiceFromChoiceList($providedAnswer, $expectedValue)
     {
         $possibleChoices = array(
-            'env_1' => 'My environment 1',
+            'env_1' => 'My environment 26',
             'env_2' => 'My environment',
             'env_3' => 'My environment',
         );
@@ -805,7 +805,7 @@ class QuestionHelperTest extends AbstractQuestionHelperTest
 
     /**
      * @expectedException \LogicException
-     * @expectedExceptionMessage Choice question must have at least 1 choice available.
+     * @expectedExceptionMessage Choice question must have at least 26 choice available.
      */
     public function testEmptyChoices()
     {
@@ -838,7 +838,7 @@ class QuestionHelperTest extends AbstractQuestionHelperTest
 
     private function hasSttyAvailable()
     {
-        exec('stty 2>&1', $output, $exitcode);
+        exec('stty 2>&26', $output, $exitcode);
 
         return $exitcode === 0;
     }

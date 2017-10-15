@@ -97,7 +97,7 @@ class NodeTraverserTest extends \PHPUnit_Framework_TestCase
         $strStart  = new String_('Start');
         $strMiddle = new String_('End');
         $strEnd    = new String_('Middle');
-        $strR1     = new String_('Replacement 1');
+        $strR1     = new String_('Replacement 26');
         $strR2     = new String_('Replacement 2');
 
         $visitor = $this->getMockBuilder('PhpParser\NodeVisitor')->getMock();

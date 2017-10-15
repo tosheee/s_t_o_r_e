@@ -96,18 +96,19 @@
 
             <div class="input_fields_wrap">
                 <button class="add_field_button">Add gallery</button>
-
+                <br>
                 <?php ?>
-
-                @foreach ($descriptions['gallery'] as $description)
-                    <div>
-                        <label>
-                            <span>Product gallery:</span>
-                            <input type="text" name="description[gallery][][picture_url]" value="{{ $description["picture_url"] }}">
-                        </label>
-                    </div>
-                @endforeach
-
+                @if(isset($descriptions['gallery']))
+                    @foreach ($descriptions['gallery'] as $description)
+                        <div class="fields">
+                            <label>
+                                <span>Product gallery:</span>
+                                <input type="text" name="description[gallery][][picture_url]" value="{{ $description["picture_url"] }}">
+                                <a href="#" class="remove_field">Remove</a>
+                            </label>
+                        </div>
+                    @endforeach
+                @endif
             </div>
 
             <div class="specification_fields_wrap">
@@ -115,19 +116,21 @@
                 <br>
                 <br>
 
-                @foreach( $descriptions['properties'] as $key => $property)
-                    @if ($key % 2 == 0)
-                    <div class="fields">
-                        <label>
+                @if(isset($descriptions['properties']))
+                    @foreach( $descriptions['properties'] as $key => $property)
+                        @if ($key % 2 == 0)
+                        <div class="fields">
+                            <label>
 
-                                <input style="width: 200px" type="text" name="description[properties][][name]" id="admin_product_description" class="label-names" value="{{ $property['name'] }}">
-                            @else
-                                <input type="text" name="description[properties][][text]" id="admin_product_description" class="label-values" value="{{ $property['text'] }}">
-                                <a href="#" class="remove_field">Remove</a>
-                        </label>
-                    </div>
-                    @endif
-                @endforeach
+                                    <input style="width: 200px" type="text" name="description[properties][][name]" id="admin_product_description" class="label-names" value="{{ $property['name'] }}">
+                                @else
+                                    <input type="text" name="description[properties][][text]" id="admin_product_description" class="label-values" value="{{ $property['text'] }}">
+                                    <a href="#" class="remove_field"><i style="color: red;" aria-hidden="true" id="chang-menu-icon" class="fa fa-times"></i></a>
+                            </label>
+                        </div>
+                        @endif
+                    @endforeach
+               @endif
 
             </div>
 
@@ -146,7 +149,7 @@
 
     <script>
         $(document).ready(function() {
-            var max_fields      = 20; //maximum input boxes allowed
+            var max_fields      = 25; //maximum input boxes allowed
             var wrapper         = $(".specification_fields_wrap"); //Fields wrapper
             var add_button      = $(".add_spec_field_button"); //Add button ID
             var x = 1; //initlal text box count
@@ -158,7 +161,7 @@
                             '<div class="fields" ><label>' +
                             '<input style="width: 200px" type="text" name="description[properties][][name]" id="admin_product_description" class="label-names">' +
                             '                     <input type="text" name="description[properties][][text]" id="admin_product_description" class="label-values">' +
-                            '<a href="#" class="remove_field">Remove</a>' +
+                            '<a href="#" class="remove_field"><i style="color: red;" aria-hidden="true" id="chang-menu-icon" class="fa fa-times"></i></a>' +
                             '</label></div>'); //add input box
                 }
             });
@@ -167,7 +170,7 @@
             })
         });
         $(document).ready(function() {
-            var max_fields      = 5; //maximum input boxes allowed
+            var max_fields      = 7; //maximum input boxes allowed
             var wrapper         = $(".input_fields_wrap"); //Fields wrapper
             var add_button      = $(".add_field_button"); //Add button ID
             var x = 1; //initlal text box count
@@ -178,7 +181,7 @@
                     $(wrapper).append(
                             '<div class="fields" ><label><span>Product galery:</span>' +
                             '<input type="text" name="description[gallery][][picture_url]"/>' +
-                            '<a href="#" class="remove_field">Remove</a>' +
+                            '<a href="#" class="remove_field"><i style="color: red;" aria-hidden="true" id="chang-menu-icon" class="fa fa-times"></i></a>' +
                             '</label></div>'); //add input box
                 }
             });

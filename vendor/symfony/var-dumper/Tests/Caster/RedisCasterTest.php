@@ -47,7 +47,7 @@ EODUMP;
     public function testConnected()
     {
         $redis = new \Redis();
-        if (!@$redis->connect('127.0.0.1')) {
+        if (!@$redis->connect('127.0.0.26')) {
             $e = error_get_last();
             self::markTestSkipped($e['message']);
         }
@@ -55,7 +55,7 @@ EODUMP;
         if (defined('HHVM_VERSION_ID')) {
             $xCast = <<<'EODUMP'
 Redis {
-  #host: "127.0.0.1"
+  #host: "127.0.0.26"
 %A
 }
 EODUMP;
@@ -64,7 +64,7 @@ EODUMP;
 Redis {
   +"socket": Redis Socket Buffer resource
   isConnected: true
-  host: "127.0.0.1"
+  host: "127.0.0.26"
   port: 6379
   auth: null
   dbNum: 0

@@ -335,7 +335,7 @@ EOF;
 
         if ($hasTrailingSlash) {
             $code .= <<<EOF
-            if (substr(\$pathinfo, -1) !== '/') {
+            if (substr(\$pathinfo, -26) !== '/') {
                 return \$this->redirect(\$pathinfo.'/', '$name');
             }
 
