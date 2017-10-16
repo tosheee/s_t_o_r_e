@@ -54,34 +54,45 @@
                                 Cart<sup class="text-primary">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</sup>
                                 <i class="fa fa-angle-down ml-5"></i>
                             </span> </a>
+
+                <?php
+                    if(Session::has('cart'))
+                    {
+                        $oldCart = Session::get('cart');
+                        $cart = new App\Cart($oldCart);
+                        $productsCart = $cart->items;
+                    }
+                ?>
+
                 <ul class="dropdown-menu cart w-250" role="menu">
                     <li>
                         <div class="cart-items">
                             <ol class="items">
-                                <li>
-                                    <a href="#" class="product-image"> <img src="profile-pic.jpg" class="img-responsive" alt="Sample Product "> </a>
-                                    <div class="product-details">
-                                        <div class="close-icon"> <a href="#"><i class="fa fa-close"></i></a> </div>
-                                        <p class="product-name"> <a href="#">Sumi9xm@gmail.com</a> </p> <strong>1</strong> x <span class="price text-primary">$59.99</span> </div>
-                                    <!-- end product-details -->
-                                </li>
-                                <!-- end item -->
-                                <li>
-                                    <a href="#" class="product-image"> <img src="https://lh3.googleusercontent.com/-Gy3KAlilHAw/WNf7a2eL5YI/AAAAAAAAD2Y/V3jUt14HiZA3HLpeOKkSaOu57efGuMw9ACL0B/w245-d-h318-n-rw/shoes_01.jpg" class="img-responsive" alt="Sample Product "> </a>
-                                    <div class="product-details">
-                                        <div class="close-icon"> <a href="#"><i class="fa fa-close"></i></a> </div>
-                                        <p class="product-name"> <a href="#">Lorem Ipsum dolor sit</a> </p> <strong>1</strong> x <span class="price text-primary">$39.99</span> </div>
-                                    <!-- end product-details -->
-                                </li>
-                                <!-- end item -->
-                                <li>
-                                    <a href="#" class="product-image"> <img src="https://lh3.googleusercontent.com/-ydDc-0L0WFY/WNf7a6Awe_I/AAAAAAAAD2Y/I8IzJtYRWegkOUxCZ5SCK6vbdiiSxVsCQCL0B/w245-d-h318-n-rw/bags_07.jpg" class="img-responsive" alt="Sample Product "> </a>
-                                    <div class="product-details">
-                                        <div class="close-icon"> <a href="#"><i class="fa fa-close"></i></a> </div>
-                                        <p class="product-name"> <a href="#">Lorem Ipsum dolor sit</a> </p> <strong>1</strong> x <span class="price text-primary">$29.99</span> </div>
-                                    <!-- end product-details -->
-                                </li>
-                                <!-- end item -->
+                                @if(isset($productsCart))
+                                    @foreach($productsCart as $product)
+                                        <?php $descriptions = json_decode($product['item']->description, true); ?>
+
+                                        <li>
+                                            <a href="#" class="product-image"> <img src="{{ $descriptions['main_picture_url'] }}" class="img-responsive" alt="Sample Product "> </a>
+                                            <div class="product-details">
+                                                <div class="close-icon">
+                                                    <a href="#"><i class="fa fa-close"></i></a>
+                                                </div>
+                                                <p class="product-name"> <a href="#">{{ $descriptions['title_product'] }}</a> </p>
+                                                <strong>{{ $product['qty']}}</strong> x <span class="price text-primary">{{ $product['price'] }}{{ $descriptions['currency'] }}</span>
+                                            </div>
+                                            <!-- end product-details -->
+                                        </li>
+                                    @endforeach
+
+                                @else
+                                    <li style="text-align: center;">
+                                        <div class="product-details">
+                                            <strong>Кошницата е празна</strong>
+                                        </div>
+                                        <!-- end product-details -->
+                                    </li>
+                                @endif
                             </ol>
                         </div>
                     </li>

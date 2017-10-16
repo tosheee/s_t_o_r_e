@@ -49,7 +49,18 @@ class StoreController extends Controller
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
 
-        //echo array_key_exists($cart->items);
+        //dd($cart->items);
+
+        //foreach($cart->items as $items)
+        //{
+         //foreach($items as $item)
+         //{
+           //  echo $item;
+         //}
+         //}
+
+
+
         return view('store.shopping-cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
 
     }

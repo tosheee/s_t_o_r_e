@@ -42,7 +42,26 @@ class ProductsController extends Controller
             'identifier'      => 'required',
         ]);
 
-        $productId = DB::table('products')->latest('id')->first()->id + 1;
+        if(!isset(DB::table('products')->latest('id')->first()->id))
+        {
+            $product = new Product;
+            $product->category_id     = 1;
+            $product->sub_category_id = 1;
+            $product->identifier      = '';
+            $product->description     = '';
+            $product->save();
+            $oldId = DB::table('products')->latest('id')->first()->id;
+
+            $product = Product::find($oldId);
+            $product->delete();
+        }
+        else
+        {
+            $oldId = DB::table('products')->latest('id')->first()->id;
+        }
+
+        $productId = $oldId + 1;
+
         $descriptionRequest =  $request->input('description');
         if($request->hasFile('upload_main_picture'))
         {
@@ -57,6 +76,7 @@ class ProductsController extends Controller
         {
             $fileNameToStore = 'noimage.jpg';
         }
+
         if($request->hasFile('upload_gallery_pictures') && $request->hasFile('upload_main_picture'))
         {
             for($i = 0; $i < count($request->file('upload_gallery_pictures')); $i++)
