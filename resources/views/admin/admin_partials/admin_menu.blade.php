@@ -66,19 +66,42 @@
                         <a id="panel1" href="javascript:;" data-toggle="collapse" data-target="#Dashboard"> <i class="fa fa-dashboard"></i> Dashboard
                             <i class="fa fa-chevron-left pull-right" id="arow1"></i> </a>
                         <ul class="collapse nav" id="Dashboard">
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
+                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> New Orders</a> </li>
                             <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
                         </ul>
                     </li>
 
                     <li class="panel">
-                        <a id="panel2" href="javascript:;" data-toggle="collapse" data-target="#charts"> <i class="fa fa-bar-chart-o"></i> Charts
-                            <i class="fa fa-chevron-left pull-right" id="arow2"></i> </a>
-                        <ul class="collapse nav" id="charts">
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
+                        <a id="panel5" href="javascript:;" data-toggle="collapse" data-target="#edit"> <i class="fa fa-edit"></i> Create Component
+                            <i class="fa fa fa-chevron-left pull-right" id="arow5"></i>
+                        </a>
+                        <ul class="collapse nav" id="edit">
+                            <li> <a href="/admin/categories/create"><i class="fa fa-angle-double-right"></i> New Category</a> </li>
+                            <li> <a href="/admin/sub_categories/create"><i class="fa fa-angle-double-right"></i> New Sub Category</a> </li>
+                            <li> <a href="/admin/products/create"><i class="fa fa-angle-double-right"></i> New product</a> </li>
                         </ul>
                     </li>
+
+
+
+
+                        <li class="panel">
+                            <a id="panel2" href="javascript:;" data-toggle="collapse" data-target="#charts"> <i class="fa fa-bar-chart-o"></i> All Products
+                                <i class="fa fa-chevron-left pull-right" id="arow2"></i> </a>
+                            <ul class="collapse nav" id="charts">
+                                @foreach($subCategoriesButtonsName as $subCategoriesButtonsName)
+                                    <li> <a href="#"><i class="fa fa-angle-double-right"></i> {{ $subCategoriesButtonsName->name }}</a> </li>
+                                @endforeach
+                            </ul>
+                        </li>
+
+
+
+
+
+
+
+
 
                     <li class="panel">
                         <a id="panel3" href="javascript:;" data-toggle="collapse" data-target="#calendar"> <i class="fa fa-calendar"></i> calendar
@@ -98,15 +121,7 @@
                         </ul>
                     </li>
 
-                    <li class="panel">
-                        <a id="panel5" href="javascript:;" data-toggle="collapse" data-target="#edit"> <i class="fa fa-edit"></i> edit
-                            <i class="fa fa fa-chevron-left pull-right" id="arow5"></i>
-                        </a>
-                        <ul class="collapse nav" id="edit">
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
-                        </ul>
-                    </li>
+
 
                     <li class="panel">
                         <a id="panel6" href="javascript:;" data-toggle="collapse" data-target="#inbox"> <i class="fa fa-inbox"></i> inbox
