@@ -5,7 +5,7 @@
         </ul>
         <ul class="topBarNav pull-right">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-usd mr-5"></i>USD<i class="fa fa-angle-down ml-5"></i>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-bgn mr-5"></i>BGN<i class="fa fa-angle-down ml-5"></i>
                 </a>
                 <ul class="dropdown-menu w-100" role="menu">
                     <li><a href="#"><i class="fa fa-eur mr-5"></i>EUR</a>
@@ -17,36 +17,37 @@
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <img src="http://diamondcreative.net/plus-v1.2/img/flags/flag-french.jpg" class="mr-5" alt=""> <span class="hidden-xs"> French <i class="fa fa-angle-down ml-5"></i></span> </a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">
+                    <img src="http://icons.iconarchive.com/icons/osiris/world-flags/16/00-cctld-bg-icon.png" class="mr-5" alt="">
+                    <span class="hidden-xs"> Bulgarian <i class="fa fa-angle-down ml-5"></i></span>
+                </a>
                 <ul class="dropdown-menu w-100" role="menu">
                     <li>
                         <a href="#"><img src="http://diamondcreative.net/plus-v1.2/img/flags/flag-english.jpg" class="mr-5" alt="">English</a>
-                    </li>
-                    <li class="">
-                        <a href="#"><img src="http://diamondcreative.net/plus-v1.2/img/flags/flag-french.jpg" class="mr-5" alt="">French</a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="http://diamondcreative.net/plus-v1.2/img/flags/flag-german.jpg" class="mr-5" alt="">German</a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="http://diamondcreative.net/plus-v1.2/img/flags/flag-spain.jpg" class="mr-5" alt="">Spain</a>
                     </li>
                 </ul>
             </li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-user mr-5"></i><span class="hidden-xs">My Account<i class="fa fa-angle-down ml-5"></i></span> </a>
                 <ul class="dropdown-menu w-150" role="menu">
-                    <li><a href="login.html">Login</a>
-                    </li>
-                    <li><a href="register.html">Create Account</a>
-                    </li>
+                    @if (Auth::guest())
+                        <li><a href="{{ route('login') }}">Login</a></li>
+                        <li><a href="{{ route('register') }}">Register</a></li>
+                    @else
+
                     <li class="divider"></li>
-                    <li><a href="wishlist.html">Wishlist (5)</a>
+                    <li><a href="#">{{ Auth::user()->name }}</a>
                     </li>
-                    <li><a href="cart.html">My Cart</a>
+                    <li>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                     </li>
-                    <li><a href="checkout.html">Checkout</a>
-                    </li>
+                    @endif
                 </ul>
             </li>
             <li class="dropdown">
