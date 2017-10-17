@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('admin.admin_partials.admin_menu')
+
     <h3>Categories</h3>
 
-    <a class="btn btn-primary" href="/admin/categories/create">Create Post</a>
+    <a class="btn btn-primary" href="/admin/categories/create">Create Category</a>
     <br>
     <br>
     @if(count($categories) > 0)
@@ -34,4 +36,5 @@
     @else
         <p>No category for Category</p>
     @endif
+    @include('admin.admin_partials.admin_menu_bottom')
 @endsection

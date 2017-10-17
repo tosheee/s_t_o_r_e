@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('admin.admin_partials.admin_menu')
+
     <h3>SubCategories</h3>
 
     <a class="btn btn-primary" href="/admin/sub_categories/create">Create SubCategory</a>
@@ -43,4 +45,5 @@
     @else
         <p>No category for SubCategory</p>
     @endif
+    @include('admin.admin_partials.admin_menu_bottom')
 @endsection

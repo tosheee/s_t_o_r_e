@@ -17,13 +17,13 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('admin.categories.index')->with('categories', $categories);
+        return view('admin.categories.index')->with('categories', $categories)->with('title', 'All Category');
     }
 
 
     public function create()
     {
-        return view('admin.categories.create');
+        return view('admin.categories.create')->with('title', 'Create Category');
     }
 
     public function store(Request $request)
@@ -37,19 +37,19 @@ class CategoriesController extends Controller
         $cagegory->name = $request->input('name');
         $cagegory->save();
 
-        return redirect('admin/categories');
+        return redirect('admin/categories')->with('title', 'Create Category');
     }
 
     public function show($id)
     {
         $category = Category::find($id);
-        return view('admin.categories.show')->with('category', $category);
+        return view('admin.categories.show')->with('category', $category)->with('title', 'View Product');
     }
 
     public function edit($id)
     {
         $category = Category::find($id);
-        return view('admin.categories.edit')->with('category', $category);
+        return view('admin.categories.edit')->with('category', $category)->with('title', 'Edit Product');
     }
 
     public function update(Request $request, $id)

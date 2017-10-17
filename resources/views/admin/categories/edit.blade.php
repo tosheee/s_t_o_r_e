@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('admin.admin_partials.admin_menu')
 
-<h1>Edit Category</h1>
+
+    <h1>Edit Category</h1>
 <a href="/admin/categories" class="btn btn-default">Go Back</a>
 
 <form method="POST" action="/admin/categories/{{ $category->id }}" accept-charset="UTF-8" enctype="multipart/form-data">
@@ -19,4 +21,5 @@
 </form>
 
 </main>
+@include('admin.admin_partials.admin_menu_bottom')
 @endsection

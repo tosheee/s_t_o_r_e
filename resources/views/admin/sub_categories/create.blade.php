@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('admin.admin_partials.admin_menu')
+
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -61,4 +63,5 @@
             </div>
         </div>
     </div>
+    @include('admin.admin_partials.admin_menu_bottom')
 @endsection

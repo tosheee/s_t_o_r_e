@@ -19,13 +19,13 @@ class SubCategoriesController extends Controller
     {
         $subCategories = SubCategory::all();
         $categories = Category::all();
-        return view('admin.sub_categories.index')->with('subCategories', $subCategories)->with('categories', $categories);
+        return view('admin.sub_categories.index')->with('subCategories', $subCategories)->with('categories', $categories)->with('title', 'All Sub Category');
     }
 
     public function create()
     {
         $categories = Category::all();
-        return view('admin.sub_categories.create')->with('categories', $categories);
+        return view('admin.sub_categories.create')->with('categories', $categories)->with('title', 'Create Sub Category');
     }
 
     public function store(Request $request)

@@ -40,23 +40,15 @@
                         <?php $descriptions = json_decode($product->description, true); ?>
                             {{ $descriptions['article_id'] }}
                             <a href="/admin/products/{{ $product->id }}">{{ $descriptions['title_product'] }}</a>
-                            {{ $descriptions['product_status'] }}
-                            {!! $descriptions['general_description'] !!}
-                            {{ $descriptions['price'] }}
-                            {{ $descriptions['currency'] }}
-                            {{ $descriptions['main_picture_url'] }}
-
-                            @foreach( $descriptions['gallery'] as $description)
-                                   {{ $description["picture_url"] }}
-                            @endforeach
-
-                            @foreach( $descriptions['properties'] as $key => $property)
-                                @if ($key % 2 == 0)
-                                       {{ $property['name'] }}
+                            <div class="middle">
+                                @if (isset($descriptions['main_picture_url']))
+                                    <img style="margin: 0 auto; width: 120px;height: 100px;" src="{{ $descriptions['main_picture_url'] }}" alt="pic" />
+                                @elseif(isset($descriptions['upload_basic_image']))
+                                    <img style="margin: 0 auto; width: 120px;height: 100px;" src="/storage/upload_pictures/{{ $product->id }}/{{ $descriptions['upload_basic_image'] }}" alt="pic" />
                                 @else
-                                       {{ $property['text'] }}
+                                    <img style="margin: 0 auto; width: 120px;height: 100px;" src="/storage/upload_basic_image/noimage.jpg" alt="pic" />
                                 @endif
-                            @endforeach
+                            </div>
                     </td>
 
                     <td><a class="btn btn-default" href="/admin/products/{{ $product->id }}/edit">Edit</a></td>

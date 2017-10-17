@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="/admin/categories" class="btn btn-default">Go Back</a>
+    @include('admin.admin_partials.admin_menu')
+
+    <a href="/admin/categories" class="btn btn-default">Go Back</a>
 <h1>{{ $category->name }}</h1>
 
 <div class="well">
@@ -15,5 +17,5 @@
     </form>
 
 </div>
-
+    @include('admin.admin_partials.admin_menu_bottom')
 @endsection

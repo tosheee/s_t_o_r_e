@@ -72,12 +72,17 @@
                     </li>
 
                     <li class="panel">
-                        <a id="panel5" href="javascript:;" data-toggle="collapse" data-target="#edit"> <i class="fa fa-edit"></i> Create Component
+                        <a id="panel5" href="javascript:;" data-toggle="collapse" data-target="#edit"> <i class="fa fa-edit"></i> Components
                             <i class="fa fa fa-chevron-left pull-right" id="arow5"></i>
                         </a>
                         <ul class="collapse nav" id="edit">
+                            <li> <a href="/admin/categories/"><i class="fa fa-angle-double-right"></i> Categories</a> </li>
                             <li> <a href="/admin/categories/create"><i class="fa fa-angle-double-right"></i> New Category</a> </li>
+
+                            <li> <a href="/admin/sub_categories/"><i class="fa fa-angle-double-right"></i> Sub Categories</a> </li>
                             <li> <a href="/admin/sub_categories/create"><i class="fa fa-angle-double-right"></i> New Sub Category</a> </li>
+
+                            <li> <a href="/admin/products"><i class="fa fa-angle-double-right"></i> Products</a> </li>
                             <li> <a href="/admin/products/create"><i class="fa fa-angle-double-right"></i> New product</a> </li>
                         </ul>
                     </li>
