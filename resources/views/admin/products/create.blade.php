@@ -70,6 +70,11 @@
             </label>
 
             <label>
+                <span>Old Price:</span>
+                <input type="text" name="description[old_price]" value="" id="admin_product_description" class="label-values"/>
+            </label>
+
+            <label>
                 <span style="margin: 0;">Currency:</span>
                  <input type="radio" name="description[currency]" value="лв." checked> BGN:
                  <input type="radio" name="description[currency]" value="euro"> EUR:

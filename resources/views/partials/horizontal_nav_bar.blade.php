@@ -128,40 +128,18 @@
                         <div class="col-sm-3">
                             <select class="form-control input-lg" name="category">
                                 <option value="all">All Categories</option>
-                                <optgroup label="Mens">
-                                    <option value="shirts">Shirts</option>
-                                    <option value="coats-jackets">Coats & Jackets</option>
-                                    <option value="underwear">Underwear</option>
-                                    <option value="sunglasses">Sunglasses</option>
-                                    <option value="socks">Socks</option>
-                                    <option value="belts">Belts</option>
-                                </optgroup>
-                                <optgroup label="Womens">
-                                    <option value="bresses">Bresses</option>
-                                    <option value="t-shirts">T-shirts</option>
-                                    <option value="skirts">Skirts</option>
-                                    <option value="jeans">Jeans</option>
-                                    <option value="pullover">Pullover</option>
-                                </optgroup>
-                                <option value="kids">Kids</option>
-                                <option value="fashion">Fashion</option>
-                                <optgroup label="Sportwear">
-                                    <option value="shoes">Shoes</option>
-                                    <option value="bags">Bags</option>
-                                    <option value="pants">Pants</option>
-                                    <option value="swimwear">Swimwear</option>
-                                    <option value="bicycles">Bicycles</option>
-                                </optgroup>
-                                <option value="bags">Bags</option>
-                                <option value="shoes">Shoes</option>
-                                <option value="hoseholds">HoseHolds</option>
-                                <optgroup label="Technology">
-                                    <option value="tv">TV</option>
-                                    <option value="camera">Camera</option>
-                                    <option value="speakers">Speakers</option>
-                                    <option value="mobile">Mobile</option>
-                                    <option value="pc">PC</option>
-                                </optgroup>
+
+                                @foreach($categoriesButtonsName as $categoryButton)
+                                    <!-- category-name -->
+                                    <optgroup label="{{ $categoryButton->name }}">
+                                        <!-- sub category-name -->
+                                        @foreach($subCategoriesButtonsName as $subCategoryButton)
+                                            @if ($subCategoryButton->category_id == $categoryButton->id)
+                                                <option value="{{ $subCategoryButton->name }}">{{ $subCategoryButton->name }}</option>
+                                            @endif
+                                        @endforeach
+                                    </optgroup>
+                                @endforeach
                             </select>
                         </div>
                         <!-- end col -->
@@ -204,61 +182,36 @@
         <!-- Collect the nav links,  -->
         <div class="collapse navbar-collapse navbar-1" style="margin-top: 0px;">
             <ul class="nav navbar-nav">
-                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">Home</a></li>
-
                 <li class="dropdown megaDropMenu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">Shop <i class="fa fa-angle-down ml-5"></i></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">Продукти <i class="fa fa-angle-down ml-5"></i></a>
                     <ul class="dropdown-menu row">
-                        <li class="col-sm-3 col-xs-12">
-                            <ul class="list-unstyled">
-                                <li>Products Grid View</li>
-                                <li><a href="#">Products</a></li>
-                                <li><a href="#">Sidebar Left</a></li>
-                                <li><a href="#">Products Left</a></li>
-                            </ul>
-                        </li>
-                        <li class="col-sm-3 col-xs-12">
-                            <ul class="list-unstyled">
-                                <li>Products List View</li>
-                                <li><a href="#"> Sidebar Left</a></li>
-                                <li><a href="#">Products Left</a></li>
-                                <li><a href="#">Products Sidebar</a></li>
-                            </ul>
-                        </li>
-                        <li class="col-sm-3 col-xs-12">
-                            <ul class="list-unstyled">
-                                <li>Checkout</li>
-                                <li><a href="#">Step 1</a></li>
-                                <li><a href="#">Step 2</a></li>
-                                <li><a href="#">Step 3</a></li>
-                            </ul>
-                        </li>
-                        <li class="col-sm-3 col-xs-12">
-                            <ul class="list-unstyled">
-                                <li>Sumit Kumar</li>
-                            </ul>
-                            <img src="profile-pic.jpg" class="img-responsive" alt="menu-img">
-                        </li>
+                        @foreach($categoriesButtonsName as $categoryButton)
+                            <li class="col-sm-3 col-xs-12">
+                                <ul class="list-unstyled">
+                                    <li>{{ $categoryButton->name }}</li>
+                                    @foreach($subCategoriesButtonsName as $subCategoryButton)
+                                        @if ($subCategoryButton->category_id == $categoryButton->id)
+                                            <li><a href="#">{{ $subCategoryButton->name }}</a></li>
+                                        @endif
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endforeach
                     </ul>
                 </li>
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">Page <i class="fa fa-angle-down ml-5"></i></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">Други<i class="fa fa-angle-down ml-5"></i></a>
                     <ul class="dropdown-menu dropdown-menu-left">
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Register</a></li>
                         <li><a href="#">Register or Login</a></li>
                         <li><a href="#">Login</a></li>
-                        <li><a href="#">Password Recovery</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">404 Not Found</a></li>
-                        <li><a href="#">Short Code</a></li>
-                        <li><a href="#">Coming Soon</a></li>
                     </ul>
                 </li>
-                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">Blog</a></li>
-                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">My List</a></li>
+                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">За нас</a></li>
+                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">Статии</a></li>
+                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">Контакти</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div>

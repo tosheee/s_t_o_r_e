@@ -33,7 +33,11 @@
                                 <div class="heading"><a href="/store/{{ $product->id }}">{{ $descriptions['title_product'] }}</a></div>
                                 <div class="info">Classic red converse edition</div>
                                 <div class="style">{{ $descriptions['product_status'] }}</div>
-                                <div class="price"> {{ $descriptions['price'] }}{{ $descriptions['currency'] }} <span class="old-price">$75.00</span></div>
+                                <div class="price"> {{ $descriptions['price'] }} {{ $descriptions['currency'] }}
+                                @if (isset($descriptions['old_price']))
+                                    <span class="old-price">{{ $descriptions['old_price'] }} {{ $descriptions['currency'] }}</span>
+                                @endif
+                                </div>
                             </div>
 
                         </div>
