@@ -57,7 +57,18 @@
                     </select>
                 </label>
             </div>
+
+
+            <label>
+                <span style="margin: 0;">Active: </span>
+                <input type="radio" name="active" value="1" {{ $product->active == 1 ? 'checked' : '' }}> Yes
+                <input type="radio" name="active" value="0" {{ $product->active == 1 ? '' : 'checked' }}> Not
+            </label>
+            <br>
+
+
             <?php $descriptions = json_decode($product->description, true); ?>
+
 
             <label>
                 <span>Article id:</span>
@@ -68,6 +79,20 @@
                 <span>Name product:</span>
                 <input type="text" name="description[title_product]" value="{{ $descriptions['title_product'] }}" id="admin_product_description" class="label-values"/>
             </label>
+
+            <label>
+                <span style="margin: 0;">Recommended: </span>
+                <input type="radio" name="recommended" value="1" {{ $product->recommended == 1 ? 'checked' : '' }}> Yes
+                <input type="radio" name="recommended" value="0" {{ $product->recommended == 1 ? '' : 'checked' }}> Not
+            </label>
+            <br>
+
+            <label>
+                <span style="margin: 0;">Best sellers: </span>
+                <input type="radio" name="best_sellers" value="1" {{ $product->best_sellers == 1 ? 'checked' : '' }}> Yes
+                <input type="radio" name="best_sellers" value="0" {{ $product->best_sellers == 1 ? '' : 'checked' }}> Not
+            </label>
+            <br>
 
             <label>
                 <span>Product status:</span>
@@ -135,26 +160,26 @@
 
 
 
+                @if(isset($descriptions['properties']))
+                    @foreach( $descriptions['properties'] as $key => $property)
+                        @if ($key % 2 == 0)
+                        <div class="fields">
+                            <label>
 
-                @foreach( $descriptions['properties'] as $key => $property)
-                    @if ($key % 2 == 0)
-                    <div class="fields">
-                        <label>
-
-                                <input style="width: 200px" type="text" name="description[properties][][name]" id="admin_product_description" class="label-names" value="{{ $property['name'] }}">
-                            @else
-                                <input type="text" name="description[properties][][text]" id="admin_product_description" class="label-values" value="{{ $property['text'] }}">
-                                <a href="#" class="remove_field">Remove</a>
-                        </label>
-                    </div>
-                    @endif
-                @endforeach
-
+                                    <input style="width: 200px" type="text" name="description[properties][][name]" id="admin_product_description" class="label-names" value="{{ $property['name'] }}">
+                                @else
+                                    <input type="text" name="description[properties][][text]" id="admin_product_description" class="label-values" value="{{ $property['text'] }}">
+                                    <a href="#" class="remove_field">Remove</a>
+                            </label>
+                        </div>
+                        @endif
+                    @endforeach
+                @endif
             </div>
 
             <div class="actions">
                 <input name="_method" type="hidden" value="PUT">
-                <input type="submit" name="commit" value="Create Product feature" class="btn btn-default">
+                <input type="submit" name="commit" value="Update Product" class="btn btn-default">
             </div>
         </form>
 

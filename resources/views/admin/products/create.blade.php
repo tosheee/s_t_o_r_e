@@ -46,6 +46,12 @@
                 </label>
             </div>
 
+            <label>
+                <span style="margin: 0;">Disable product in store: </span>
+                <input type="radio" name="active" value="1" checked> Yes:
+                <input type="radio" name="active" value="0"> Not:
+            </label>
+            <br>
 
             <label>
                 <span>Article id:</span>
@@ -56,6 +62,20 @@
                 <span>Name product:</span>
                 <input type="text" name="description[title_product]" value="" id="admin_product_description" class="label-values"/>
             </label>
+
+            <label>
+                <span style="margin: 0;">Recommended: </span>
+                <input type="radio" name="recommended" value="0" checked> Not:
+                <input type="radio" name="recommended" value="1"> Yes:
+            </label>
+            <br>
+
+            <label>
+                <span style="margin: 0;">Best sellers: </span>
+                <input type="radio" name="best_sellers" value="0" checked> Not:
+                <input type="radio" name="best_sellers" value="1"> Yes:
+            </label>
+            <br>
 
             <label>
                 <span style="margin: 0;">Availability: </span>

@@ -24,6 +24,8 @@ class ProductsController extends Controller
         $categories = Category::all();
         $subCategories = SubCategory::all();
         $products = Product::all();
+
+        //$products = Product::where('active', true)->paginate(2);
         return view('admin.products.index')->with('categories', $categories)->with('subCategories', $subCategories)->with('products', $products)->with('title', 'Product Dashboard');
     }
 
@@ -96,7 +98,10 @@ class ProductsController extends Controller
         $product->category_id     = $request->input('category_id');
         $product->sub_category_id = $request->input('sub_category_id');
         $product->identifier      = $request->input('identifier');
-        $product->active          = true;//$request->input('active');
+        $product->user_id         = '';
+        $product->active          = $request->input('active');
+        $product->recommended     = $request->input('recommended');
+        $product->best_sellers    = $request->input('best_sellers');
         $product->description     = $description;
         $product->save();
 
@@ -134,7 +139,9 @@ class ProductsController extends Controller
         $product->category_id     = $request->input('category_id');
         $product->sub_category_id = $request->input('sub_category_id');
         $product->identifier      = $request->input('identifier');
-        $product->active          = true;//$request->input('actiive');
+        $product->active          = $request->input('active');
+        $product->recommended     = $request->input('recommended');
+        $product->best_sellers    = $request->input('best_sellers');
         $product->description     = $description;
         $product->save();
 

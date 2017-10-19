@@ -35,7 +35,7 @@
 
 
                     <td>{{ $product->identifier }}</td>
-                    <td>{{ $product->active }}</td>
+                    <td>{{ $product->active == 1 ? 'Active' : 'Not' }}</td>
                     <td>
                         <?php $descriptions = json_decode($product->description, true); ?>
                             {{ $descriptions['article_id'] }}

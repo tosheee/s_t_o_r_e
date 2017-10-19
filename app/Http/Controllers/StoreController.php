@@ -17,7 +17,7 @@ class StoreController extends Controller
     {
         $categories = Category::all();
         $subCategories = SubCategory::all();
-        $products = Product::all();
+        $products = Product::where('active', true)->paginate(2);
         return view('store.index', ['categories' => $categories, 'subCategories' => $subCategories, 'products' => $products]);
     }
 
