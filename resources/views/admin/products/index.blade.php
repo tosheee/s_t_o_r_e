@@ -38,9 +38,16 @@
                     <td>{{ $product->active == 1 ? 'Active' : 'Not' }}</td>
                     <td>
                         <?php $descriptions = json_decode($product->description, true); ?>
-                            {{ $descriptions['article_id'] }}
-                            <a href="/admin/products/{{ $product->id }}">{{ $descriptions['title_product'] }}</a>
-                            <div class="middle">
+
+                            @if(isset($descriptions['article_id']))
+                                {{ $descriptions['article_id'] }}
+                            @endif
+
+                            @if(isset($descriptions['title_product']))
+                                <a href="/admin/products/{{ $product->id }}">{{ $descriptions['title_product'] }}</a>
+                            @endif
+
+                                <div class="middle">
                                 @if (isset($descriptions['main_picture_url']))
                                     <img style="margin: 0 auto; width: 120px;height: 100px;" src="{{ $descriptions['main_picture_url'] }}" alt="pic" />
                                 @elseif(isset($descriptions['upload_basic_image']))
