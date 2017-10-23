@@ -139,7 +139,7 @@
                     <div class="url-basic-image-field" >
                         <label>
                             <span>Url Basic Image:</span>
-                            <input type="text" name="description[main_picture_url]" value="{{ $descriptions['main_picture_url'] }}" id="admin_product_description" class="label-values"/>
+                            <input type="text" name="description[main_picture_url]" value="{{ isset($descriptions['main_picture_url']) ? $descriptions['main_picture_url'] : '' }}" id="admin_product_description" class="label-values"/>
                             <a href="#" class="remove-url-basic-image"><i style="color: red;" aria-hidden="true" id="chang-menu-icon" class="fa fa-times"></i></a>
                         </label>
                     </div>
@@ -218,18 +218,30 @@
 
 
             <div class="input_fields_wrap">
-                <button class="add_field_button">Add gallery</button>
+                <button class="upload-img-gallery-button btn btn-info btn-xs">Add upload form </button>
+                <button class="field-img-gallery-button btn btn-warning btn-xs">Add field form</button>
+                <br>
 
                 <br>
                 <?php ?>
                 @if(isset($descriptions['gallery']))
                     @foreach ($descriptions['gallery'] as $description)
                         @if(isset($description["picture_url"]))
-                            <div class="fields">
+                            <div class="gallery-fields">
                                 <label>
-                                    <span>Product gallery:</span>
+                                    <span>URL gallery picture:</span>
                                     <input type="text" name="description[gallery][][picture_url]" value="{{ $description["picture_url"] }}">
                                     <a href="#" class="remove_field">Remove</a>
+                                </label>
+                            </div>
+                        @endif
+
+                        @if(isset($description["upload_picture"]))
+                            <div class="gallery-fields">
+                                <label>
+                                    <span>Upload gallery picture:</span>
+                                    <input type="text" name="description[gallery][][upload_picture]" value="{{ $description["upload_picture"] }}">
+                                    <a href="#" class="remove_field"><i style="color: red;" aria-hidden="true" id="chang-menu-icon" class="fa fa-times"></i></a>
                                 </label>
                             </div>
                         @endif
@@ -237,8 +249,53 @@
                 @endif
             </div>
 
+
+            <script>
+                $(document).ready(function() {
+                    var max_fields = 5;
+                    var wrapper    = $(".input_fields_wrap");
+                    var upload_img_gallery_button = $(".upload-img-gallery-button");
+                    var field_img_gallery_button  = $(".field-img-gallery-button");
+                    var x = $('.gallery-fields').length;
+
+                    $(field_img_gallery_button).click(function(e){
+                        e.preventDefault();
+                        if(x < max_fields){
+                            x++;
+                            $(wrapper).append(
+                                    '<div class="gallery-fields" ><label><span>URL gallery picture:</span>' +
+                                    '<input type="text" name="description[gallery][][picture_url]"/>' +
+                                    '<a href="#" class="remove_field"><i style="color: red;" aria-hidden="true" id="chang-menu-icon" class="fa fa-times"></i></a>' +
+                                    '</label></div>');
+                        }
+                    });
+                    $(wrapper).on("click",".remove_field", function(e){
+                        e.preventDefault(); $(this).parent('div.gallery-fields label').remove(); x--;
+                    });
+
+
+                    $(upload_img_gallery_button).click(function(e){
+                        e.preventDefault();
+                        if(x < max_fields){
+                            x++;
+                            $(wrapper).append('<div class="upload-img-gallery-button">' +
+                            '<input type="file" name="upload_gallery_pictures[]" class="label-values"/>' +
+                            '<a href="#" class="remove-img-gallery-button">' +
+                            '<i style="color: red;" aria-hidden="true" id="chang-menu-icon" class="fa fa-times"></i></a>' +
+                            '</div>');
+                        }
+                    });
+
+                    $(wrapper).on("click",".remove-img-gallery-button", function(e){
+                        e.preventDefault();
+                        $(this).parent('div.upload-img-gallery-button').remove();
+                        x--;
+                    });
+                });
+            </script>
+
             <div class="specification_fields_wrap">
-                <button class="add_spec_field_button">Add specification</button>
+                <button class="add_spec_field_button btn-primary btn-xs">Add specification</button>
                 <br>
                 <br>
 
@@ -287,57 +344,6 @@
 
 
     <script>
-        /// url basic picture
-
-
-
-
-        /// upload basic picture
-
-
-
-
-        // gallery images
-        $(document).ready(function() {
-            var max_fields = 6;
-            var wrapper    = $(".input_fields_wrap");
-            var upload_img_gallery_button = $(".upload-img-gallery-button");
-            var field_img_gallery_button  = $(".field-img-gallery-button");
-            var x = 1;
-            $(field_img_gallery_button).click(function(e){
-                e.preventDefault();
-                if(x < max_fields){
-                    x++;
-                    $(wrapper).append(
-                            '<div class="fields" ><label><span>Product galery:</span>' +
-                            '<input type="text" name="description[gallery][][picture_url]"/>' +
-                            '<a href="#" class="remove_field"><i style="color: red;" aria-hidden="true" id="chang-menu-icon" class="fa fa-times"></i></a>' +
-                            '</label></div>');
-                }
-            });
-            $(wrapper).on("click",".remove_field", function(e){
-                e.preventDefault(); $(this).parent('div.fields label').remove(); x--;
-            });
-
-
-            $(upload_img_gallery_button).click(function(e){
-                e.preventDefault();
-                if(x < max_fields){
-                    x++;
-                    $(wrapper).append('<div class="upload-img-gallery-button">' +
-                    '<input type="file" name="upload_gallery_pictures[]" class="label-values"/>' +
-                    '<a href="#" class="remove-img-gallery-button">' +
-                    '<i style="color: red;" aria-hidden="true" id="chang-menu-icon" class="fa fa-times"></i></a>' +
-                    '</div>');
-                }
-            });
-
-            $(wrapper).on("click",".remove-img-gallery-button", function(e){
-                e.preventDefault();
-                $(this).parent('div.upload-img-gallery-button').remove();
-                x--;
-            });
-        });
 
 
         // specification

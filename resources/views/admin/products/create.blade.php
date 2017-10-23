@@ -47,7 +47,7 @@
             </div>
 
             <label>
-                <span style="margin: 0;">Disable product in store: </span>
+                <span style="margin: 0;">Active product in the store: </span>
                 <input type="radio" name="active" value="1" checked> Yes:
                 <input type="radio" name="active" value="0"> Not:
             </label>

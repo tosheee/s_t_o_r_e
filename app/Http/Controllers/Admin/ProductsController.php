@@ -125,13 +125,6 @@ class ProductsController extends Controller
 
         $old_descriptions = json_decode($product->description, true);
 
-
-
-        if(isset($descriptionRequest['main_picture_url']) && isset($old_descriptions['upload_main_picture']))
-        {
-            Storage::delete('public/upload_pictures/'.$id.'/'.$old_descriptions['upload_main_picture']);
-        }
-
         if($request->hasFile('upload_main_picture'))
         {
             $filenameWithExt = $request->file('upload_main_picture')->getClientOriginalName();
@@ -151,17 +144,28 @@ class ProductsController extends Controller
         }
 
         // gallery
-        if($request->hasFile('upload_gallery_pictures') && $request->hasFile('upload_main_picture'))
+        if($request->hasFile('upload_gallery_pictures'))
         {
-            for($i = 0; $i < count($request->file('upload_gallery_pictures')); $i++)
+
+            if(isset($old_descriptions['gallery']))
+            {
+                $old_pic_num = count($old_descriptions['gallery']);
+            }
+            else
+            {
+                $old_pic_num = 0;
+            }
+
+            $new_pic_num = count($request->file('upload_gallery_pictures'));
+
+            for($i = 0; $i < $new_pic_num; $i++)
             {
                 $filenameWithExt = $request->file('upload_gallery_pictures')[$i]->getClientOriginalName();
                 $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
                 $extension = $request->file('upload_gallery_pictures')[$i]->getClientOriginalExtension();
                 $fileNameToStore = 'gallery_'.$filename.'_'.time().'.'.$extension;
-                //delete upload gallery picture
                 $path = $request->file('upload_gallery_pictures')[$i]->storeAs('public/upload_pictures/'.$id, $fileNameToStore);
-                $descriptionRequest['gallery'][$i]['upload_picture'] = $fileNameToStore;
+                $descriptionRequest['gallery'][$i + $old_pic_num]['upload_picture'] = $fileNameToStore;
             }
         }
 
@@ -175,6 +179,34 @@ class ProductsController extends Controller
         $product->best_sellers    = $request->input('best_sellers');
         $product->description     = $description;
         $product->save();
+
+        $actual_data = Product::find($id);
+        $new_descriptions = json_decode($actual_data->description, true);
+
+        if (isset($new_descriptions['gallery']))
+        {
+            $pic_files = Storage::allFiles('public/upload_pictures/'.$id.'/');
+            $pic_name = array();
+
+            for($i = 0; $i< count($pic_files); $i++)
+             {
+                 $file_name = pathinfo($pic_files[$i], PATHINFO_FILENAME);
+                 if(mb_substr($file_name, 0, 5) != 'basic')
+                 {
+                     $file_exn = pathinfo($pic_files[$i],  PATHINFO_EXTENSION);
+                     $file_name = pathinfo($pic_files[$i], PATHINFO_FILENAME);
+                     $pic_name[$i] = $file_name.'.'.$file_exn;
+                 }
+             }
+
+            $new_pictures = array_column($new_descriptions['gallery'], 'upload_picture');
+            $diff_pic = array_diff($pic_name, $new_pictures);
+
+            foreach($diff_pic as $old_picture)
+            {
+                Storage::delete('public/upload_pictures/'.$id.'/'.$old_picture);
+            }
+        }
 
         return redirect('/admin/products')->with('success', 'Product Updated');
     }
@@ -199,6 +231,7 @@ class ProductsController extends Controller
     {
         $product = Product::find($id);
         $product->delete();
-        return view('admin/products')->with('success', 'Product Removed');
+        Storage::delete('public/upload_pictures/'.$id);
+        return view('admin.products')->with('success', 'Product Removed');
     }
 }

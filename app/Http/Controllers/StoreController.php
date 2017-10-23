@@ -17,7 +17,7 @@ class StoreController extends Controller
     {
         $categories = Category::all();
         $subCategories = SubCategory::all();
-        $products = Product::where('active', true)->paginate(2);
+        $products = Product::where('active', true)->paginate(3);
         return view('store.index', ['categories' => $categories, 'subCategories' => $subCategories, 'products' => $products]);
     }
 
@@ -49,20 +49,7 @@ class StoreController extends Controller
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
 
-        //dd($cart->items);
-
-        //foreach($cart->items as $items)
-        //{
-         //foreach($items as $item)
-         //{
-           //  echo $item;
-         //}
-         //}
-
-
-
         return view('store.shopping-cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
-
     }
 
     public function getCheckout()

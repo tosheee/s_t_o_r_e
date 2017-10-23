@@ -61,7 +61,7 @@
                     <td><a class="btn btn-default" href="/admin/products/{{ $product->id }}/edit">Edit</a></td>
 
                     <td>
-                        <form method="POST" action="/admin/product/{{ $product->id }}" accept-charset="UTF-8" class="pull-right">
+                        <form method="POST" action="/admin/products/{{ $product->id }}" accept-charset="UTF-8" class="pull-right">
                             {{ csrf_field() }}
                             <input name="_method" type="hidden" value="DELETE">
                             <input class="btn btn-danger" type="submit" value="Delete">
