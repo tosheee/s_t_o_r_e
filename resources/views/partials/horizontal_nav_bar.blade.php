@@ -224,19 +224,6 @@
     </div>
 </nav>
 
-
-
-
-
-
-
-
-
-
-
-
-<script src="js/jquery-3.1.1.js"></script>
-<script src="js/bootstrap.js"></script>
 <script type="text/javascript">
     ! function($, n, e) {
         var o = $();

@@ -12,9 +12,9 @@
 
     <!-- Styles -->
     <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet" type="text/css" >
+
     <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/bootstrap.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/jquery-3.1.1.js') }}"></script>
+
 </head>
 <body>
     <div id="app">
@@ -35,11 +35,9 @@
         <footer>
             @include('partials.footer')
         </footer>
-        <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-    <script>
-        CKEDITOR.replace( 'editor1' );
-    </script>
+
+
+
+
 </body>
 </html>

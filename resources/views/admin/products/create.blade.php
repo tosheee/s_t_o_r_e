@@ -40,14 +40,6 @@
                 $sub->where('category_id', 1)->get();
             ?>
 
-            <script>
-                $(document).ready(function(){
-                    $('#select-category').change(function (){
-                       var category_id = $(this).find(":selected").val();
-                       console.log(category_id);
-                    });
-                });
-            </script>
 
             <div class="form-group{{ $errors->has('identifier') ? ' has-error' : '' }}">
                 <label>
@@ -119,7 +111,7 @@
 
             <span>Product description:</span>
             <label>
-                <textarea name="description[general_description]" id="editor1" ></textarea>
+                <textarea name="description[general_description]" id="editor-create" ></textarea>
             </label>
 
             <br>
@@ -285,15 +277,14 @@
                 $('#btnOn').focus();
             }
         }
-        CKEDITOR.replace( 'editor1' );
     </script>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script src="{{ URL::to('/') }}/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+
     <script>
-        CKEDITOR.replace( 'editor1' );
+        CKEDITOR.replace( 'editor-create' );
     </script>
+
 
     @include('admin.admin_partials.admin_menu_bottom')
 @endsection
