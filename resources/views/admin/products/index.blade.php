@@ -50,10 +50,10 @@
                                 <div class="middle">
                                 @if (isset($descriptions['main_picture_url']))
                                     <img style="margin: 0 auto; width: 120px;height: 100px;" src="{{ $descriptions['main_picture_url'] }}" alt="pic" />
-                                @elseif(isset($descriptions['upload_basic_image']))
-                                    <img style="margin: 0 auto; width: 120px;height: 100px;" src="/storage/upload_pictures/{{ $product->id }}/{{ $descriptions['upload_basic_image'] }}" alt="pic" />
+                                @elseif(isset($descriptions['upload_main_picture']))
+                                    <img style="margin: 0 auto; width: 120px;height: 100px;" src="/storage/upload_pictures/{{ $product->id }}/{{ $descriptions['upload_main_picture'] }}" alt="pic" />
                                 @else
-                                    <img style="margin: 0 auto; width: 120px;height: 100px;" src="/storage/upload_basic_image/noimage.jpg" alt="pic" />
+                                    <img style="margin: 0 auto; width: 120px;height: 100px;" src="/storage/upload_picture/noimage.jpg" alt="pic" />
                                 @endif
                             </div>
                     </td>

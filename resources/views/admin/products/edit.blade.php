@@ -122,9 +122,9 @@
             <span>Product description:</span>
             <label>
                 @if(isset($descriptions['general_description']))
-                    <textarea name="description[general_description]" id="article-ckeditor" >{!! $descriptions['general_description'] !!}</textarea>
+                    <textarea name="description[general_description]" id="editor1" >{!! $descriptions['general_description'] !!}</textarea>
                 @else
-                    <textarea name="description[general_description]" id="article-ckeditor" ></textarea>
+                    <textarea name="description[general_description]" id="editor1" ></textarea>
                 @endif
             </label>
             <br>

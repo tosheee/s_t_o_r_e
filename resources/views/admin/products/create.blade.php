@@ -12,15 +12,16 @@
             <div class="form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
                 <label>
                     <span>Category:</span>
-                    <select class="form-control" name="category_id">
+                    <select class="form-control" name="category_id" id="select-category">
                         <option value="">Select Category</option>
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
                     </select>
-
                 </label>
             </div>
+
+
 
             <div class="form-group{{ $errors->has('sub_category_id') ? ' has-error' : '' }}">
                 <label>
@@ -33,6 +34,20 @@
                     </select>
                 </label>
             </div>
+
+            <?php
+                $sub = new App\Admin\SubCategory();
+                $sub->where('category_id', 1)->get();
+            ?>
+
+            <script>
+                $(document).ready(function(){
+                    $('#select-category').change(function (){
+                       var category_id = $(this).find(":selected").val();
+                       console.log(category_id);
+                    });
+                });
+            </script>
 
             <div class="form-group{{ $errors->has('identifier') ? ' has-error' : '' }}">
                 <label>
@@ -104,7 +119,7 @@
 
             <span>Product description:</span>
             <label>
-                <textarea name="description[general_description]" id="article-ckeditor" ></textarea>
+                <textarea name="description[general_description]" id="editor1" ></textarea>
             </label>
 
             <br>
@@ -270,6 +285,14 @@
                 $('#btnOn').focus();
             }
         }
+        CKEDITOR.replace( 'editor1' );
+    </script>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'editor1' );
     </script>
 
     @include('admin.admin_partials.admin_menu_bottom')

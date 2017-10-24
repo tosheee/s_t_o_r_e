@@ -11,8 +11,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="https://stark-shelf-54930.herokuapp.com/css/app.css" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet" type="text/css" >
+    <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
 </head>
 <body>
 

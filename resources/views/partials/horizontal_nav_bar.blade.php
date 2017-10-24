@@ -74,7 +74,14 @@
                                         <?php $descriptions = json_decode($product['item']->description, true); ?>
 
                                         <li>
-                                            <a href="#" class="product-image"> <img src="{{ $descriptions['main_picture_url'] }}" class="img-responsive" alt="Sample Product "> </a>
+                                            @if(isset($descriptions['main_picture_url']))
+                                                <a href="#" class="product-image"> <img src="{{ $descriptions['main_picture_url'] }}" class="img-responsive" alt="Sample Product "> </a>
+                                            @elseif(isset($descriptions['upload_main_picture']))
+                                                <a href="#" class="product-image"> <img src="/storage/upload_pictures/{{ $product['item']->id }}/{{ $descriptions['upload_main_picture'] }}" class="img-responsive" alt="Sample Product "> </a>
+                                            @else
+                                                <a href="#" class="product-image"> <img src="{{ $descriptions['main_picture_url'] }}" class="img-responsive" alt="Sample Product "> </a>
+                                            @endif
+
                                             <div class="product-details">
                                                 <div class="close-icon">
                                                     <a href="#"><i class="fa fa-close"></i></a>
@@ -115,7 +122,7 @@
     <div class="container">
         <div class="row display-table">
             <div class="col-sm-3 vertical-align text-left hidden-xs">
-                <a href="javascript:void(0);">Logo <img width="" src="logo-2.png" alt=""></a>
+                <a href="javascript:void(0);">Logo <img width="" src="" alt=""></a>
             </div>
             <!-- end col -->
             <div class="col-sm-7 vertical-align text-center">

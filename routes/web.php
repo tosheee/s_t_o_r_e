@@ -28,8 +28,6 @@ View::composer('*', function($view) {$view->with('subCategories', App\Admin\SubC
 
 Auth::routes();
 
-
-
 Route::get ('/store', 'StoreController@index');
 
 Route::get ('/store/{id}', 'StoreController@show');

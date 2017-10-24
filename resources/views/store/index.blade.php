@@ -21,11 +21,11 @@
 
                             <div class="middle">
                                 @if (isset($descriptions['main_picture_url']))
-                                    <img src="{{ $descriptions['main_picture_url'] }}" alt="pic" />
-                                @elseif(isset($descriptions['upload_basic_image']))
-                                    <img src="/storage/upload_pictures/{{ $product->id }}/{{ $descriptions['upload_basic_image'] }}" alt="pic" />
+                                    <img src="{{ $descriptions['main_picture_url'] }}"  />
+                                @elseif(isset($descriptions['upload_main_picture']))
+                                    <img src="/storage/upload_pictures/{{ $product->id }}/{{ $descriptions['upload_main_picture'] }}" alt="pic" />
                                 @else
-                                    <img src="/storage/upload_basic_image/noimage.jpg" alt="pic" />
+                                    <img src="/storage/upload_pictures/noimage.jpg" alt="pic" />
                                 @endif
                             </div>
 
