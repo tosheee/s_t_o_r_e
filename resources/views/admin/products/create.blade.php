@@ -26,7 +26,7 @@
             <div class="form-group{{ $errors->has('sub_category_id') ? ' has-error' : '' }}">
                 <label>
                     <span>Sub Category:</span>
-                    <select class="form-control" name="sub_category_id">
+                    <select class="form-control" name="sub_category_id" id="select-sub-category">
                         <option value="">Select Sub Category</option>
                         @foreach($subCategories as $sub_category)
                             <option value="{{ $sub_category->id }}">{{ $sub_category->name }}</option>
@@ -35,16 +35,10 @@
                 </label>
             </div>
 
-            <?php
-                $sub = new App\Admin\SubCategory();
-                $sub->where('category_id', 1)->get();
-            ?>
-
-
             <div class="form-group{{ $errors->has('identifier') ? ' has-error' : '' }}">
                 <label>
                     <span>Identifier:</span>
-                    <select class="form-control" name="identifier">
+                    <select class="form-control" name="identifier" id="select-identifier">
                         <option value="">Select Identifier</option>
                         @foreach($subCategories as $sub_category)
                             <option value="{{ $sub_category->identifier }}">{{ $sub_category->identifier }}</option>
@@ -146,6 +140,36 @@
 
 
     <script>
+
+        $( "#select-category" ).change(function() {
+            var category_val =  $( "#select-category option:selected" ).val();
+            $("#select-sub-category").children().remove();
+
+            $.ajax({
+                method: "POST",
+                url: "/admin/products/create/" + category_val,
+                data: { "_token": "{{ csrf_token() }}" },
+                success: function( msg ) {
+                    $("#select-sub-category").append("<option value=''>Select Sub Category</option>");
+                    for(var i = 0; i < msg.length; i++ ){
+                        $("#select-sub-category").append("<option value=" + msg[i][0] + ">" + msg[i][1] + "</option>");
+                    }
+
+                    $( "#select-sub-category" ).change(function() {
+                        var sub_category_val =  $( "#select-sub-category option:selected" ).val();
+                        console.log(sub_category_val);
+                        $("#select-identifier").children().remove();
+
+                        for(var j = 0; j < msg.length; j++){
+                            if(sub_category_val == msg[j][0]){
+                                $("#select-identifier").append("<option value="+ msg[j][2] +">" + msg[j][2] + "</option>");
+                            }
+                        }
+                    });
+                }
+            });
+        });
+
         //basic image
         $(document).ready(function() {
             var max_fields = 2;
@@ -181,6 +205,7 @@
                 e.preventDefault(); $(this).parent('div.upload-basic-img-wrapp').remove(); x--;
             });
         });
+
         // gallery images
         $(document).ready(function() {
             var max_fields = 6;

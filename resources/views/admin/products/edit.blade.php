@@ -11,8 +11,8 @@
 
             <div class="form-group{{ $errors->has('product_id') ? ' has-error' : '' }}">
                 <label>
-                    <span>Продукт:</span>
-                    <select class="form-control" name="category_id">
+                    <span>Category:</span>
+                    <select class="form-control" name="category_id" id="select-category">
                         <option value="">Select Category</option>
                         @foreach($categories as $category)
                             @if ($product->category_id == $category->id )
@@ -29,7 +29,7 @@
             <div class="form-group{{ $errors->has('sub_category_id') ? ' has-error' : '' }}">
                 <label>
                     <span>Sub Category:</span>
-                    <select class="form-control" name="sub_category_id">
+                    <select class="form-control" name="sub_category_id" id="select-sub-category">
                         <option value="">Select Sub Category</option>
                         @foreach($subCategories as $sub_category)
                             @if ($product->sub_category_id == $sub_category->id )
@@ -45,7 +45,7 @@
             <div class="form-group{{ $errors->has('identifier') ? ' has-error' : '' }}">
                 <label>
                     <span>Identifier:</span>
-                    <select class="form-control" name="identifier">
+                    <select class="form-control" name="identifier" id="select-identifier">
                         <option value="">Select Identifier</option>
                         @foreach($subCategories as $sub_category)
                             @if ($product->identifier == $sub_category->identifier )
@@ -251,6 +251,59 @@
 
 
             <script>
+
+                $(document).ready(function() {
+                $( "#select-category" ).change(function() {
+                    var category_val =  $( "#select-category option:selected" ).val();
+                    $("#select-sub-category").children().remove();
+
+                    $.ajax({
+                        method: "POST",
+                        url: "/admin/products/create/" + category_val,
+                        data: { "_token": "{{ csrf_token() }}" },
+                        success: function( msg ) {
+                            $("#select-sub-category").append("<option value=''>Select Sub Category</option>");
+                            for(var i = 0; i < msg.length; i++ ){
+                                $("#select-sub-category").append("<option value=" + msg[i][0] + ">" + msg[i][1] + "</option>");
+                            }
+
+                            $( "#select-sub-category" ).change(function() {
+                                var sub_category_val =  $( "#select-sub-category option:selected" ).val();
+                                console.log(sub_category_val);
+                                $("#select-identifier").children().remove();
+
+
+                                for(var j = 0; j < msg.length; j++){
+                                    if(sub_category_val == msg[j][0]){
+                                        $("#select-identifier").append("<option value=" + msg[j][2] +">" + msg[j][2] + "</option>");
+                                    }
+                                }
+                            });
+                        }
+                    });
+                });
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 $(document).ready(function() {
                     var max_fields = 5;
                     var wrapper    = $(".input_fields_wrap");
