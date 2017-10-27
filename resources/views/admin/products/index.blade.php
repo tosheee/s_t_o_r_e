@@ -72,6 +72,8 @@
             @endforeach
         </table>
 
+        {{ $products->links() }}
+
     @else
         <p>No category for SubCategory</p>
     @endif

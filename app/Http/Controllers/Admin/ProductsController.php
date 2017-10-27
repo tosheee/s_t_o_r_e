@@ -24,7 +24,7 @@ class ProductsController extends Controller
     {
         $categories = Category::all();
         $subCategories = SubCategory::all();
-        $products = Product::all();
+        $products = Product::orderBy('created_at', 'desc')->paginate(2);
 
         //$products = Product::where('active', true)->paginate(2);
         return view('admin.products.index')->with('categories', $categories)->with('subCategories', $subCategories)->with('products', $products)->with('title', 'Product Dashboard');
@@ -231,7 +231,8 @@ class ProductsController extends Controller
     {
         $product = Product::find($id);
         $product->delete();
-        Storage::delete('public/upload_pictures/'.$id);
+        //Storage::delete('public/upload_pictures/'.$id.'/'.$old_picture);
+        Storage::deleteDirectory('public/upload_pictures/'.$id);
         return view('admin.products')->with('success', 'Product Removed');
     }
 }

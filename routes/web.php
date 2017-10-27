@@ -1,5 +1,16 @@
 <?php
 
+//use Illuminate\Support\Facades\Input;
+
+
+//Route::get('store/search', function($keyword = null, $category = null) {
+
+    //Input::get('category');
+  //  return "alabala";
+
+//});
+
+
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -25,15 +36,26 @@ Route::post('admin/products/create/{id?}', function($id = null) {
     return $subCategoryOptions;
 });
 
+
+
 Auth::routes();
 
 Route::get ('/store', 'StoreController@index');
 
-Route::get ('/store/{id}', 'StoreController@show');
 
 Route::get('/store', [
     'uses' => 'StoreController@index',
     'as'   => 'store.index'
+]);
+
+Route::get('/store/search', [
+    'uses' => 'StoreController@search',
+    'as'   => 'store.search'
+]);
+
+Route::get('/store/{id}', [
+    'uses' => 'StoreController@show',
+    'as'   => 'store.show'
 ]);
 
 Route::get('/add-to-cart/{id}', [

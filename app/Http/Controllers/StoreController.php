@@ -17,8 +17,57 @@ class StoreController extends Controller
     {
         $categories = Category::all();
         $subCategories = SubCategory::all();
-        $products = Product::where('active', true)->paginate(3);
+        $products = Product::where('active', true)->paginate(6);
+
         return view('store.index', ['categories' => $categories, 'subCategories' => $subCategories, 'products' => $products]);
+    }
+
+    public function search(Request $request)
+    {
+        $categories = Category::all();
+        $subCategories = SubCategory::all();
+
+        $search_keyword = $request->input('keyword');
+        $search_category = $request->input('category');
+        $name = mb_strtolower($search_keyword);
+        $name_pattern = preg_replace('/\s+/', '|', $name);
+        $get_products = Product::where('active', true)->get();
+
+        if (isset($search_keyword) && isset($search_category))
+        {
+            $products_of_category = $get_products->where('identifier', $search_category);
+            $products = $this->get_filter_product($products_of_category, $name_pattern);
+        }
+        elseif(isset($search_keyword))
+        {
+            $products = $this->get_filter_product($get_products, $name_pattern);
+        }
+        else
+        {
+            $products = $get_products->where('identifier', $search_category);
+        }
+
+        if(count($products) < 1 )
+        {
+            $products = $get_products->where('recommended', true);
+        }
+
+        return view('store.index', ['categories' => $categories, 'subCategories' => $subCategories, 'products' => $products]);
+    }
+
+    public function get_filter_product($get_products, $name_pattern)
+    {
+        $searched_products = array();
+        foreach ($get_products as $key => $product)
+        {
+            $product_description = json_decode($product->description, true);
+            if(preg_match('/'.$name_pattern.'/', mb_strtolower($product_description['title_product'])))
+            {
+                array_push($searched_products,  $get_products[$key]);
+            }
+        }
+
+        return $searched_products;
     }
 
     public function show($id)
@@ -26,6 +75,7 @@ class StoreController extends Controller
         $product = Product::find($id);
         $categories = Category::all();
         $subCategories = SubCategory::all();
+
         return view('store.show')->with('categories', $categories)->with('subCategories', $subCategories)->with('product', $product)->with('title', 'Show Product');
     }
 
@@ -60,6 +110,7 @@ class StoreController extends Controller
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         $total = $cart->totalPrice;
+
         return view('store.checkout', ['total' => $total]);
     }
 }

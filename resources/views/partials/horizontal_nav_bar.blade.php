@@ -126,14 +126,14 @@
             </div>
             <!-- end col -->
             <div class="col-sm-7 vertical-align text-center">
-                <form>
+                <form action="/store/search" method="get">
                     <div class="row grid-space-1">
                         <div class="col-sm-6">
-                            <input type="text" name="keyword" class="form-control input-lg" placeholder="Search">
+                            <input type="text" name="keyword" class="form-control input-lg" placeholder="Search" value="">
                         </div>
                         <!-- end col -->
                         <div class="col-sm-3">
-                            <select class="form-control input-lg" name="category">
+                            <select class="form-control input-lg" name="category" id="search-select-category">
                                 <option value="all">All Categories</option>
 
                                 @foreach($categoriesButtonsName as $categoryButton)
@@ -142,13 +142,54 @@
                                         <!-- sub category-name -->
                                         @foreach($subCategoriesButtonsName as $subCategoryButton)
                                             @if ($subCategoryButton->category_id == $categoryButton->id)
-                                                <option value="{{ $subCategoryButton->name }}">{{ $subCategoryButton->name }}</option>
+                                                <option value="{{ $subCategoryButton->identifier }}">{{ $subCategoryButton->name }}</option>
                                             @endif
                                         @endforeach
                                     </optgroup>
                                 @endforeach
                             </select>
                         </div>
+
+                        <script>
+
+                            $( "#search-select-category" ).change(function() {
+                                var category_val =  $( "#search-select-category option:selected" ).val();
+                                console.log(category_val)
+
+                                $.ajax({
+                                    method: "get",
+                                    url: "/store/product=" + category_val,
+                                    data: { "_token": "{{ csrf_token() }}" },
+                                    success: function( msg ) {
+                                        $("#select-sub-category").append("<option value=''>Select Sub Category</option>");
+                                        for(var i = 0; i < msg.length; i++ ){
+                                            $("#select-sub-category").append("<option value=" + msg[i][0] + ">" + msg[i][1] + "</option>");
+                                        }
+
+                                        $( "#select-sub-category" ).change(function() {
+                                            var sub_category_val =  $( "#select-sub-category option:selected" ).val();
+                                            console.log(sub_category_val);
+                                            $("#select-identifier").children().remove();
+
+                                            for(var j = 0; j < msg.length; j++){
+                                                if(sub_category_val == msg[j][0]){
+                                                    $("#select-identifier").append("<option value="+ msg[j][2] +">" + msg[j][2] + "</option>");
+                                                }
+                                            }
+                                        });
+                                    }
+                                });
+                            });
+
+
+
+                        </script>
+
+
+
+
+
+
                         <!-- end col -->
                         <div class="col-sm-3">
                             <input type="submit" class="btn btn-default btn-block btn-lg" value="Search">
@@ -198,7 +239,7 @@
                                     <li>{{ $categoryButton->name }}</li>
                                     @foreach($subCategoriesButtonsName as $subCategoryButton)
                                         @if ($subCategoryButton->category_id == $categoryButton->id)
-                                            <li><a href="#">{{ $subCategoryButton->name }}</a></li>
+                                            <li><a href="/store/search?category={{ $subCategoryButton->identifier }}">{{ $subCategoryButton->name }}</a></li>
                                         @endif
                                     @endforeach
                                 </ul>

@@ -6,6 +6,7 @@
 
     <div class="col-md-9">
         <div class="row">
+
             @foreach($products as $product)
                 <?php $descriptions = json_decode($product->description, true); ?>
                     <div class="col-sm-4">
@@ -13,7 +14,13 @@
                             <div class="top">
                                 <ul>
                                     <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-                                    <li><span class="converse">Converse</span></li>
+
+                                    @foreach($subCategories as $subCategory)
+                                        @if($product->sub_category_id == $subCategory->id)
+                                            <li><span class="converse">{{ $subCategory->name }} </span></li>
+                                        @endif
+                                    @endforeach
+
                                     <li><a href="{{ route('store.addToCart', ['id' => $product->id]) }}"><i class="fa fa-shopping-basket" aria-hidden="true"></i>
                                         </a></li>
                                 </ul>
@@ -31,7 +38,7 @@
 
                             <div class="bottom">
                                 <div class="heading"><a href="/store/{{ $product->id }}">{{ $descriptions['title_product'] }}</a></div>
-                                <div class="info">Classic red converse edition</div>
+                                <div class="info"></div>
                                 <div class="style">{{ $descriptions['product_status'] }}</div>
                                 <div class="price"> {{ $descriptions['price'] }} {{ $descriptions['currency'] }}
                                 @if (isset($descriptions['old_price']))
@@ -43,7 +50,11 @@
                         </div>
                     </div>
             @endforeach
+                <div style="margin-left: 40%">
+                    {{ $products->links() }}
+                </div>
         </div>
+
     </div>
 
 @endsection

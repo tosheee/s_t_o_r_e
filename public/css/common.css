@@ -16,10 +16,10 @@ input[type=radio][name="menucolor"] {
 .block {
     margin: 5px;
     border-radius: 4px;
-    width: 280px;
-    min-height: 470px;
+    width: 370px;
+    min-height: 700px;
     background: #fff;
-    padding: 23px;
+    padding: 10px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
