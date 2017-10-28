@@ -61,6 +61,10 @@ class ProductsController extends Controller
             $product->category_id     = 1;
             $product->sub_category_id = 1;
             $product->identifier      = '';
+            $product->user_id         = 1;
+            $product->active          = 0;
+            $product->recommended     = 0;
+            $product->best_sellers    = 0;
             $product->description     = '';
             $product->save();
             $oldId = DB::table('products')->latest('id')->first()->id;
@@ -111,7 +115,7 @@ class ProductsController extends Controller
         $product->category_id     = $request->input('category_id');
         $product->sub_category_id = $request->input('sub_category_id');
         $product->identifier      = $request->input('identifier');
-        $product->user_id         = '';
+        $product->user_id         = 1;
         $product->active          = $request->input('active');
         $product->recommended     = $request->input('recommended');
         $product->best_sellers    = $request->input('best_sellers');
