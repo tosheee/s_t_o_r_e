@@ -95,7 +95,7 @@
                                 <i class="fa fa-chevron-left pull-right" id="arow2"></i> </a>
                             <ul class="collapse nav" id="charts">
                                 @foreach($subCategoriesButtonsName as $subCategoriesButtonsName)
-                                    <li> <a href="#"><i class="fa fa-angle-double-right"></i> {{ $subCategoriesButtonsName->name }}</a> </li>
+                                    <li> <a href="/admin/products/search?category={{ $subCategoriesButtonsName->identifier }}"><i class="fa fa-angle-double-right"></i> {{ $subCategoriesButtonsName->name }}</a> </li>
                                 @endforeach
                             </ul>
                         </li>

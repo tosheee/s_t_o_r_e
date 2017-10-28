@@ -8,19 +8,19 @@
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="heading{{$heading[$key]}}">
                     <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$heading[$key]}}" aria-expanded="true" aria-controls="collapse{{$heading[$key]}}" class="collapsed">
+                        <a class="" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$heading[$key]}}" aria-expanded="true" aria-controls="collapse{{$heading[$key]}}" class="collapsed">
                            {{ $categoryButtonsName->name }}  <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
                         </a>
                     </h4>
                 </div>
 
-                <div id="collapse{{$heading[$key]}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{$heading[$key]}}" aria-expanded="true" style="height: 0px;">
+                <div id="collapse{{$heading[$key]}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{$heading[$key]}}" aria-expanded="true" >
                     <div class="panel-body">
                         <div class="list-group">
                             @foreach($subCategoriesButtonsName as $subCategoryButtonsName)
                                 @if ($subCategoryButtonsName->category_id == $categoryButtonsName->id)
                                     <div class="checkbox">
-                                        <label><input type="checkbox" value="">{{ $subCategoryButtonsName->name }}</label>
+                                        <label><a href="/store/search?category={{ $subCategoryButtonsName->identifier }}">{{ $subCategoryButtonsName->name }}</a></label>
                                     </div>
                                 @endif
                             @endforeach

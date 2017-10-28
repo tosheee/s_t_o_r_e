@@ -24,11 +24,21 @@ class ProductsController extends Controller
     {
         $categories = Category::all();
         $subCategories = SubCategory::all();
-        $products = Product::orderBy('created_at', 'desc')->paginate(2);
+        $products = Product::orderBy('created_at', 'desc')->paginate(10);
 
-        //$products = Product::where('active', true)->paginate(2);
         return view('admin.products.index')->with('categories', $categories)->with('subCategories', $subCategories)->with('products', $products)->with('title', 'Product Dashboard');
     }
+
+    public function search_category(Request $request)
+    {
+        $categories = Category::all();
+        $subCategories = SubCategory::all();
+        $search_category = $request->input('category');
+        $products = Product::where('identifier', $search_category)->paginate(10);
+
+        return view('admin.products.index', ['categories' => $categories, 'subCategories' => $subCategories, 'products' => $products])->with('title', 'Product Dashboard');
+    }
+
 
     public function create()
     {

@@ -17,7 +17,7 @@ class StoreController extends Controller
     {
         $categories = Category::all();
         $subCategories = SubCategory::all();
-        $products = Product::where('active', true)->paginate(6);
+        $products = Product::where('active', true)->paginate(3);
 
         return view('store.index', ['categories' => $categories, 'subCategories' => $subCategories, 'products' => $products]);
     }
@@ -31,25 +31,25 @@ class StoreController extends Controller
         $search_category = $request->input('category');
         $name = mb_strtolower($search_keyword);
         $name_pattern = preg_replace('/\s+/', '|', $name);
-        $get_products = Product::where('active', true)->get();
+        $get_products = Product::where('active', true);
 
         if (isset($search_keyword) && isset($search_category))
         {
-            $products_of_category = $get_products->where('identifier', $search_category);
+            $products_of_category = $get_products->where('identifier', $search_category)->paginate(3);
             $products = $this->get_filter_product($products_of_category, $name_pattern);
         }
         elseif(isset($search_keyword))
         {
-            $products = $this->get_filter_product($get_products, $name_pattern);
+            $products = $this->get_filter_product($get_products, $name_pattern)->paginate(3);
         }
         else
         {
-            $products = $get_products->where('identifier', $search_category);
+            $products = $get_products->where('identifier', $search_category)->paginate(3);
         }
 
-        if(count($products) < 1 )
+        if(empty($products))
         {
-            $products = $get_products->where('recommended', true);
+            $products = $get_products->where('recommended', true)->paginate(3);
         }
 
         return view('store.index', ['categories' => $categories, 'subCategories' => $subCategories, 'products' => $products]);

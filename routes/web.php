@@ -40,9 +40,6 @@ Route::post('admin/products/create/{id?}', function($id = null) {
 
 Auth::routes();
 
-Route::get ('/store', 'StoreController@index');
-
-
 Route::get('/store', [
     'uses' => 'StoreController@index',
     'as'   => 'store.index'
@@ -76,6 +73,13 @@ Route::get('/checkout', [
 Route::post('/checkout', [
     'uses' => 'StoreController@postCheckout',
     'as' => 'checkout'
+]);
+
+// Admin
+
+Route::get('/admin/products/search', [
+    'uses' => 'Admin\ProductsController@search_category',
+    'as'   => 'search_category'
 ]);
 
 Route::get ('/admin/dashboard', 'AdminController@index');
