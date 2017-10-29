@@ -6,10 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AdminTableSeeder' => $baseDir . '/database/seeds/AdminTableSeeder.php',
     'App\\Admin' => $baseDir . '/app/Admin.php',
     'App\\Admin\\Category' => $baseDir . '/app/Admin/Category.php',
     'App\\Admin\\Product' => $baseDir . '/app/Admin/Product.php',
     'App\\Admin\\SubCategory' => $baseDir . '/app/Admin/SubCategory.php',
+    'App\\Cart' => $baseDir . '/app/Cart.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
@@ -23,7 +25,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
-    'App\\Http\\Controllers\\Store' => $baseDir . '/app/Http/Controllers/Store.php',
+    'App\\Http\\Controllers\\StoreController' => $baseDir . '/app/Http/Controllers/StoreController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
     'App\\Http\\Middleware\\RedirectIfAuthenticated' => $baseDir . '/app/Http/Middleware/RedirectIfAuthenticated.php',
@@ -38,6 +40,7 @@ return array(
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
     'Carbon\\Exceptions\\InvalidDateException' => $vendorDir . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
+    'CategoryTableSeeder' => $baseDir . '/database/seeds/CategoryTableSeeder.php',
     'CreateAdminTable' => $baseDir . '/database/migrations/2017_08_23_071414_create_admin_table.php',
     'CreateCategoriesTable' => $baseDir . '/database/migrations/2017_08_23_094425_create_categories_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
@@ -2440,6 +2443,7 @@ return array(
     'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => $vendorDir . '/sebastian/recursion-context/src/InvalidArgumentException.php',
     'SebastianBergmann\\ResourceOperations\\ResourceOperations' => $vendorDir . '/sebastian/resource-operations/src/ResourceOperations.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
+    'SubCategoryTableSeeder' => $baseDir . '/database/seeds/SubCategoryTableSeeder.php',
     'Symfony\\Component\\Console\\Application' => $vendorDir . '/symfony/console/Application.php',
     'Symfony\\Component\\Console\\Command\\Command' => $vendorDir . '/symfony/console/Command/Command.php',
     'Symfony\\Component\\Console\\Command\\HelpCommand' => $vendorDir . '/symfony/console/Command/HelpCommand.php',

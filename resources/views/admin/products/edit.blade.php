@@ -66,6 +66,13 @@
             </label>
             <br>
 
+            <label>
+                <span style="margin: 0;">Sale: </span>
+                <input type="radio" name="sale" value="1" {{ $product->active == 1 ? '' : 'checked' }}> Yes:
+                <input type="radio" name="sale" value="0" {{ $product->active == 1 ? 'checked' : '' }}> Not:
+            </label>
+            <br>
+
 
             <?php $descriptions = json_decode($product->description, true); ?>
 

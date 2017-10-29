@@ -61,7 +61,7 @@ class ProductsController extends Controller
             $product->category_id     = 1;
             $product->sub_category_id = 1;
             $product->identifier      = '';
-            $product->user_id         = 1;
+            $product->sale            = 0;
             $product->active          = 0;
             $product->recommended     = 0;
             $product->best_sellers    = 0;
@@ -115,8 +115,8 @@ class ProductsController extends Controller
         $product->category_id     = $request->input('category_id');
         $product->sub_category_id = $request->input('sub_category_id');
         $product->identifier      = $request->input('identifier');
-        $product->user_id         = 1;
         $product->active          = $request->input('active');
+        $product->sale            = $request->input('sale');
         $product->recommended     = $request->input('recommended');
         $product->best_sellers    = $request->input('best_sellers');
         $product->description     = $description;
@@ -189,6 +189,7 @@ class ProductsController extends Controller
         $product->sub_category_id = $request->input('sub_category_id');
         $product->identifier      = $request->input('identifier');
         $product->active          = $request->input('active');
+        $product->sale            = $request->input('sale');
         $product->recommended     = $request->input('recommended');
         $product->best_sellers    = $request->input('best_sellers');
         $product->description     = $description;
@@ -245,7 +246,6 @@ class ProductsController extends Controller
     {
         $product = Product::find($id);
         $product->delete();
-        //Storage::delete('public/upload_pictures/'.$id.'/'.$old_picture);
         Storage::deleteDirectory('public/upload_pictures/'.$id);
         return view('admin.products')->with('success', 'Product Removed');
     }

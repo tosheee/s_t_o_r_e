@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->integer('category_id');
             $table->integer('sub_category_id');
             $table->string('identifier');
-            $table->string('user_id');
+            $table->boolean('sale')->default(0);
             $table->boolean('recommended')->default(0);
             $table->boolean('best_sellers')->default(0);
             $table->boolean('active')->default(1);

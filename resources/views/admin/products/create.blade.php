@@ -48,9 +48,16 @@
             </div>
 
             <label>
-                <span style="margin: 0;">Active product in the store: </span>
+                <span style="margin: 0;">Active: </span>
                 <input type="radio" name="active" value="1" checked> Yes:
                 <input type="radio" name="active" value="0"> Not:
+            </label>
+            <br>
+
+            <label>
+                <span style="margin: 0;">Sale: </span>
+                <input type="radio" name="sale" value="1" > Yes:
+                <input type="radio" name="sale" value="0" checked> Not:
             </label>
             <br>
 

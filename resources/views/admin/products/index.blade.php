@@ -15,6 +15,9 @@
                 <th>SubCategory</th>
                 <th>Identifier</th>
                 <th>Active</th>
+                <th>Sale</th>
+                <th>Recommended</th>
+                <th>Best Sellers</th>
                 <th>Product Information</th>
                 <th>Edit</th>
                 <th>Delete</th>
@@ -36,6 +39,9 @@
 
                     <td>{{ $product->identifier }}</td>
                     <td>{{ $product->active == 1 ? 'Active' : 'Not' }}</td>
+                    <td>{{ $product->sale == 1 ? 'Yes' : 'Not' }}</td>
+                    <td>{{ $product->recommended == 1 ? 'Yes' : 'Not' }}</td>
+                    <td>{{ $product->best_sellers == 1 ? 'Yes' : 'Not' }}</td>
                     <td>
                         <?php $descriptions = json_decode($product->description, true); ?>
 
