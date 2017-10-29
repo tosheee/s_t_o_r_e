@@ -17,7 +17,7 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('admin.categories.index')->with('categories', $categories)->with('title', 'All Category');
+        return view('admin.categories.index', ['categories' => $categories])->with('title', 'All Category');
     }
 
 
@@ -32,10 +32,9 @@ class CategoriesController extends Controller
             'name' => 'required',
         ]);
 
-        // Create Category
-        $cagegory = new Category;
-        $cagegory->name = $request->input('name');
-        $cagegory->save();
+        $category = new Category;
+        $category->name = $request->input('name');
+        $category->save();
 
         return redirect('admin/categories')->with('title', 'Create Category');
     }
@@ -43,13 +42,15 @@ class CategoriesController extends Controller
     public function show($id)
     {
         $category = Category::find($id);
-        return view('admin.categories.show')->with('category', $category)->with('title', 'View Product');
+
+        return view('admin.categories.show', ['category' => $category])->with('title', 'View Product' );
     }
 
     public function edit($id)
     {
         $category = Category::find($id);
-        return view('admin.categories.edit')->with('category', $category)->with('title', 'Edit Product');
+
+        return view('admin.categories.edit', ['category' => $category, 'title' => 'Edit Product']);
     }
 
     public function update(Request $request, $id)
@@ -60,22 +61,16 @@ class CategoriesController extends Controller
 
         $category = Category::find($id);
         $category->name = $request->input('name');
-
         $category->save();
-        return redirect('/admin/categories')->with('success', 'Post Updated');
+
+        return redirect('/admin/categories')->with('success', 'Category Updated');
     }
 
     public function destroy($id)
     {
         $category = Category::find($id);
-        // Check for correct user
-        //if(auth()->user()->id !==$post->user_id)
-        //{
-          //  return redirect('/posts')->with('error', 'Unauthorized Page');
-        //}
-        // Delete file
-
         $category->delete();
-        return redirect('admin/categories')->with('success', 'Category Removed');
+
+        return redirect('/admin/categories')->with('success', 'Category Removed');
     }
 }

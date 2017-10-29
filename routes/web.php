@@ -94,5 +94,7 @@ Route::resource('/admin/sub_categories', 'Admin\SubCategoriesController');
 
 Route::resource('/admin/products', 'Admin\ProductsController');
 
+Route::resource('/admin/users', 'Admin\UserController');
+
 
 

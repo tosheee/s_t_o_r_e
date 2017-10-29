@@ -17,49 +17,49 @@ class SubCategoriesController extends Controller
 
     public function index()
     {
-        $subCategories = SubCategory::all();
         $categories = Category::all();
-        return view('admin.sub_categories.index')->with('subCategories', $subCategories)->with('categories', $categories)->with('title', 'All Sub Category');
+        $subCategories = SubCategory::all();
+
+        return view('admin.sub_categories.index', ['categories' => $categories, 'subCategories' => $subCategories ])->with('title', 'All Sub Category');
     }
 
     public function create()
     {
         $categories = Category::all();
-        return view('admin.sub_categories.create')->with('categories', $categories)->with('title', 'Create Sub Category');
+        return view('admin.sub_categories.create', ['categories' => $categories])->with('title', 'Create Sub Category');
     }
 
     public function store(Request $request)
     {
-
-        var_dump($request->input('category_id'));
-
         $this->validate($request, [
             'category_id' => 'required',
             'name'        => 'required',
             'identifier'  => 'required',
         ]);
         // Create Category
-        $subCagegory = new SubCategory;
-        $subCagegory->category_id = $request->input('category_id');
-        $subCagegory->name        = $request->input('name');
-        $subCagegory->identifier  = $request->input('identifier');
-        $subCagegory->save();
+        $subCategory = new SubCategory;
+        $subCategory->category_id = $request->input('category_id');
+        $subCategory->name        = $request->input('name');
+        $subCategory->identifier  = $request->input('identifier');
+        $subCategory->save();
 
         return redirect('admin/sub_categories');
     }
 
     public function show($id)
     {
+        $categories = Category::all();
         $subCategory = SubCategory::find($id);
 
-        return view('admin.sub_categories.show')->with('category', $subCategory);
+        return view('admin.sub_categories.show', ['categories' => $categories, 'subCategory' => $subCategory])->with('title', 'Edit Sub Category');
     }
 
     public function edit($id)
     {
+        $categories = Category::all();
         $subCategory = SubCategory::find($id);
 
-        return view('admin.sub_categories.edit')->with('category', $subCategory);
+        return view('admin.sub_categories.edit')->with('categories', $categories)->with('subCategory', $subCategory)->with('title', 'Edit Sub Category');
     }
 
     public function update(Request $request, $id)
@@ -71,18 +71,20 @@ class SubCategoriesController extends Controller
         ]);
 
         $subCategory = SubCategory::find($id);
+
         $subCategory->category_id = $request->input('category_id');
-        $subCategory->name = $request->input('name');
-        $subCategory->identifier = $request->input('identifier');
+        $subCategory->name        = $request->input('name');
+        $subCategory->identifier  = $request->input('identifier');
         $subCategory->save();
 
-        return redirect('/admin/sub_categories')->with('success', 'Post Updated');
+        return redirect('/admin/sub_categories')->with('success', 'Sub Category Updated');
     }
 
     public function destroy($id)
     {
         $subCategory = SubCategory::find($id);
         $subCategory->delete();
-        return redirect('admin/sub_categories')->with('success', 'Category Removed');
+
+        return redirect('/admin/sub_categories')->with('success', 'Category Removed');
     }
 }
