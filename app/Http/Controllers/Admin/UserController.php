@@ -18,13 +18,14 @@ class UserController extends Controller
     {
         $users = User::all();
 
-        return view('admin.users.index')->with('users', $users)->with('title', 'All Admins');
+        return view('admin.users.index')->with('users', $users)->with('title', 'All Users');
     }
 
     public function create()
     {
         $users = User::all();
-        return view('admin.users.create')->with('users', $users)->with('title', 'Create Admin');
+
+        return view('admin.users.create')->with('users', $users)->with('title', 'Create User');
 
     }
 

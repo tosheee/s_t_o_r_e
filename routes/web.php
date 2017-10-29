@@ -96,5 +96,5 @@ Route::resource('/admin/products', 'Admin\ProductsController');
 
 Route::resource('/admin/users', 'Admin\UserController');
 
-
+Route::resource('/admin/admins', 'Admin\AdminController');
 

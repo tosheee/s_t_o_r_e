@@ -88,9 +88,7 @@
                     </li>
 
 
-
-
-                        <li class="panel">
+                    <li class="panel">
                             <a id="panel2" href="javascript:;" data-toggle="collapse" data-target="#charts"> <i class="fa fa-bar-chart-o"></i> All Products
                                 <i class="fa fa-chevron-left pull-right" id="arow2"></i> </a>
                             <ul class="collapse nav" id="charts">
@@ -118,11 +116,11 @@
                     </li>
 
                     <li class="panel">
-                        <a id="panel4" href="javascript:;" data-toggle="collapse" data-target="#clipboard"> <i class="fa fa-clipboard"></i> clipboard
+                        <a id="panel4" href="javascript:;" data-toggle="collapse" data-target="#clipboard"> <i class="fa fa-clipboard"></i> Admin and User
                             <i class="fa fa fa-chevron-left pull-right" id="arow4"></i> </a>
                         <ul class="collapse nav" id="clipboard">
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
+                            <li> <a href="/admin/users"><i class="fa fa-angle-double-right"></i> Users</a> </li>
+                            <li> <a href="/admin/admins"><i class="fa fa-angle-double-right"></i> Admins</a> </li>
                         </ul>
                     </li>
 
