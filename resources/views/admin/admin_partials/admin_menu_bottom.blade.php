@@ -69,8 +69,5 @@
             $("#left-container").toggleClass("less-width");
             $("#right-container").toggleClass("full-width");
         });
-
-
-
     });
 </script>

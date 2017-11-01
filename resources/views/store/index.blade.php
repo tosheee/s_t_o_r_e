@@ -21,8 +21,11 @@
                                         @endif
                                     @endforeach
 
-                                    <li><a href="{{ route('store.addToCart', ['id' => $product->id]) }}"><i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                                        </a></li>
+                                    <li>
+                                        <a href="{{ route('store.addToCart', ['id' => $product->id]) }}">
+                                            <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
 

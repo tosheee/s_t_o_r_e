@@ -87,7 +87,7 @@
                                                     <a href="#"><i class="fa fa-close"></i></a>
                                                 </div>
                                                 <p class="product-name"> <a href="#">{{ $descriptions['title_product'] }}</a> </p>
-                                                <strong>{{ $product['qty']}}</strong> x <span class="price text-primary">{{ $product['price'] }}{{ $descriptions['currency'] }}</span>
+                                                <strong>{{ $product['qty']}}</strong> x <span class="price text-primary">{{ $descriptions['price'] }}{{ $descriptions['currency'] }}</span>
                                             </div>
                                             <!-- end product-details -->
                                         </li>
@@ -231,7 +231,7 @@
         <div class="collapse navbar-collapse navbar-1" style="margin-top: 0px;">
             <ul class="nav navbar-nav">
                 <li class="dropdown megaDropMenu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">Продукти <i class="fa fa-angle-down ml-5"></i></a>
+                    <a href="/store" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false" id="store-button">Продукти <i class="fa fa-angle-down ml-5"></i></a>
                     <ul class="dropdown-menu row">
                         @foreach($categoriesButtonsName as $categoryButton)
                             <li class="col-sm-3 col-xs-12">
@@ -247,6 +247,14 @@
                         @endforeach
                     </ul>
                 </li>
+
+                <script>
+                   $(document).ready(function(){
+                       $('#store-button').click(function(){
+                          window.location.href ='/store'
+                       });
+                   });
+                </script>
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">Други<i class="fa fa-angle-down ml-5"></i></a>

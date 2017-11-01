@@ -109,6 +109,12 @@
             </label>
 
             <label>
+                <span>Delivery price:</span>
+                <input type="text" name="description[delivery_price]" value="{{ isset($descriptions['delivery_price']) ? $descriptions['delivery_price'] : '' }}" id="admin_product_description" class="label-values"/>
+            </label>
+
+
+            <label>
                 <span>Price:</span>
                 <input type="text" name="description[price]" value="{{ isset($descriptions['price']) ? $descriptions['price'] : '' }}" id="admin_product_description" class="label-values"/>
             </label>

@@ -72,8 +72,8 @@
                     </li>
 
                     <li class="panel">
-                        <a id="panel5" href="javascript:;" data-toggle="collapse" data-target="#edit"> <i class="fa fa-edit"></i> Components
-                            <i class="fa fa fa-chevron-left pull-right" id="arow5"></i>
+                        <a id="panel2" href="javascript:;" data-toggle="collapse" data-target="#edit"> <i class="fa fa-edit"></i> Components
+                            <i class="fa fa fa-chevron-left pull-right" id="arow2"></i>
                         </a>
                         <ul class="collapse nav" id="edit">
                             <li> <a href="/admin/categories/"><i class="fa fa-angle-double-right"></i> Categories</a> </li>
@@ -89,21 +89,14 @@
 
 
                     <li class="panel">
-                            <a id="panel2" href="javascript:;" data-toggle="collapse" data-target="#charts"> <i class="fa fa-bar-chart-o"></i> All Products
-                                <i class="fa fa-chevron-left pull-right" id="arow2"></i> </a>
+                            <a id="panel3" href="javascript:;" data-toggle="collapse" data-target="#charts"> <i class="fa fa-bar-chart-o"></i> All Products
+                                <i class="fa fa-chevron-left pull-right" id="arow3"></i> </a>
                             <ul class="collapse nav" id="charts">
                                 @foreach($subCategoriesButtonsName as $subCategoriesButtonsName)
                                     <li> <a href="/admin/products/search?category={{ $subCategoriesButtonsName->identifier }}"><i class="fa fa-angle-double-right"></i> {{ $subCategoriesButtonsName->name }}</a> </li>
                                 @endforeach
                             </ul>
                         </li>
-
-
-
-
-
-
-
 
 
                     <li class="panel">

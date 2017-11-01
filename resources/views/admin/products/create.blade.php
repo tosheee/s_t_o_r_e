@@ -92,6 +92,12 @@
                 <input type="radio" name="description[product_status]" value="не наличен"> Not available:
             </label>
             <br>
+
+            <label>
+                <span>Delivery price:</span>
+                <input type="text" name="description[delivery_price]" value="" id="admin_product_description" class="label-values"/>
+            </label>
+
             <label>
                 <span>Price:</span>
                 <input type="text" name="description[price]" value="" id="admin_product_description" class="label-values"/>

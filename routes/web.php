@@ -25,9 +25,7 @@ View::composer('*', function($view) {$view->with('subCategories', App\Admin\SubC
 Route::post('admin/products/create/{id?}', function($id = null) {
 
     $subCategoryAttributes = App\Admin\SubCategory::where('category_id', $id)->get();
-
     $subCategoryOptions = array();
-
     foreach($subCategoryAttributes as $key => $subCatAttribute)
     {
         $subCategoryOptions[$key] = [$subCatAttribute->id, $subCatAttribute->name, $subCatAttribute->identifier];
@@ -35,8 +33,6 @@ Route::post('admin/products/create/{id?}', function($id = null) {
 
     return $subCategoryOptions;
 });
-
-
 
 Auth::routes();
 
@@ -58,6 +54,21 @@ Route::get('/store/{id}', [
 Route::get('/add-to-cart/{id}', [
    'uses' => 'StoreController@getAddToCart',
     'as'  => 'store.addToCart'
+]);
+
+Route::get('/reduce/{id}', [
+    'uses' => 'StoreController@getReduceByOne',
+    'as'  => 'store.reduceByOne'
+]);
+
+Route::get('/increase/{id}', [
+    'uses' => 'StoreController@getIncreaseByOne',
+    'as'  => 'store.increaseByOne'
+]);
+
+Route::get('/remove/{id}', [
+    'uses' => 'StoreController@getRemoveItem',
+    'as'  => 'store.remove'
 ]);
 
 Route::get('/shopping-cart', [
