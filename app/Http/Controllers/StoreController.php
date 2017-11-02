@@ -146,6 +146,7 @@ class StoreController extends Controller
         if(!Session::has('cart')){
             return view('store.shopping-cart');
         }
+
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         $total = $cart->totalPrice;

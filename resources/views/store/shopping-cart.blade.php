@@ -43,10 +43,8 @@
                                     </td>
 
                                     <td class="col-sm-1 col-md-1" style="text-align: center">
-
                                         <div class="input-group" style="padding: 30px;">
-
-                                               <span class="input-group-btn">
+                                            <span class="input-group-btn">
                                                 <a class="btn btn-danger btn-number" href="{{ route('store.reduceByOne', ['id' => $product['item']['id']]) }}">
                                                     <span class="glyphicon glyphicon-minus"></span>
                                                 </a>
@@ -59,16 +57,12 @@
                                                     <span class="glyphicon glyphicon-plus"></span>
                                                 </a>
                                             </span>
-
                                         </div>
-
                                     </td>
 
                                     @if(isset($descriptions['price']))
-
                                         <td class="col-sm-1 col-md-1 text-center">
                                             <strong>{{ $descriptions['price'] }} {{ $descriptions['currency'] }}</strong></td>
-
                                         <td class="col-sm-1 col-md-1 text-center"><strong>{{ $product['qty'] * $descriptions['price'] }} {{ $descriptions['currency'] }} </strong></td>
                                     @endif
 
@@ -93,8 +87,8 @@
                             <td>   </td>
                             <td><h5>Доставка:</h5></td>
                             @if(isset($descriptions['currency']))
-                            <td class="text-right"><h5><strong>0.00 {{ $descriptions['currency'] }}</strong></h5></td>
-                                @endif
+                                <td class="text-right"><h5><strong>0.00 {{ $descriptions['currency'] }}</strong></h5></td>
+                            @endif
                         </tr>
                         <tr>
                             <td>   </td>
@@ -102,21 +96,19 @@
                             <td>   </td>
                             <td><h3>Общо:</h3></td>
                             @if(isset($descriptions['currency']))
-                            <td class="text-center"><h3><strong>{{ $totalPrice }} {{ $descriptions['currency'] }}</strong></h3></td>
-                                @endif
+                                <td class="text-center"><h3><strong>{{ $totalPrice }} {{ $descriptions['currency'] }}</strong></h3></td>
+                            @endif
                         </tr>
                         <tr>
                             <td>   </td>
                             <td>   </td>
                             <td>   </td>
                             <td>
-                                <button type="button" class="btn btn-default">
-                                    <span class="glyphicon"></span> Продължи с пазаруването
-                                </button></td>
+                                <a href="/store" class="btn btn-default">Продължи с пазаруването</a>
+                            </td>
                             <td>
-                                <button type="button" class="btn btn-success">
-                                    Продължи поръчката <span class="glyphicon"></span>
-                                </button></td>
+                                <a href="/checkout" class="btn btn-success">Продължи поръчката</a>
+                            </td>
                         </tr>
                         </tbody>
                     </table>

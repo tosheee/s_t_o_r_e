@@ -71,20 +71,17 @@ Route::get('/remove/{id}', [
     'as'  => 'store.remove'
 ]);
 
+Route::get('/checkout', [
+    'uses' => 'StoreController@getCheckout',
+    'as'  => 'store.checkout'
+]);
+
 Route::get('/shopping-cart', [
     'uses' => 'StoreController@getCart',
     'as'  => 'store.shoppingCart'
 ]);
 
-Route::get('/checkout', [
-    'uses' => 'StoreController@getCheckout',
-    'as'  => 'checkout'
-]);
 
-Route::post('/checkout', [
-    'uses' => 'StoreController@postCheckout',
-    'as' => 'checkout'
-]);
 
 // Admin
 
