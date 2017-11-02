@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 use Session;
 use App\Admin\SubCategory;
 use App\Admin\Category;
@@ -149,8 +150,40 @@ class StoreController extends Controller
 
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
-        $total = $cart->totalPrice;
+        //$total = $cart->totalPrice;
 
-        return view('store.checkout', ['total' => $total]);
+        //dd($cart);
+        return view('store.checkout', ['cart' => $cart]);
+    }
+
+    public function postCheckout(Request $request)
+    {
+        if(!Session::has('cart'))
+        {
+            return redirect()->route('shop.shoppingCart');
+        }
+
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+
+        $order = new Order();
+        $order->cart = serialize($cart); //unserialize()
+        $order->user_id         = $request->input('user_id');
+        $order->email           = $request->input('email');
+        $order->name            = $request->input('name');
+        $order->last_name       = $request->input('last_name');
+        $order->phone           = $request->input('phone');
+        $order->company         = $request->input('company');
+        $order->bulstat         = $request->input('bulstat');
+        $order->payment_method  = $request->input('payment_method');
+        $order->delivery_method = $request->input('delivery_method');
+        $order->note            = $request->input('note');
+        $order->address         = $request->input('address');
+
+
+        Auth::user()->orders()->save($order);
+
+        Session::forget('cart');
+        return redirect()->route('store.index')->with('success', '');
     }
 }

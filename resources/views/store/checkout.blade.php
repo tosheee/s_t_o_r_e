@@ -6,31 +6,187 @@
 
     <div class="container">
         <div class="row">
+
             <div class="col-sm-12 col-md-9">
 
-                <form id="signin" class="navbar-form navbar-right" role="form" method="POST" action="{{ route('login') }}">
-                    {{ csrf_field() }}
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input id="email" type="email" class="form-control" name="email" value="" placeholder="Email Address">
+
+                <div class="contentCheckout">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <div class="checkout-items">
+                                    <div class="list-checkout">
+                                        <ul class="steps-checkout">
+                                            <li class="steps active-check"><a href="#"> <span class="fa fa-truck"></span> Shipping</a></li>
+                                            <li class="steps"><a href="#"> <span class="fa fa-credit-card"></span> Payment</a></li>
+                                            <li class="steps"><a href="#"> <span class="fa fa-check"></span> Confirmation</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="contentShipping">
+                                        <form id="form-shipping" class="" name="form-shipping" action="#">
+
+                                            <fieldset>
+
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-sm-12 col-md-6">
+                                                            <label class="control-label" for="name">Име:</label>
+                                                            <input name="name" class="form-control chkndo-input" placeholder="Име" type="text" value="{{ isset(Auth::user()->name) ? Auth::user()->name : '' }}">
+                                                        </div>
+
+                                                        <div class="col-sm-12 col-md-6">
+                                                            <label class="control-label" for="last_name">Фамилия:</label>
+                                                            <input name="last_name" class="form-control chkndo-input" placeholder="Фамилия" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-12 col-md-6">
+                                                            <label class="control-label" for="email">е-адрес:</label>
+                                                            <input name="email" class="form-control chkndo-input" placeholder="е-адрес" type="text" value="{{ isset(Auth::user()->email) ? Auth::user()->email : '' }}">
+                                                        </div>
+
+                                                        <div class="col-md-12 col-md-6">
+                                                            <label class="control-label" for="surname">Телефон:</label>
+                                                            <input name="phone" class="form-control chkndo-input" placeholder="Телефон" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label class="control-label" for="district">Фирма:</label>
+                                                            <input name="district" class="form-control chkndo-input" placeholder="Фирма" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label class="control-label" for="district">ЕИК или ДДС No:</label>
+                                                            <input name="district" class="form-control chkndo-input" placeholder="ЕИК или ДДС No" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label class="control-label" for="district">Адрес</label>
+                                                            <textarea name="" id="" cols="30" rows="5" class="form-control chkndo-input"></textarea>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label class="control-label" for="">Codigo Postal</label>
+                                                            <input name="district" class="" type="radio">
+                                                            <input name="district" class="" type="radio">
+                                                            <input name="district" class="" type="radio">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label class="control-label" for="district">Codigo Postal</label>
+                                                            <input name="district" class="form-control chkndo-input" placeholder="77500" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label class="control-label" for="district">Бележка:</label>
+                                                            <textarea name="note" id="" cols="30" rows="5" class="form-control chkndo-input"></textarea>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <button type="button" class="btn btn-primary btn-lg btn-block next-chk">Потвърди</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="cartForCheckout">
+                                    <h2>Shoping cart</h2>
+                                    <div class="contenCart">
+
+                                        <div class="products-forCheckout">
+                                            <ul class="ul-forCheckoutItems">
+
+                                                @foreach($cart->items as $item)
+                                                    <?php $description = json_decode($item['item']->description, true); ?>
+
+
+                                                    <div class="divider"></div>
+                                                    <li class="countCheckout">
+                                                        <p class="objetc">{{ $description['title_product'] }}</p>
+                                                        <p class="objetc">{{ $item['qty'] }}</p>
+                                                        <p class="price">{{ $description['price'] }} {{ $description['currency'] }}</p>
+                                                    </li>
+
+
+                                                @endforeach
+
+
+                                                <div class="divider"></div>
+                                                <li class="countCheckout">
+                                                    <p class="objetc">Доставка</p>
+                                                    <p class="price">0.00</p>
+                                                </li>
+
+                                                <li class="countCheckout">
+                                                    <p class="objetc">Buy</p>
+                                                    <p class="price"></p>
+                                                </li>
+
+
+                                                <div class="divider"></div>
+                                                <li class="countCheckout">
+                                                    <p class="objetc totalPrice">Total</p>
+                                                    <p class="price totalPrice">{{ $cart->totalPrice }}</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input id="password" type="password" class="form-control" name="password" value="" placeholder="Password">
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Login</button>
-                </form>
-
-
-
-
-
-
+                </div>
 
 
             </div>
         </div>
-</div>
+    </div>
+
 @endsection
