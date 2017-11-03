@@ -9,7 +9,7 @@ use Session;
 use App\Admin\SubCategory;
 use App\Admin\Category;
 use App\Admin\Product;
-
+use App\Order;
 use Illuminate\Http\Request;
 
 class StoreController extends Controller
@@ -150,9 +150,7 @@ class StoreController extends Controller
 
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
-        //$total = $cart->totalPrice;
 
-        //dd($cart);
         return view('store.checkout', ['cart' => $cart]);
     }
 
@@ -164,26 +162,34 @@ class StoreController extends Controller
         }
 
         $oldCart = Session::get('cart');
+
         $cart = new Cart($oldCart);
 
         $order = new Order();
-        $order->cart = serialize($cart); //unserialize()
         $order->user_id         = $request->input('user_id');
-        $order->email           = $request->input('email');
         $order->name            = $request->input('name');
         $order->last_name       = $request->input('last_name');
+        $order->email           = $request->input('email');
         $order->phone           = $request->input('phone');
+        $order->address         = $request->input('address');
+        $order->delivery_method = $request->input('delivery_method');
+        $order->payment_method  = $request->input('payment_method');
         $order->company         = $request->input('company');
         $order->bulstat         = $request->input('bulstat');
-        $order->payment_method  = $request->input('payment_method');
-        $order->delivery_method = $request->input('delivery_method');
         $order->note            = $request->input('note');
-        $order->address         = $request->input('address');
+        $order->cart = serialize($cart); //unserialize()
 
-
-        Auth::user()->orders()->save($order);
+        if(isset(Auth::user()->name))
+        {
+            Auth::user()->orders()->save($order);
+        }
+        else
+        {
+            $order->save();
+        }
 
         Session::forget('cart');
+
         return redirect()->route('store.index')->with('success', '');
     }
 }

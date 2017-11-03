@@ -17,16 +17,17 @@
                                 <div class="checkout-items">
                                     <div class="list-checkout">
                                         <ul class="steps-checkout">
-                                            <li class="steps active-check"><a href="#"> <span class="fa fa-truck"></span> Shipping</a></li>
+                                            <li class="steps active-check"><a href="#"> <span class="fa fa-truck"></span> Поръчка</a></li>
                                             <li class="steps"><a href="#"> <span class="fa fa-credit-card"></span> Payment</a></li>
                                             <li class="steps"><a href="#"> <span class="fa fa-check"></span> Confirmation</a></li>
                                         </ul>
                                     </div>
 
                                     <div class="contentShipping">
-                                        <form id="form-shipping" class="" name="form-shipping" action="#">
-
+                                        <form id="form-shipping" class="" name="form-shipping" action="/checkout" method="post">
+                                            {{ csrf_field() }}
                                             <fieldset>
+                                                <input name="user_id" class="form-control chkndo-input" placeholder="Име" type="hidden" value="{{ isset(Auth::user()->id) ? Auth::user()->id : '' }}">
 
                                                 <div class="form-group">
                                                     <div class="row">
@@ -59,12 +60,58 @@
                                                 <div class="form-group">
                                                     <div class="row">
                                                         <div class="col-md-12">
+                                                            <label class="control-label" for="district">Адрес</label>
+                                                            <textarea name="address" id="" cols="30" rows="5" class="form-control chkndo-input"></textarea>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <input name="delivery_method" class="" type="radio" value="Доставка до адрес" checked>
+                                                            <label class="control-label" for="delivery_method">Доставка до адрес</label>
+
+                                                            <input name="delivery_method" class="" type="radio" value="Доставка до офис на куриер">
+                                                            <label class="control-label" for="delivery_method">Доставка до офис на куриер</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <input name="payment_method" class="" type="radio" value="Наложен платеж" checked>
+                                                            <label class="control-label" for="payment_method" >Наложен платеж</label>
+
+                                                            <input name="payment_method" class="" type="radio" value="С карта">
+                                                            <label class="control-label" for="payment_method">С карта</label>
+
+                                                            <input name="payment_method" class="" type="radio" value="С банков превод">
+                                                            <label class="control-label" for="payment_method">С банков превод</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label class="control-label" for="district">Бележка:</label>
+                                                            <textarea name="note" id="" cols="30" rows="5" class="form-control chkndo-input"></textarea>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
                                                             <label class="control-label" for="district">Фирма:</label>
                                                             <input name="district" class="form-control chkndo-input" placeholder="Фирма" type="text">
                                                         </div>
                                                     </div>
                                                 </div>
-
 
                                                 <div class="form-group">
                                                     <div class="row">
@@ -78,64 +125,19 @@
                                                 <div class="form-group">
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <label class="control-label" for="district">Адрес</label>
-                                                            <textarea name="" id="" cols="30" rows="5" class="form-control chkndo-input"></textarea>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="form-group">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <label class="control-label" for="">Codigo Postal</label>
-                                                            <input name="district" class="" type="radio">
-                                                            <input name="district" class="" type="radio">
-                                                            <input name="district" class="" type="radio">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <label class="control-label" for="district">Codigo Postal</label>
-                                                            <input name="district" class="form-control chkndo-input" placeholder="77500" type="text">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="form-group">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <label class="control-label" for="district">Бележка:</label>
-                                                            <textarea name="note" id="" cols="30" rows="5" class="form-control chkndo-input"></textarea>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="form-group">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <button type="button" class="btn btn-primary btn-lg btn-block next-chk">Потвърди</button>
+                                                            <button type="submit" class="btn btn-primary btn-lg btn-block next-chk">Потвърди</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </fieldset>
                                         </form>
                                     </div>
-
-
-
                                 </div>
                             </div>
+
                             <div class="col-sm-12 col-md-6">
                                 <div class="cartForCheckout">
-                                    <h2>Shoping cart</h2>
+                                    <h2>Твоята количка</h2>
                                     <div class="contenCart">
 
                                         <div class="products-forCheckout">
@@ -171,7 +173,7 @@
                                                 <div class="divider"></div>
                                                 <li class="countCheckout">
                                                     <p class="objetc totalPrice">Total</p>
-                                                    <p class="price totalPrice">{{ $cart->totalPrice }}</p>
+                                                    <p class="price totalPrice">{{ $cart->totalPrice }} лв.</p>
                                                 </li>
                                             </ul>
                                         </div>

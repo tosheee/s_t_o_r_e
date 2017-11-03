@@ -1,19 +1,6 @@
 <?php
 
-//use Illuminate\Support\Facades\Input;
-
-
-//Route::get('store/search', function($keyword = null, $category = null) {
-
-    //Input::get('category');
-  //  return "alabala";
-
-//});
-
-
-Route::get('/', 'HomeController@index')->name('home');
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'StoreController@index');
 
 View::composer('*', function($view) { $view->with('categoriesButtonsName', App\Admin\Category::all()); });
 
@@ -76,6 +63,11 @@ Route::get('/checkout', [
     'as'  => 'store.checkout'
 ]);
 
+Route::post('/checkout', [
+    'uses' => 'StoreController@postCheckout',
+    'as'  => 'store.checkout'
+]);
+
 Route::get('/shopping-cart', [
     'uses' => 'StoreController@getCart',
     'as'  => 'store.shoppingCart'
@@ -91,6 +83,9 @@ Route::get('/admin/products/search', [
 ]);
 
 Route::get ('/admin/dashboard', 'AdminController@index');
+
+Route::delete ('/admin/dashboard/{id}', 'AdminController@destroy');
+
 
 Route::get ('/admin', 'Admin\LoginController@showLoginForm')->name('admin.login');
 

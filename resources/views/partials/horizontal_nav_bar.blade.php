@@ -107,7 +107,7 @@
                     <li>
                         <div class="cart-footer">
                             <a href="{{ route('store.shoppingCart') }}" class="pull-left"><i class="fa fa-cart-plus mr-5"></i>ViewCart</a>
-                            <a href="#" class="pull-right"><i class="fa fa-shopping-basket mr-5"></i>Checkout</a>
+                            <a href="{{ route('store.checkout') }}" class="pull-right"><i class="fa fa-shopping-basket mr-5"></i>Checkout</a>
                         </div>
                     </li>
                 </ul>
