@@ -6,12 +6,12 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Session;
 
 class RegisterController extends Controller
 {
-
     use RegistersUsers;
-
 
     protected $redirectTo = '/';
 
@@ -23,7 +23,7 @@ class RegisterController extends Controller
 
     public function redirectTo()
     {
-        return Session::get('backUrl') ? Session::get('backUrl') :   $this->redirectTo;
+        return Session::get('backUrl') ? Session::get('backUrl') : $this->redirectTo;
     }
 
     protected function validator(array $data)

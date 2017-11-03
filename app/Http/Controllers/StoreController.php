@@ -156,6 +156,16 @@ class StoreController extends Controller
 
     public function postCheckout(Request $request)
     {
+        $this->validate($request, [
+            'name'      => 'required',
+            'last_name' => 'required',
+            'email'     => 'required',
+            'phone'     => 'required',
+            'address'  => 'required',
+            'delivery_method'  => 'required',
+            'payment_method'  => 'required',
+        ]);
+
         if(!Session::has('cart'))
         {
             return redirect()->route('shop.shoppingCart');

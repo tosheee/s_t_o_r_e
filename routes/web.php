@@ -101,3 +101,5 @@ Route::resource('/admin/users', 'Admin\UserController');
 
 Route::resource('/admin/admins', 'Admin\AdminController');
 
+Route::resource('/admin/pages', 'Admin\PagesController');
+

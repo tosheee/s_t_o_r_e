@@ -47,6 +47,7 @@ return array(
     'CreateAdminTable' => $baseDir . '/database/migrations/2017_08_23_071414_create_admin_table.php',
     'CreateCategoriesTable' => $baseDir . '/database/migrations/2017_08_23_094425_create_categories_table.php',
     'CreateOrdersTable' => $baseDir . '/database/migrations/2017_11_02_080350_create_orders_table.php',
+    'CreatePagesTable' => $baseDir . '/database/migrations/2017_11_03_115024_create_pages_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateProductsTable' => $baseDir . '/database/migrations/2017_09_17_135535_create_products_table.php',
     'CreateSubCategoriesTable' => $baseDir . '/database/migrations/2017_08_23_150608_create_sub_categories_table.php',

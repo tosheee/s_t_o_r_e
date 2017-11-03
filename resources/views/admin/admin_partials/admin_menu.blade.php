@@ -66,8 +66,7 @@
                         <a id="panel1" href="javascript:;" data-toggle="collapse" data-target="#Dashboard"> <i class="fa fa-dashboard"></i> Dashboard
                             <i class="fa fa-chevron-left pull-right" id="arow1"></i> </a>
                         <ul class="collapse nav" id="Dashboard">
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> New Orders</a> </li>
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
+                            <li> <a href="/admin/dashboard"><i class="fa fa-angle-double-right"></i> Orders</a> </li>
                         </ul>
                     </li>
 
@@ -84,6 +83,9 @@
 
                             <li> <a href="/admin/products"><i class="fa fa-angle-double-right"></i> Products</a> </li>
                             <li> <a href="/admin/products/create"><i class="fa fa-angle-double-right"></i> New product</a> </li>
+
+                            <li> <a href="/admin/pages"><i class="fa fa-angle-double-right"></i>Pages</a> </li>
+                            <li> <a href="/admin/pages/create"><i class="fa fa-angle-double-right"></i> New page</a> </li>
                         </ul>
                     </li>
 
@@ -96,16 +98,6 @@
                                     <li> <a href="/admin/products/search?category={{ $subCategoriesButtonsName->identifier }}"><i class="fa fa-angle-double-right"></i> {{ $subCategoriesButtonsName->name }}</a> </li>
                                 @endforeach
                             </ul>
-                        </li>
-
-
-                    <li class="panel">
-                        <a id="panel3" href="javascript:;" data-toggle="collapse" data-target="#calendar"> <i class="fa fa-calendar"></i> calendar
-                            <span class="label label-danger">new event</span> <i class="fa fa-chevron-left pull-right" id="arow3"></i> </a>
-                        <ul class="collapse nav" id="calendar">
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
-                        </ul>
                     </li>
 
                     <li class="panel">
@@ -117,12 +109,19 @@
                         </ul>
                     </li>
 
-
-
                     <li class="panel">
                         <a id="panel6" href="javascript:;" data-toggle="collapse" data-target="#inbox"> <i class="fa fa-inbox"></i> inbox
                             <span class="label label-primary">new msz</span> <i class="fa fa fa-chevron-left pull-right" id="arow6"></i> </a>
                         <ul class="collapse nav" id="inbox">
+                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
+                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
+                        </ul>
+                    </li>
+
+                    <li class="panel">
+                        <a id="panel3" href="javascript:;" data-toggle="collapse" data-target="#calendar"> <i class="fa fa-calendar"></i> calendar
+                            <span class="label label-danger">new event</span> <i class="fa fa-chevron-left pull-right" id="arow3"></i> </a>
+                        <ul class="collapse nav" id="calendar">
                             <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
                             <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
                         </ul>
