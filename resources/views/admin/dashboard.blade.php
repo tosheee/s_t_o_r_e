@@ -42,7 +42,8 @@
                               <th>Price</th>
                           </tr>
 
-                          <?php $products = unserialize($order->cart) ?>
+                          <?php $products = unserialize(base64_decode($order->cart)) ?>
+
                           @foreach($products->items as $product)
 
                               <?php $descriptions = json_decode($product['item']['description'], true); ?>
@@ -76,7 +77,7 @@
         {{ $orders->links() }}
 
     @else
-        <p>No products</p>
+        <p>No Orders</p>
     @endif
 
 

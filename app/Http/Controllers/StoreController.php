@@ -177,7 +177,7 @@ class StoreController extends Controller
         $order->company         = $request->input('company');
         $order->bulstat         = $request->input('bulstat');
         $order->note            = $request->input('note');
-        $order->cart = serialize($cart); //unserialize()
+        $order->cart = base64_encode(serialize($cart)); //unserialize()
 
         if(isset(Auth::user()->name))
         {
