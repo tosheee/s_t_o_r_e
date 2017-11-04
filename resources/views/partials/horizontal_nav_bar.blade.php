@@ -265,9 +265,10 @@
                         <li><a href="#">Login</a></li>
                     </ul>
                 </li>
-                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">За нас</a></li>
-                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">Статии</a></li>
-                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">Контакти</a></li>
+
+                @foreach($pagesButtonsRender as $pageButton)
+                    <li><a href="/pages={{ $pageButton->url_page }}" class="dropdown-toggle"  data-hover="dropdown" data-close-others="false">{{ $pageButton->name_page }}</a></li>
+                @endforeach
             </ul>
         </div><!-- /.navbar-collapse -->
     </div>

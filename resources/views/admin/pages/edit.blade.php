@@ -4,7 +4,7 @@
     @include('admin.admin_partials.admin_menu')
 
     <div class="basic-grey">
-        <form class="form-horizontal" method="POST" action="{{ route('pages.store') }}">
+        <form class="form-horizontal" method="POST" action="/admin/pages/{{ $page->id }}">
             {{ csrf_field() }}
 
             <label>
@@ -30,9 +30,9 @@
             </label>
 
             <div class="actions">
-                <input type="submit" name="commit" value="Create Page" class="btn btn-success">
+                <input name="_method" type="hidden" value="PUT">
+                <input type="submit" name="commit" value="Edit Page" class="btn btn-success">
             </div>
-
         </form>
     </div>
 

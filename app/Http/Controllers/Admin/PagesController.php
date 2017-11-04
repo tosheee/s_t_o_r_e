@@ -64,15 +64,15 @@ class PagesController extends Controller
     {
         $this->validate($request, [
             'name_page' => 'required',
-            'url_page'        => 'required',
-            'content'  => 'required',
+            'url_page'  => 'required',
+            'content'   => 'required',
         ]);
 
         $page = Page::find($id);
         $page->active_page = $request->input('active_page');
-        $page->name_page = $request->input('name_page');
-        $page->url_page  = $request->input('url_page');
-        $page->content   = $request->input('content');
+        $page->name_page   = $request->input('name_page');
+        $page->url_page    = $request->input('url_page');
+        $page->content     = $request->input('content');
         $page->save();
 
         return redirect('admin/pages');

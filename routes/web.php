@@ -9,6 +9,20 @@ View::composer('*', function($view) { $view->with('subCategoriesButtonsName', Ap
 View::composer('*', function($view) {$view->with('subCategories', App\Admin\SubCategory::all());});
 
 
+View::composer('*', function($view) {
+    //$p = App\Admin\Page::where('active_page', true);
+    //$p = App\Admin\Page::all();
+   //dd($p);
+    $view->with('pagesButtonsRender', App\Admin\Page::all());
+});
+
+
+
+
+
+
+
+
 Route::post('admin/products/create/{id?}', function($id = null) {
 
     $subCategoryAttributes = App\Admin\SubCategory::where('category_id', $id)->get();
