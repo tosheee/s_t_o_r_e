@@ -10,6 +10,7 @@ use App\Admin\SubCategory;
 use App\Admin\Category;
 use App\Admin\Product;
 use App\Order;
+use App\Admin\Page;
 use Illuminate\Http\Request;
 
 class StoreController extends Controller
@@ -201,5 +202,13 @@ class StoreController extends Controller
         Session::forget('cart');
 
         return redirect()->route('store.index')->with('success', '');
+    }
+
+    public function getShowPages(Request $request)
+    {
+        $active_page = Page::where('active_page', true)->get();
+        $page = $active_page->where('url_page', $request->input('show'))->first();
+
+        return view('store.show-pages')->with('page', $page)->with('title', 'Show Page');
     }
 }

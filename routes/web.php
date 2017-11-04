@@ -8,19 +8,9 @@ View::composer('*', function($view) { $view->with('subCategoriesButtonsName', Ap
 
 View::composer('*', function($view) {$view->with('subCategories', App\Admin\SubCategory::all());});
 
-
 View::composer('*', function($view) {
-    //$p = App\Admin\Page::where('active_page', true);
-    //$p = App\Admin\Page::all();
-   //dd($p);
-    $view->with('pagesButtonsRender', App\Admin\Page::all());
+    $view->with('pagesButtonsRender', App\Admin\Page::where('active_page', true)->get());
 });
-
-
-
-
-
-
 
 
 Route::post('admin/products/create/{id?}', function($id = null) {
@@ -36,6 +26,13 @@ Route::post('admin/products/create/{id?}', function($id = null) {
 });
 
 Auth::routes();
+
+
+
+Route::get('/page', [
+    'uses' => 'StoreController@getShowPages',
+    'as'  => 'store.showPage'
+]);
 
 Route::get('/store', [
     'uses' => 'StoreController@index',
@@ -86,8 +83,6 @@ Route::get('/shopping-cart', [
     'uses' => 'StoreController@getCart',
     'as'  => 'store.shoppingCart'
 ]);
-
-
 
 // Admin
 

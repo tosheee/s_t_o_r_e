@@ -267,7 +267,7 @@
                 </li>
 
                 @foreach($pagesButtonsRender as $pageButton)
-                    <li><a href="/pages={{ $pageButton->url_page }}" class="dropdown-toggle"  data-hover="dropdown" data-close-others="false">{{ $pageButton->name_page }}</a></li>
+                    <li><a href="/page?show={{ $pageButton->url_page }}" class="dropdown-toggle"  data-hover="dropdown" data-close-others="false">{{ $pageButton->name_page }}</a></li>
                 @endforeach
             </ul>
         </div><!-- /.navbar-collapse -->

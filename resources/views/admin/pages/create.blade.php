@@ -40,7 +40,7 @@
     <script src="{{ URL::to('/') }}/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 
     <script>
-        CKEDITOR.replace( 'editor-page-create' );
+        CKEDITOR.replace( 'editor-page-create', { height: 800 } );
     </script>
 
     @include('admin.admin_partials.admin_menu_bottom')
