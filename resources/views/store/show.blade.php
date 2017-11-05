@@ -181,6 +181,11 @@
                             </a>
                         </div>
                     </div>
+
+                    <div class="section" >
+                        <p>Продуктов код: {{ isset($descriptions['article_id'])  ? $descriptions['article_id'] : '' }}</p>
+                    </div>
+
                     <div class="section" style="padding: 50px 30px 30px 40px;">
                         <a class="btn btn-success" href="{{ route('store.addToCart', ['id' => $product->id]) }}">Добави в количката</a>
                     </div>

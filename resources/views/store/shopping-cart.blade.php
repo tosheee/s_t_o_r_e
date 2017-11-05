@@ -43,20 +43,16 @@
                                     </td>
 
                                     <td class="col-sm-1 col-md-1" style="text-align: center">
-                                        <div class="input-group" style="padding: 30px;">
-                                            <span class="input-group-btn">
-                                                <a class="btn btn-danger btn-number" href="{{ route('store.reduceByOne', ['id' => $product['item']['id']]) }}">
-                                                    <span class="glyphicon glyphicon-minus"></span>
-                                                </a>
-                                            </span>
+                                        <div>
+                                            <a href="{{ route('store.reduceByOne', ['id' => $product['item']['id']]) }}" style="padding-top: 6px;">
+                                                <i style="color: red;" class="fa fa-minus fa-1x" aria-hidden="true"></i>
+                                            </a>
 
-                                            <input type="text" value="{{ $product['qty']}}" class="" value="10" min="1" max="100" style="text-align: center; height: 35px; width: 40px;">
+                                            <input  type="number" value="{{ $product['qty']}}" style="margin: 2px; height: 25px; font-size: 16px;" min="1" max="10"/>
 
-                                            <span class="input-group-btn">
-                                                <a class="btn btn-success btn-number" href="{{ route('store.increaseByOne', ['id' => $product['item']['id']]) }}">
-                                                    <span class="glyphicon glyphicon-plus"></span>
-                                                </a>
-                                            </span>
+                                            <a href="{{ route('store.increaseByOne', ['id' => $product['item']['id']]) }}" style="padding-top: 6px;">
+                                                <i style="color: #2ab27b" class="fa fa-plus fa-1x" aria-hidden="true"></i>
+                                            </a>
                                         </div>
                                     </td>
 
