@@ -2,9 +2,12 @@
 
 @section('content')
 
-    <div class="col-md-2"> @include('partials.v_nav_bar') </div>
 
+    <div class="col-md-2"> @include('partials.v_nav_bar') </div>
     <div class="col-md-9">
+        @include('partials.slider_index')
+
+        <br/><br/>
         <div class="row">
 
             @foreach($products as $product)

@@ -1,20 +1,13 @@
 <nav class="topBar">
     <div class="container">
         <ul class="list-inline pull-left hidden-sm hidden-xs">
-            <li><span class="text-primary">Have a question? </span> Call +120 558 7885</li>
+            <li><span class="text-primary">Имате ли въпроси? </span>Телефон:  0895 06 99 53 | Имейл: tosheee@abv.bg</li>
         </ul>
         <ul class="topBarNav pull-right">
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-bgn mr-5"></i>BGN<i class="fa fa-angle-down ml-5"></i>
                 </a>
-                <ul class="dropdown-menu w-100" role="menu">
-                    <li><a href="#"><i class="fa fa-eur mr-5"></i>EUR</a>
-                    </li>
-                    <li class=""><a href="#"><i class="fa fa-usd mr-5"></i>USD</a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-gbp mr-5"></i>GBP</a>
-                    </li>
-                </ul>
+
             </li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">
@@ -27,12 +20,13 @@
                     </li>
                 </ul>
             </li>
+
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-user mr-5"></i><span class="hidden-xs">My Account<i class="fa fa-angle-down ml-5"></i></span> </a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-user mr-5"></i><span class="hidden-xs">Профил<i class="fa fa-angle-down ml-5"></i></span> </a>
                 <ul class="dropdown-menu w-150" role="menu">
                     @if (Auth::guest())
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                        <li><a href="{{ route('register') }}">Register</a></li>
+                        <li><a href="{{ route('login') }}">Вход</a></li>
+                        <li><a href="{{ route('register') }}">Регистрация</a></li>
                     @else
 
                     <li class="divider"></li>
@@ -40,7 +34,7 @@
                     </li>
                     <li>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                            Logout
+                            Изход
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -50,9 +44,10 @@
                     @endif
                 </ul>
             </li>
+
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-shopping-basket mr-5"></i> <span class="hidden-xs">
-                                Cart<sup class="text-primary">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</sup>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-cart-plus mr-5"></i> <span class="hidden-xs">
+                                Количка <strong><sup class="text-primary">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</sup></strong>
                                 <i class="fa fa-angle-down ml-5"></i>
                             </span> </a>
 
@@ -75,23 +70,25 @@
 
                                         <li>
                                             @if(isset($descriptions['main_picture_url']))
-                                                <a href="#" class="product-image"> <img src="{{ $descriptions['main_picture_url'] }}" class="img-responsive" alt="Sample Product "> </a>
+                                                <a href="#" class="product-image"> <img src="{{ $descriptions['main_picture_url'] }}" class="img-responsive" alt=""> </a>
                                             @elseif(isset($descriptions['upload_main_picture']))
-                                                <a href="#" class="product-image"> <img src="/storage/upload_pictures/{{ $product['item']->id }}/{{ $descriptions['upload_main_picture'] }}" class="img-responsive" alt="Sample Product "> </a>
+                                                <a href="#" class="product-image"> <img src="/storage/upload_pictures/{{ $product['item']->id }}/{{ $descriptions['upload_main_picture'] }}" class="img-responsive" alt=""> </a>
                                             @else
-                                                <a href="#" class="product-image"> <img src="{{ $descriptions['main_picture_url'] }}" class="img-responsive" alt="Sample Product "> </a>
+                                                <a href="#" class="product-image"> <img src="{{ $descriptions['main_picture_url'] }}" class="img-responsive" alt=""> </a>
                                             @endif
 
                                             <div class="product-details">
                                                 <div class="close-icon">
-                                                    <a href="#"><i class="fa fa-close"></i></a>
+                                                    <a href="{{ route('store.remove', [ 'id' => $product['item']['id']]) }}"><i class="fa fa-close"></i></a>
                                                 </div>
                                                 <p class="product-name"> <a href="#">{{ $descriptions['title_product'] }}</a> </p>
                                                 <strong>{{ $product['qty']}}</strong> x <span class="price text-primary">{{ $descriptions['price'] }}{{ $descriptions['currency'] }}</span>
                                             </div>
                                             <!-- end product-details -->
-                                        </li>
+
+                                            </li>
                                     @endforeach
+                                        <p class="text-center"><h5>Общо: <strong> {{ $cart->totalPrice }} {{ $descriptions['currency'] }}</strong></h5></p>
 
                                 @else
                                     <li style="text-align: center;">
@@ -106,8 +103,8 @@
                     </li>
                     <li>
                         <div class="cart-footer">
-                            <a href="{{ route('store.shoppingCart') }}" class="pull-left"><i class="fa fa-cart-plus mr-5"></i>ViewCart</a>
-                            <a href="{{ route('store.checkout') }}" class="pull-right"><i class="fa fa-shopping-basket mr-5"></i>Checkout</a>
+                            <a href="{{ route('store.shoppingCart') }}" class="pull-left"><i class="fa fa-cart-plus mr-5"></i> Количка</a>
+                            <a href="{{ route('store.checkout') }}" class="pull-right"><i class="fa fa-money" aria-hidden="true"></i> Плащане</a>
                         </div>
                     </li>
                 </ul>
@@ -125,16 +122,17 @@
                 <a href="javascript:void(0);">Logo <img width="" src="" alt=""></a>
             </div>
             <!-- end col -->
+
             <div class="col-sm-7 vertical-align text-center">
                 <form action="/store/search" method="get">
                     <div class="row grid-space-1">
                         <div class="col-sm-6">
-                            <input type="text" name="keyword" class="form-control input-lg" placeholder="Search" value="">
+                            <input type="text" name="keyword" class="form-control input-lg" placeholder="Търсене" value="">
                         </div>
                         <!-- end col -->
                         <div class="col-sm-3">
                             <select class="form-control input-lg" name="category" id="search-select-category">
-                                <option value="all">All Categories</option>
+                                <option value="all"><b>Продукти</b></option>
 
                                 @foreach($categoriesButtonsName as $categoryButton)
                                     <!-- category-name -->
@@ -149,56 +147,17 @@
                                 @endforeach
                             </select>
                         </div>
-
-                        <script>
-
-                            $( "#search-select-category" ).change(function() {
-                                var category_val =  $( "#search-select-category option:selected" ).val();
-                                console.log(category_val)
-
-                                $.ajax({
-                                    method: "get",
-                                    url: "/store/product=" + category_val,
-                                    data: { "_token": "{{ csrf_token() }}" },
-                                    success: function( msg ) {
-                                        $("#select-sub-category").append("<option value=''>Select Sub Category</option>");
-                                        for(var i = 0; i < msg.length; i++ ){
-                                            $("#select-sub-category").append("<option value=" + msg[i][0] + ">" + msg[i][1] + "</option>");
-                                        }
-
-                                        $( "#select-sub-category" ).change(function() {
-                                            var sub_category_val =  $( "#select-sub-category option:selected" ).val();
-                                            console.log(sub_category_val);
-                                            $("#select-identifier").children().remove();
-
-                                            for(var j = 0; j < msg.length; j++){
-                                                if(sub_category_val == msg[j][0]){
-                                                    $("#select-identifier").append("<option value="+ msg[j][2] +">" + msg[j][2] + "</option>");
-                                                }
-                                            }
-                                        });
-                                    }
-                                });
-                            });
-
-
-
-                        </script>
-
-
-
-
-
-
                         <!-- end col -->
                         <div class="col-sm-3">
-                            <input type="submit" class="btn btn-default btn-block btn-lg" value="Search">
+                            <button type="submit" class="btn btn-default btn-block btn-lg" ><i class="fa fa-search" aria-hidden="true"></i></button>
                         </div>
                         <!-- end col -->
                     </div>
                     <!-- end row -->
                 </form>
             </div>
+
+
             <!-- end col -->
             <div class="col-sm-2 vertical-align header-items hidden-xs">
                 <div class="header-item mr-5">
@@ -273,6 +232,192 @@
         </div><!-- /.navbar-collapse -->
     </div>
 </nav>
+
+
+
+<nav id="menu-scroll" class="navbar navbar-main navbar-default navbar-fixed-top" role="navigation" style="opacity: 1;">
+    <div class="container">
+        <!-- Brand and toggle -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <!-- Collect the nav links,  -->
+        <div class="collapse navbar-collapse navbar-1" style="margin-top: 0px;">
+            <ul class="nav navbar-nav">
+                <li class="dropdown megaDropMenu">
+                    <a href="/store" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false" id="store-button">Продукти <i class="fa fa-angle-down ml-5"></i></a>
+                    <ul class="dropdown-menu row">
+                        @foreach($categoriesButtonsName as $categoryButton)
+                            <li class="col-sm-3 col-xs-12">
+                                <ul class="list-unstyled">
+                                    <li>{{ $categoryButton->name }}</li>
+                                    @foreach($subCategoriesButtonsName as $subCategoryButton)
+                                        @if ($subCategoryButton->category_id == $categoryButton->id)
+                                            <li><a href="/store/search?category={{ $subCategoryButton->identifier }}">{{ $subCategoryButton->name }}</a></li>
+                                        @endif
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endforeach
+                    </ul>
+                </li>
+
+                <script>
+                    $(document).ready(function(){
+                        $('#store-button').click(function(){
+                            window.location.href ='/store'
+                        });
+                    });
+                </script>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">Други<i class="fa fa-angle-down ml-5"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-left">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Register</a></li>
+                        <li><a href="#">Register or Login</a></li>
+                        <li><a href="#">Login</a></li>
+                    </ul>
+                </li>
+
+                @foreach($pagesButtonsRender as $pageButton)
+                    <li><a href="/page?show={{ $pageButton->url_page }}" class="dropdown-toggle"  data-hover="dropdown" data-close-others="false">{{ $pageButton->name_page }}</a></li>
+                @endforeach
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+
+
+                <li><a href="#"></a></li>
+
+
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-user mr-5"></i><span class="hidden-xs">Профил<i class="fa fa-angle-down ml-5"></i></span> </a>
+                    <ul class="dropdown-menu w-150" role="menu">
+                        @if (Auth::guest())
+                            <li><a href="{{ route('login') }}">Вход</a></li>
+                            <li><a href="{{ route('register') }}">Регистрация</a></li>
+                        @else
+
+                            <li class="divider"></li>
+                            <li><a href="#">{{ Auth::user()->name }}</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                    Изход
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                        @endif
+                    </ul>
+                </li>
+
+
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-cart-plus mr-5"></i> <span class="hidden-xs">
+                                Количка <strong><sup class="text-primary">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</sup></strong>
+                                <i class="fa fa-angle-down ml-5"></i>
+                            </span> </a>
+
+                    <?php
+                    if(Session::has('cart'))
+                    {
+                        $oldCart = Session::get('cart');
+                        $cart = new App\Cart($oldCart);
+                        $productsCart = $cart->items;
+                    }
+                    ?>
+
+                    <ul class="dropdown-menu cart w-250" role="menu">
+                        <li>
+                            <div class="cart-items">
+                                <ol class="items">
+                                    @if(isset($productsCart))
+                                        @foreach($productsCart as $product)
+                                            <?php $descriptions = json_decode($product['item']->description, true); ?>
+
+                                            <li>
+                                                @if(isset($descriptions['main_picture_url']))
+                                                    <a href="#" class="product-image"> <img src="{{ $descriptions['main_picture_url'] }}" class="img-responsive" alt=""> </a>
+                                                @elseif(isset($descriptions['upload_main_picture']))
+                                                    <a href="#" class="product-image"> <img style="width: 30px;" src="/storage/upload_pictures/{{ $product['item']->id }}/{{ $descriptions['upload_main_picture'] }}" class="img-responsive" alt=""> </a>
+                                                @else
+                                                    <a href="#" class="product-image"> <img src="{{ $descriptions['main_picture_url'] }}" class="img-responsive" alt=""> </a>
+                                                @endif
+
+                                                <div class="product-details">
+                                                    <div class="close-icon">
+                                                        <a href="{{ route('store.remove', [ 'id' => $product['item']['id']]) }}"><i class="fa fa-close"></i></a>
+                                                    </div>
+                                                    <p class="product-name"> <a href="#">{{ $descriptions['title_product'] }}</a> </p>
+                                                    <strong>{{ $product['qty']}}</strong> x <span class="price text-primary">{{ $descriptions['price'] }}{{ $descriptions['currency'] }}</span>
+                                                </div>
+                                                <!-- end product-details -->
+
+                                            </li>
+                                        @endforeach
+                                        <p class="text-center"><h5>Общо: <strong> {{ $cart->totalPrice }} {{ $descriptions['currency'] }}</strong></h5></p>
+
+                                    @else
+                                        <li style="text-align: center;">
+                                            <div class="product-details">
+                                                <strong>Кошницата е празна</strong>
+                                            </div>
+                                            <!-- end product-details -->
+                                        </li>
+                                    @endif
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cart-footer">
+                                <a href="{{ route('store.shoppingCart') }}" class="pull-left"><i class="fa fa-cart-plus mr-5"></i> Количка</a>
+                                <a href="{{ route('store.checkout') }}" class="pull-right"><i class="fa fa-money" aria-hidden="true"></i> Плащане</a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
+    </div>
+</nav>
+
+
+
+<script>
+
+    $(window).scroll(function()
+    {
+        if($(document).scrollTop() > 100)
+        {
+            $('#menu-scroll').css('visibility', 'visible');
+        }
+        else
+        {
+            $('#menu-scroll').css('visibility', 'hidden');
+        }
+    });
+
+</script>
+
+
+
 
 <script type="text/javascript">
     ! function($, n, e) {

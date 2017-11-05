@@ -8,7 +8,7 @@
 @import url(show_product.css);
 @import url(admin_forms.css);
 @import url(checkout.css);
-
+@import url(slider.css);
 #wrapper{
     padding: 3%;
 }

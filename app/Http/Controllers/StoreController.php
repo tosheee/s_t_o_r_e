@@ -89,7 +89,7 @@ class StoreController extends Controller
         $cart->add($product, $product->id);
         $request->session()->put('cart', $cart);
 
-        return redirect()->route('store.index');
+        return redirect()->back();
     }
 
     public function getIncreaseByOne(Request $request, $id)
@@ -100,7 +100,7 @@ class StoreController extends Controller
         $cart->add($product, $product->id);
         $request->session()->put('cart', $cart);
 
-        return redirect()->route('store.shoppingCart');
+        return redirect()->back();
     }
 
     public function getReduceByOne($id)
@@ -110,7 +110,7 @@ class StoreController extends Controller
         $cart->reduceByOne($id);
         Session::put('cart', $cart);
 
-        return redirect()->route('store.shoppingCart');
+        return redirect()->back();
     }
 
     public function getRemoveItem($id)
@@ -128,7 +128,7 @@ class StoreController extends Controller
             Session::forget('cart');
         }
 
-        return redirect()->route('store.shoppingCart');
+        return redirect()->back();
     }
 
     public function getCart()
