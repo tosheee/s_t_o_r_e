@@ -14,10 +14,10 @@
         <li>
             @foreach($categories as $category)
                 @if($product->category_id == $category->id)
-                    {{ $category->name }}
+                  >  {{ $category->name }}
                 @endif
             @endforeach
-            /
+            >
             @foreach($subCategories as $subCategory)
                 @if($product->sub_category_id == $subCategory->id)
                     {{ $subCategory->name }}
@@ -54,9 +54,9 @@
                                             <div class="container-fluid">
                                                 <div class="row" >
                                                     @if($key_picture == 'upload_picture')
-                                                        <img style="margin: 0 auto; width: 350px;height: 300px;" src="/storage/upload_pictures/{{ $product->id }}/{{ $type_pictures[$key_picture] }}" class="img-responsive">
+                                                        <img src="/storage/upload_pictures/{{ $product->id }}/{{ $type_pictures[$key_picture] }}" class="img-responsive">
                                                     @else
-                                                        <img style="margin: 0 auto; width: 350px; height: 300px;" src="{{ $type_pictures[$key_picture] }}" class="img-responsive">
+                                                        <img src="{{ $type_pictures[$key_picture] }}" class="img-responsive">
                                                     @endif
                                                 </div>
                                             </div>
@@ -66,9 +66,9 @@
                                             <div class="container-fluid">
                                                 <div class="row">
                                                     @if($key_picture == 'upload_picture')
-                                                        <img style="margin: 0 auto; width: 350px; height: 300px;" src="/storage/upload_pictures/{{ $product->id }}/{{ $type_pictures[$key_picture] }}" class="img-responsive">
+                                                        <img src="/storage/upload_pictures/{{ $product->id }}/{{ $type_pictures[$key_picture] }}" class="img-responsive">
                                                     @else
-                                                        <img style="margin: 0 auto; width: 350px; height: 300px;" src="{{ $type_pictures[$key_picture] }}" class="img-responsive">
+                                                        <img src="{{ $type_pictures[$key_picture] }}" class="img-responsive">
                                                     @endif
                                                 </div>
                                             </div>
@@ -129,41 +129,63 @@
             </div>
 
             <div class="col-xs-5" style="border:0px solid gray">
-                <h3>{{ $descriptions['title_product'] }}</h3>
-                <h5 style="color:#337ab7"><a href="#"></a><small style="color:#337ab7"></small></h5>
+
+
+                <h1>{{ $product['qty'] }}</h1>
+
+                <h2>{{ $descriptions['title_product'] }}</h2>
+                <small style="color:#337ab7"></small>
+
+                <p style="color:rgba(8, 9, 21, 0.96)"> {{ isset($descriptions['short_description']) ? $descriptions['short_description'] : '' }} </p>
 
                 <!-- Precios -->
-                <h6 class="title-price"><small>Цена:</small></h6>
-                <h3 style="margin-top:0px;">{{ $descriptions['price'] }} {{ $descriptions['currency'] }}
+                <h6 class="title-price"><small></small></h6>
+                <h3 style="margin-top:0px;">Цена: {{ $descriptions['price'] }} {{ $descriptions['currency'] }}
                 @if (isset($descriptions['old_price']))
-                    <span class="old-price">{{ $descriptions['old_price'] }} {{ $descriptions['currency'] }}</span>
+                    <span class="old-price">   {{ $descriptions['old_price'] }} {{ $descriptions['currency'] }}</span>
                 @endif
                 </h3>
                 <!-- Detalles especificos del producto -->
-                <div class="section">
-                    <h6 class="title-attr" style="margin-top:15px;" ><small></small></h6>
-                </div>
 
-                <div class="section" style="padding-bottom:20px;">
-                    <h6 class="title-attr"><small>Брой продукти:</small></h6>
-                    <div>
-                        <a href="{{ route('store.reduceByOne', ['id' => $product->id]) }}">
-                            <div style="height: 25px;" class="btn-plus"><i class="fa fa-minus" aria-hidden="true"></i></div>
-                        </a>
+                <div class="section" style="margin-left: 2px;">
+                    <div class="section" style="padding-bottom:10px;">
+                        <div class="paragraph borderBlock USPs">
+                            <div class="row" style="padding-left:10px;">
+                                <div class="grid-5">
+                                    <span  class="kor-open-as-dialog ish-tooltip" data-overlay-class="ish-dialogPage" alt="70 години опит" title="70 години опит">
+                                        <i class="fa fa-check"></i> <label>внимателно опаковано</label>
+                                    </span>
+                                </div>
+                                <div class="grid-6">
+                                    <span class="kor-open-as-dialog ish-tooltip" data-overlay-class="ish-dialogPage" alt="свежи продукти" title="свежи продукти">
+                                        <i class="fa fa-check"></i>
+                                        <label>свежи продукти</label>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="section" style="padding-bottom:10px;">
+                        <h6 class="title-attr"><small>Брой продукти:</small></h6>
 
-                        <input value="{{ $product['qty']}}" />
+                        <div>
+                            <a href="{{ route('store.reduceByOne', ['id' => $product->id]) }}" style="padding-top: 6px;">
+                                <i style="color: red;" class="fa fa-minus fa-1x" aria-hidden="true"></i>
+                            </a>
 
-                        <a href="{{ route('store.addToCart', ['id' => $product->id]) }}">
-                            <div style="height: 25px;" class="btn-plus"><i class="fa fa-plus" aria-hidden="true"></i></div>
-                        </a>
+                            <input  type="number" value="{{ isset($cart->items[$product->id]['qty']) ? $cart->items[$product->id]['qty'] : 0  }}" style="margin: 2px; height: 25px; font-size: 16px;" min="1" max="10"/>
 
+                            <a href="{{ route('store.addToCart', ['id' => $product->id]) }}" style="padding-top: 6px;">
+                                <i style="color: #2ab27b" class="fa fa-plus fa-1x" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="section" style="padding: 50px 30px 30px 40px;">
+                        <a class="btn btn-success" href="{{ route('store.addToCart', ['id' => $product->id]) }}">Добави в количката</a>
                     </div>
                 </div>
-                    <!-- Botones de compra -->
-                <div class="section" style="padding-bottom:20px;">
-                    <a class="btn btn-success" href="{{ route('store.addToCart', ['id' => $product->id]) }}">Добави в количката</a>
-                </div>
+
             </div>
 
             <div class="col-xs-9">
@@ -175,7 +197,7 @@
 
                 <div style="width:100%;border-top:1px solid silver">
                     <p style="padding:15px;">
-                        <small> {!! $descriptions['general_description'] !!} </small>
+                        <p style="font-size: 150%;"> {!! $descriptions['general_description'] !!} </p>
                     </p>
                     <small>
                         <ul>

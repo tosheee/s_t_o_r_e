@@ -78,7 +78,10 @@ class StoreController extends Controller
         $categories = Category::all();
         $subCategories = SubCategory::all();
 
-        return view('store.show')->with('categories', $categories)->with('subCategories', $subCategories)->with('product', $product)->with('title', 'Show Product');
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+
+        return view('store.show')->with('categories', $categories)->with('subCategories', $subCategories)->with('product', $product)->with('cart', $cart)->with('title', 'Show Product');
     }
 
     public function getAddToCart(Request $request, $id)

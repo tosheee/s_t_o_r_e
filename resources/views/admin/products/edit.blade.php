@@ -132,6 +132,13 @@
             </label>
             <br>
 
+            <label>
+                <span>Short description:</span>
+                <textarea name="description[short_description]" value="" id="admin_product_description" class="label-values"/>
+                {{ isset($descriptions['short_description']) ? $descriptions['short_description'] : '' }}
+                </textarea>
+            </label>
+
             <span>Product description:</span>
             <label>
                 @if(isset($descriptions['general_description']))
@@ -228,8 +235,6 @@
 
             </div>
 
-
-
             <div class="input_fields_wrap">
                 <button class="upload-img-gallery-button btn btn-info btn-xs">Add upload form </button>
                 <button class="field-img-gallery-button btn btn-warning btn-xs">Add field form</button>
@@ -296,26 +301,6 @@
                     });
                 });
                 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 $(document).ready(function() {
                     var max_fields = 5;

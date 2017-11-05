@@ -116,6 +116,11 @@
             </label>
             <br>
 
+            <label>
+                <span>Short description:</span>
+                <textarea name="description[short_description]" value="" id="admin_product_description" class="label-values"/></textarea>
+            </label>
+
             <span>Product description:</span>
             <label>
                 <textarea name="description[general_description]" id="editor-create" ></textarea>
