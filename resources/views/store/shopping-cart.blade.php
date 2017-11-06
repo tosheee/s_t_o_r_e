@@ -48,7 +48,7 @@
                                                 <i style="color: red;" class="fa fa-minus fa-1x" aria-hidden="true"></i>
                                             </a>
 
-                                            <input  type="text" value="{{ $product['qty'] }}" style="text-align: center; margin: 2px; width: 40px; height: 25px; font-size: 16px;" />
+                                            <input  type="text" value="{{ strval($product['qty']) }}" style="text-align: center; margin: 2px; width: 40px; height: 25px; font-size: 16px;" />
 
                                             <a href="{{ route('store.increaseByOne', ['id' => $product['item']['id']]) }}" style="padding-top: 6px;">
                                                 <i style="color: #2ab27b" class="fa fa-plus fa-1x" aria-hidden="true"></i>
