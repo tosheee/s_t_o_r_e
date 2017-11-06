@@ -3,10 +3,7 @@
 @section('content')
 
     @include('admin.admin_partials.admin_menu')
-
         <?php $descriptions = json_decode($product->description, true); ?>
-
-
         <a href="/admin/categories" class="btn btn-default">Go Back</a>
         <a class="btn btn-default" href="/admin/products/{{ $product->id }}/edit">Edit</a>
 
@@ -14,7 +11,6 @@
             {{ csrf_field() }}
             <input name="_method" type="hidden" value="DELETE">
             <input class="btn btn-danger" type="submit" value="Delete">
-
         </form>
 
         <hr>
@@ -34,20 +30,12 @@
             @endforeach
         <ul>
 
-
-
         <div class="col-xs-4 item-photo">
             <img style="max-width:100%;" src=" {{ $descriptions['main_picture_url'] }}" />
         </div>
 
         <div class="col-xs-5" style="border:0px solid gray">
-
-
-
             <h3>{{ $descriptions['title_product'] }}</h3>
-
-
-
             <h5 style="color:#337ab7">vendido por <a href="#">Samsung</a> · <small style="color:#337ab7">(5054 ventas)</small></h5>
 
             <!-- Precios -->
@@ -105,15 +93,17 @@
                 </p>
                 <small>
                     <ul>
-                        @foreach( $descriptions['properties'] as $key => $property)
-                            <li>
-                            @if ($key % 2 == 0)
-                                {{ $property['name'] }} :
-                            @else
-                                {{ $property['text'] }}
-                            @endif
-                            </li>
-                        @endforeach
+                        @if (isset($descriptions['properties']))
+                            @foreach( $descriptions['properties'] as $key => $property)
+                                <li>
+                                @if ($key % 2 == 0)
+                                    {{ $property['name'] }} :
+                                @else
+                                    {{ $property['text'] }}
+                                @endif
+                                </li>
+                            @endforeach
+                        @endif
                     </ul>
                 </small>
             </div>
