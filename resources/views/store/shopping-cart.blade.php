@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             @if(Session::has('cart'))
-                <div class="col-sm-12 col-md-10 col-md-offset-1">
+                <div class="col-sm-12 col-md-12 col-md-offset-1">
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -25,7 +25,7 @@
                                         <div class="media">
 
                                             @if (isset($descriptions['main_picture_url']))
-                                                <a class="thumbnail pull-left" href="/store/{{ $product['item']->id}}"> <img  style="margin: 0 auto; width: 150px;height: 100px;" src="{{ $descriptions['main_picture_url'] }}" alt="pic" /></a>
+                                                <a class="thumbnail pull-left" href="/store/{{ $product['item']->id}}"> <img  style="margin: 0 auto; width: 150px;height: 150px;" src="{{ $descriptions['main_picture_url'] }}" alt="pic" /></a>
                                             @elseif(isset($descriptions['upload_basic_image']))
                                                 <a class="thumbnail pull-left" href="/store/{{ $product['item']->id }}">  <img  style="margin: 0 auto; width: 150px;height: 100px;" src="/storage/upload_pictures/{{ $product->id }}/{{ $descriptions['upload_basic_image'] }}" alt="pic" /></a>
                                             @else
@@ -34,9 +34,9 @@
 
                                             @if(isset($descriptions['price']))
                                                 <div class="media-body" >
-                                                    <h4 class="media-heading"><a href="/store/{{ $product['item']->id }}">{{ $descriptions['title_product'] }}</a></h4>
+                                                    <h4 class="media-heading" style="padding-left: 10px;"><a href="/store/{{ $product['item']->id }}">{{ $descriptions['title_product'] }}</a></h4>
                                                     <h5 class="media-heading"><a href="#"></a></h5>
-                                                    <span>Статус: </span><span class="text-success"><strong>{{ $descriptions['product_status'] }}</strong></span>
+                                                    <span  style="padding-left: 10px;">Статус: </span><span class="text-success"><strong>{{ $descriptions['product_status'] }}</strong></span>
                                                 </div>
                                             @endif
                                         </div>
@@ -48,7 +48,7 @@
                                                 <i style="color: red;" class="fa fa-minus fa-1x" aria-hidden="true"></i>
                                             </a>
 
-                                            <input  type="number" value="{{ $product['qty']}}" style="margin: 2px; height: 25px; font-size: 16px;" min="1" max="10"/>
+                                            <input  type="text" value="{{ $product['qty'] }}" style="text-align: center; margin: 2px; width: 40px; height: 25px; font-size: 16px;" />
 
                                             <a href="{{ route('store.increaseByOne', ['id' => $product['item']['id']]) }}" style="padding-top: 6px;">
                                                 <i style="color: #2ab27b" class="fa fa-plus fa-1x" aria-hidden="true"></i>
