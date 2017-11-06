@@ -27,4 +27,10 @@ class AdminController extends Controller
 
         return view('admin.dashboard')->with('success', 'Order Removed')->with('title', 'Admin Dashboard');
     }
+
+    public function viewOffer($id)
+    {
+        $order = Order::find($id);
+        return view('admin.view_offer')->with('order', $order)->with('success', 'View Offer')->with('title', 'View Offer');
+    }
 }

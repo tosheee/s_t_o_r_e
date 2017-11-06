@@ -93,6 +93,8 @@ Route::get('/admin/products/search', [
 
 Route::get ('/admin/dashboard', 'AdminController@index');
 
+Route::get ('/admin/dashboard/{id}', 'AdminController@viewOffer');
+
 Route::delete ('/admin/dashboard/{id}', 'AdminController@destroy');
 
 

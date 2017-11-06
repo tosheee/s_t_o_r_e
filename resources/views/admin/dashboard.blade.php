@@ -62,11 +62,15 @@
                     Total Price: <strong>{{ $products->totalPrice }} лв.</strong>
                 </tr>
 
-                <form method="POST" action="/admin/dashboard/{{ $order->id }}" accept-charset="UTF-8" class="pull-right">
-                    {{ csrf_field() }}
-                    <input name="_method" type="hidden" value="DELETE">
-                    <input class="btn btn-danger" type="submit" value="Delete Order">
-                </form>
+                <div>
+                    <a class="btn btn-info" href="/admin/dashboard/{{ $order->id }}">View Offer</a>
+
+                    <form method="POST" action="/admin/dashboard/{{ $order->id }}" accept-charset="UTF-8" class="pull-right">
+                        {{ csrf_field() }}
+                        <input name="_method" type="hidden" value="DELETE">
+                        <input class="btn btn-danger" type="submit" value="Delete Order">
+                    </form>
+                </div>
             </table>
             <br/>
             <br/>
