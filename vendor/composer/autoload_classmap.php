@@ -6,9 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddCompletedOrderToOrder' => $baseDir . '/database/migrations/2017_11_07_115252_add_completed_order_to_order.php',
     'AdminTableSeeder' => $baseDir . '/database/seeds/AdminTableSeeder.php',
     'App\\Admin' => $baseDir . '/app/Admin.php',
     'App\\Admin\\Category' => $baseDir . '/app/Admin/Category.php',
+    'App\\Admin\\Page' => $baseDir . '/app/Admin/Page.php',
     'App\\Admin\\Product' => $baseDir . '/app/Admin/Product.php',
     'App\\Admin\\SubCategory' => $baseDir . '/app/Admin/SubCategory.php',
     'App\\Cart' => $baseDir . '/app/Cart.php',
@@ -18,6 +20,7 @@ return array(
     'App\\Http\\Controllers\\Admin\\AdminController' => $baseDir . '/app/Http/Controllers/Admin/AdminController.php',
     'App\\Http\\Controllers\\Admin\\CategoriesController' => $baseDir . '/app/Http/Controllers/Admin/CategoriesController.php',
     'App\\Http\\Controllers\\Admin\\LoginController' => $baseDir . '/app/Http/Controllers/Admin/LoginController.php',
+    'App\\Http\\Controllers\\Admin\\PagesController' => $baseDir . '/app/Http/Controllers/Admin/PagesController.php',
     'App\\Http\\Controllers\\Admin\\ProductsController' => $baseDir . '/app/Http/Controllers/Admin/ProductsController.php',
     'App\\Http\\Controllers\\Admin\\SubCategoriesController' => $baseDir . '/app/Http/Controllers/Admin/SubCategoriesController.php',
     'App\\Http\\Controllers\\Admin\\UserController' => $baseDir . '/app/Http/Controllers/Admin/UserController.php',

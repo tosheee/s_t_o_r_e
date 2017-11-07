@@ -33,4 +33,22 @@ class AdminController extends Controller
         $order = Order::find($id);
         return view('admin.view_offer')->with('order', $order)->with('success', 'View Offer')->with('title', 'View Offer');
     }
+
+    public function completedOrder($id)
+    {
+        $order = Order::find($id);
+
+        $orders = Order::orderBy('created_at', 'desc')->paginate(10);
+        if ($order->completed_order == 1)
+        {
+            $order->completed_order = 0;
+        }
+        else
+        {
+            $order->completed_order = 1;
+        }
+
+        $order->save();
+        return redirect()->back()->with('orders', $orders)->with('order', $order)->with('success', 'View Offer')->with('title', 'View Offer');
+    }
 }

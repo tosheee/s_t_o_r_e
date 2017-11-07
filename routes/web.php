@@ -95,6 +95,8 @@ Route::get ('/admin/dashboard', 'AdminController@index');
 
 Route::get ('/admin/dashboard/{id}', 'AdminController@viewOffer');
 
+Route::get ('/admin/completed_order/{id}', 'AdminController@completedOrder');
+
 Route::delete ('/admin/dashboard/{id}', 'AdminController@destroy');
 
 
