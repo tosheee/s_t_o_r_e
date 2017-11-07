@@ -6,34 +6,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Floro Mania</title>
-
-
+        <title>Floromania</title>
 
         <link href="https://stark-shelf-54930.herokuapp.com/css/app.css" rel="stylesheet" type="text/css" >
         <script type="text/javascript" src="https://stark-shelf-54930.herokuapp.com/js/app.js"></script>
-
-
     </head>
 
     <body>
-        <div id="app">
-
-            <header>
+        <header>
                 @include('partials.horizontal_nav_bar')
-            </header>
+        </header>
 
-            <div id="wrapper">
-                <div class="container-fluid">
-                    <div class="row">
-                         @yield('content') </div>
-                    </div>
+        <div id="wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                     @yield('content') </div>
                 </div>
             </div>
+        </div>
 
-
-            <footer>
-                @include('partials.footer')
-            </footer>
+        <footer>
+            @include('partials.footer')
+        </footer>
     </body>
 </html>

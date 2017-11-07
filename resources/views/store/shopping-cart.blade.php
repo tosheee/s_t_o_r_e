@@ -4,9 +4,9 @@
     <div class="col-md-2"> @include('partials.v_nav_bar') </div>
 
     <div class="container">
-        <div class="row">
+        <div class="row" >
             @if(Session::has('cart'))
-                <div class="col-sm-12 col-md-12 col-md-offset-1">
+                <div class="col-sm-10">
                     <table class="table table-hover">
                         <thead>
                             <tr>

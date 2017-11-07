@@ -1,7 +1,7 @@
 <nav class="topBar">
     <div class="container">
         <ul class="list-inline pull-left hidden-sm hidden-xs">
-            <li><span class="text-primary">Имате ли въпроси? </span>Телефон:  0895 06 99 53 | Имейл: tosheee@abv.bg</li>
+            <li><span class="text-primary">Имате ли въпроси? </span><i class="fa fa-phone" aria-hidden="true"></i>  0988 883 562  |  <i class="fa fa-envelope-open" aria-hidden="true"></i>  floromaniq@abv.bg</li>
         </ul>
         <ul class="topBarNav pull-right">
             <li class="dropdown">
@@ -90,14 +90,7 @@
                                     @endforeach
                                         <p class="text-center"><h5>Общо: <strong> {{ $cart->totalPrice }} {{ $descriptions['currency'] }}</strong></h5></p>
 
-                                @else
-                                    <li style="text-align: center;">
-                                        <div class="product-details">
-                                            <strong>Кошницата е празна</strong>
-                                        </div>
-                                        <!-- end product-details -->
-                                    </li>
-                                @endif
+
                             </ol>
                         </div>
                     </li>
@@ -106,7 +99,13 @@
                             <a href="{{ route('store.shoppingCart') }}" class="pull-left"><i class="fa fa-cart-plus mr-5"></i> Количка</a>
                             <a href="{{ route('store.checkout') }}" class="pull-right"><i class="fa fa-money" aria-hidden="true"></i> Плащане</a>
                         </div>
+
                     </li>
+                    @else
+                        <li style="text-align: center;">
+                            Вашата количката е празна!
+                        </li>
+                    @endif
                 </ul>
             </li>
         </ul>
@@ -369,14 +368,6 @@
                                         @endforeach
                                         <p class="text-center"><h5>Общо: <strong> {{ $cart->totalPrice }} {{ $descriptions['currency'] }}</strong></h5></p>
 
-                                    @else
-                                        <li style="text-align: center;">
-                                            <div class="product-details">
-                                                <strong>Кошницата е празна</strong>
-                                            </div>
-                                            <!-- end product-details -->
-                                        </li>
-                                    @endif
                                 </ol>
                             </div>
                         </li>
@@ -388,12 +379,12 @@
                         </li>
                     </ul>
                 </li>
-
-
-
-
+                @else
+                    <li style="text-align: center;">
+                        Вашата количката е празна!
+                    </li>
+                @endif
             </ul>
-
         </div><!-- /.navbar-collapse -->
     </div>
 </nav>

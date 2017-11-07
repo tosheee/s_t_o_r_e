@@ -2,24 +2,23 @@
 
 @section('content')
 
-    <div class="col-md-2"> @include('partials.v_nav_bar') </div>
+    <div class="col-md-2">
+        @include('partials.v_nav_bar')
+    </div>
 
     <div class="container">
         <div class="row">
-
-            <div class="col-sm-12 col-md-9">
-
-
+            <div class="col-sm-10">
                 <div class="contentCheckout">
                     <div class="container">
                         <div class="row">
-                            <div class="col-sm-12 col-md-6">
+                            <div class="col-sm-10 col-md-6">
                                 <div class="checkout-items">
                                     <div class="list-checkout">
                                         <ul class="steps-checkout">
                                             <li class="steps active-check"><a href="#"> <span class="fa fa-truck"></span> Поръчка</a></li>
-                                            <li class="steps"><a href="#"> <span class="fa fa-credit-card"></span> Payment</a></li>
-                                            <li class="steps"><a href="#"> <span class="fa fa-check"></span> Confirmation</a></li>
+                                            <li class="steps"><a href="#"> <span class="fa fa-credit-card"></span> Плащане</a></li>
+                                            <li class="steps"><a href="#"> <span class="fa fa-check"></span> Потвъждаване</a></li>
                                         </ul>
                                     </div>
 
@@ -135,8 +134,8 @@
                                 </div>
                             </div>
 
-                            <div class="col-sm-12 col-md-6">
-                                <div class="cartForCheckout">
+                            <div class="col-sm-10 col-md-6">
+                                <div class="cartForCheckout" style="width: 70%">
                                     <h2>Твоята количка</h2>
                                     <div class="contenCart">
 
@@ -165,7 +164,7 @@
                                                 </li>
 
                                                 <li class="countCheckout">
-                                                    <p class="objetc">Buy</p>
+                                                    <p class="objetc"></p>
                                                     <p class="price"></p>
                                                 </li>
 
