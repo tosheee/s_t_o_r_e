@@ -1,3 +1,4 @@
+
 body {
 
 }
@@ -207,10 +208,10 @@ body::-webkit-scrollbar-thumb {
 /*right-container*****************/
 @media (min-width: 768px) {
 
-    .left-container{width:18%;float: left;transition:0.5s;}
+    /*.left-container{width:18%;float: left;transition:0.5s;}*/
     .right-container{width:82%;float:right;transition:0.5s;}
     .less-width{width:0%;transition:0.5s;}
-    .full-width{width:75%;transition:0.5s;}
+    .full-width{width:100%;transition:0.5s;}
 }
 .mini-stat h5{
     float: left;
