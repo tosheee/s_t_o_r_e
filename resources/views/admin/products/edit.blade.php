@@ -103,9 +103,9 @@
 
             <label>
                 <span style="margin: 0;">Availability: </span>
-                <input type="radio" name="description[product_status]" value="наличен" checked> Available:
-                <input type="radio" name="description[product_status]" value="по поръчка"> Order:
-                <input type="radio" name="description[product_status]" value="не наличен"> Not available:
+                <input type="radio" name="description[product_status]" value="Наличен" checked> Available:
+                <input type="radio" name="description[product_status]" value="По поръчка"> Order:
+                <input type="radio" name="description[product_status]" value="Не е наличен"> Not available:
             </label>
 
             <label>
