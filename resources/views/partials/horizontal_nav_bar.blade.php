@@ -118,7 +118,7 @@
     <div class="container">
         <div class="row display-table">
             <div class="col-sm-3 vertical-align text-left hidden-xs">
-                <a href="javascript:void(0);">Logo <img width="" src="" alt=""></a>
+                <a href="javascript:void(0);"><img width="280" src="/storage/upload_pictures/logo.png" alt=""></a>
             </div>
             <!-- end col -->
 
@@ -238,18 +238,23 @@
     <div class="container">
         <!-- Brand and toggle -->
         <div class="navbar-header">
+
+                <span ><a href="javascript:void(0);"><img style="padding: 15px 30px 0 10px;" width="180" src="/storage/upload_pictures/logo.png" alt=""></a></span>
+
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+
         </div>
 
         <!-- Collect the nav links,  -->
         <div class="collapse navbar-collapse navbar-1" style="margin-top: 0px;">
             <ul class="nav navbar-nav">
                 <li class="dropdown megaDropMenu">
+
                     <a href="/store" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false" id="store-button">Продукти <i class="fa fa-angle-down ml-5"></i></a>
                     <ul class="dropdown-menu row">
                         @foreach($categoriesButtonsName as $categoryButton)
@@ -395,7 +400,7 @@
 
     $(window).scroll(function()
     {
-        if($(document).scrollTop() > 100)
+        if($(document).scrollTop() > 130)
         {
             $('#menu-scroll').css('visibility', 'visible');
         }

@@ -29,7 +29,7 @@
                                             @elseif(isset($descriptions['upload_basic_image']))
                                                 <a class="thumbnail pull-left" href="/store/{{ $product['item']->id }}">  <img  style="margin: 0 auto; width: 150px;height: 100px;" src="/storage/upload_pictures/{{ $product->id }}/{{ $descriptions['upload_basic_image'] }}" alt="pic" /></a>
                                             @else
-                                                <a class="thumbnail pull-left" href="/store/{{ $product['item']->id }}">  <img style="margin: 0 auto; width: 150px;height: 100px;" src="/storage/upload_basic_image/noimage.jpg" alt="pic" /></a>
+                                                <a class="thumbnail pull-left" href="/store/{{ $product['item']->id }}">  <img style="margin: 0 auto; width: 150px;height: 100px;" src="/storage/upload_pictures/noimage.jpg" alt="pic" /></a>
                                             @endif
 
                                             @if(isset($descriptions['price']))
