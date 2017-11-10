@@ -107,13 +107,5 @@
         <p>No Orders</p>
     @endif
 
-
-
-
-
-
-
-
-
     @include('admin.admin_partials.admin_menu_bottom')
 @endsection

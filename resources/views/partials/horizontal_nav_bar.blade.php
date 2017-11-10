@@ -30,8 +30,8 @@
                     @else
 
                     <li class="divider"></li>
-                    <li><a href="#">{{ Auth::user()->name }}</a>
-                    </li>
+                    <li><a href="#">{{ Auth::user()->name }}</a></li>
+                    <li><a href="/store/view_user_orders/{{ Auth::user()->id }}">Моите поръчки</a></li>
                     <li>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                             Изход

@@ -39,6 +39,11 @@ Route::get('/store', [
     'as'   => 'store.index'
 ]);
 
+Route::get('/store/view_user_orders/{id}', [
+    'uses' => 'StoreController@viewUserOrders',
+    'as'   => 'store.index'
+]);
+
 Route::get('/store/search', [
     'uses' => 'StoreController@search',
     'as'   => 'store.search'

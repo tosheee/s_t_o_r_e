@@ -49,7 +49,7 @@ class AdminController extends Controller
     {
         $admin = Admin::find($id);
 
-        return view('admin.admins.show')->with('admin', $admin);
+        return view('admin.admins.show')->with('admin', $admin)->with('title', 'View Admin');
     }
 
     public function edit($id)

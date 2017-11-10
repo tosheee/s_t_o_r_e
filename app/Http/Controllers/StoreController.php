@@ -214,4 +214,19 @@ class StoreController extends Controller
 
         return view('store.show-pages')->with('page', $page)->with('title', 'Show Page');
     }
+
+    public function viewUserOrders($id)
+    {
+        if (Auth::check())
+        {
+            $userOrders = Order::where('user_id', $id)->orderBy('created_at', 'desc')->paginate(10);;
+
+            return view('store.view-user-orders')->with('user_orders', $userOrders)->with('title', 'Show Orders');
+        }
+        else
+        {
+          echo "process denied";
+        }
+    }
+
 }

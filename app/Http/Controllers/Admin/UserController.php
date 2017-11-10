@@ -50,7 +50,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        return view('admin.users.show')->with('user', $user);
+        return view('admin.users.show')->with('user', $user)->with('title', 'View User');
     }
 
     public function edit($id)
