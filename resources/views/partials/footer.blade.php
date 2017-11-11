@@ -6,8 +6,8 @@
             <div class="col-md-3 col-sm-6 footer-col">
                 <div class="logofooter"> Logo</div>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
-                <p><i class="fa fa-map-pin"></i> #228, Tiruvannamalai, Tamilnadu, India</p>
-                <p><i class="fa fa-phone"></i> Phone (India) : +91 9999 999 999</p>
+                <p><i class="fa fa-map-pin"></i> София, България</p>
+                <p><i class="fa fa-phone"></i> Phone: 0988 883 562</p>
                 <p><i class="fa fa-envelope"></i> E-mail : info@prabuuideveloper.com</p>
 
             </div>
@@ -47,18 +47,9 @@
 
 <div class="copyright">
     <div class="container">
-        <div class="col-md-6">
-            <p>© 2016 - All Rights with prabuuideveloper</p>
+        <div class="col-md-12">
+            <p style="text-align: center;">© 2015 - 2017  Streamline Tech </p>
         </div>
-        <div class="col-md-6">
-            <ul class="bottom_ul">
-                <li><a href="#">prabuuideveloper.com</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Faq's</a></li>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">Site Map</a></li>
-            </ul>
-        </div>
+
     </div>
 </div>
