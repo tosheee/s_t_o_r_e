@@ -117,6 +117,8 @@ Route::resource('/admin/products', 'Admin\ProductsController');
 
 Route::resource('/admin/users', 'Admin\UserController');
 
+Route::resource('/admin/info_company', 'Admin\InfoCompanyController');
+
 Route::resource('/admin/admins', 'Admin\AdminController');
 
 Route::resource('/admin/pages', 'Admin\PagesController');

@@ -63,35 +63,27 @@
                 <ul id="side" class="side-nav">
 
                     <li class="panel">
-                        <a id="panel1" href="javascript:;" data-toggle="collapse" data-target="#Dashboard"> <i class="fa fa-dashboard"></i> Dashboard
+                        <a id="panel1" href="javascript:;" data-toggle="collapse" data-target="#Dashboard"> <i class="fa fa-truck"></i> Поръчки
                             <i class="fa fa-chevron-left pull-right" id="arow1"></i> </a>
                         <ul class="collapse nav" id="Dashboard">
-                            <li> <a href="/admin/dashboard"><i class="fa fa-angle-double-right"></i> Orders</a> </li>
+                            <li> <a href="/admin/dashboard"><i class="fa fa-angle-double-right"></i> Не изпълнени поръчки</a> </li>
+                            <li> <a href="/admin/dashboard"><i class="fa fa-angle-double-right"></i> Всички Поръчки</a> </li>
                         </ul>
                     </li>
 
                     <li class="panel">
-                        <a id="panel2" href="javascript:;" data-toggle="collapse" data-target="#edit"> <i class="fa fa-edit"></i> Components
+                        <a id="panel2" href="javascript:;" data-toggle="collapse" data-target="#edit"> <i class="fa fa-product-hunt"></i> Продукти
                             <i class="fa fa fa-chevron-left pull-right" id="arow2"></i>
                         </a>
                         <ul class="collapse nav" id="edit">
-                            <li> <a href="/admin/categories/"><i class="fa fa-angle-double-right"></i> Categories</a> </li>
-                            <li> <a href="/admin/categories/create"><i class="fa fa-angle-double-right"></i> New Category</a> </li>
-
-                            <li> <a href="/admin/sub_categories/"><i class="fa fa-angle-double-right"></i> Sub Categories</a> </li>
-                            <li> <a href="/admin/sub_categories/create"><i class="fa fa-angle-double-right"></i> New Sub Category</a> </li>
-
-                            <li> <a href="/admin/products"><i class="fa fa-angle-double-right"></i> Products</a> </li>
-                            <li> <a href="/admin/products/create"><i class="fa fa-angle-double-right"></i> New product</a> </li>
-
-                            <li> <a href="/admin/pages"><i class="fa fa-angle-double-right"></i>Pages</a> </li>
-                            <li> <a href="/admin/pages/create"><i class="fa fa-angle-double-right"></i> New page</a> </li>
+                            <li> <a href="/admin/products"><i class="fa fa-angle-double-right"></i> Всички продукти</a> </li>
+                            <li> <a href="/admin/products/create"><i class="fa fa-angle-double-right"></i> Нов продукт</a> </li>
                         </ul>
                     </li>
 
 
                     <li class="panel">
-                            <a id="panel3" href="javascript:;" data-toggle="collapse" data-target="#charts"> <i class="fa fa-bar-chart-o"></i> All Products
+                            <a id="panel3" href="javascript:;" data-toggle="collapse" data-target="#charts"> <i class="fa fa-product-hunt"></i> Продукти по категории
                                 <i class="fa fa-chevron-left pull-right" id="arow3"></i> </a>
                             <ul class="collapse nav" id="charts">
                                 @foreach($subCategoriesButtonsName as $subCategoriesButtonsName)
@@ -101,16 +93,16 @@
                     </li>
 
                     <li class="panel">
-                        <a id="panel4" href="javascript:;" data-toggle="collapse" data-target="#clipboard"> <i class="fa fa-clipboard"></i> Admin and User
+                        <a id="panel4" href="javascript:;" data-toggle="collapse" data-target="#clipboard"> <i class="fa fa-users"></i> Потребители
                             <i class="fa fa fa-chevron-left pull-right" id="arow4"></i> </a>
                         <ul class="collapse nav" id="clipboard">
-                            <li> <a href="/admin/users"><i class="fa fa-angle-double-right"></i> Users</a> </li>
-                            <li> <a href="/admin/admins"><i class="fa fa-angle-double-right"></i> Admins</a> </li>
+                            <li> <a href="/admin/users"><i class="fa fa-angle-double-right"></i> Регистрирани потребители</a> </li>
+                            <li> <a href="/admin/admins"><i class="fa fa-angle-double-right"></i> Администратори</a> </li>
                         </ul>
                     </li>
 
                     <li class="panel">
-                        <a id="panel6" href="javascript:;" data-toggle="collapse" data-target="#inbox"> <i class="fa fa-inbox"></i> inbox
+                        <a id="panel6" href="javascript:;" data-toggle="collapse" data-target="#inbox"> <i class="fa fa-inbox"></i> Имейли
                             <span class="label label-primary">new msz</span> <i class="fa fa fa-chevron-left pull-right" id="arow6"></i> </a>
                         <ul class="collapse nav" id="inbox">
                             <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
@@ -119,7 +111,7 @@
                     </li>
 
                     <li class="panel">
-                        <a id="panel3" href="javascript:;" data-toggle="collapse" data-target="#calendar"> <i class="fa fa-calendar"></i> calendar
+                        <a id="panel3" href="javascript:;" data-toggle="collapse" data-target="#calendar"> <i class="fa fa-pencil"></i> Статии
                             <span class="label label-danger">new event</span> <i class="fa fa-chevron-left pull-right" id="arow3"></i> </a>
                         <ul class="collapse nav" id="calendar">
                             <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
@@ -128,41 +120,40 @@
                     </li>
 
                     <li class="panel">
-                        <a id="panel7" href="javascript:;" data-toggle="collapse" data-target="#cogs"> <i class="fa fa-cogs"></i> cogs
-                            <span class="label label-warning">Warning</span> <i class="fa fa fa-chevron-left pull-right" id="arow7"></i> </a>
+                        <a id="panel7" href="javascript:;" data-toggle="collapse" data-target="#cogs"> <i class="fa fa-cogs"></i> Страници
+                            <i class="fa fa fa-chevron-left pull-right" id="arow7"></i> </a>
                         <ul class="collapse nav" id="cogs">
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
+                            <li> <a href="/admin/pages"><i class="fa fa-angle-double-right"></i> Всички страници</a> </li>
+                            <li> <a href="/admin/pages/create"><i class="fa fa-angle-double-right"></i> Нова страница</a> </li>
                         </ul>
                     </li>
 
                     <li class="panel">
-                        <a id="panel8" href="javascript:;" data-toggle="collapse" data-target="#paper"> <i class="fa fa-paper-plane"></i> paper
+                        <a id="panel8" href="javascript:;" data-toggle="collapse" data-target="#paper"> <i class="fa fa-cogs"></i> Категории
                             <i class="fa fa fa-chevron-left pull-right" id="arow8"></i> </a>
                         <ul class="collapse nav" id="paper">
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
+                            <li> <a href="/admin/categories/"><i class="fa fa-angle-double-right"></i> Всички Категории</a> </li>
+                            <li> <a href="/admin/categories/create"><i class="fa fa-angle-double-right"></i> Нова категория</a> </li>
                         </ul>
                     </li>
 
                     <li class="panel">
-                        <a id="panel9" href="javascript:;" data-toggle="collapse" data-target="#trash"> <i class="fa fa-trash"></i> Trash
+                        <a id="panel9" href="javascript:;" data-toggle="collapse" data-target="#trash"> <i class="fa fa-cogs"></i> Подкатегории
                             <i class="fa fa fa-chevron-left pull-right" id="arow9"></i>
                         </a>
                         <ul class="collapse nav" id="trash">
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
+                            <li> <a href="/admin/sub_categories/"><i class="fa fa-angle-double-right"></i> Всички Подкатегории</a> </li>
+                            <li> <a href="/admin/sub_categories/create"><i class="fa fa-angle-double-right"></i> Нова подкатегория</a> </li>
                         </ul>
                     </li>
 
                     <li class="panel">
                         <a id="panel10" href="javascript:;" data-toggle="collapse" data-target="#btc">
-                            <i class="fa fa-btc"></i> paper
+                            <i class="fa fa-globe"></i> Информация за сайта
                             <i class="fa fa fa-chevron-left pull-right" id="arow10"></i>
                         </a>
                         <ul class="collapse nav" id="btc">
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
+                            <li> <a href="/admin/info_company/"><i class="fa fa-angle-double-right"></i> Информация за сайта</a> </li>
                         </ul>
                     </li>
 
