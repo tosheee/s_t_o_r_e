@@ -18,6 +18,7 @@ class InfoCompanyController extends Controller
     public function index()
     {
         $infoCompany = InfoCompany::orderBy('created_at', 'desc')->first();
+
         return view('admin.info_company.index')->with('info_company', $infoCompany)->with('title', 'Информациа за сайта');
     }
 
@@ -57,7 +58,7 @@ class InfoCompanyController extends Controller
         $infoCompany->map_com         = $request->input('map_com');
         $infoCompany->save();
 
-        return redirect('/admin/info_company')->with('success', 'Product Updated')->with('title', 'fasfasdf');
+        return redirect('/admin/info_company')->with('success', 'Информациата за сайта е създадена')->with('title', 'Информация за сайта');
     }
 
     public function edit($id)
@@ -98,7 +99,7 @@ class InfoCompanyController extends Controller
         $infoCompany->map_com         = $request->input('map_com');
         $infoCompany->save();
 
-        return redirect('/admin/info_company')->with('success', 'Product Updated')->with('title', 'fasfasdf');
+        return redirect('/admin/info_company')->with('success', 'Информацията за сайта е променена')->with('title', 'Информация за сайта');
     }
 
 
@@ -108,6 +109,6 @@ class InfoCompanyController extends Controller
         $infoCompany->delete();
         Storage::delete('public/common_pictures/logo.png');
 
-        return redirect('/admin/info_company')->with('success', 'Info Company Removed');
+        return redirect('/admin/info_company')->with('success', 'Информациата за сайта е ');
     }
 }

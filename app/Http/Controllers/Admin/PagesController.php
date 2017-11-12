@@ -18,14 +18,14 @@ class PagesController extends Controller
     {
         $pages = Page::all();
 
-        return view('admin.pages.index', ['pages' => $pages ])->with('title', 'All Pages');
+        return view('admin.pages.index')->with('pages', $pages)->with('title', 'Всички страниц');
     }
 
     public function create()
     {
         $pages = Page::all();
 
-        return view('admin.pages.create', ['pages' => $pages ])->with('title', 'Create Page');
+        return view('admin.pages.create')->with('pages', $pages)->with('title', 'Създаване на страница');
     }
 
     public function store(Request $request)
@@ -43,21 +43,21 @@ class PagesController extends Controller
         $page->active_page = $request->input('active_page');
         $page->save();
 
-        return redirect('admin/pages');
+        return redirect('admin/pages')->with('success', 'Страницата е създадена');
     }
 
     public function show($id)
     {
         $page = Page::find($id);
 
-        return view('admin.pages.show', ['page' => $page ])->with('title', 'View Page');
+        return view('admin.pages.show')->with('page', $page)->with('title', 'Преглед на страница');
     }
 
     public function edit($id)
     {
         $page = Page::find($id);
 
-        return view('admin.pages.edit', ['page' => $page ])->with('title', 'Edit Page');
+        return view('admin.pages.edit')->with('page', $page)->with('title', 'Промяна на страница');
     }
 
     public function update(Request $request, $id)
@@ -75,7 +75,7 @@ class PagesController extends Controller
         $page->content     = $request->input('content');
         $page->save();
 
-        return redirect('admin/pages');
+        return redirect('admin/pages')->with('success', 'Страницата е обновена');
     }
 
     public function destroy($id)
@@ -83,6 +83,6 @@ class PagesController extends Controller
         $page = Page::find($id);
         $page->delete();
 
-        return redirect('/admin/pages')->with('title', 'Remove Page');
+        return redirect('/admin/pages')->with('success', 'Страницата е изтрита');
     }
 }

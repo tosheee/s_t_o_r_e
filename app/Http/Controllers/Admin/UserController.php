@@ -18,14 +18,14 @@ class UserController extends Controller
     {
         $users = User::all();
 
-        return view('admin.users.index')->with('users', $users)->with('title', 'All Users');
+        return view('admin.users.index')->with('users', $users)->with('title', 'Всички потребители');
     }
 
     public function create()
     {
         $users = User::all();
 
-        return view('admin.users.create')->with('users', $users)->with('title', 'Create User');
+        return view('admin.users.create')->with('users', $users)->with('title', 'Създаване на потребител');
 
     }
 
@@ -43,21 +43,21 @@ class UserController extends Controller
         $user->password = Hash::make($request->input('password'));
         $user->save();
 
-        return redirect('admin/users');
+        return redirect('admin/users')->with('success', 'Потребителя е създаден');
     }
 
     public function show($id)
     {
         $user = User::find($id);
 
-        return view('admin.users.show')->with('user', $user)->with('title', 'View User');
+        return view('admin.users.show')->with('user', $user)->with('title', 'Преглед на потребител');
     }
 
     public function edit($id)
     {
         $user = User::find($id);
 
-        return view('admin.users.edit')->with('user', $user)->with('title', 'Edit User');
+        return view('admin.users.edit')->with('user', $user)->with('title', 'Обновяване на потребител');
     }
 
     public function update(Request $request, $id)
@@ -74,7 +74,7 @@ class UserController extends Controller
         $user->password  = $request->input('password');
         $user->save();
 
-        return redirect('admin/users');
+        return redirect('admin/users')->with('success', 'Потребител е обновен');
     }
 
     public function destroy($id)
@@ -82,6 +82,6 @@ class UserController extends Controller
         $user =  User::find($id);
         $user->delete();
 
-        return redirect('admin/users')->with('success', 'User Removed');
+        return redirect('admin/users')->with('success', 'Потребител е изтрит');
     }
 }

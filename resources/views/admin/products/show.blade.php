@@ -4,13 +4,13 @@
 
     @include('admin.admin_partials.admin_menu')
         <?php $descriptions = json_decode($product->description, true); ?>
-        <a href="/admin/categories" class="btn btn-default">Go Back</a>
-        <a class="btn btn-default" href="/admin/products/{{ $product->id }}/edit">Edit</a>
+        <a href="/admin/categories" class="btn btn-default">Обратно</a>
+        <a class="btn btn-default" href="/admin/products/{{ $product->id }}/edit">Обновяване</a>
 
         <form method="POST" action="/admin/product/{{ $product->id }}" accept-charset="UTF-8" class="pull-right">
             {{ csrf_field() }}
             <input name="_method" type="hidden" value="DELETE">
-            <input class="btn btn-danger" type="submit" value="Delete">
+            <input class="btn btn-danger" type="submit" value="Изтрий">
         </form>
 
         <hr>
@@ -36,15 +36,15 @@
 
         <div class="col-xs-5" style="border:0px solid gray">
             <h3>{{ $descriptions['title_product'] }}</h3>
-            <h5 style="color:#337ab7">vendido por <a href="#">Samsung</a> · <small style="color:#337ab7">(5054 ventas)</small></h5>
+            <h5 style="color:#337ab7"><a href="#"></a> · <small style="color:#337ab7"></small></h5>
 
             <!-- Precios -->
-            <h6 class="title-price"><small>Price Offer</small></h6>
+            <h6 class="title-price"><small></small></h6>
             <h3 style="margin-top:0px;">{{ $descriptions['price'] }} {{ $descriptions['currency'] }}</h3>
 
             <!-- Detalles especificos del producto -->
             <div class="section">
-                <h6 class="title-attr" style="margin-top:15px;" ><small>COLOUR</small></h6>
+                <h6 class="title-attr" style="margin-top:15px;" ><small></small></h6>
 
                 <div>
                     <div class="attr" style="width:25px;background:#5a5a5a;"></div>
@@ -54,16 +54,16 @@
             </div>
 
             <div class="section" style="padding-bottom:5px;">
-                <h6 class="title-attr"><small>CAPACIDAD</small></h6>
+                <h6 class="title-attr"><small></small></h6>
                 <div>
-                    <div class="attr2">16 GB</div>
-                    <div class="attr2">32 GB</div>
+                    <div class="attr2"></div>
+                    <div class="attr2"></div>
                 </div>
             </div>
 
 
             <div class="section" style="padding-bottom:20px;">
-                <h6 class="title-attr"><small>CANTIDAD</small></h6>
+                <h6 class="title-attr"><small></small></h6>
 
                 <div>
                     <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
@@ -75,16 +75,16 @@
 
             <!-- Botones de compra -->
             <div class="section" style="padding-bottom:20px;">
-                <button class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar al carro</button>
-                <h6><a href="#"><span class="glyphicon glyphicon-heart-empty" style="cursor:pointer;"></span> Agregar a lista de deseos</a></h6>
+                <button class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>
+                <h6><a href="#"><span class="glyphicon glyphicon-heart-empty" style="cursor:pointer;"></span></a></h6>
             </div>
         </div>
 
         <div class="col-xs-9">
             <ul class="menu-items">
-                <li class="active">Product information</li>
+                <li class="active"></li>
                 <li></li>
-                <li>Vendor</li>
+                <li></li>
             </ul>
 
             <div style="width:100%;border-top:1px solid silver">

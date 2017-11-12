@@ -21,7 +21,7 @@ class StoreController extends Controller
         $subCategories = SubCategory::all();
         $products = Product::where('active', true)->paginate(9);
 
-        return view('store.index', ['categories' => $categories, 'subCategories' => $subCategories, 'products' => $products]);
+        return view('store.index')->with('categories', $categories)->with('subCategories', $subCategories)->with('products', $products);
     }
 
     public function search(Request $request)
@@ -54,7 +54,7 @@ class StoreController extends Controller
             $products = $get_products->where('recommended', true)->paginate(3);
         }
 
-        return view('store.index', ['categories' => $categories, 'subCategories' => $subCategories, 'products' => $products]);
+        return view('store.index')->with('categories', $categories)->with('subCategories', $subCategories)->with('products', $products);
     }
 
     public function get_filter_product($get_products, $name_pattern)
@@ -81,7 +81,7 @@ class StoreController extends Controller
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
 
-        return view('store.show')->with('categories', $categories)->with('subCategories', $subCategories)->with('product', $product)->with('cart', $cart)->with('title', 'Show Product');
+        return view('store.show')->with('categories', $categories)->with('subCategories', $subCategories)->with('product', $product)->with('cart', $cart);
     }
 
     public function getAddToCart(Request $request, $id)
@@ -140,10 +140,11 @@ class StoreController extends Controller
         {
             return view('store.shopping-cart');
         }
+
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
 
-        return view('store.shopping-cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+        return view('store.shopping-cart')->with('products', $cart->items)->with('totalPrice', $cart->totalPrice);
     }
 
     public function getCheckout()
@@ -155,7 +156,7 @@ class StoreController extends Controller
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
 
-        return view('store.checkout', ['cart' => $cart]);
+        return view('store.checkout')->with('cart', $cart);
     }
 
     public function postCheckout(Request $request)
@@ -191,7 +192,7 @@ class StoreController extends Controller
         $order->company         = $request->input('company');
         $order->bulstat         = $request->input('bulstat');
         $order->note            = $request->input('note');
-        $order->cart = base64_encode(serialize($cart)); //unserialize()
+        $order->cart = base64_encode(serialize($cart));
 
         if(isset(Auth::user()->name))
         {
@@ -204,7 +205,7 @@ class StoreController extends Controller
 
         Session::forget('cart');
 
-        return redirect()->route('store.index')->with('success', '');
+        return redirect()->route('store.index');
     }
 
     public function getShowPages(Request $request)
@@ -212,7 +213,7 @@ class StoreController extends Controller
         $active_page = Page::where('active_page', true)->get();
         $page = $active_page->where('url_page', $request->input('show'))->first();
 
-        return view('store.show-pages')->with('page', $page)->with('title', 'Show Page');
+        return view('store.show-pages')->with('page', $page);
     }
 
     public function viewUserOrders($id)
@@ -221,12 +222,11 @@ class StoreController extends Controller
         {
             $userOrders = Order::where('user_id', $id)->orderBy('created_at', 'desc')->paginate(10);;
 
-            return view('store.view-user-orders')->with('user_orders', $userOrders)->with('title', 'Show Orders');
+            return view('store.view-user-orders')->with('user_orders', $userOrders);
         }
         else
         {
           echo "process denied";
         }
     }
-
 }

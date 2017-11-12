@@ -3,19 +3,20 @@
 @section('content')
     @include('admin.admin_partials.admin_menu')
 
-    <a href="/admin/admins" class="btn btn-default">Go Back</a>
-<h1>{{ $admin->name }}</h1>
+        <a href="/admin/admins" class="btn btn-default">Обратно</a>
 
-<div class="well">
+        <h1>{{ $admin->name }}</h1>
 
-    <a href="/admin/admins/{{ $admin->id }}/edit" class="btn btn-default"> Edit </a>
-    <form method="POST" action="/admin/admin/{{ $admin->id }}" accept-charset="UTF-8" class="pull-right">
-        {{ csrf_field() }}
-        <input name="_method" type="hidden" value="DELETE">
-        <input class="btn btn-danger" type="submit" value="Delete">
+        <div class="well">
 
-    </form>
+            <a href="/admin/admins/{{ $admin->id }}/edit" class="btn btn-default"> Промяна </a>
 
-</div>
+            <form method="POST" action="/admin/admin/{{ $admin->id }}" accept-charset="UTF-8" class="pull-right">
+                {{ csrf_field() }}
+                <input name="_method" type="hidden" value="DELETE">
+                <input class="btn btn-danger" type="submit" value="Delete">
+            </form>
+
+        </div>
     @include('admin.admin_partials.admin_menu_bottom')
 @endsection

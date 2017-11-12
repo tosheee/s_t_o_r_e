@@ -17,21 +17,14 @@ class AdminController extends Controller
     {
         $orders = Order::orderBy('created_at', 'desc')->paginate(10);
 
-        return view('admin.dashboard', ['orders' => $orders])->with('title', 'Admin Dashboard');
-    }
-
-    public function destroy($id)
-    {
-        $order = Order::find($id);
-        $order->delete();
-
-        return view('admin.dashboard')->with('success', 'Order Removed')->with('title', 'Admin Dashboard');
+        return view('admin.dashboard')->with('orders', $orders)->with('title', 'Всички поръчки');
     }
 
     public function viewOffer($id)
     {
         $order = Order::find($id);
-        return view('admin.view_offer')->with('order', $order)->with('success', 'View Offer')->with('title', 'View Offer');
+
+        return view('admin.view_offer')->with('order', $order)->with('title', 'Преглед на поръчка');
     }
 
     public function completedOrder($id)
@@ -49,6 +42,14 @@ class AdminController extends Controller
         }
 
         $order->save();
-        return redirect()->back()->with('orders', $orders)->with('order', $order)->with('success', 'View Offer')->with('title', 'View Offer');
+        return redirect()->back()->with('orders', $orders)->with('order', $order)->with('success', 'Поръчката е маркиране')->with('title', 'Преглед на поръчка');
+    }
+
+    public function destroy($id)
+    {
+        $order = Order::find($id);
+        $order->delete();
+
+        return view('admin.dashboard')->with('success', 'Поръчката е изтрита')->with('title', 'Всички Поръчки');
     }
 }

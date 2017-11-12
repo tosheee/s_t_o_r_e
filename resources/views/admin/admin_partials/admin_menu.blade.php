@@ -19,15 +19,15 @@
                     </div>
                 </form>
                 <ul class="nav navbar-nav">
-                    <li class=""><a href="#"><i class="fa fa-refresh"></i> Start Tour</a> </li>
+                    <li class=""><a href="#"><i class="fa fa-refresh"></i></a> </li>
                     <li class=""><a href="#"><i class="fa fa-volume-up"></i></a> </li>
                     <li class=""><a href="#"><i class="fa fa-envelope"></i> <span class="badge">5</span></a> </li>
                     <li class=""><a href="#"><i class="fa fa-bell"></i> <span class="badge">9</span></a> </li>
 
 
                     @if (Auth::guest())
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                        <li><a href="{{ route('register') }}">Register</a></li>
+                        <li><a href="{{ route('login') }}">Вход</a></li>
+                        <li><a href="{{ route('register') }}">Регистрация</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -183,15 +183,15 @@
                     <div class="col-md-8">
                         <ul class="list-inline pull-right mini-stat">
                             <li>
-                                <h5>LIKES <span class="stat-value color-blue"><i class="fa fa-plus-circle"></i> 81,450</span></h5>
+                                <h5>ХАРЕСВАНИЯ <span class="stat-value color-blue"><i class="fa fa-plus-circle"></i> 81,450</span></h5>
 
                             </li>
                             <li>
-                                <h5>SUBSCRIBERS <span class="stat-value color-green"><i class="fa fa-plus-circle"></i> 150,743</span></h5>
+                                <h5>АБОНАМЕНТИ <span class="stat-value color-green"><i class="fa fa-plus-circle"></i> 150,743</span></h5>
 
                             </li>
                             <li>
-                                <h5>CUSTOMERS <span class="stat-value color-orang"><i class="fa fa-plus-circle"></i> 43,748</span></h5>
+                                <h5>ПОТРЕБИТЕЛИ <span class="stat-value color-orang"><i class="fa fa-plus-circle"></i> {{ is_null(App\User::all()) ? '0' : count(App\User::all())  }} </span></h5>
 
                             </li>
                         </ul>

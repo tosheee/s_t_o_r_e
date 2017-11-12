@@ -26,7 +26,7 @@ class ProductsController extends Controller
         $subCategories = SubCategory::all();
         $products = Product::orderBy('created_at', 'desc')->paginate(10);
 
-        return view('admin.products.index')->with('categories', $categories)->with('subCategories', $subCategories)->with('products', $products)->with('title', 'Product Dashboard');
+        return view('admin.products.index')->with('categories', $categories)->with('subCategories', $subCategories)->with('products', $products)->with('title', 'Всички продукти');
     }
 
     public function search_category(Request $request)
@@ -36,7 +36,7 @@ class ProductsController extends Controller
         $search_category = $request->input('category');
         $products = Product::where('identifier', $search_category)->paginate(10);
 
-        return view('admin.products.index', ['categories' => $categories, 'subCategories' => $subCategories, 'products' => $products])->with('title', 'Product Dashboard');
+        return view('admin.products.index', ['categories' => $categories, 'subCategories' => $subCategories, 'products' => $products])->with('title', 'Всички продукти');
     }
 
 
@@ -44,7 +44,7 @@ class ProductsController extends Controller
     {
         $categories = Category::all();
         $subCategories = SubCategory::all();
-        return view('admin.products.create')->with('categories', $categories)->with('subCategories', $subCategories)->with('title', 'Create Product');
+        return view('admin.products.create')->with('categories', $categories)->with('subCategories', $subCategories)->with('title', 'Създаване на продукт');
     }
 
     public function store(Request $request)
@@ -122,7 +122,7 @@ class ProductsController extends Controller
         $product->description     = $description;
         $product->save();
 
-        return redirect('admin/products/create');
+        return redirect('admin/products/create')->with('success', 'Продукта е създаден');
     }
 
     public function update(Request $request, $id)
@@ -223,7 +223,7 @@ class ProductsController extends Controller
             }
         }
 
-        return redirect('/admin/products')->with('success', 'Product Updated');
+        return redirect('/admin/products')->with('title', 'Обновяване на продукта');
     }
 
     public function show($id)
@@ -231,7 +231,8 @@ class ProductsController extends Controller
         $product = Product::find($id);
         $categories = Category::all();
         $subCategories = SubCategory::all();
-        return view('admin.products.show')->with('categories', $categories)->with('subCategories', $subCategories)->with('product', $product)->with('title', 'Edit Product');
+
+        return view('admin.products.show')->with('categories', $categories)->with('subCategories', $subCategories)->with('product', $product)->with('title', 'Преглед на продукта');
     }
 
     public function edit($id)
@@ -239,7 +240,8 @@ class ProductsController extends Controller
         $product = Product::find($id);
         $categories = Category::all();
         $subCategories = SubCategory::all();
-        return view('admin.products.edit')->with('categories', $categories)->with('subCategories', $subCategories)->with('product', $product)->with('title', 'Edit Product');
+
+        return view('admin.products.edit')->with('categories', $categories)->with('subCategories', $subCategories)->with('product', $product)->with('title', 'Обновяване информацията за продукта');
     }
 
     public function destroy($id)
@@ -247,6 +249,7 @@ class ProductsController extends Controller
         $product = Product::find($id);
         $product->delete();
         Storage::deleteDirectory('public/upload_pictures/'.$id);
-        return view('admin.products')->with('success', 'Product Removed');
+
+        return view('admin.products')->with('success', 'Продукта е изтрит');
     }
 }

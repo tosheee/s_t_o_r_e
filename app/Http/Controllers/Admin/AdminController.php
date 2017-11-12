@@ -18,14 +18,15 @@ class AdminController extends Controller
     public function index()
     {
         $admins = Admin::all();
-        return view('admin.admins.index')->with('admins', $admins)->with('title', 'All Admins');
+
+        return view('admin.admins.index')->with('admins', $admins)->with('title', 'Всички администратори');
     }
 
     public function create()
     {
         $admins = Admin::all();
 
-        return view('admin.admins.create')->with('users', $admins)->with('title', 'Create Admin');
+        return view('admin.admins.create')->with('users', $admins)->with('title', 'Нов администратор');
     }
 
     public function store(Request $request)
@@ -42,21 +43,21 @@ class AdminController extends Controller
         $admin->password = Hash::make($request->input('password'));
         $admin->save();
 
-        return redirect('admin/admins');
+        return redirect('admin/admins')->with('message', 'Администратора е създатен');
     }
 
     public function show($id)
     {
         $admin = Admin::find($id);
 
-        return view('admin.admins.show')->with('admin', $admin)->with('title', 'View Admin');
+        return view('admin.admins.show')->with('admin', $admin)->with('title', 'Преглед на администратор');
     }
 
     public function edit($id)
     {
         $admin = Admin::find($id);
 
-        return view('admin.admins.edit')->with('admin', $admin)->with('title', 'Update Admin');
+        return view('admin.admins.edit')->with('admin', $admin)->with('title', 'Промяна на администратор');
     }
 
     public function update(Request $request, $id)
@@ -73,7 +74,7 @@ class AdminController extends Controller
         $admin->password = $request->input('password');
         $admin->save();
 
-        return redirect('admin/admins');
+        return redirect('admin/admins')->with('message', 'Администратор е променент');
     }
 
     public function destroy($id)
@@ -81,6 +82,6 @@ class AdminController extends Controller
         $admin = Admin::find($id);
         $admin->delete();
 
-        return redirect('admin/admins')->with('success', 'Admin Removed');
+        return redirect('admin/admins')->with('message', 'Админстратор изтрит');
     }
 }

@@ -1,7 +1,9 @@
 <nav class="topBar">
     <div class="container">
-        <ul class="list-inline pull-left hidden-sm hidden-xs">
-            <li><span class="text-primary">Имате ли въпроси? </span><i class="fa fa-phone" aria-hidden="true"></i>  0988 883 562  |  <i class="fa fa-envelope-open" aria-hidden="true"></i>  floromaniq@abv.bg</li>
+        <ul class="list-inline pull-left">
+            <li><span class="text-primary">Имате ли въпроси? </span>
+                <i class="fa fa-phone" aria-hidden="true"></i>  {{ isset($siteViewInformation->phone_com) ? $siteViewInformation->phone_com : '0888 888 888'}}  |
+                <i class="fa fa-envelope-open" aria-hidden="true"></i>   {{ isset($siteViewInformation->phone_com) ? $siteViewInformation->email_com : 'example@com.com' }}</li>
         </ul>
         <ul class="topBarNav pull-right">
             <li class="dropdown">

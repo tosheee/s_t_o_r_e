@@ -17,13 +17,14 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('admin.categories.index', ['categories' => $categories])->with('title', 'All Category');
+
+        return view('admin.categories.index')->with('categories', $categories)->with('title', 'Всички категории');
     }
 
 
     public function create()
     {
-        return view('admin.categories.create')->with('title', 'Create Category');
+        return view('admin.categories.create')->with('title', 'Нова категория');
     }
 
     public function store(Request $request)
@@ -36,21 +37,21 @@ class CategoriesController extends Controller
         $category->name = $request->input('name');
         $category->save();
 
-        return redirect('admin/categories')->with('title', 'Create Category');
+        return redirect('admin/categories')->with('title', 'Нова категория')->with('message', 'Категорията е създадена');
     }
 
     public function show($id)
     {
         $category = Category::find($id);
 
-        return view('admin.categories.show', ['category' => $category])->with('title', 'View Product' );
+        return view('admin.categories.show')->with('category', $category)->with('title', 'Преглед на категория' );
     }
 
     public function edit($id)
     {
         $category = Category::find($id);
 
-        return view('admin.categories.edit', ['category' => $category, 'title' => 'Edit Product']);
+        return view('admin.categories.edit')->with('category', $category)->with('title', 'Промяна на категория');
     }
 
     public function update(Request $request, $id)
@@ -63,7 +64,7 @@ class CategoriesController extends Controller
         $category->name = $request->input('name');
         $category->save();
 
-        return redirect('/admin/categories')->with('success', 'Category Updated');
+        return redirect('/admin/categories')->with('message', 'Категорията е променена');
     }
 
     public function destroy($id)
@@ -71,6 +72,6 @@ class CategoriesController extends Controller
         $category = Category::find($id);
         $category->delete();
 
-        return redirect('/admin/categories')->with('success', 'Category Removed');
+        return redirect('/admin/categories')->with('message', 'Категорията е изтрита');
     }
 }

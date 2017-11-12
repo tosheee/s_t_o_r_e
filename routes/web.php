@@ -2,6 +2,8 @@
 
 Route::get('/', 'StoreController@index');
 
+View::composer('*', function($view) { $view->with('siteViewInformation', App\Admin\InfoCompany::orderBy('created_at', 'desc')->first()); });
+
 View::composer('*', function($view) { $view->with('categoriesButtonsName', App\Admin\Category::all()); });
 
 View::composer('*', function($view) { $view->with('subCategoriesButtonsName', App\Admin\SubCategory::all()); });

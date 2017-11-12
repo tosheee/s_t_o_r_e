@@ -8,30 +8,30 @@
             {{ csrf_field() }}
 
             <label>
-                <span>Name Page:</span>
+                <span>Име на страницата:</span>
                 <input type="text" name="name_page" value="{{ $page->name_page }}" id="admin_product_description" class="label-values"/>
             </label>
 
             <label>
-                <span style="margin: 0;">Active Page: </span>
-                <input type="radio" name="active_page" value="1" {{ $page->active_page == 1 ? 'checked' : '' }}> Yes
-                <input type="radio" name="active_page" value="0" {{ $page->active_page == 1 ? '' : 'checked' }}> Not
+                <span style="margin: 0;">Активна страница: </span>
+                <input type="radio" name="active_page" value="1" {{ $page->active_page == 1 ? 'checked' : '' }}> Да
+                <input type="radio" name="active_page" value="0" {{ $page->active_page == 1 ? '' : 'checked' }}> Не
             </label>
             <br>
 
             <label>
-                <span>Url Page:</span>
+                <span>Идентификатор:</span>
                 <input type="text" name="url_page" value="{{ $page->url_page }}" id="admin_product_description" class="label-values"/>
             </label>
 
-            <span>Content:</span>
+            <span>Съдържание:</span>
             <label>
                 <textarea name="content" id="editor-page-create" style="resize: vertical;">{!! $page->content !!}</textarea>
             </label>
 
             <div class="actions">
                 <input name="_method" type="hidden" value="PUT">
-                <input type="submit" name="commit" value="Edit Page" class="btn btn-success">
+                <input type="submit" name="commit" value="Промени" class="btn btn-success">
             </div>
         </form>
     </div>
