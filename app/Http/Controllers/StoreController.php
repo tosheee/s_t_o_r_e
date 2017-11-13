@@ -73,13 +73,20 @@ class StoreController extends Controller
     }
 
     public function show($id)
-    {
-        $product = Product::find($id);
-        $categories = Category::all();
-        $subCategories = SubCategory::all();
+    {   if( is_int($id))
+        {
+            $product = Product::find($id);
+            $categories = Category::all();
+            $subCategories = SubCategory::all();
 
-        $oldCart = Session::has('cart') ? Session::get('cart') : null;
-        $cart = new Cart($oldCart);
+            $oldCart = Session::has('cart') ? Session::get('cart') : null;
+            $cart = new Cart($oldCart);
+        }
+        else
+        {
+            return view('errors.404');
+        }
+
         if(isset($product))
         {
             return view('store.show')->with('categories', $categories)->with('subCategories', $subCategories)->with('product', $product)->with('cart', $cart);
