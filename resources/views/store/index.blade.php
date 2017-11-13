@@ -5,9 +5,9 @@
 
     <div class="col-md-2"> @include('partials.v_nav_bar') </div>
     <div class="col-md-9">
-        <br/>
-        <br/>
+        @if(count($products) > 0 )
         <div class="row">
+
             @foreach($products as $product)
                 <?php $descriptions = json_decode($product->description, true); ?>
                     <div class="col-sm-4">
@@ -57,6 +57,14 @@
                 <div style="margin-left: 40%">
                     {{ $products->links() }}
                 </div>
+            @else
+                <div style="text-align: center;">
+                    Резултати от търсенето: <p style="color: #ff7a11;font-size: large;">Няма намерени резултати!</p>
+                    <div style="margin-top: -30%">
+                        @include('partials.flowers_error')
+                    </div>
+                </div>
+            @endif
         </div>
 
     </div>

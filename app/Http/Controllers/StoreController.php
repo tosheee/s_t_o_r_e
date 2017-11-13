@@ -80,8 +80,14 @@ class StoreController extends Controller
 
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
-
-        return view('store.show')->with('categories', $categories)->with('subCategories', $subCategories)->with('product', $product)->with('cart', $cart);
+        if(isset($product))
+        {
+            return view('store.show')->with('categories', $categories)->with('subCategories', $subCategories)->with('product', $product)->with('cart', $cart);
+        }
+        else
+        {
+            return view('errors.404');
+        }
     }
 
     public function getAddToCart(Request $request, $id)
