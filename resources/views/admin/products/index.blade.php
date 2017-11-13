@@ -4,7 +4,7 @@
     @include('admin.admin_partials.admin_menu')
         <a class="btn btn-primary" href="/admin/products/create">Нов продукт</a>
         <br/><br/>
-        @if(count($subCategories) > 0)
+        @if(count($products) > 0)
             <table class="table table-striped">
                 <tr>
                     <th>Категория</th>
@@ -72,7 +72,7 @@
             </table>
             {{ $products->links() }}
         @else
-            <p>Няма продукти</p>
+            <p>Няма намерени продукти</p>
         @endif
     @include('admin.admin_partials.admin_menu_bottom')
 @endsection

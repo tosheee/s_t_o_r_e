@@ -35,8 +35,9 @@ class ProductsController extends Controller
         $subCategories = SubCategory::all();
         $search_category = $request->input('category');
         $products = Product::where('identifier', $search_category)->paginate(10);
+        $subCat = SubCategory::where('identifier', $search_category)->first()->name;
 
-        return view('admin.products.index', ['categories' => $categories, 'subCategories' => $subCategories, 'products' => $products])->with('title', 'Всички продукти');
+        return view('admin.products.index', ['categories' => $categories, 'subCategories' => $subCategories, 'products' => $products])->with('title', 'Подкатегория >>> '.$subCat);
     }
 
 
