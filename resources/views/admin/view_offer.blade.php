@@ -12,7 +12,7 @@
 
             <div style="text-align: center">
                 <h4>ОНЛАЙН МАГАЗИН ЗА ЦВЕТЯ И РАСТЕНИЯ</h4>
-                <h1>Флоромания</h1>
+                <h1>ФлороMания</h1>
                 <i class="fa fa-phone" aria-hidden="true"></i>  {{ isset($siteViewInformation->phone_com) ? $siteViewInformation->phone_com : '0888 888 888'}}   |
                 <i class="fa fa-envelope-open" aria-hidden="true"></i> {{ isset($siteViewInformation->phone_com) ? $siteViewInformation->email_com : 'example@com.com' }} </li>
             </div>

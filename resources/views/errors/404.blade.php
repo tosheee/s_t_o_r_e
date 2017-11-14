@@ -12,7 +12,7 @@
                 <div style="text-align: center;">
                      <p style="color: #ff7a11;font-size: large;">Страницата не е открита!</p>
                     <div style="margin-top: -30%">
-                        @include('partials.flowers_error')
+
                     </div>
                 </div>
             </div>

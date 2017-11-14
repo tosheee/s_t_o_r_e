@@ -73,7 +73,7 @@ class StoreController extends Controller
     }
 
     public function show($id)
-    {   if( is_int($id))
+    {   if( ctype_digit ($id))
         {
             $product = Product::find($id);
             $categories = Category::all();
