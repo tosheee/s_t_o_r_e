@@ -129,9 +129,8 @@ class ProductsController extends Controller
         $product->description     = $description;
         $product->save();
 
-        session()->flash('notif', 'Product created');
-
-        return redirect('admin/products/create')->with('success', 'Продукта е създаден');
+        session()->flash('notif', 'Продукта е създаден');
+        return redirect('admin/products/create');
     }
 
     public function update(Request $request, $id)
@@ -239,6 +238,7 @@ class ProductsController extends Controller
             }
         }
 
+        session()->flash('notif', 'Продукта е обновен');
         return redirect('/admin/products')->with('title', 'Обновяване на продукта');
     }
 
@@ -265,7 +265,7 @@ class ProductsController extends Controller
         $product = Product::find($id);
         $product->delete();
         Storage::deleteDirectory('public/upload_pictures/'.$id);
-
-        return view('admin.products')->with('success', 'Продукта е изтрит');
+        session()->flash('notif', 'Продукта е изтрит');
+        return redirect('/admin/products');
     }
 }

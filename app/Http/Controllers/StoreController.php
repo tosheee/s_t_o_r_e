@@ -101,10 +101,12 @@ class StoreController extends Controller
     {
         $product = Product::find($request->input('product_id'));
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
+
+
+
         $cart = new Cart($oldCart);
         $cart->add($product, $product->id, $request->input('product_quantity'));
         $request->session()->put('cart', $cart);
-
         $cart_product = [$cart->totalPrice, $cart->totalQty, $cart->items];
 
         return $cart_product;

@@ -120,7 +120,7 @@
     <div class="container">
         <div class="row display-table">
             <div class="col-sm-3 vertical-align text-left hidden-xs">
-                <a href="javascript:void(0);"><img width="280" src="/storage/upload_pictures/logo.png" alt=""></a>
+                <a href="javascript:void(0);"><img width="280" src="/storage/common_pictures/logo.png" alt=""></a>
             </div>
             <!-- end col -->
 
@@ -241,7 +241,7 @@
         <!-- Brand and toggle -->
         <div class="navbar-header">
 
-                <span ><a href="javascript:void(0);"><img style="padding: 15px 30px 0 10px;" width="180" src="/storage/upload_pictures/logo.png" alt=""></a></span>
+                <span ><a href="javascript:void(0);"><img style="padding: 15px 30px 0 10px;" width="180" src="/storage/common_pictures/logo.png" alt=""></a></span>
 
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-1">
                 <span class="sr-only">Toggle navigation</span>
