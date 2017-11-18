@@ -56,10 +56,15 @@ Route::get('/store/{id}', [
     'as'   => 'store.show'
 ]);
 
-Route::get('/add-to-cart/{id}', [
+
+/*
+Route::post('/add-to-cart/product_id={id?}&product_quantity={quantity?}', [
    'uses' => 'StoreController@getAddToCart',
     'as'  => 'store.addToCart'
 ]);
+*/
+
+Route::post('/store/add-to-cart/', 'StoreController@getAddToCart');
 
 Route::get('/reduce/{id}', [
     'uses' => 'StoreController@getReduceByOne',

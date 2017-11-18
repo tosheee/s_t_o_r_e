@@ -37,10 +37,10 @@
                                 <div class="row" >
                                     @if (isset($descriptions['main_picture_url']))
                                         <img src="{{ $descriptions['main_picture_url'] }}" alt="pic" />
-                                    @elseif(isset($descriptions['upload_basic_image']))
-                                        <img src="/storage/upload_pictures/{{ $product->id }}/{{ $descriptions['upload_basic_image'] }}" alt="pic" />
+                                    @elseif(isset($descriptions['upload_main_picture']))
+                                        <img src="/storage/upload_pictures/{{ $product->id }}/{{ $descriptions['upload_main_picture'] }}" alt="pic" />
                                     @else
-                                        <img src="/storage/upload_basic_image/noimage.jpg" alt="pic" />
+                                        <img src="/storage/common_pictures/noimage.jpg" alt="pic" />
                                     @endif
                                 </div>
                             </div>
@@ -87,10 +87,10 @@
 
                                     @if (isset($descriptions['main_picture_url']))
                                         <a href="#"><img style="margin: 0 auto; width: 35px; height: 30px;" src="{{ $descriptions['main_picture_url'] }}" alt="pic" /></a>
-                                    @elseif(isset($descriptions['upload_basic_image']))
-                                        <a href="#"><img style="margin: 0 auto; width: 35px; height: 30px;" src="/storage/upload_pictures/{{ $product->id }}/{{ $descriptions['upload_basic_image'] }}" alt="pic" /></a>
+                                    @elseif(isset($descriptions['upload_main_picture']))
+                                        <a href="#"><img style="margin: 0 auto; width: 35px; height: 30px;" src="/storage/upload_pictures/{{ $product->id }}/{{ $descriptions['upload_main_picture'] }}" alt="pic" /></a>
                                     @else
-                                        <a href="#"><img style="margin: 0 auto; width: 35px; height: 30px;" src="/storage/upload_basic_image/noimage.jpg" alt="pic" /></a>
+                                        <a href="#"><img style="margin: 0 auto; width: 35px; height: 30px;" src="/storage/common_pictures/noimage.jpg" alt="pic" /></a>
                                     @endif
 
                                 </li>
@@ -169,18 +169,26 @@
                     <div class="section" style="padding-bottom:10px;">
                         <h6 class="title-attr"><small>Брой продукти:</small></h6>
 
+
                         <div>
                             <a href="{{ route('store.reduceByOne', ['id' => $product->id]) }}" style="padding-top: 6px;">
                                 <i style="color: red;" class="fa fa-minus fa-1x" aria-hidden="true"></i>
                             </a>
 
-                            <input  type="number" value="{{ isset($cart->items[$product->id]['qty']) ? $cart->items[$product->id]['qty'] : 0  }}" style="margin: 2px; height: 25px; font-size: 16px;" min="1" max="10"/>
+                            <input id="quantity-product" type="number" name="q"   value="1" style="margin: 2px; height: 25px; font-size: 16px;" min="1" max="10"/>
+                            <input id="id-product" type="hidden" name="q" value="{{ $product->id }}"/>
 
-                            <a href="{{ route('store.addToCart', ['id' => $product->id]) }}" style="padding-top: 6px;">
+                            <a href="" style="padding-top: 6px;">
                                 <i style="color: #2ab27b" class="fa fa-plus fa-1x" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
+
+                    <script>
+
+
+
+                    </script>
 
                     <div class="section" >
                         <p>Продуктов код: {{ isset($descriptions['article_id'])  ? $descriptions['article_id'] : '' }}</p>
@@ -194,11 +202,55 @@
                         @if ($descriptions['product_status'] == 'Не е наличен')
                             <a  style="background-color: #FF9900; border-color: #FF9900;" class="btn btn-success" href="#">{{ $descriptions['product_status'] }}</a>
                         @else
-                            <a class="btn btn-success" href="{{ route('store.addToCart', ['id' => $product->id]) }}">Добави в количката</a>
+                            <a id="add-product-button"  class="btn btn-success" >Добави в количката</a>
                         @endif
                     </div>
                 </div>
 
+                <script>
+                    $( "#add-product-button" ).click(function() {
+                        var idProduct = $('#id-product').val();
+                        var quantityProduct = $('#quantity-product').val();
+
+                        $.ajax({
+                            method: "POST",
+                            url: "/store/add-to-cart/?product_id=" + idProduct + "&product_quantity=" + quantityProduct,
+                            data: { "_token": "{{ csrf_token() }}" },
+                            success: function( new_cart ) {
+
+                                quantityProduct = $('#quantity-product').val(1);
+                                $('#nav-total-price').html(new_cart[0]);
+                                $('ol.items').children().remove();
+                                $('sup.text-primary').html(new_cart[1]);
+                                var items_obj = $.each( new_cart[2], function( _, value ){ value });
+
+                                $.each(items_obj, function(product_id, value){
+                                    $('ol.items').append('<li><a href="#" class="product-image"><img src=" '+ value['item_pic'] +' "class="img-responsive"></a>'
+                                    + '<div class="product-details">'
+                                    + '<div class="close-icon"><a href="/remove/" '+ product_id +' ><i class="fa fa-close"></i></a></div>'
+                                    + '<p class="product-name"> <a href="/store/" '+ product_id +'>'+ value['item_title'] +'</a></p>'
+                                    + '<strong id="product-qty">'+ value['qty'] +'</strong> x <span class="price text-primary">'+ value['item_price'] +' лв.</span>'
+                                    + '</div></li>');
+                                });//end each !
+
+                                $('ol.items').append('<h5>Общо: <strong id="nav-total-price">'+ new_cart[0] +'</strong> <strong>лв.</strong></h5>');
+
+                                if($('div.cart-footer').length < 1){
+                                    $('ul.dropdown-menu.cart.w-250').append(
+                                    '<li>'
+                                    + '<div class="cart-footer">'
+                                    + '<a href="/shopping-cart" class="pull-left"><i class="fa fa-cart-plus mr-5"></i> Количка</a>'
+                                    + '<a href="/checkout" class="pull-right"><i class="fa fa-money" aria-hidden="true"></i> Плащане</a>'
+                                    + '</div>'
+                                    + '</li>'
+                                    );
+                                }
+
+                            }//end success
+                        });
+                    });
+
+                </script>
             </div>
 
             <div class="col-xs-9">
@@ -232,6 +284,7 @@
 
 
             <script>
+                /*
                 //slider
                 $(document).ready(function(ev){
                     var items = $(".nav li").length;
@@ -254,6 +307,7 @@
                         }
                     });
                 });
+
                 $(document).ready(function(){
                     //-- Click on detail
                     $("ul.menu-items > li").on("click",function(){
@@ -283,7 +337,7 @@
                             $(".section > div > input").val("1");
                         }
                     })
-                })
+                })*/
             </script>
 
 @endsection

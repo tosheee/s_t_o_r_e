@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Image;
 
 class ProductsController extends Controller
 {
@@ -79,17 +80,18 @@ class ProductsController extends Controller
         }
 
         $productId = $oldId + 1;
-
         $descriptionRequest =  $request->input('description');
-
 
         if($request->hasFile('upload_main_picture'))
         {
-            $filenameWithExt = $request->file('upload_main_picture')->getClientOriginalName();
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $extension = $request->file('upload_main_picture')->getClientOriginalExtension();
-            $fileNameToStore = 'basic_'.$filename.'_'.time().'.'.$extension;
-            $path = $request->file('upload_main_picture')->storeAs('public/upload_pictures/'.$productId, $fileNameToStore);
+            $file_main_pic = $request->file('upload_main_picture');
+            $extension = $file_main_pic->getClientOriginalExtension();
+            $fileNameToStore = 'basic_'.time().'.'.$extension;
+            Storage::makeDirectory('public/upload_pictures/'.$productId);
+            $image = Image::make($file_main_pic->getRealPath());
+
+            $path = public_path('storage/upload_pictures/'.$productId.'/'. $fileNameToStore);
+            $image->resize(1000, 1000)->insert(public_path('storage/common_pictures/logo.png'), 'bottom-right', 10, 10)->save($path);
             $descriptionRequest['upload_main_picture'] = $fileNameToStore;
         }
         else
@@ -99,13 +101,17 @@ class ProductsController extends Controller
 
         if($request->hasFile('upload_gallery_pictures') && $request->hasFile('upload_main_picture'))
         {
-            for($i = 0; $i < count($request->file('upload_gallery_pictures')); $i++)
+            $files_gallery_pic =$request->file('upload_gallery_pictures');
+
+            for($i = 0; $i < count($files_gallery_pic); $i++)
             {
-                $filenameWithExt = $request->file('upload_gallery_pictures')[$i]->getClientOriginalName();
-                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-                $extension = $request->file('upload_gallery_pictures')[$i]->getClientOriginalExtension();
-                $fileNameToStore = 'gallery_'.$filename.'_'.time().'.'.$extension;
-                $path = $request->file('upload_gallery_pictures')[$i]->storeAs('public/upload_pictures/'.$productId, $fileNameToStore);
+                $extension = $files_gallery_pic[$i]->getClientOriginalExtension();
+                $fileNameToStore = 'gallery_'.$i.'_'.time().'.'.$extension;
+                Storage::makeDirectory('public/upload_pictures/'.$productId);
+                $image = Image::make($files_gallery_pic[$i]->getRealPath());
+
+                $path = public_path('storage/upload_pictures/'.$productId.'/'. $fileNameToStore);
+                $image->resize(1000, 1000)->insert(public_path('storage/common_pictures/logo.png'), 'bottom-right', 10, 10)->save($path);
                 $descriptionRequest['gallery'][$i]['upload_picture'] = $fileNameToStore;
             }
         }
@@ -122,6 +128,8 @@ class ProductsController extends Controller
         $product->best_sellers    = $request->input('best_sellers');
         $product->description     = $description;
         $product->save();
+
+        session()->flash('notif', 'Product created');
 
         return redirect('admin/products/create')->with('success', 'Продукта е създаден');
     }
@@ -142,15 +150,20 @@ class ProductsController extends Controller
 
         if($request->hasFile('upload_main_picture'))
         {
-            $filenameWithExt = $request->file('upload_main_picture')->getClientOriginalName();
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $extension = $request->file('upload_main_picture')->getClientOriginalExtension();
-            $fileNameToStore = 'basic_'.$filename.'_'.time().'.'.$extension;
+            $file_main_pic = $request->file('upload_main_picture');
+            $extension = $file_main_pic->getClientOriginalExtension();
+            $fileNameToStore = 'basic_'.time().'.'.$extension;
+
             if (isset($old_descriptions['upload_main_picture']))
             {
                 Storage::delete('public/upload_pictures/'.$id.'/'.$old_descriptions['upload_main_picture']);
             }
-            $path = $request->file('upload_main_picture')->storeAs('public/upload_pictures/'.$id, $fileNameToStore);
+
+            $image = Image::make($file_main_pic->getRealPath());
+            $path = public_path('storage/upload_pictures/'.$id.'/'. $fileNameToStore);
+
+            $image->resize(1000, 1000)->insert(public_path('storage/common_pictures/logo.png'), 'bottom-right', 10, 10)->save($path);
+
             $descriptionRequest['upload_main_picture'] = $fileNameToStore;
         }
         else
@@ -161,6 +174,7 @@ class ProductsController extends Controller
         // gallery
         if($request->hasFile('upload_gallery_pictures'))
         {
+            $files_gallery_pic =$request->file('upload_gallery_pictures');
 
             if(isset($old_descriptions['gallery']))
             {
@@ -171,15 +185,16 @@ class ProductsController extends Controller
                 $old_pic_num = 0;
             }
 
-            $new_pic_num = count($request->file('upload_gallery_pictures'));
+            $new_pic_num = count($files_gallery_pic);
 
             for($i = 0; $i < $new_pic_num; $i++)
             {
-                $filenameWithExt = $request->file('upload_gallery_pictures')[$i]->getClientOriginalName();
-                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-                $extension = $request->file('upload_gallery_pictures')[$i]->getClientOriginalExtension();
-                $fileNameToStore = 'gallery_'.$filename.'_'.time().'.'.$extension;
-                $path = $request->file('upload_gallery_pictures')[$i]->storeAs('public/upload_pictures/'.$id, $fileNameToStore);
+                $extension = $files_gallery_pic[$i]->getClientOriginalExtension();
+                $fileNameToStore = 'gallery_'.$i.'_'.time().'.'.$extension;
+                $image = Image::make($files_gallery_pic[$i]->getRealPath());
+                $path = public_path('storage/upload_pictures/'.$id.'/'. $fileNameToStore);
+
+                $image->resize(1000, 1000)->insert(public_path('storage/common_pictures/logo.png'), 'bottom-right', 10, 10)->save($path);
                 $descriptionRequest['gallery'][$i + $old_pic_num]['upload_picture'] = $fileNameToStore;
             }
         }

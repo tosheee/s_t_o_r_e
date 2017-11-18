@@ -97,15 +97,17 @@ class StoreController extends Controller
         }
     }
 
-    public function getAddToCart(Request $request, $id)
+    public function getAddToCart(Request $request)
     {
-        $product = Product::find($id);
+        $product = Product::find($request->input('product_id'));
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
-        $cart->add($product, $product->id);
+        $cart->add($product, $product->id, $request->input('product_quantity'));
         $request->session()->put('cart', $cart);
 
-        return redirect()->back();
+        $cart_product = [$cart->totalPrice, $cart->totalQty, $cart->items];
+
+        return $cart_product;
     }
 
     public function getIncreaseByOne(Request $request, $id)
@@ -113,7 +115,7 @@ class StoreController extends Controller
         $product = Product::find($id);
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
-        $cart->add($product, $product->id);
+        //$cart->add($product, $product->id);
         $request->session()->put('cart', $cart);
 
         return redirect()->back();

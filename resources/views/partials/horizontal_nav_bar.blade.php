@@ -47,7 +47,7 @@
                 </ul>
             </li>
 
-            <li class="dropdown">
+            <li id="new-view-cart" class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-cart-plus mr-5"></i> <span class="hidden-xs">
                                 Количка <strong><sup class="text-primary">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</sup></strong>
                                 <i class="fa fa-angle-down ml-5"></i>
@@ -84,13 +84,13 @@
                                                     <a href="{{ route('store.remove', [ 'id' => $product['item']['id']]) }}"><i class="fa fa-close"></i></a>
                                                 </div>
                                                 <p class="product-name"> <a href="#">{{ $descriptions['title_product'] }}</a> </p>
-                                                <strong>{{ $product['qty']}}</strong> x <span class="price text-primary">{{ $descriptions['price'] }}{{ $descriptions['currency'] }}</span>
+                                                <strong id="product-qty">{{ $product['qty']}}</strong> x <span class="price text-primary">{{ $descriptions['price'] }}{{ $descriptions['currency'] }}</span>
                                             </div>
                                             <!-- end product-details -->
 
                                             </li>
                                     @endforeach
-                                        <p class="text-center"><h5>Общо: <strong> {{ $cart->totalPrice }} {{ $descriptions['currency'] }}</strong></h5></p>
+                                        <p class="text-center"><h5>Общо: <strong id="nav-total-price"> {{ $cart->totalPrice }}</strong> <strong>{{ $descriptions['currency'] }}</strong></h5></p>
 
 
                             </ol>

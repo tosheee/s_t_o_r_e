@@ -6,7 +6,7 @@ class Cart
 {
     public $items = null;
     public $totalQty = 0;
-    public $totalPrice = 0;
+    public $totalPrice = 0.0;
 
     public function __construct($oldCart)
     {
@@ -18,11 +18,20 @@ class Cart
         }
     }
 
-    public function add($item, $id)
+    public function add($item, $id, $product_quantity)
     {
         $description = json_decode($item->description, true);
-        $item_price = floatval($description['price']);
-        $storedItem = ['qty' => 0, 'total_item_price' => $item_price, 'item' => $item];
+        $item_price = floatval(str_replace(',', '.', $description['price']));
+        $storedItem = [
+            'qty' => 0,
+            'total_item_price' => $item_price,
+            'item' => $item,
+            'item_price' => $item_price,
+            'item_title' => $description['title_product'],
+            'item_pic' => $description['main_picture_url']
+        ];
+
+
 
         if($this->items)
         {
@@ -32,11 +41,11 @@ class Cart
             }
         }
 
-        $storedItem['qty']++;
+        $storedItem['qty'] += $product_quantity;
         $storedItem['total_item_price'] = $item_price * $storedItem['qty'];
         $this->items[$id] = $storedItem;
-        $this->totalQty++;
-        $this->totalPrice += $item_price;
+        $this->totalQty += $product_quantity;
+        $this->totalPrice += $item_price * $product_quantity;
     }
 
     public function reduceByOne($id)

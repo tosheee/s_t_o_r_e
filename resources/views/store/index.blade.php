@@ -23,7 +23,7 @@
                                     @endforeach
 
                                     <li>
-                                        <a href="{{ route('store.addToCart', ['id' => $product->id]) }}">
+                                        <a href="">
                                             <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                                         </a>
                                     </li>
