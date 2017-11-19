@@ -202,9 +202,11 @@
                     <div class="col-md-12">
                         <div class="main-header">
                             <h2>{{ $title }}</h2>
-                            <em>the first priority information</em>
+
                             @if(session()->has('notif'))
                                 <em style="color: #00d64b">{{ session()->get('notif') }}</em>
+                            @else
+                                <em>Информация</em>
                             @endif
                         </div>
                     </div>

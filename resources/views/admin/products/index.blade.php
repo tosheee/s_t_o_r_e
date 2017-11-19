@@ -7,36 +7,39 @@
         @if(count($products) > 0)
             <table class="table table-striped">
                 <tr>
-                    <th>Категория</th>
-                    <th>Подкатегория</th>
-                    <th>Идентификатор</th>
-                    <th>Активен продукт в магазина</th>
-                    <th>Разпродажба</th>
-                    <th>Препоръчителни</th>
-                    <th>Най-продавани</th>
-                    <th>Информация за продукта</th>
+                    <th>Системни</th>
+                    <th>Статус на продукта</th>
+                    <th>Име на продукта</th>
+                    <th>Изображение</th>
                     <th></th>
                     <th></th>
                 </tr>
                 @foreach($products as $product)
                     <tr>
+                        <td style="width:30%">
                         @foreach($categories as $category)
                             @if($product->category_id == $category->id)
-                                <td>{{ $category->name }} </td>
+                                <p><b>Категория:</b> {{ $category->name }}</p>
                             @endif
                         @endforeach
 
                         @foreach($subCategories as $subCategory)
                             @if($product->sub_category_id == $subCategory->id)
-                                <td>{{ $subCategory->name }} </td>
+                                <p><b>Подкатегория:</b> {{ $subCategory->name }}</p>
                             @endif
                         @endforeach
 
-                        <td>{{ $product->identifier }}</td>
-                        <td>{{ $product->active == 1 ? 'Активен' : 'НЕ' }}</td>
-                        <td>{{ $product->sale == 1 ? 'ДА' : 'НЕ' }}</td>
-                        <td>{{ $product->recommended == 1 ? 'ДА' : 'НЕ' }}</td>
-                        <td>{{ $product->best_sellers == 1 ? 'ДА' : 'НЕ' }}</td>
+                            <p><b>Идентификатор:</b> {{ $product->identifier }} </p>
+                        </td>
+
+
+                        <td style="width:20%">
+                            <p><b>Активен: </b>{{ $product->active == 1 ? 'ДА' : 'НЕ' }}</p>
+                            <p><b>Разпродажба: </b>{{ $product->sale == 1 ? 'ДА' : 'НЕ' }}</p>
+                            <p><b>Препоръчан: </b>{{ $product->recommended == 1 ? 'ДА' : 'НЕ' }}</p>
+                            <p><b>Най-продаван: </b>{{ $product->best_sellers == 1 ? 'ДА' : 'НЕ' }}</p>
+                        </td>
+
                         <td>
                             <?php $descriptions = json_decode($product->description, true); ?>
                             @if(isset($descriptions['article_id']))
@@ -45,6 +48,8 @@
                             @if(isset($descriptions['title_product']))
                                 <a href="/admin/products/{{ $product->id }}">{{ $descriptions['title_product'] }}</a>
                             @endif
+                        </td>
+                        <td>
                             <div class="middle">
                                 @if (isset($descriptions['main_picture_url']))
                                     <img style="margin: 0 auto; width: 120px;height: 100px;" src="{{ $descriptions['main_picture_url'] }}" alt="pic" />

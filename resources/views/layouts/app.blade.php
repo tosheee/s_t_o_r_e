@@ -8,8 +8,8 @@
 
         <title>Floromania</title>
 
-        <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet" type="text/css" >
-        <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
+        <link href="https://stark-shelf-54930.herokuapp.com/css/app.css" rel="stylesheet" type="text/css" >
+        <script type="text/javascript" src="https://stark-shelf-54930.herokuapp.com/js/app.js"></script>
     </head>
 
     <body>

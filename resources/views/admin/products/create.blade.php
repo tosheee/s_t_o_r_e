@@ -43,15 +43,8 @@
 
                 <label>
                     <span style="margin: 0;">Активен продукт в магазина: </span>
-                    <input type="radio" name="active" value="1" checked> ДА:
-                    <input type="radio" name="active" value="0"> НЕ:
-                </label>
-                <br>
-
-                <label>
-                    <span style="margin: 0;">В разпродажба: </span>
-                    <input type="radio" name="sale" value="1" > ДА:
-                    <input type="radio" name="sale" value="0" checked> НЕ:
+                    <input type="radio" name="active" value="1" checked> ДА
+                    <input type="radio" name="active" value="0"> НЕ
                 </label>
                 <br>
 
@@ -66,16 +59,23 @@
                 </label>
 
                 <label>
+                    <span style="margin: 0;">В разпродажба: </span>
+                    <input type="radio" name="sale" value="0" checked> НЕ
+                    <input type="radio" name="sale" value="1" > ДА
+                </label>
+                <br>
+
+                <label>
                     <span style="margin: 0;">Препоръчан: </span>
-                    <input type="radio" name="recommended" value="0" checked> НЕ:
-                    <input type="radio" name="recommended" value="1"> ДА:
+                    <input type="radio" name="recommended" value="0" checked> НЕ
+                    <input type="radio" name="recommended" value="1"> ДА
                 </label>
                 <br>
 
                 <label>
                     <span style="margin: 0;">Най - продаван: </span>
-                    <input type="radio" name="best_sellers" value="0" checked> НЕ:
-                    <input type="radio" name="best_sellers" value="1"> ДА:
+                    <input type="radio" name="best_sellers" value="0" checked> НЕ
+                    <input type="radio" name="best_sellers" value="1"> ДА
                 </label>
                 <br>
 

@@ -1,3 +1,55 @@
+<script>
+    $( ".add-product-button" ).click(function() {
+
+        var idProduct = $(this).find('#id-product').val();
+        var quantityProduct = $(this).find('#quantity-product').val();
+
+        if ( typeof idProduct === "undefined"){
+              idProduct = $('#id-product').val();
+             quantityProduct = $('#quantity-product').val();
+         }
+        $.ajax({
+            method: "POST",
+            url: "/store/add-to-cart/?product_id=" + idProduct + "&product_quantity=" + quantityProduct,
+            data: { "_token": "{{ csrf_token() }}" },
+            success: function( new_cart ) {
+
+                quantityProduct = $('.quantity-product').val(1);
+                $('#nav-total-price').html(new_cart[0]);
+                $('ol.items').children().remove();
+                $('sup.text-primary').html(new_cart[1]);
+                var items_obj = $.each( new_cart[2], function( _, value ){ value });
+
+                $.each(items_obj, function(product_id, value){
+                    $('ol.items').append('<li><a href="#" class="product-image"><img src=" '+ value['item_pic'] +' "class="img-responsive"></a>'
+                    + '<div class="product-details">'
+                    + '<div class="close-icon"><a href="/remove/" '+ product_id +' ><i class="fa fa-close"></i></a></div>'
+                    + '<p class="product-name"> <a href="/store/" '+ product_id +'>'+ value['item_title'] +'</a></p>'
+                    + '<strong id="product-qty">'+ value['qty'] +'</strong> x <span class="price text-primary">'+ value['item_price'] +' лв.</span>'
+                    + '</div></li>');
+                });//end each !
+
+                $('ol.items').append('<h5>Общо: <strong id="nav-total-price">'+ new_cart[0] +'</strong> <strong>лв.</strong></h5>');
+
+                if($('div.cart-footer').length < 1){
+                    $('ul.dropdown-menu.cart.w-250').append(
+                            '<li>'
+                            + '<div class="cart-footer">'
+                            + '<a href="/shopping-cart" class="pull-left"><i class="fa fa-cart-plus mr-5"></i> Количка</a>'
+                            + '<a href="/checkout" class="pull-right"><i class="fa fa-money" aria-hidden="true"></i> Плащане</a>'
+                            + '</div>'
+                            + '</li>'
+                    );
+                }
+
+            }//end success
+        });
+    });
+
+</script>
+
+
+
 <link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
 <!--footer start from here-->
 <footer>
