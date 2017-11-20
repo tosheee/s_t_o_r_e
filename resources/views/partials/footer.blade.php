@@ -10,7 +10,7 @@
          }
         $.ajax({
             method: "POST",
-            url: "https://stark-shelf-54930.herokuapp.com/store/add-to-cart/?product_id=" + idProduct + "&product_quantity=" + quantityProduct,
+            url: "/store/add-to-cart/?product_id=" + idProduct + "&product_quantity=" + quantityProduct,
             data: { "_token": "{{ csrf_token() }}" },
             success: function( new_cart ) {
 
@@ -49,8 +49,6 @@
 </script>
 
 
-
-<link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
 <!--footer start from here-->
 <footer>
     <div class="container">
