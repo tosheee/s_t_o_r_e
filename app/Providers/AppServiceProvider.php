@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Routing\UrlGenerator;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\App;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +29,10 @@ class AppServiceProvider extends ServiceProvider
         }
         else
         {
+            URL::forceScheme('https');
+        }
+
+        if (App::environment('production')) {
             URL::forceScheme('https');
         }
 
