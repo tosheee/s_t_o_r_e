@@ -1,5 +1,12 @@
+<script type="text/javascript">
+    var url_project = '{{ URL::asset('/') }}';
+</script>
+
+
+
 <script>
     $( ".add-product-button" ).click(function() {
+
 
         var idProduct = $(this).find('#id-product').val();
         var quantityProduct = $(this).find('#quantity-product').val();
@@ -10,7 +17,7 @@
          }
         $.ajax({
             method: "POST",
-            url: "/store/add-to-cart/?product_id=" + idProduct + "&product_quantity=" + quantityProduct,
+            url: url_project + "/store/add-to-cart/?product_id=" + idProduct + "&product_quantity=" + quantityProduct,
             data: { "_token": "{{ csrf_token() }}" },
             success: function( new_cart ) {
 
