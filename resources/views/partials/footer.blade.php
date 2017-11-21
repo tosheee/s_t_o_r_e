@@ -17,7 +17,7 @@
          }
         $.ajax({
             method: "POST",
-            url: url_project + "/store/add-to-cart/?product_id=" + idProduct + "&product_quantity=" + quantityProduct,
+            url: url_project + "store/add-to-cart/?product_id=" + idProduct + "&product_quantity=" + quantityProduct,
             data: { "_token": "{{ csrf_token() }}" },
             success: function( new_cart ) {
 
