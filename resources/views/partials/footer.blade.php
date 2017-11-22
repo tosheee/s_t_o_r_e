@@ -1,13 +1,31 @@
-<script type="text/javascript">
-    var url_project = '{{ URL::asset('/') }}';
+<script>
+    $(document).ready(function() {
+        // increment value plus one
+        $(".plus-button").on('click', function() {
+            var plusValue = parseInt($('#quantity-product').val());
+            if (!isNaN(plusValue)) {
+                $('#quantity-product').val(plusValue + 1);
+            } else {
+                $('#quantity-productt').val(1);
+            }
+        });
+
+        // decrement value minus one
+        $(".minus-button").on('click', function() {
+            var minusValue = parseInt($('#quantity-product').val());
+            if (!isNaN(minusValue) && minusValue > 1) {
+                $('#quantity-product').val(minusValue - 1);
+            } else {
+                $('#quantity-product').val(1);
+            }
+        });
+    });
 </script>
 
 
 
 <script>
     $( ".add-product-button" ).click(function() {
-
-
         var idProduct = $(this).find('#id-product').val();
         var quantityProduct = $(this).find('#quantity-product').val();
 
@@ -17,11 +35,11 @@
          }
         $.ajax({
             method: "POST",
-            url: url_project + "store/add-to-cart/?product_id=" + idProduct + "&product_quantity=" + quantityProduct,
+            url: "/store/add-to-cart/?product_id=" + idProduct + "&product_quantity=" + quantityProduct,
             data: { "_token": "{{ csrf_token() }}" },
             success: function( new_cart ) {
 
-                quantityProduct = $('.quantity-product').val(1);
+                quantityProduct = $('#quantity-product').val(1);
                 $('#nav-total-price').html(new_cart[0]);
                 $('ol.items').children().remove();
                 $('sup.text-primary').html(new_cart[1]);

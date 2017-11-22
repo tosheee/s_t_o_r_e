@@ -124,3 +124,65 @@ div.section > div > input {
     .section{width:104%;}
     .menu-items{padding-left:0;}
 }
+
+.count-textbox {
+    color: #080915;
+    font-size:22px;
+    line-height: normal;
+    width: 70px;
+    height: 40px;
+    text-align: center;
+    background-color: rgba(255, 122, 17, 0);
+    border: none;
+}
+
+.quantity-product {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    border-left: 3px solid #fff;
+}
+
+.price {
+    position: relative;
+}
+
+.minus-button {
+    top: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    position: absolute;
+    width: 30px;
+    left: 60px;
+    height: 25px;
+    background-color: #d32F2f;
+    border: none;
+    color: #fff;
+}
+.minus-button:focus {
+    outline: none;
+}
+.plus-button {
+    bottom: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    position: absolute;
+    width: 30px;
+    left: 60px;
+    height: 25px;
+    background-color: rgba(27, 223, 255, 1);
+    border: none;
+    color: #fff;
+}
+.plus-button:after {
+    background: #dcdddd;
+    content: '';
+    height: 1px;
+    width: 20px;
+    left: 9px;
+    position: absolute;
+    bottom: 0;
+}
+.plus-button:focus {
+    outline: none;
+}

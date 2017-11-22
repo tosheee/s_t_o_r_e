@@ -167,28 +167,19 @@
                     </div>
 
                     <div class="section" style="padding-bottom:10px;">
-                        <h6 class="title-attr"><small>Брой продукти:</small></h6>
+                        <!-- product count -->
+                        <div class="price clearfix">
 
-
-                        <div>
-                            <a href="{{ route('store.reduceByOne', ['id' => $product->id]) }}" style="padding-top: 6px;">
-                                <i style="color: red;" class="fa fa-minus fa-1x" aria-hidden="true"></i>
-                            </a>
-
-                            <input id="quantity-product" type="number" name="q"   value="1" style="margin: 2px; height: 25px; font-size: 16px;" min="1" max="10"/>
-                            <input id="id-product" type="hidden" name="q" value="{{ $product->id }}"/>
-
-                            <a href="" style="padding-top: 6px;">
-                                <i style="color: #2ab27b" class="fa fa-plus fa-1x" aria-hidden="true"></i>
-                            </a>
+                            <div class="product-count">
+                                <input type="text" class="count-textbox" value="1" id="quantity-product" readonly>
+                                <button class="minus-button"><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+                                <button class="plus-button"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+                                <input id="id-product" type="hidden" name="q" value="{{ $product->id }}"/>
+                            </div>
                         </div>
+
+
                     </div>
-
-                    <script>
-
-
-
-                    </script>
 
                     <div class="section" >
                         <p>Продуктов код: {{ isset($descriptions['article_id'])  ? $descriptions['article_id'] : '' }}</p>

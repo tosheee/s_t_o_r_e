@@ -42,17 +42,17 @@
                                         </div>
                                     </td>
 
-                                    <td class="col-sm-1 col-md-1" style="text-align: center">
+                                    <td align="center">
                                         <div>
-                                            <a href="{{ route('store.reduceByOne', ['id' => $product['item']['id']]) }}" style="padding-top: 6px;">
-                                                <i style="color: red;" class="fa fa-minus fa-1x" aria-hidden="true"></i>
-                                            </a>
+                                            <div class="price clearfix">
 
-                                            <input  type="text" value="{{ strval($product['qty']) }}" style="text-align: center; margin: 2px; width: 40px; height: 25px; font-size: 16px;" />
-
-                                            <a href="{{ route('store.increaseByOne', ['id' => $product['item']['id']]) }}" style="padding-top: 6px;">
-                                                <i style="color: #2ab27b" class="fa fa-plus fa-1x" aria-hidden="true"></i>
-                                            </a>
+                                                <div class="product-count">
+                                                    <input type="text" class="count-textbox" value="1" id="quantity-product" readonly>
+                                                    <button class="minus-button"><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+                                                    <button class="plus-button"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+                                                    <input id="id-product" type="hidden" name="q" value=""/>
+                                                </div>
+                                            </div>
                                         </div>
                                     </td>
 
@@ -68,7 +68,7 @@
                                 </tr>
                             @endforeach
 
-                        <tr>
+                        <tr style="border: 0;">
                             <td>   </td>
                             <td>   </td>
                             <td>   </td>
@@ -77,7 +77,7 @@
                                 <td class="text-right"><h5><strong>{{ $totalPrice }} {{ $descriptions['currency'] }}</strong></h5></td>
                             @endif
                         </tr>
-                        <tr>
+                        <tr style="border: 0;">
                             <td>   </td>
                             <td>   </td>
                             <td>   </td>
